@@ -1,0 +1,51 @@
+<%= form_for :character, method: :post, url: characters_path do |f| %>
+  <p>
+    <%= f.label :investigator_name %><br>
+    <%= f.text_field :investigator_name %>
+  </p>
+
+
+  <p>
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </p>
+
+  <p>
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </p>
+
+  <p>
+    <%= f.label :occupation %><br>
+    <%= f.text_field :occupation %>
+  </p>
+
+  <p>
+    <%= f.label :degrees %><br>
+    <%= f.text_field :degrees%>
+  </p>
+
+  <p>
+    <%= f.label :birthplace %><br>
+    <%= f.text_field :birthplace %>
+  </p>
+
+  <p>
+    <%= f.label :gender %><br>
+    <%= f.radio_button( :gender, "f" ) %>
+    <%= f.label( :gender_m, "Female" ) %>
+    <%= f.radio_button( :gender, "m" ) %>
+    <%= f.label( :gender_m, "Male" ) %>
+    <%= f.radio_button( :gender, "o" ) %>
+    <%= f.label( :gender_o, "Other" ) %>
+  </p>
+
+  <p>
+    <%= f.label :age %><br>
+    <%= f.select(:age, options_for_select((1..100).collect { |i| [i, i]})) %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

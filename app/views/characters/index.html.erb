@@ -1,0 +1,36 @@
+<h1>All Characters</h1>
+<table>
+  <thead>
+    <th>Investigator</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Occupation</th>
+    <th>Degrees</th>
+    <th>Birthplace</th>
+    <th>Gender</th>
+    <th>Age</th>
+    <th>Actions</th>
+  </thead>
+
+  <% @characters.each do |character| %>
+  <tr>
+    <td><%= character.investigator_name %></td>
+    <td><%= character.first_name %></td>
+    <td><%= character.last_name %></td>
+    <td><%= character.occupation %></td>
+    <td><%= character.degrees %></td>
+    <td><%= character.birthplace %></td>
+    <td><%= character.gender %></td>
+    <td><%= character.age %></td>
+    <td>
+      <%= link_to 'View', character_path( character ), method: :get %>,
+      <%= link_to 'Edit', edit_character_path( character ) %>,
+      <%= link_to 'Delete', character_path( character ), method: :delete, confirm: 'Are you sure?' %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<p>
+<%= link_to button_tag( 'Create New Character' ), new_character_path %>
+</p>

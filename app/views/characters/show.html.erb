@@ -1,0 +1,38 @@
+<p>
+  <strong>Investigator:</strong>
+  <%= @character.investigator_name %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @character.last_name %>, <%= @character.first_name %>
+</p>
+
+<p>
+  <strong>Occupation:</strong>
+  <%= @character.occupation%>
+</p>
+
+<p>
+  <strong>Degrees:</strong>
+  <%= @character.degrees%>
+</p>
+
+<p>
+  <strong>Birthplace:</strong>
+  <%= @character.birthplace %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @character.gender %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @character.age%>
+</p>
+
+<p>
+  <%= link_to button_tag( 'All Characters' ), characters_path %>
+</p>
