@@ -4,7 +4,6 @@
     <%= f.text_field :investigator_name %>
   </p>
 
-
   <p>
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name %>
@@ -32,7 +31,7 @@
 
   <p>
     <%= f.label :gender %><br>
-    <%= f.radio_button( :gender, "f" ) %>
+    <%= f.radio_button( :gender, "f", checked: true ) %>
     <%= f.label( :gender_m, "Female" ) %>
     <%= f.radio_button( :gender, "m" ) %>
     <%= f.label( :gender_m, "Male" ) %>
