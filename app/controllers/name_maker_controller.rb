@@ -12,4 +12,8 @@ class NameMakerController < ApplicationController
   def surname
     render text: NameMaker.surname
   end
+
+  def city
+    render text: NameMaker.city
+  end
 end

@@ -23,3 +23,15 @@ CoC.Character.randomLastName = function(nameInputId) {
     }
   });
 };
+
+CoC.Character.randomCity= function(birthplaceInputId) {
+  $.ajax('/name_maker/city', {
+    success: function(data, textStatus, jqXHR) {
+      $('#'+birthplaceInputId).val(data);
+    },
+    error: function() {
+      //todo errorhandling
+    }
+  });
+};
+

@@ -12,6 +12,11 @@ module NameMaker
     find_name 'surname.txt'
   end
 
+  def self.city
+    lines = IO.read( self.file_path( 'cities.txt' ) ).split(';')
+    lines[(lines.count*rand).to_i]
+  end
+
   def self.find_name( filename )
     lines = IO.read( self.file_path( filename ) ).split(',')
     lines[(lines.count*rand).to_i]

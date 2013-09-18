@@ -25,7 +25,7 @@
 
 <p>
   <%= f.label :birthplace %><br>
-  <%= f.text_field :birthplace %>
+  <%= f.text_field :birthplace %> <%= f.button 'Random', id: 'cityRand', type: 'button' %>
 </p>
 
 <p>
@@ -58,6 +58,11 @@
       CoC.Character.randomLastName(
               'character_last_name'
       )
-    })
+    });
+    $('#cityRand').click(function() {
+      CoC.Character.randomCity(
+              'character_birthplace'
+      )
+    });
   })
 </script>
