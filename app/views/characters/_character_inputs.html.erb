@@ -1,0 +1,63 @@
+<p>
+  <%= f.label :investigator_name %><br>
+  <%= f.text_field :investigator_name %>
+</p>
+
+<p>
+  <%= f.label :first_name %><br>
+  <%= f.text_field :first_name %> <%= f.button 'Random', id: 'firstNameRand', type: 'button' %>
+</p>
+
+<p>
+  <%= f.label :last_name %><br>
+  <%= f.text_field :last_name %> <%= f.button 'Random', id: 'lastNameRand', type: 'button' %>
+</p>
+
+<p>
+  <%= f.label :occupation %><br>
+  <%= f.text_field :occupation %>
+</p>
+
+<p>
+  <%= f.label :degrees %><br>
+  <%= f.text_field :degrees%>
+</p>
+
+<p>
+  <%= f.label :birthplace %><br>
+  <%= f.text_field :birthplace %>
+</p>
+
+<p>
+  <%= f.label :gender %><br>
+  <%= f.radio_button( :gender, "f", checked: true ) %>
+  <%= f.label( :gender_m, "Female" ) %>
+  <%= f.radio_button( :gender, "m" ) %>
+  <%= f.label( :gender_m, "Male" ) %>
+  <%= f.radio_button( :gender, "o" ) %>
+  <%= f.label( :gender_o, "Other" ) %>
+</p>
+
+<p>
+  <%= f.label :age %><br>
+  <%= f.select(:age, options_for_select((1..100).collect { |i| [i, i]})) %>
+</p>
+
+<p>
+  <%= f.submit %>
+</p>
+
+<script type="text/javascript">
+  $(window).load(function() {
+    $('#firstNameRand').click(function() {
+      CoC.Character.randomFirstName(
+              'character_first_name',
+              'character[gender]');
+    });
+    $('#lastNameRand').click(function() {
+      CoC.Character.randomLastName(
+              'character_last_name'
+      )
+    })
+  })
+</script>

@@ -3,7 +3,10 @@ class CharacteristicSetsController < ApplicationController
   end
 
   def create
-    character = Character.new( params[:character] ).save
-    redirect_to new_character_characteristic_set_path character_id: character.id
+    #character = Character.new( params[:character] ).save
+    redirect_to characters_path
+  end
+
+  def show
   end
 end

@@ -1,1 +1,53 @@
-New Characteristics!
+<%= form_for :characteristic_sets, method: :post, url: character_characteristic_sets_path do |f| %>
+  <p>
+    <%= f.label :strength_modifier %><br>
+    <%= f.text_field :strength_modifier, class: 'modifier' %>
+  </p>
+
+  <p>
+    <%= f.label :dexterity_modifier %><br>
+    <%= f.text_field :dexterity_modifier, class: 'modifier' %>
+  </p>
+
+  <p>
+    <%= f.label :constitution_modifier %><br>
+    <%= f.text_field :appearance_modifier, class: 'modifier' %>
+  </p>
+
+  <p>
+    <%= f.label :power_modifier %><br>
+    <%= f.text_field :power_modifier, class: 'modifier' %>
+  </p>
+
+  <p>
+    <%= f.label :intelligence_modifier %><br>
+    <%= f.text_field :intelligence_modifier, class: 'modifier' %>
+  </p>
+
+  <p>
+    <%= f.label :size_modifier %><br>
+    <%= f.text_field :size_modifier, class: 'modifier' %>
+  </p>
+
+  <p>
+    <%= f.button 'Verify', id: 'verify', type: 'button' %>
+    <%= f.submit id: 'submit' %>
+  </p>
+<% end %>
+<script type='text/javascript'>
+  var sumModifiers = function() {
+    return _.reduce($('.modifier'), function(sum, textField) {
+      return sum + (parseInt($(textField).val()) || 0);
+    }, 0);
+  };
+
+  $('#verify').click(function() {
+    alert(0 == sumModifiers() ? 'YES!' : 'NO!');
+  });
+
+  $('#submit').click(function() {
+    return 0 == sumModifiers() ;
+  });
+
+
+</script>
