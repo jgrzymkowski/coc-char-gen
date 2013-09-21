@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20130916003128) do
     t.integer  "power"
     t.integer  "size"
     t.integer  "education"
+    t.integer  "character_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end

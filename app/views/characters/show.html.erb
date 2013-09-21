@@ -33,6 +33,71 @@
   <%= @character.age%>
 </p>
 
+<% if @character.characteristic_set %>
+  <table>
+    <tr>
+      <td><strong>STR</strong></td>
+      <td><%=@character.characteristic_set.strength%></td>
+    </tr>
+    <tr>
+      <td><strong>DEX</strong></td>
+      <td><%=@character.characteristic_set.dexterity%></td>
+    </tr>
+    <tr>
+      <td><strong>INT</strong></td>
+      <td><%=@character.characteristic_set.intelligence%></td>
+    </tr>
+    <tr>
+      <td><strong>CON</strong></td>
+      <td><%=@character.characteristic_set.constitution%></td>
+    </tr>
+    <tr>
+      <td><strong>APP</strong></td>
+      <td><%=@character.characteristic_set.appearance%></td>
+    </tr>
+    <tr>
+      <td><strong>POW</strong></td>
+      <td><%=@character.characteristic_set.power%></td>
+    </tr>
+    <tr>
+      <td><strong>SIZ</strong></td>
+      <td><%=@character.characteristic_set.size%></td>
+    </tr>
+    <tr>
+      <td><strong>EDU</strong></td>
+      <td><%=@character.characteristic_set.education%></td>
+    </tr>
+    <tr>
+      <td><strong>SAN</strong></td>
+      <td><%=@character.characteristic_set.sanity%></td>
+    </tr>
+    <tr>
+      <td><strong>IDEA</strong></td>
+      <td><%=@character.characteristic_set.idea%></td>
+    </tr>
+    <tr>
+      <td><strong>LUCK</strong></td>
+      <td><%=@character.characteristic_set.luck%></td>
+    </tr>
+    <tr>
+      <td><strong>KNOW</strong></td>
+      <td><%=@character.characteristic_set.know%></td>
+    </tr>
+    <tr>
+      <td><strong>Hit Points</strong></td>
+      <td><%=@character.characteristic_set.hit_points%></td>
+    </tr>
+    <tr>
+      <td><strong>Magic Points</strong></td>
+      <td><%=@character.characteristic_set.magic_points%></td>
+    </tr>
+    <tr>
+      <td><strong>Damage Bonus</strong></td>
+      <td><%=@character.characteristic_set.damage_bonus%></td>
+    </tr>
+  </table>
+<% end %>
+
 <p>
   <%= link_to button_tag( 'All Characters' ), characters_path %>
 </p>
