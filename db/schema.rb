@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130916003128) do
+ActiveRecord::Schema.define(:version => 20130921190755) do
 
   create_table "characteristic_sets", :force => true do |t|
     t.integer  "strength"
@@ -38,6 +38,68 @@ ActiveRecord::Schema.define(:version => 20130916003128) do
     t.integer  "age"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+  end
+
+  create_table "skill_sets", :force => true do |t|
+    t.string   "skill_occupation"
+    t.integer  "accounting"
+    t.integer  "anthropology"
+    t.integer  "archaeology"
+    t.integer  "astronomy"
+    t.integer  "bargain"
+    t.integer  "biology"
+    t.integer  "chemistry"
+    t.integer  "climb"
+    t.integer  "conceal"
+    t.integer  "credit_rating"
+    t.integer  "cthulhu_mythos"
+    t.integer  "disguise"
+    t.integer  "dodge"
+    t.integer  "drive_auto"
+    t.integer  "electrical_repair"
+    t.integer  "fast_talk"
+    t.integer  "first_aid"
+    t.integer  "geology"
+    t.integer  "hide"
+    t.integer  "history"
+    t.integer  "jump"
+    t.integer  "law"
+    t.integer  "library_use"
+    t.integer  "listen"
+    t.integer  "locksmith"
+    t.integer  "martial_arts"
+    t.integer  "mechanical_repair"
+    t.integer  "medicine"
+    t.integer  "natural_history"
+    t.integer  "navigate"
+    t.integer  "occult"
+    t.integer  "operate_heavy_machine"
+    t.integer  "own_language"
+    t.integer  "persuade"
+    t.integer  "pharmacy"
+    t.integer  "photography"
+    t.integer  "physics"
+    t.integer  "psychoanalysis"
+    t.integer  "psychology"
+    t.integer  "ride"
+    t.integer  "sneak"
+    t.integer  "spot_hidden"
+    t.integer  "swim"
+    t.integer  "thrown"
+    t.integer  "track"
+    t.integer  "handgun"
+    t.integer  "machine_gun"
+    t.integer  "rifle"
+    t.integer  "shotgun"
+    t.integer  "SMG"
+    t.text     "art"
+    t.text     "craft"
+    t.text     "other_language"
+    t.text     "pilot"
+    t.text     "other"
+    t.integer  "character_id"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
   end
 
 end

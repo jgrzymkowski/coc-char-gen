@@ -1,111 +1,122 @@
 antiquarian:
-  set: [ art, bargain, craft, history, library use, other language, spot hidden ]
+  set: [ art, bargain, craft, history, library_use, other_language, spot_hidden ]
   options:
     - any
 artist:
-  set: [ art, craft, fast talk, history, photography, psychology, spot hidden ]
+  set: [ art, craft, fast_talk, history, photography, psychology, spot_hidden ]
   options:
     - any
 athlete:
-  set: [ climb, dodge, jump, martial arts, ride, swim, throw ]
+  set: [ climb, dodge, jump, martial_arts, ride, swim, throw ]
   options:
     - any
 author: 
-  set: [ history, library use, occult, other language, own language, persuade, pscyhology ]
+  set: [ history, library_use, occult, other_language, own_language, persuade, psychology ]
   options:
     - any
 clergyman: 
-  set: [ accounting, history, library use, listen, other language, persuade, psychology ]
+  set: [ accounting, history, library_use, listen, other_language, persuade, psychology ]
   options:
     - any
 criminal:
-  set: [ bargain, disguise, fast talk, handgun, locksmith, sneak, spot hidden ]
+  set: [ bargain, disguise, fast_talk, handgun, locksmith, sneak, spot_hidden ]
   options:
     - any
 dilettante: 
-  set: [ art, craft, credit rating, other language, ride, shotgun ]
+  set: [ art, craft, credit_rating, other_language, ride, shotgun ]
   options:
     - any
     - any
 doctor_of_medicine:
-  set: [ biology, credit rating, first aid, latin, medicine, pharmacy, psychoanalysis, psychology ]
+  set: [ biology, credit_rating, first_aid, other_language, medicine, pharmacy, psychoanalysis, psychology ]
   options:
     - any
 drifter:
-  set: [ bargain, fast talk, hide, listen, natural history, psychology, sneak ]
+  set: [ bargain, fast_talk, hide, listen, natural_history, psychology, sneak ]
   options:
     - any
 engineer: 
-  set: [ chemistry, electrical repair, geology, library use, mechanical repair, operate heavy machine, physics ]
+  set: [ chemistry, electrical_repair, geology, library_use, mechanical_repair, operate_heavy_machine, physics ]
   options:
     - any
 entertainer: 
-  set: [ art, credit rating, disguise, dodge, fast talk, listen, psychology ]
+  set: [ art, credit_rating, disguise, dodge, fast_talk, listen, psychology ]
   options:
     - any
 farmer: 
-  set: [ craft, electrical repair, first aid, mechanical repair, natural history, operate heavy machne, track ]
+  set: [ craft, electrical_repair, first_aid, mechanical_repair, natural_history, operate_heavy_machine, track ]
   options:
     - any
 journalist: 
-  set: [ fast talke, history, library use, own language, persuade, photography, psychology ]
+  set: [ fast_talk, history, library_use, own_language, persuade, photography, psychology ]
   options:
     - any
 lawyer: 
-  set: [ bargain, credit rating, fast talk, law, library use, persuade, psychology ]
+  set: [ bargain, credit_rating, fast_talk, law, library_use, persuade, psychology ]
   options:
     - any
 military_officer: 
-  set: [ accounting, bargain, credit rating, law, navigate, persuade, psychology ]
+  set: [ accounting, bargain, credit_rating, law, navigate, persuade, psychology ]
   options:
     - any
 missionary: 
-  set: [ art, craft, fast talk, listen, persuade, psychology ]
+  set: [ art, craft, fast_talk, listen, persuade, psychology ]
   options:
     - any
 musician: 
-  set: [ art bargain, craft, fast talk, listen, persuade, psychology ]
+  set: [ art, bargain, craft, fast_talk, listen, persuade, psychology ]
   options:
     - any
 parapsychologist: 
-  set: [ anthropology, history, library use, occult, other language, photography, psychology ]
+  set: [ anthropology, history, library_use, occult, other_language, photography, psychology ]
   options:
     - any
 pilot: 
-  set: [ astronomy, electrical repair, mechanical repair, navigate, operate heavy machine, physics, pilot ]
+  set: [ astronomy, electrical_repair, mechanical_repair, navigate, operate_heavy_machine, physics, pilot ]
   options:
       - any
 police_detective: 
-  set: [ bargain, fast talk, law, listen, persuade, psychology, spot hidden ]
+  set: [ bargain, fast_talk, law, listen, persuade, psychology, spot_hidden ]
 policeman: 
-  set: [ dodge, fast talk, first aid, grapple, law, psychology ]
+  set: [ dodge, fast_talk, first_aid, graple, law, psychology ]
   options:
-    - [ bargain, drive, automobile, martial arts, ride, spot hidden ]
-    - [ bargain, drive, automobile, martial arts, ride, spot hidden ]
+    - [ bargain, drive_auto, martial_arts, ride, spot_hidden ]
+    - [ bargain, drive_auto, martial_arts, ride, spot_hidden ]
 private_investigator:
-  set: [ bargain, fast talk, law, library use, locksmith, photography, psychology ]
+  set: [ bargain, fast_talk, law, library_use, locksmith, photography, psychology ]
   options:
       - any
 professor:
-  set: [ bargain, credit rating, library use, other language, persuade, psychology ]
+  set: [ bargain, credit_rating, library_use, other_language, persuade, psychology ]
   options:
-    - [ anthropology, archaeology, astronomy, biology, chemistry, geology, history, law, medicine, natural history, physics ]
-    - [ anthropology, archaeology, astronomy, biology, chemistry, geology, history, law, medicine, natural history, physics ]
+    - [ anthropology, archaeology, astronomy, biology, chemistry, geology, history, law, medicine, natural_history, physics ]
+    - [ anthropology, archaeology, astronomy, biology, chemistry, geology, history, law, medicine, natural_history, physics ]
 soldier:
-  set: [ dodge, first aid, hide, listen, mechanical repair, rifle, sneak ]
+  set: [ dodge, first_aid, hide, listen, mechanical_repair, rifle, sneak ]
   options:
     - any
 spokesperson:
-  set: [ credit rating, disguise, dodge, fast talk, persuade, psychology ]
+  set: [ credit_rating, disguise, dodge, fast_talk, persuade, psychology ]
   options:
     - any
 tribal_member:
-  set: [ bargain, listen, natural history, occult, spot hidden, swim, throw ]
+  set: [ bargain, listen, natural_history, occult, spot_hidden, swim, throw ]
   options:
     - any
 zealot:
-  set: [ conceal, hide, library use, persuade, psychology ]
+  set: [ conceal, hide, library_use, persuade, psychology ]
   options:
-    - [ chemistry, electrical repair, law, pharmacy, rifle ]
-    - [ chemistry, electrical repair, law, pharmacy, rifle ]
+    - [ chemistry, electrical_repair, law, pharmacy, rifle ]
+    - [ chemistry, electrical_repair, law, pharmacy, rifle ]
     - any
+other:
+  options:
+    - any
+    - any
+    - any
+    - any
+    - any
+    - any
+    - any
+    - any
+#todo doctor latin

@@ -5,8 +5,6 @@ class CharactersController < ApplicationController
   def create
     character = Character.new( params[:character] )
     character.save!
-    puts '*'*100
-    puts character.inspect
     redirect_to new_character_characteristic_set_path character_id: character.id
   end
 

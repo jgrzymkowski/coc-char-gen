@@ -15,3 +15,13 @@
 //= require underscore-min.js
 //= require jquery_ujs
 //= require_tree .
+
+if( !('CoC' in window ) ) { CoC = {}; }
+
+CoC.humanize_sym =  function(string) {
+  var pieces = string.split('_');
+  var capitalized = _.map(pieces, function(s) {
+    return s.length > 0 ? s[0].toUpperCase() + s.slice(1) : s;
+  } );
+  return capitalized.join(' ');
+};

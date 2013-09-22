@@ -4,6 +4,16 @@
 </p>
 
 <p>
+  <%= f.label :gender %><br>
+  <%= f.radio_button( :gender, "f", checked: true ) %>
+  <%= f.label( :gender_m, "Female" ) %>
+  <%= f.radio_button( :gender, "m" ) %>
+  <%= f.label( :gender_m, "Male" ) %>
+  <%= f.radio_button( :gender, "o" ) %>
+  <%= f.label( :gender_o, "Other" ) %>
+</p>
+
+<p>
   <%= f.label :first_name %><br>
   <%= f.text_field :first_name %> <%= f.button 'Random', id: 'firstNameRand', type: 'button' %>
 </p>
@@ -26,16 +36,6 @@
 <p>
   <%= f.label :birthplace %><br>
   <%= f.text_field :birthplace %> <%= f.button 'Random', id: 'cityRand', type: 'button' %>
-</p>
-
-<p>
-  <%= f.label :gender %><br>
-  <%= f.radio_button( :gender, "f", checked: true ) %>
-  <%= f.label( :gender_m, "Female" ) %>
-  <%= f.radio_button( :gender, "m" ) %>
-  <%= f.label( :gender_m, "Male" ) %>
-  <%= f.radio_button( :gender, "o" ) %>
-  <%= f.label( :gender_o, "Other" ) %>
 </p>
 
 <p>

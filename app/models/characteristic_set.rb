@@ -49,4 +49,12 @@ class CharacteristicSet < ActiveRecord::Base
       else "+#{2 + ( strength + size - 41 ) / 16}D6"
     end
   end
+
+  def occupation_skill_points
+    education * 20
+  end
+
+  def personal_interest_points
+    intelligence * 10
+  end
 end

@@ -3,6 +3,7 @@ Coc::Application.routes.draw do
 
   resources :characters do
     resources :characteristic_sets
+    resources :skill_sets
   end
 
   get '/name_maker/first/:gender', to: 'name_maker#first'
