@@ -1,0 +1,10 @@
+one:
+  strength: 8
+  dexterity: 9
+  intelligence: 10
+  constitution: 11
+  appearance: 12
+  power: 13
+  size: 14
+  education: 15
+  character_id: 1

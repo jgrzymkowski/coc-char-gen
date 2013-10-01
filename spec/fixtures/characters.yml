@@ -1,0 +1,10 @@
+one:
+  id: 1
+  investigator_name: Jeremy
+  first_name: Bob
+  last_name: Smith
+  occupation: Engineer
+  degrees: BA Math
+  birthplace: Warren, MI
+  gender: m
+  age: 32

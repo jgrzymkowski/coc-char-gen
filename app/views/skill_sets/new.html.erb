@@ -31,6 +31,7 @@
     </span>
   </div>
   <br/>
+
   <div>
     <table id='skill_table'>
       <thead>
@@ -43,27 +44,33 @@
   </div>
 
 
+  <%= f.submit 'Submit' %>
 <% end %>
 <script type="text/javascript">
 
   $(window).load(function() {
+    var pointTracker = new CoC.SkillPointTracker( {
+      occupationalSkillTableId: 'occupational_skill_table',
+      skillTableId: 'skill_table',
+      occTotalId: 'occ_total',
+      piTotalId: 'pi_total'
+    });
+
     new CoC.OccupationalSkillList( {
       occupational_skill_table: 'occupational_skill_table',
       occupations: <%= occupations_json %>,
       skill_occupation: 'skill_set_skill_occupation',
       all_skills: <%= SkillSet::ALL_SKILLS.to_a.to_json.html_safe %>,
-      skill_categories: <%= SkillSet::SKILL_CATEGORIES.to_a.to_json.html_safe %>
-    } );
+      skill_categories: <%= SkillSet::SKILL_CATEGORIES.to_a.to_json.html_safe %>,
+      pointTracker: pointTracker
+    });
 
     new CoC.SkillTable( {
       tableId: 'skill_table',
-      allSkills: <%= SkillSet::ALL_SKILLS.to_a.to_json.html_safe %>,
+      allSkills: <%= all_skills( @character ).to_a.to_json.html_safe %>,
       skillCategories: <%= SkillSet::SKILL_CATEGORIES.to_a.to_json.html_safe %>,
-      occTotalId: 'occ_total',
-      piTotalId: 'pi_total',
-      occupationalSkillTable: 'occupational_skill_table'
-    } );
-
+      pointTracker: pointTracker
+    });
   });
 </script>
 

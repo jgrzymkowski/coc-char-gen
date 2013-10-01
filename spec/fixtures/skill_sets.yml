@@ -1,0 +1,60 @@
+one:
+  character_id: 1
+  accounting: 50
+  anthropology:  40
+  archaeology:
+  art: "{\"Dance\":\"15\",\"Sculpting\":\"5\"}"
+  astronomy:
+  bargain:
+  biology:
+  chemistry:
+  climb: 30
+  conceal:
+  craft:
+  credit_rating:
+  cthulhu_mythos:
+  disguise:
+  dodge:
+  drive_auto:
+  electrical_repair:
+  fast_talk:
+  first_aid:
+  geology:
+  hide:
+  history:
+  jump:
+  law:
+  library_use:
+  listen:
+  locksmith:
+  martial_arts:
+  mechanical_repair:
+  medicine:
+  natural_history:
+  navigate:
+  occult:
+  operate_heavy_machine:
+  other_language:
+  own_language:
+  persuade:
+  pharmacy:
+  photography:
+  physics:
+  pilot:
+  psychoanalysis:
+  psychology:
+  ride:
+  sneak:
+  spot_hidden:
+  swim:
+  throw:
+  track:
+  handgun:
+  machine_gun:
+  rifle:
+  shotgun:
+  SMG:
+  fist:
+  grapple:
+  head:
+  kick:

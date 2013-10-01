@@ -1,8 +1,6 @@
 module CharacteristicSetsHelper
 
   def generate_arranged_stats( characteristics )
-    puts '!'*100
-    puts characteristics.inspect
     create_stats_hash characteristics, generate_stats.sort!.reverse!
   end
 

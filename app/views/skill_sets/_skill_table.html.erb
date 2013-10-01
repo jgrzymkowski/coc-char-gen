@@ -1,0 +1,73 @@
+<span>Skills</span>
+<table>
+  <%
+     skills = ( SkillSet::BASIC_SKILLS.keys + SkillSet::SKILL_CATEGORIES.keys ).sort
+     l = skills.length
+     size_1 = l/3 + ( l % 3 > 0 ? 1 : 0 )
+     size_2 = l/3 + ( l % 3 > 1 ? 1 : 0 )
+     size_3 = l - size_1 - size_2
+     column_1 = skills.slice 0, size_1
+     column_2 = skills.slice( size_1 , size_2 )
+     column_3 = skills.slice( size_1 + size_2 , size_3 )
+
+     i = 0
+     while column_1.length > i
+  %>
+    <tr>
+      <td><%= table_title column_1[i]%></td>
+      <td><%= skill_set[column_1[i]] %></td>
+      <td><%= table_title column_2[i] if column_2[i]%></td>
+      <td><%= skill_set[column_2[i]] if column_2[i]%></td>
+      <td><%= table_title column_3[i] if column_3[i]%></td>
+      <td><%= skill_set[column_3[i]] if column_3[i] %></td>
+    </tr>
+  <%
+       i += 1
+     end
+  %>
+</table>
+<br/>
+<span>Weapons</span>
+<table>
+  <thead>
+    <th colspan=2>Melee</th>
+    <th colspan=2>Firearm</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= table_title :fist %></td>
+      <td><%= skill_set[melee[i]] if melee.length > i %></td>
+
+      <td><%= table_title firearms[i] if firearms.length > i%></td>
+      <td><%= skill_set[firearms[i]] if firearms.length > i %></td>
+    </tr>
+    <tr>
+      <td><%= table_title melee[i] if melee.length > i %></td>
+      <td><%= skill_set[melee[i]] if melee.length > i %></td>
+
+      <td><%= table_title firearms[i] if firearms.length > i%></td>
+      <td><%= skill_set[firearms[i]] if firearms.length > i %></td>
+    </tr>
+    <tr>
+      <td><%= table_title melee[i] if melee.length > i %></td>
+      <td><%= skill_set[melee[i]] if melee.length > i %></td>
+
+      <td><%= table_title firearms[i] if firearms.length > i%></td>
+      <td><%= skill_set[firearms[i]] if firearms.length > i %></td>
+    </tr>
+    <tr>
+      <td><%= table_title melee[i] if melee.length > i %></td>
+      <td><%= skill_set[melee[i]] if melee.length > i %></td>
+
+      <td><%= table_title firearms[i] if firearms.length > i%></td>
+      <td><%= skill_set[firearms[i]] if firearms.length > i %></td>
+    </tr>
+    <tr>
+      <td><%= table_title melee[i] if melee.length > i %></td>
+      <td><%= skill_set[melee[i]] if melee.length > i %></td>
+
+      <td><%= table_title firearms[i] if firearms.length > i%></td>
+      <td><%= skill_set[firearms[i]] if firearms.length > i %></td>
+    </tr>
+  </tbody>
+</table>
