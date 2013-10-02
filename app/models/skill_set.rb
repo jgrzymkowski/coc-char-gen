@@ -45,13 +45,4 @@ class SkillSet < ActiveRecord::Base
       end
     end
   end
-
-  #SKILL_CATEGORIES.each do |k, v|
-  #  define_method( "#{k}_val" ) do
-  #    JSON.parse(v).keys.reduce( {} ) do |mem, key|
-  #      mem.merge( key => h[key] + v )
-  #    end
-  #  end
-  #end
-
 end
