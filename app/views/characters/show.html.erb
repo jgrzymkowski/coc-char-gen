@@ -1,51 +1,52 @@
-<div>
-  <strong>Investigator:</strong>
-  <%= @character.investigator_name %>
-</div>
+<div class="character-summary">
 
-<div>
-  <strong>Name:</strong>
-  <%= @character.last_name %>, <%= @character.first_name %>
-</div>
-
-<div>
-  <strong>Occupation:</strong>
-  <%= @character.occupation%>
-</div>
-
-<div>
-  <strong>Degrees:</strong>
-  <%= @character.degrees%>
-</div>
-
-<div>
-  <strong>Birthplace:</strong>
-  <%= @character.birthplace %>
-</div>
-
-<div>
-  <strong>Gender:</strong>
-  <%= @character.gender %>
-</div>
-
-<div>
-  <strong>Age:</strong>
-  <%= @character.age%>
-</div>
-
-
-<br/>
-<% if @character.characteristic_set %>
   <div>
+    <strong>Investigator:</strong>
+    <%= @character.investigator_name %>
+  </div>
+
+  <div>
+    <strong>Name:</strong>
+    <%= @character.first_name %> <%= @character.last_name %>
+  </div>
+
+  <div>
+    <strong>Occupation:</strong>
+    <%= @character.occupation%>
+  </div>
+
+  <div>
+    <strong>Degrees:</strong>
+    <%= @character.degrees%>
+  </div>
+
+  <div>
+    <strong>Birthplace:</strong>
+    <%= @character.birthplace %>
+  </div>
+
+  <div>
+    <strong>Gender:</strong>
+    <%= @character.gender %>
+  </div>
+
+  <div>
+    <strong>Age:</strong>
+    <%= @character.age%>
+  </div>
+</div>
+
+
+<% if @character.characteristic_set %>
+  <div class="characteristics">
     <%= render 'characteristic_sets/characteristic_table', characteristic_set: @character.characteristic_set %>
   </div>
 <% end %>
 
-
-<br/>
+<div class="cleft"></div>
 
 <% if @character.skill_set %>
-  <div>
+  <div class="skills">
     <%= render 'skill_sets/skill_table', skill_set: @character.skill_set %>
   </div>
 <% end %>

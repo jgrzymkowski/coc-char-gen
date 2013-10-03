@@ -40,9 +40,20 @@ class SkillSet < ActiveRecord::Base
         JSON.parse(eval(k.to_s)).reduce({}) do |m, pair|
           m.merge!( pair[0] => pair[1].to_i + v )
         end
+      elsif (k.to_s == 'dodge')
+        eval(k.to_s).to_i + character.characteristic_set.dexterity*2
+      elsif (k.to_s == 'own_language')
+        eval(k.to_s).to_i + character.characteristic_set.education*5
       else
         eval(k.to_s).to_i + v
       end
+    end
+  end
+
+  SKILL_CATEGORIES.each do |k, v|
+    define_method( "#{k}_val?" ) do |i|
+      !!JSON.parse(eval(k.to_s)).to_a[i] &&
+        !JSON.parse(eval(k.to_s)).to_a[i][0].blank?
     end
   end
 end

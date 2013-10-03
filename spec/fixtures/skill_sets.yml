@@ -10,7 +10,7 @@ one:
   chemistry:
   climb: 30
   conceal:
-  craft:
+  craft: "{\"\":\"\"}"
   credit_rating:
   cthulhu_mythos:
   disguise:
@@ -34,13 +34,13 @@ one:
   navigate:
   occult:
   operate_heavy_machine:
-  other_language:
+  other_language: "{\"\":\"\"}"
   own_language:
   persuade:
   pharmacy:
   photography:
   physics:
-  pilot:
+  pilot: "{\"\":\"\"}"
   psychoanalysis:
   psychology:
   ride:

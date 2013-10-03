@@ -22,5 +22,12 @@ describe SkillSet do
     it '*_val returns a hash of sub categories to total skill value' do
       skill_sets(:one).art_val.should == { 'Dance' => 20, 'Sculpting' => 10 }
     end
+
+    it '*_val? x returns if there is a value for the xth number' do
+      skill_sets(:one).art_val?( 0 ).should == true
+      skill_sets(:one).art_val?( 1 ).should == true
+      skill_sets(:one).craft_val?( 0 ).should == false
+      skill_sets(:one).craft_val?( 1 ).should == false
+    end
   end
 end

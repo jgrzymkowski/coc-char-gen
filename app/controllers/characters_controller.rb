@@ -10,6 +10,13 @@ class CharactersController < ApplicationController
 
   def show
     @character = Character.find( params[:id] )
+    respond_to do |format|
+      format.html { }
+      format.pdf do
+        CharacterSheet.new( @character ).generate
+      end
+    end
+
   end
 
   def edit
