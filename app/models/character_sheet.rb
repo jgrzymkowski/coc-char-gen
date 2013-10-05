@@ -14,12 +14,14 @@ class CharacterSheet
 
       go_to_page 1
       draw_text "#{c.first_name} #{c.last_name}", at: [170, 710]
-      draw_text "#{c.occupation}", at: [142, 696]
-      draw_text "#{c.degrees}", at: [166, 682]
-      draw_text "#{c.birthplace}", at: [140, 668]
+      draw_text c.occupation, at: [142, 696]
+      draw_text c.degrees, at: [166, 682]
+      draw_text c.birthplace, at: [140, 668]
       draw_text "", at: [169, 654]
-      draw_text "#{c.gender_read}", at: [107, 640]
-      draw_text "#{c.age}", at: [217, 640]
+      draw_text c.gender_read, at: [107, 640]
+      draw_text c.age, at: [217, 640]
+
+      draw_text c.investigator_name, at: [48 , 510], rotate: 90#, rotate_around: :center
 
       draw_text c.characteristic_set.strength, at: [333, 686]
       draw_text c.characteristic_set.constitution, at: [333, 669]
@@ -39,6 +41,7 @@ class CharacterSheet
       stroke_color 100, 100, 100, 100
       san = c.characteristic_set.sanity
       x_san = 278 - ((14-(san%17))%17) * 12.25
+      x_san -= 2 if san >= 0 && san < 10
       y_san = 599 - ((san+2)/17) * 15.6
       stroke do
         rounded_rectangle [x_san, y_san], 12, 12, 2
@@ -46,6 +49,7 @@ class CharacterSheet
 
       mag = c.characteristic_set.magic_points
       x_mag = 391 - ((3-(mag%8))%8) * 12.25
+      x_mag -= 2 if mag >= 0 && mag < 10
       y_mag = 598 - ((mag+4)/8) * 15.6
       stroke do
         rounded_rectangle [x_mag, y_mag], 12, 12, 2
@@ -53,6 +57,7 @@ class CharacterSheet
 
       hit = c.characteristic_set.hit_points
       x_hit = 503 - ((3-(hit%8))%8) * 12.25
+      x_hit -= 2 if hit >= 0 && hit < 10
       y_hit = 598 - ((hit+4)/8) * 15.6
       stroke do
         rounded_rectangle [x_hit, y_hit], 12, 12, 2
@@ -160,7 +165,6 @@ class CharacterSheet
       draw_text '400', at: [475, 44]
       draw_text '40', at: [501, 44]
 
-      #font("#{Rails.root}/app/resources/comicsans.ttf", size: 8)
       draw_text 'Gun 1', at: [280, 86]
       draw_text '100yds', at: [420, 86]
 
