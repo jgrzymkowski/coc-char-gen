@@ -1,5 +1,6 @@
 one:
   character_id: 1
+  skill_occupation: athlete
   accounting: 50
   anthropology:  40
   archaeology:

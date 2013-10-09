@@ -8,20 +8,28 @@ p.help {
   border: 1px;
 }
 
-.character-summary {
-  padding: 20px;
-  float: left;
-}
-
-.characteristics {
-  padding: 20px;
-  float: left;
-}
-
 .skills {
-  padding: 20px;
+
 }
 
 .cleft {
   clear: left;
+}
+
+.table-summary {
+  border: 1px solid #000000;
+  margin: 20px;
+  float: left;
+}
+
+.table-title {
+  border-bottom: 1px solid #000000;
+}
+
+.table-edit {
+  float: right;
+}
+
+.fleft {
+  float: left;
 }

@@ -14,7 +14,7 @@ class CharacteristicSetsController < ApplicationController
       character.create_characteristic_set( generate_random_stats ).save
     end
 
-    redirect_to new_character_skill_set_path character
+    redirect_to character_path character
   end
 
   def show

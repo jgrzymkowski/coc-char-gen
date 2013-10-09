@@ -5,18 +5,18 @@ class CharactersController < ApplicationController
   def create
     character = Character.new( params[:character] )
     character.save!
-    redirect_to new_character_characteristic_set_path character_id: character.id
+    redirect_to character_path character
   end
 
   def show
     @character = Character.find( params[:id] )
     respond_to do |format|
-      format.html { }
+      format.html {  }
       format.pdf do
-        CharacterSheet.new( @character ).generate
+        @filename = CharacterSheet.new( @character ).generate
+        send_file @filename, type: 'application/pdf'
       end
     end
-
   end
 
   def edit
@@ -24,11 +24,11 @@ class CharactersController < ApplicationController
   end
 
   def update
-    @character = Character.find( params[:id] )
-    if @character.update_attributes( params[:character] )
-      redirect_to show
+    character = Character.find( params[:id] )
+    if character.update_attributes( params[:character] )
+      render action: :show
     else
-      render 'edit'
+      render action: :edit
     end
   end
 
@@ -38,7 +38,7 @@ class CharactersController < ApplicationController
 
   def destroy
     Character.find( params[:id] ).destroy
-    redirect_to :action => 'index'
+    redirect_to characters_path
   end
 
 end

@@ -1,57 +1,13 @@
-<div class="character-summary">
 
-  <div>
-    <strong>Investigator:</strong>
-    <%= @character.investigator_name %>
-  </div>
+<%= render 'character_summary', character: @character %>
 
-  <div>
-    <strong>Name:</strong>
-    <%= @character.first_name %> <%= @character.last_name %>
-  </div>
-
-  <div>
-    <strong>Occupation:</strong>
-    <%= @character.occupation%>
-  </div>
-
-  <div>
-    <strong>Degrees:</strong>
-    <%= @character.degrees%>
-  </div>
-
-  <div>
-    <strong>Birthplace:</strong>
-    <%= @character.birthplace %>
-  </div>
-
-  <div>
-    <strong>Gender:</strong>
-    <%= @character.gender %>
-  </div>
-
-  <div>
-    <strong>Age:</strong>
-    <%= @character.age%>
-  </div>
-</div>
-
-
-<% if @character.characteristic_set %>
-  <div class="characteristics">
-    <%= render 'characteristic_sets/characteristic_table', characteristic_set: @character.characteristic_set %>
-  </div>
-<% end %>
+<%= render 'characteristic_sets/characteristic_table', character: @character %>
 
 <div class="cleft"></div>
 
-<% if @character.skill_set %>
-  <div class="skills">
-    <%= render 'skill_sets/skill_table', skill_set: @character.skill_set %>
-  </div>
-<% end %>
+<%= render 'skill_sets/skill_table', character: @character %>
 
-<br/>
+<div class="cleft"></div>
 <div>
   <%= link_to button_tag( 'All Characters' ), characters_path %>
 </div>

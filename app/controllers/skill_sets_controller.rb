@@ -12,8 +12,22 @@ class SkillSetsController < ApplicationController
     new_skill_set.merge!( extract_sub_skill_sets skill_hash )
 
     character.create_skill_set new_skill_set
-    redirect_to characters_path
+    redirect_to character_path character
   end
+
+  def edit
+    @character = Character.find params[ :character_id ]
+  end
+
+  def update
+    character = Character.find params[ :character_id ]
+    puts '*'*100
+    puts params[:skill_set]
+    character.skill_set
+    character.skill_set.update_attributes params[:skill_set]
+    redirect_to character_path character
+  end
+
 
   private
   def extract_skill_sets( skill_set )

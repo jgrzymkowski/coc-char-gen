@@ -1,6 +1,6 @@
 class SkillSet < ActiveRecord::Base
   belongs_to :character
-  attr_accessible :accounting, :anthropology, :archaeology, :art, :astronomy, :bargain, :biology, :chemistry, :climb, :conceal, :craft, :credit_rating, :cthulhu_mythos, :disguise, :dodge, :drive_auto, :electrical_repair, :fast_talk, :first_aid, :geology, :hide, :history, :jump, :law, :library_use, :listen, :locksmith, :martial_arts, :mechanical_repair, :medicine, :natural_history, :navigate, :occult, :operate_heavy_machine, :other_language, :own_language, :persuade, :pharmacy, :photography, :physics, :pilot, :psychoanalysis, :psychology, :ride, :sneak, :spot_hidden, :swim, :throw, :track, :handgun, :machine_gun, :rifle, :shotgun, :SMG, :fist, :grapple, :head, :kick
+  attr_accessible :skill_occupation, :accounting, :anthropology, :archaeology, :art, :astronomy, :bargain, :biology, :chemistry, :climb, :conceal, :craft, :credit_rating, :cthulhu_mythos, :disguise, :dodge, :drive_auto, :electrical_repair, :fast_talk, :first_aid, :geology, :hide, :history, :jump, :law, :library_use, :listen, :locksmith, :martial_arts, :mechanical_repair, :medicine, :natural_history, :navigate, :occult, :operate_heavy_machine, :other_language, :own_language, :persuade, :pharmacy, :photography, :physics, :pilot, :psychoanalysis, :psychology, :ride, :sneak, :spot_hidden, :swim, :throw, :track, :handgun, :machine_gun, :rifle, :shotgun, :SMG, :fist, :grapple, :head, :kick
 
   BASIC_SKILLS = {
       accounting: 1, anthropology: 1, archaeology: 1, astronomy: 1,
