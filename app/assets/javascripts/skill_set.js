@@ -6,7 +6,6 @@ if( !CoC.SubSkills ) { CoC.SubSkills= {}; }
 
 CoC.SkillPointObserver = function(options) {
   this.occupationalSkillTableId = options.occupationalSkillTableId
-  this.skillTableId = options.skillTableId;
   this.occTotalId = options.occTotalId;
   this.piTotalId = options.piTotalId;
 };
@@ -15,7 +14,6 @@ CoC.SkillPointObserver.prototype = {
   notify: function() {
     var self = this;
     var occupationalSkillTable = $('#'+self.occupationalSkillTableId);
-    var skillTable = $('#'+self.skillTableId );
     var occTotal = $('#'+self.occTotalId);
     var piTotal = $('#'+self.piTotalId);
     var occupationalSkills = _.map(
@@ -24,7 +22,7 @@ CoC.SkillPointObserver.prototype = {
       }
     );
 
-    var spentSkillInputs = _.filter($('input.skill-input', skillTable), function(input) {
+    var spentSkillInputs = _.filter($('.skill_table input.skill-input'), function(input) {
       return $(input).val() != '';
     });
 

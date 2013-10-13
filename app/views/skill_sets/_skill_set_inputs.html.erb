@@ -18,7 +18,7 @@
                       (character.skill_set.skill_occupation if character.skill_set)
               )) %>
 <%= f.hidden_field :occupation_skills %>
-<%= hidden_field_tag :occupation_skills, character.skill_set.occupation_skills %>
+<%= hidden_field_tag :occupation_skills, (character.skill_set.occupation_skills if character.skill_set) %>
 <table id="occupational_skill_table"></table>
 <br/>
 <div>
@@ -35,7 +35,7 @@
 </div>
 <br/>
 
-<table id="skill_table">
+<table class="skill_table">
   <thead>
     <th>Skill</th>
     <th>Spent</th>
@@ -177,6 +177,39 @@
 
 </table>
 
+<table class="skill_table">
+  <thead>
+    <th>Skill</th>
+    <th>Spent</th>
+    <th>Total</th>
+    <th>Skill</th>
+    <th>Spent</th>
+    <th>Total</th>
+  </thead>
+  <tr>
+    <%= render 'skill_table_input', f: f, skill: :fist, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :handgun, character: character %>
+  </tr>
+  <tr>
+    <%= render 'skill_table_input', f: f, skill: :grapple, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :machine_gun, character: character %>
+  </tr>
+  <tr>
+    <%= render 'skill_table_input', f: f, skill: :head, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :rifle, character: character %>
+  </tr>
+  <tr>
+    <%= render 'skill_table_input', f: f, skill: :kick, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :shotgun, character: character %>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <%= render 'skill_table_input', f: f, skill: :SMG, character: character %>
+  </tr>
+</table>
+
 
 <%= f.submit 'Submit' %>
 <%= %>
@@ -185,7 +218,6 @@
   $(window).load(function() {
     var pointObserver = new CoC.SkillPointObserver( {
       occupationalSkillTableId: 'occupational_skill_table',
-      skillTableId: 'skill_table',
       occTotalId: 'occ_total',
       piTotalId: 'pi_total'
     });
@@ -196,7 +228,7 @@
       all_skills: <%= SkillSet::ALL_SKILLS.to_a.to_json.html_safe %>,
       skill_categories: <%= SkillSet::SKILL_CATEGORIES.to_a.to_json.html_safe %>,
       pointObserver: pointObserver,
-      occupation_skills: <%= character.skill_set.occupation_skills? ? character.skill_set.occupation_skills.html_safe : 'null' %>
+      occupation_skills: <%= character.skill_set && character.skill_set.occupation_skills? ? character.skill_set.occupation_skills.html_safe : 'null' %>
     });
 
     new CoC.SkillTable( {

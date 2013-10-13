@@ -1,8 +1,7 @@
 <% skill_set = character.skill_set %>
 <div class="table-summary characteristics">
-
   <div class="table-title">
-    <span class="fleft">Skills</span>
+    <span>Skills</span>
     <span class="table-edit">
     <% if skill_set %>
       <%= link_to 'Edit', edit_character_skill_set_path( character ) %>
@@ -258,8 +257,8 @@
         <td><%= table_title :head %></td>
         <td><%= skill_set.head_val if skill_set.head %></td>
 
-        <td><%= table_title :handgun %></td>
-        <td><%= skill_set.handgun_val if skill_set.handgun %></td>
+        <td><%= table_title :rifle %></td>
+        <td><%= skill_set.handgun_val if skill_set.rifle%></td>
       </tr>
       <tr>
         <td><%= table_title :kick %></td>
