@@ -21,9 +21,6 @@ class SkillSetsController < ApplicationController
 
   def update
     character = Character.find params[ :character_id ]
-    puts '*'*100
-    puts params[:skill_set]
-    character.skill_set
     character.skill_set.update_attributes params[:skill_set]
     redirect_to character_path character
   end

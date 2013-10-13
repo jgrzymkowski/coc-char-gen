@@ -1,40 +1,18 @@
 if( !('CoC' in window ) ) { CoC = {}; }
 if( !CoC.SkillTable ) { CoC.SkillTable= {}; }
 if( !CoC.OccupationalSkillList ) { CoC.OccupationalSkillList= {}; }
-if( !CoC.SkillPointTracker ) { CoC.SkillPointTracker= {}; }
+if( !CoC.SkillPointObserver ) { CoC.SkillPointObserver= {}; }
+if( !CoC.SubSkills ) { CoC.SubSkills= {}; }
 
-//$(window).load(function() {
-//  _.each($('input.skill-input'), function(input) {
-//    $(input).change(updateSkill);
-//  });
-//});
-//
-//var updateSkill = function(event) {
-//  var input = $(event.target);
-//  var inputTd = input.parent('td');
-//  var titleTd = inputTd.siblings('td.' + skill + '-title')
-//  var skill = titleTd.attr('skill');
-//  var totalTd = inputTd.siblings('td.' + skill + '-total');
-//  if( input.val() ) {
-//    totalTd.html(Number(input.val()) + Number(titleTd.attr('base')));
-//  } else {
-//    totalTd.html('');
-//  }
-//};
-//
-//var updateOccupation = function(event) {
-//
-//};
-
-CoC.SkillPointTracker = function(options) {
+CoC.SkillPointObserver = function(options) {
   this.occupationalSkillTableId = options.occupationalSkillTableId
   this.skillTableId = options.skillTableId;
   this.occTotalId = options.occTotalId;
   this.piTotalId = options.piTotalId;
 };
 
-CoC.SkillPointTracker.prototype = {
-  update: function() {
+CoC.SkillPointObserver.prototype = {
+  notify: function() {
     var self = this;
     var occupationalSkillTable = $('#'+self.occupationalSkillTableId);
     var skillTable = $('#'+self.skillTableId );
@@ -69,53 +47,14 @@ CoC.SkillPointTracker.prototype = {
 };
 
 CoC.SkillTable = function(options) {
-  this.table = $('#'+options.tableId);
-  this.allSkills = options.allSkills;
-  this.skillCategories = options.skillCategories;
-  this.pointTracker = options.pointTracker;
+  this.pointObserver = options.pointObserver;
   this.buildTable();
 };
 
 CoC.SkillTable.prototype = {
   buildTable: function() {
-//    var self = this;
-//    var skillCategoryNames = _.map(self.skillCategories, function(sc) { return sc[0]} );
-//    _.each(self.allSkills, function( skillPair ) {
-//      var skillName = skillPair[0];
-//      var skillBase = skillPair[1];
-//      var skillNameTd = $('<td>').append(CoC.humanize_sym(skillName));
-//      var skillBaseTd = $('<td class="skill_base">').append(skillBase);
-//      var skillTotalTd = $('<td class="skill_total">');
-//
-//      if(_.contains(skillCategoryNames, skillName)) {
-//        self.table.append( $('<tr>').append(skillNameTd ));
-//        var skillInputTd = $('<td>').
-//          append($('<input class="skill" name="skill_set['+skillName+'][]" type="text"/>'));
-//
-//        var subCatTd = $('<td>').append($('<input type="text" name="skill_set[sub_'+skillName+'][]">'));
-//        _.each([1,2,3], function(i) {
-//          var tr = $('<tr skill="'+skillName+'">').
-//            append( subCatTd.clone()).
-//            append( skillBaseTd.clone() ).
-//            append( skillInputTd.clone()).
-//            append( skillTotalTd.clone() );
-//          self.table.append(tr);
-//        });
-//      } else {
-//        var skillInputTd = $('<td>').
-//          append($('<input class="skill" name="skill_set['+skillName+']" type="text"/>'));
-//        var tr = $('<tr skill="'+skillName+'">').
-//          append( skillNameTd ).
-//          append( skillBaseTd).
-//          append( skillInputTd ).
-//          append( skillTotalTd );
-//        self.table.append( tr );
-//      }
-//    });
-
     var self = this;
     $('input.skill-input').change( function(event) {
-
       var input = $(event.target);
       var inputTd = input.parent('td');
       var skill = inputTd.attr('skill');
@@ -126,55 +65,40 @@ CoC.SkillTable.prototype = {
       } else {
         totalTd.html('');
       }
-      self.pointTracker.update();
+      self.pointObserver.notify();
     });
   }
 };
 
 CoC.OccupationalSkillList = function(properties) {
-  var self = this;
-  self.properties = properties;
-  self.pointTracker = properties.pointTracker;
-
-  $('#'+self.properties.skill_occupation).
-    change( function() {
-      self.updateOccupation();
-      self.pointTracker.update();
-    } );
-
+  this.properties = properties;
 };
 
 CoC.OccupationalSkillList.prototype = {
-
-  updateOccupation: function() {
+  notify: function() {
     var self = this;
-    self.occupationSkillList().html('');
-    if(self.occupation()) {
+    $('#occupational_skill_table').html('');
+    if($('#skill_set_skill_occupation').val()) {
       self.updateOccupationSkillList();
       self.updateOccupationSkillOptions();
     }
   },
 
-  occupation: function() {
-    return $('#'+this.properties.skill_occupation).val();
-  },
-
-  occupationSkillList: function() {
-    return $('#'+this.properties.occupational_skill_table);
-  },
-
+  //updates table with static skills
   updateOccupationSkillList: function() {
     var self = this;
-    var skills = self.properties.occupations[self.occupation()].set;
+    var skills = self.properties.occupations[$('#skill_set_skill_occupation').val()].set;
     _.each(skills, function(skill) {
-      self.occupationSkillList().append($('<tr>').
+      $('#occupational_skill_table').append($('<tr>').
         append('<td skill="'+skill+'">' + CoC.humanize_sym(skill) + '</td>') );
     });
   },
 
+
+  //updates table with select skills
   updateOccupationSkillOptions: function() {
     var self = this;
-    var options = self.properties.occupations[self.occupation()].options
+    var options = self.properties.occupations[$('#skill_set_skill_occupation').val()].options
     _.each(options, function(option) {
       var skillOptions;
       if(option == 'any') {
@@ -185,7 +109,7 @@ CoC.OccupationalSkillList.prototype = {
         });
       }
 
-      var select = $('<select>');
+      var select = $('<select class="occupation-skill">');
       _.each(skillOptions, function(skill) {
         select.append($('<option>').
           val(skill[0]).
@@ -196,11 +120,54 @@ CoC.OccupationalSkillList.prototype = {
       var td = $('<td skill="'+$('option:selected', select).val()+'">');
       select.change(function(event) {
         td.attr('skill', $('option:selected', event.target).val());
-        self.pointTracker.update();
+        self.properties.pointObserver.notify();
+        self.updateOccupationSkillSelects();
       });
-      self.occupationSkillList().append($('<tr>').
+      $('#occupational_skill_table').append($('<tr>').
         append(td.append(select)));
     });
 
+  },
+
+  //update hidden field value to selected skills
+  updateOccupationSkillSelects: function() {
+    var occupation_skills = _.map($('.occupation-skill'), function(select) {
+      return $(select).val();
+    });
+    $('#skill_set_occupation_skills').val(JSON.stringify(occupation_skills));
+  },
+
+  //update selects to match saved values (from hidden field)
+  setOccupationSkillSelects: function() {
+    var skill_selects = $('.occupation-skill');
+    var occ_skills = JSON.parse($('#occupation_skills').val());
+    for( var i = 0; i < skill_selects.length; i++ ) {
+      $(skill_selects[i]).val(occ_skills[i]);
+    }
+  }
+};
+
+CoC.SubSkills = function(options) {
+  var self = this;
+  self.skill = options.skill;
+  var i = 0;
+  while($('#'+self.skill+i+'_title').size() > 0) {
+    _.each([$('#'+self.skill+i+'_title'), $('#'+self.skill+i+'_val')], function(input) {
+      $(input).change(function() { self.update() });
+    });
+    i++;
+  }
+};
+
+CoC.SubSkills.prototype = {
+  update: function() {
+    var self = this;
+    var values = { };
+    var i = 0;
+    while($('#'+this.skill+i+'_title').size() > 0) {
+      values[$('#'+this.skill+i+'_title').val()] = $('#'+this.skill+i+'_val').val();
+      i++;
+    }
+    $('#skill_set_'+this.skill).val(JSON.stringify(values));
   }
 };

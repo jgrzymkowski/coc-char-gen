@@ -1,0 +1,17 @@
+<%
+   if character.skill_set && character.skill_set.send( skill.to_s + '_val?', i )
+     vals = character.skill_set.send("#{skill}_hash").to_a
+     title = vals[i][0]
+     sub_value = vals[i][1]
+     total = character.skill_set.send("#{skill}_val").to_a[i][1]
+   end
+ %>
+<td class="<%=skill.to_s%>-title" base="<%= skill_base skill %>">
+  <%= text_field_tag "#{skill.to_s}#{i}_title", title %>
+</td>
+<td skill="<%=skill.to_s%>">
+  <%= text_field_tag "#{skill.to_s}#{i}_val", sub_value, class: 'skill-input' %>
+</td>
+<td class="<%=skill.to_s%>-total skill-total">
+  <%= total %>
+</td>

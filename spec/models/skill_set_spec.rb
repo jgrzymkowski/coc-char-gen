@@ -19,6 +19,10 @@ describe SkillSet do
   end
 
   context 'sub categories' do
+    it 'returns a hash of category with value' do
+      skill_sets(:one).art_hash.should == { 'Dance' => '15', 'Sculpting' => '5' }
+    end
+
     it '*_val returns a hash of sub categories to total skill value' do
       skill_sets(:one).art_val.should == { 'Dance' => 20, 'Sculpting' => 10 }
     end

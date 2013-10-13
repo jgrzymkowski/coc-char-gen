@@ -1,6 +1,6 @@
 class SkillSet < ActiveRecord::Base
   belongs_to :character
-  attr_accessible :skill_occupation, :accounting, :anthropology, :archaeology, :art, :astronomy, :bargain, :biology, :chemistry, :climb, :conceal, :craft, :credit_rating, :cthulhu_mythos, :disguise, :dodge, :drive_auto, :electrical_repair, :fast_talk, :first_aid, :geology, :hide, :history, :jump, :law, :library_use, :listen, :locksmith, :martial_arts, :mechanical_repair, :medicine, :natural_history, :navigate, :occult, :operate_heavy_machine, :other_language, :own_language, :persuade, :pharmacy, :photography, :physics, :pilot, :psychoanalysis, :psychology, :ride, :sneak, :spot_hidden, :swim, :throw, :track, :handgun, :machine_gun, :rifle, :shotgun, :SMG, :fist, :grapple, :head, :kick
+  attr_accessible :skill_occupation, :occupation_skills, :accounting, :anthropology, :archaeology, :art, :astronomy, :bargain, :biology, :chemistry, :climb, :conceal, :craft, :credit_rating, :cthulhu_mythos, :disguise, :dodge, :drive_auto, :electrical_repair, :fast_talk, :first_aid, :geology, :hide, :history, :jump, :law, :library_use, :listen, :locksmith, :martial_arts, :mechanical_repair, :medicine, :natural_history, :navigate, :occult, :operate_heavy_machine, :other_language, :own_language, :persuade, :pharmacy, :photography, :physics, :pilot, :psychoanalysis, :psychology, :ride, :sneak, :spot_hidden, :swim, :throw, :track, :handgun, :machine_gun, :rifle, :shotgun, :SMG, :fist, :grapple, :head, :kick
 
   BASIC_SKILLS = {
       accounting: 1, anthropology: 1, archaeology: 1, astronomy: 1,
@@ -54,6 +54,9 @@ class SkillSet < ActiveRecord::Base
     define_method( "#{k}_val?" ) do |i|
       !!JSON.parse(eval(k.to_s)).to_a[i] &&
         !JSON.parse(eval(k.to_s)).to_a[i][0].blank?
+    end
+    define_method("#{k}_hash") do
+      JSON.parse(eval(k.to_s))
     end
   end
 end

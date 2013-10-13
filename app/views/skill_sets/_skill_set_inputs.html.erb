@@ -6,7 +6,8 @@
   example, if your character's occupation is "Train Conductor," the
   closest match for skill occupation would be "Pilot."  If you cannot
   find an appropriate skill set for your chosen occupation, chose "other",
-  but be sure to consult with your GM.</p>
+  but be sure to consult with your GM.
+</p>
 
 <%= f.select( :skill_occupation,
               options_for_select(
@@ -14,8 +15,10 @@
                               occupations.keys.collect do |occupation|
                                 [sym_to_title( occupation ), occupation]
                               end ,
-                      character.skill_set.skill_occupation
+                      (character.skill_set.skill_occupation if character.skill_set)
               )) %>
+<%= f.hidden_field :occupation_skills %>
+<%= hidden_field_tag :occupation_skills, character.skill_set.occupation_skills %>
 <table id="occupational_skill_table"></table>
 <br/>
 <div>
@@ -48,56 +51,35 @@
   <tr>
     <%= render 'skill_table_input', f: f, skill: :accounting, character: character %>
     <%= render 'skill_table_input', f: f, skill: :drive_auto, character: character %>
-
-    <td><%= table_title :other_language %></td>
-    <td></td>
-    <td></td>
+    <%= render 'skill_table_category_title', f: f, skill: :other_language, character: character %>
   </tr>
 
   <tr>
     <%= render 'skill_table_input', f: f, skill: :anthropology, character: character %>
     <%= render 'skill_table_input', f: f, skill: :electrical_repair, character: character %>
-
-    <td><%#= f.text_field :other_language_val.to_a[0][0] if skill_set.other_language_val? 0 %></td>
-    <td><%#= f.text_field :other_language_val.to_a[0][1] if skill_set.other_language_val? 0 %></td>
-    <td></td>
+    <%= render 'skill_table_category_input', f: f, skill: :other_language, character: character, i: 0 %>
   </tr>
 
   <tr>
     <%= render 'skill_table_input', f: f, skill: :archaeology, character: character %>
     <%= render 'skill_table_input', f: f, skill: :fast_talk, character: character %>
-
-    <td><%#= f.text_field :other_language_val.to_a[1][0] if skill_set.other_language_val? 1 %></td>
-    <td><%#= f.text_field :other_language_val.to_a[1][1] if skill_set.other_language_val? 1 %></td>
-    <td></td>
+    <%= render 'skill_table_category_input', f: f, skill: :other_language, character: character, i: 1 %>
   </tr>
 
   <tr>
-    <td><%#= table_title :art %></td>
-    <td></td>
-    <td></td>
-
+    <%= render 'skill_table_category_title', f: f, skill: :art, character: character %>
     <%= render 'skill_table_input', f: f, skill: :first_aid, character: character %>
-
-    <td><%#= f.text_field :other_language_val.to_a[2][0] if skill_set.other_language_val? 2 %></td>
-    <td><%#= f.text_field :other_language_val.to_a[2][1] if skill_set.other_language_val? 2 %></td>
-    <td></td>
+    <%= render 'skill_table_category_input', f: f, skill: :other_language, character: character, i: 2 %>
   </tr>
 
   <tr>
-    <td><%#= f.text_field :art_val.to_a[0][0] if skill_set.art_val? 0 %></td>
-    <td><%#= f.text_field :art_val.to_a[0][1] if skill_set.art_val? 0%></td>
-    <td></td>
-
+    <%= render 'skill_table_category_input', f: f, skill: :art, character: character, i: 0 %>
     <%= render 'skill_table_input', f: f, skill: :geology, character: character %>
     <%= render 'skill_table_input', f: f, skill: :own_language, character: character %>
   </tr>
 
   <tr>
-    <td><%#= f.text_field :art_val.to_a[1][0] if skill_set.art_val? 1 %></td>
-    <td><%#= f.text_field :art_val.to_a[1][1] if skill_set.art_val? 1 %></td>
-    <td></td>
-
+    <%= render 'skill_table_category_input', f: f, skill: :art, character: character, i: 1 %>
     <%= render 'skill_table_input', f: f, skill: :hide, character: character %>
     <%= render 'skill_table_input', f: f, skill: :persuade, character: character %>
   </tr>
@@ -124,51 +106,35 @@
   <tr>
     <%= render 'skill_table_input', f: f, skill: :chemistry, character: character %>
     <%= render 'skill_table_input', f: f, skill: :library_use, character: character %>
-    <td><%= table_title :pilot %></td>
-    <td></td>
-    <td></td>
+    <%= render 'skill_table_category_title', f: f, skill: :pilot, character: character %>
   </tr>
 
   <tr>
     <%= render 'skill_table_input', f: f, skill: :climb, character: character %>
     <%= render 'skill_table_input', f: f, skill: :listen, character: character %>
-
-    <td><%#= f.text_field :pilot_val.to_a[0][0] if skill_set.pilot_val? 0 %></td>
-    <td><%#= f.text_field :pilot_val.to_a[0][1] if skill_set.pilot_val? 0 %></td>
-    <td></td>
+    <%= render 'skill_table_category_input', f: f, skill: :pilot, character: character, i: 0 %>
   </tr>
 
   <tr>
     <%= render 'skill_table_input', f: f, skill: :conceal, character: character %>
     <%= render 'skill_table_input', f: f, skill: :locksmith, character: character %>
-    <td><%#= f.text_field :pilot_val.to_a[1][0] if skill_set.pilot_val? 1 %></td>
-    <td><%#= f.text_field :pilot_val.to_a[1][1] if skill_set.pilot_val? 1 %></td>
-    <td></td>
+    <%= render 'skill_table_category_input', f: f, skill: :pilot, character: character, i: 1 %>
   </tr>
 
   <tr>
-    <td><%= table_title :craft %></td>
-    <td></td>
-    <td></td>
-
+    <%= render 'skill_table_category_title', f: f, skill: :craft, character: character %>
     <%= render 'skill_table_input', f: f, skill: :martial_arts, character: character %>
     <%= render 'skill_table_input', f: f, skill: :psychoanalysis, character: character %>
   </tr>
 
   <tr>
-    <td><%#= f.text_field :craft_val.to_a[0][0] if skill_set.craft_val? 0 %></td>
-    <td><%#= f.text_field :craft_val.to_a[0][1] if skill_set.craft_val? 0 %></td>
-    <td></td>
-
+    <%= render 'skill_table_category_input', f: f, skill: :craft, character: character, i: 0 %>
     <%= render 'skill_table_input', f: f, skill: :mechanical_repair, character: character %>
     <%= render 'skill_table_input', f: f, skill: :psychology, character: character %>
   </tr>
 
   <tr>
-    <td><%#= f.text_field :craft_val.to_a[1][0] if skill_set.craft_val? 1 %></td>
-    <td><%#= f.text_field :craft_val.to_a[1][1] if skill_set.craft_val? 1 %></td>
-    <td></td>
-
+    <%= render 'skill_table_category_input', f: f, skill: :craft, character: character, i: 1 %>
     <%= render 'skill_table_input', f: f, skill: :medicine, character: character %>
     <%= render 'skill_table_input', f: f, skill: :ride, character: character %>
   </tr>
@@ -216,47 +182,42 @@
 <%= %>
 
 <script type="text/javascript">
-//  $(window).load(function() {
-//    $('.skill_input').change(function(event) {
-//      var input = event.target;
-//      var inputTd = input.parent('td');
-//      var baseTd = inputTd.
-//              var skill = inputTd.attr('skill');
-//      var totalTd = inputTd.sibling('td.' + skill + '-total');
-//      totalTd.total
-//
-//
-//
-//
-//    });
-//  });
-
   $(window).load(function() {
-    var pointTracker = new CoC.SkillPointTracker( {
+    var pointObserver = new CoC.SkillPointObserver( {
       occupationalSkillTableId: 'occupational_skill_table',
       skillTableId: 'skill_table',
       occTotalId: 'occ_total',
       piTotalId: 'pi_total'
     });
 
+    var occupationSelector = $('#skill_set_skill_occupation');
     var occupationalSkillList = new CoC.OccupationalSkillList( {
-      occupational_skill_table: 'occupational_skill_table',
       occupations: <%= occupations_json %>,
-      skill_occupation: 'skill_set_skill_occupation',
       all_skills: <%= SkillSet::ALL_SKILLS.to_a.to_json.html_safe %>,
       skill_categories: <%= SkillSet::SKILL_CATEGORIES.to_a.to_json.html_safe %>,
-      pointTracker: pointTracker
+      pointObserver: pointObserver,
+      occupation_skills: <%= character.skill_set.occupation_skills? ? character.skill_set.occupation_skills.html_safe : 'null' %>
     });
 
-    if(<%= !!character.skill_set.skill_occupation %>) {
-      occupationalSkillList.updateOccupation();
-    }
-
     new CoC.SkillTable( {
-      tableId: 'skill_table',
       allSkills: <%= all_skills( character ).to_a.to_json.html_safe %>,
       skillCategories: <%= SkillSet::SKILL_CATEGORIES.to_a.to_json.html_safe %>,
-      pointTracker: pointTracker
+      pointObserver: pointObserver
+    });
+
+    occupationSelector.change( function(event) {
+      occupationalSkillList.notify();
+      pointObserver.notify();
+    } );
+
+    occupationalSkillList.notify();
+    pointObserver.notify();
+
+    occupationalSkillList.setOccupationSkillSelects();
+    occupationalSkillList.updateOccupationSkillSelects();
+
+    _.each(<%=SkillSet::SKILL_CATEGORIES.keys.map( &:to_s ).to_json.html_safe%>, function(skill) {
+      new CoC.SubSkills({ skill: skill });
     });
   });
 </script>

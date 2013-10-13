@@ -1,9 +1,9 @@
 <td class="<%=skill.to_s%>-title" base="<%= skill_base skill %>">
   <%= table_title skill %>
 </td>
-<td skill="<%=skill.to_s%>" class="<%=skill.to_s%>-inputa">
+<td skill="<%=skill.to_s%>" class="<%=skill.to_s%>-input">
   <%= f.text_field skill, class: 'skill-input' %>
 </td>
 <td class="<%=skill.to_s%>-total skill-total">
-  <%= character.skill_set.send(skill.to_s + '_val') if character.skill_set.send( skill ) %>
+  <%= character.skill_set.send(skill.to_s + '_val') if character.skill_set && character.skill_set.send( skill ) %>
 </td>
