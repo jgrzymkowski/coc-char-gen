@@ -1,3 +1,9 @@
+<div class="fright">
+  <%= link_to 'All Characters', characters_path %> |
+  <%= link_to 'Download PDF', character_path( @character, format: :pdf ), method: :get%> |
+  <%= link_to 'Delete', character_path( @character ), method: :delete, confirm: 'Are you sure?' %>
+</div>
+<div class="cright"></div>
 
 <%= render 'character_summary', character: @character %>
 
@@ -6,8 +12,3 @@
 <div class="cleft"></div>
 
 <%= render 'skill_sets/skill_table', character: @character %>
-
-<div class="cleft"></div>
-<div>
-  <%= link_to button_tag( 'All Characters' ), characters_path %>
-</div>

@@ -1,3 +1,7 @@
+<div class="fright">
+  <%= link_to 'Create New Character', new_character_path %>
+</div>
+<div class="cright"></div>
 <h1>All Characters</h1>
 <table>
   <thead>
@@ -9,7 +13,7 @@
     <th>Birthplace</th>
     <th>Gender</th>
     <th>Age</th>
-    <th>Actions</th>
+    <th></th>
   </thead>
 
   <% @characters.each do |character| %>
@@ -23,15 +27,8 @@
     <td><%= character.gender %></td>
     <td><%= character.age %></td>
     <td>
-      <%= link_to 'View', character_path( character ), method: :get %>,
-      <%= link_to 'Edit', edit_character_path( character ) %>,
-      <%= link_to 'Delete', character_path( character ), method: :delete, confirm: 'Are you sure?' %>
-      <%= link_to 'PDF', character_path( character, format: :pdf ), method: :get%>
+      <%= link_to 'View', character_path( character ), method: :get %>
     </td>
   </tr>
   <% end %>
 </table>
-
-<p>
-<%= link_to button_tag( 'Create New Character' ), new_character_path %>
-</p>

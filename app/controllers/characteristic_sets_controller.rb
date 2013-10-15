@@ -5,18 +5,20 @@ class CharacteristicSetsController < ApplicationController
   end
 
   def create
-    character = Character.find( params[:character_id] )
+    @character = Character.find( params[:character_id] )
     if params[:characteristic_set][:arranged] == 'true'
       order = params[:characteristic_set][:order].split(',').map &:to_sym
-      puts order.inspect
-      character.create_characteristic_set( generate_arranged_stats( order ) ).save
+      @character.create_characteristic_set( generate_arranged_stats( order ) ).save
     else
-      character.create_characteristic_set( generate_random_stats ).save
+      @character.create_characteristic_set( generate_random_stats ).save
     end
-
-    redirect_to character_path character
+    puts '!'*100
+    puts character_characteristic_set_path( @character, @character.characteristic_set )
+    puts '*'*100
+    redirect_to character_characteristic_set_path( @character, @character.characteristic_set )
   end
 
   def show
+    @character = Character.find( params[:character_id] )
   end
 end

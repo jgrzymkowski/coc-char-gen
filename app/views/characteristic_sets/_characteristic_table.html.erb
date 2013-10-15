@@ -1,7 +1,7 @@
 <div class="characteristics table-summary">
   <div class="table-title">
     <span>Characteristics & Rolls</span>
-    <% unless character.skill_set %>
+    <% unless character.characteristic_set %>
       <%= link_to 'Add Characteristics', new_character_characteristic_set_path( character ) %>
     <% end %>
   </div>

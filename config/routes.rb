@@ -1,5 +1,5 @@
 Coc::Application.routes.draw do
-  root to: "welcome#index"
+  root to: "characters#index"
 
   resources :characters do
     resources :characteristic_sets

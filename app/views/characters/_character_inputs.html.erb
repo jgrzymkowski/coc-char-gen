@@ -40,7 +40,7 @@
 
 <p>
   <%= f.label :age %><br>
-  <%= f.select(:age, options_for_select((1..100).collect { |i| [i, i]})) %>
+  <%= f.select(:age, options_for_select((1..100).collect { |i| [i, i]}, (character.age if character))) %>
 </p>
 
 <p>

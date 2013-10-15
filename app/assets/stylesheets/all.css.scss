@@ -4,12 +4,12 @@ input.error {
   border-color: red;
 }
 
-p.help {
-  border: 1px;
+.button-box {
+  padding: 20px;
 }
 
-.skills {
-
+.cright {
+  clear: right;
 }
 
 .cleft {
@@ -26,10 +26,16 @@ p.help {
   border-bottom: 1px solid #000000;
 }
 
-.table-edit {
+.fright {
   float: right;
 }
 
 .fleft {
   float: left;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 20px;
+  padding: 10px;
 }

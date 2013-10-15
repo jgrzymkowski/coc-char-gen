@@ -1,3 +1,71 @@
 // Place all the styles related to the characteristic_sets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.characteristic-label {
+  text-align: center;
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+}
+
+.characteristic-box {
+  border-left: 1px solid #000000;
+  border-right: 1px solid #000000;
+}
+
+.characteristic-item-box {
+  padding: 5px;
+}
+
+#order-div {
+  padding: 10px;
+  background-color: #084B8A;
+  width: 230px;
+  height: 248px;
+}
+
+.characteristic-order-box {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding: 2px;
+  width: 200px;
+  background-color: #FFFFFF;
+}
+
+.characteristic-order-item {
+  border: 2px solid #000000;
+}
+
+.characteristic-orderable-item {
+  border: 2px solid #A4A4A4;
+}
+
+#submit-div {
+  margin: 5px;
+  padding: 2px;
+}
+
+.unknown-characteristic {
+  float: right;
+  padding-right: 10px;
+}
+
+.movable-characteristic-container {
+  float: right;
+  position: relative;
+}
+
+.movable-characteristic {
+  float: right;
+  vertical-align: middle;
+  font-size: 30px;
+  position: absolute;
+  left: -18px;
+  top: -8px;
+}
+
+.movable-characteristic:before {
+  content: '\2261';
+}

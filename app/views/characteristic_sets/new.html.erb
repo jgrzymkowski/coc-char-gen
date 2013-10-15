@@ -1,154 +1,39 @@
-<%= form_for :characteristic_set, method: :post, url: character_characteristic_sets_path do |f| %>
-  <p>Do you wish to prioritize your character's attributes?  This will allow you to arrange the attributes' values from highest to lowest (the top-most attribute the will have the highest roll value, and the bottom-most attribute will have the lowest roll value).</p>
-  <button id='yes' type="button">Yes, please!</button><button id='no' type="submit">Nope, roll it!</button>
+<div class='page-title'>
+  Characteristics
+</div>
+<div style="float: left; width: 600px;">
+  <%= form_for :characteristic_set, method: :post, url: character_characteristic_sets_path do |f| %>
+    <div>Do you wish to prioritize your character's attributes?  This will allow you to arrange the attributes' values from highest to lowest (the top-most attribute the will have the highest roll value, and the bottom-most attribute will have the lowest roll value).</div>
+    <div class="button-box">
+      <button id='yes' class="not-movable" type="button">Yes</button>
+      <button type="button" class="movable" id="no-order">Nevermind, don't prioritize.</button>
+    </div>
 
-  <%= f.hidden_field :arranged, value: false %>
-
-  <div id="order_div" style="display:none">
-    <ul id='sortable'>
-      <li characteristic='strength'>
-        <%= f.label :strength %><br>
-      </li>
-
-      <li characteristic='dexterity'>
-        <%= f.label :dexterity %><br>
-      </li>
-
-      <li characteristic='power'>
-        <%= f.label :power %><br>
-      </li>
-
-      <li characteristic='intelligence'>
-        <%= f.label :intelligence%><br>
-      </li>
-
-      <li characteristic='appearance'>
-        <%= f.label :appearance %><br>
-      </li>
-
-      <li characteristic='constitution'>
-        <%= f.label :constitution %><br>
-      </li>
-
-      <li characteristic='size'>
-        <%= f.label :size %><br>
-      </li>
-
-      <li characteristic='education'>
-        <%= f.label :education %><br>
-      </li>
-    </ul>
-
+    <%= f.hidden_field :arranged, value: false %>
     <%= f.hidden_field :order %>
-    <p>
-      <%= f.submit id: 'submit' %>
-    <p>
-  </div>
 
-  <div>
-    <strong>Strength</strong>
-    <ul>
-      <li>effects <strong>damage bonus</strong>.</li>
-    </ul>
-  </div>
+    <%
+      characteristics = {
+         strength: '?',
+         dexterity: '?',
+         power: '?',
+         intelligence: '?',
+         appearance: '?',
+         constitution: '?',
+         size: '?',
+         education: '?'
+      }
+    %>
+    <%= render 'order_characteristics', characteristics: characteristics %>
 
-  <div>
-    <strong>Dexterity</strong>
-    <ul>
-      <li>determines <strong>initiative</strong>.</li>
-      <li>determines <strong>base dodge</strong> skill.</li>
-    </ul>
-  </div>
-
-  <div>
-    <strong>Constitution</strong>
-    <ul>
-      <li>effects <strong>hit points</strong>.</li>
-    </ul>
-  </div>
-
-  <div>
-    <strong>Intelligence</strong>
-    <ul>
-      <li>determines <strong>Idea</strong> characteristic.</li>
-      <li>determines <strong>personal interest</strong> skill points.</li>
-    </ul>
-  </div>
-
-  <div>
-    <strong>Power</strong>
-    <ul>
-      <li>determines <strong>Sanity</strong> characteristic.</li>
-      <li>determines <strong>Luck</strong> characteristic.</li>
-      <li>determines <strong>magic points</strong>.</li>
-    </ul>
-  </div>
-
-  <div>
-    <strong>Size</strong>
-    <ul>
-      <li>effects <strong>damage bonus</strong>.</li>
-      <li>effects <strong>hit points</strong>.</li>
-    </ul>
-  </div>
-
-  <div>
-    <strong>Education</strong>
-    <ul>
-      <li>determines <strong>Know</strong> characteristic.</li>
-      <li>determines <strong>occupational</strong> skill points.</li>
-    </ul>
-  </div>
+    <div class="button-box" >
+      <button type="submit" class="movable" id="submit">Save priority and roll!</button>
+      <button id='no' class="not-movable" type="submit">Nope, roll it!</button>
+    </div>
 <% end %>
-
-<script type='text/javascript'>
-  $('#sortable').sortable();
-  $('#submit').click(function() {
-    var order = _.reduce($('li'), function(memo, item) {
-      memo.push($(item).attr('characteristic'));
-      return memo;
-    }, []).join(',');
-    $('#characteristic_set_order').val(order);
-  });
-
-  $('#yes').click(function() {
-    $('#characteristic_set_arranged').val(true);
-    $('#order_div').show();
-  });
-
-  $('#no').click(function() {
-    $('#characteristic_set_arranged').val(false);
-    $('#order_div').hide();
-  });
+</div>
 
 
-  //  $('#verify').click(function() {
-//
-//  });
-//  var sumModifiers = function() {
-//    return _.reduce($('.modifier'), function(sum, textField) {
-//      return sum + (parseInt($(textField).val()) || 0);
-//    }, 0);
-//  };
-//
-//  $('#verify').click(function() {
-//    var valid = 0 == sumModifiers();
-//    error(!valid);
-//  });
-//
-//  $('#submit').click(function() {
-//    var valid = 0 == sumModifiers();
-//    error(!valid);
-//    return valid;
-//  });
-//
-//  var error = function( isError ) {
-//    if(isError) {
-//      $('input[type=text]').addClass('error');
-//    } else {
-//      $('input[type=text]').removeClass('error');
-//    }
-//  }
-
-
-</script>
+<div style="float: left; width: 300px;">
+  <%= render 'characteristic_info' %>
+</div>

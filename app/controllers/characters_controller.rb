@@ -24,8 +24,8 @@ class CharactersController < ApplicationController
   end
 
   def update
-    character = Character.find( params[:id] )
-    if character.update_attributes( params[:character] )
+    @character = Character.find( params[:id] )
+    if @character.update_attributes( params[:character] )
       render action: :show
     else
       render action: :edit
