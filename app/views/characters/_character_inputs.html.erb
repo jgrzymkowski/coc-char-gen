@@ -1,3 +1,11 @@
+<div class="fright">
+  <%= link_to( 'Characters', characters_path ) + " | "  unless character %>
+  <%= link_to( 'Character Page', character_path( character ) ) + " | " if character %>
+  <%= link_to 'Save', '#', onClick: 'return CoC.submitForm();' %>
+</div>
+<div class='page-title'>
+  Character Information
+</div>
 <p>
   <%= f.label :investigator_name %><br>
   <%= f.text_field :investigator_name %>
@@ -41,10 +49,6 @@
 <p>
   <%= f.label :age %><br>
   <%= f.select(:age, options_for_select((1..100).collect { |i| [i, i]}, (character.age if character))) %>
-</p>
-
-<p>
-  <%= f.submit %>
 </p>
 
 <script type="text/javascript">

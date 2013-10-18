@@ -25,3 +25,7 @@ CoC.humanize_sym =  function(string) {
   } );
   return capitalized.join(' ');
 };
+
+CoC.submitForm = function() {
+  $('form').submit();
+}

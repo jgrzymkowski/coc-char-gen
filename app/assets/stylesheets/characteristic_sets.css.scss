@@ -1,6 +1,10 @@
 // Place all the styles related to the characteristic_sets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.button-box {
+  width: 230px;
+  padding: 10px;
+}
 
 .characteristic-label {
   text-align: center;
@@ -39,7 +43,7 @@
 }
 
 .characteristic-orderable-item {
-  border: 2px solid #A4A4A4;
+  border: 2px solid #000000;
 }
 
 #submit-div {
@@ -61,6 +65,7 @@
   float: right;
   vertical-align: middle;
   font-size: 30px;
+  color: #A4A4A4;
   position: absolute;
   left: -18px;
   top: -8px;

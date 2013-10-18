@@ -3,6 +3,9 @@
   <%= link_to 'Download PDF', character_path( @character, format: :pdf ), method: :get%> |
   <%= link_to 'Delete', character_path( @character ), method: :delete, confirm: 'Are you sure?' %>
 </div>
+<div class="page-title">
+  <%=@character.first_name%> <%=@character.last_name%>
+</div>
 <div class="cright"></div>
 
 <%= render 'character_summary', character: @character %>

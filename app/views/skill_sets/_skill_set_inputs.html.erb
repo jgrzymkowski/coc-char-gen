@@ -1,4 +1,10 @@
-<h1><%= "#{character.first_name} #{character.last_name}" %> Choose Skills</h1>
+<div class="fright">
+  <%= link_to( 'Character Page', character_path( character ) ) + " | " if character %>
+  <%= link_to 'Save', '#', onClick: 'return CoC.submitForm();' %>
+</div>
+<div class="page-title">
+  <%= "#{character.first_name} #{character.last_name}" %> Skills
+</div>
 <p>Choose your skill occupation.  The skill occupation is for choosing
   your occupation-specific skills, and does not have to exactly match
   your previously chosen character's occupation.  However, it should

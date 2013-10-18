@@ -5,8 +5,10 @@
   <%= form_for :characteristic_set, method: :post, url: character_characteristic_sets_path do |f| %>
     <div>Do you wish to prioritize your character's attributes?  This will allow you to arrange the attributes' values from highest to lowest (the top-most attribute the will have the highest roll value, and the bottom-most attribute will have the lowest roll value).</div>
     <div class="button-box">
-      <button id='yes' class="not-movable" type="button">Yes</button>
-      <button type="button" class="movable" id="no-order">Nevermind, don't prioritize.</button>
+      <div class="center w100">
+        <button id='yes' class="not-movable w100" type="button">Yes</button>
+        <button type="button" class="movable w100" id="no-order">No</button>
+      </div>
     </div>
 
     <%= f.hidden_field :arranged, value: false %>
@@ -26,9 +28,11 @@
     %>
     <%= render 'order_characteristics', characteristics: characteristics %>
 
-    <div class="button-box" >
-      <button type="submit" class="movable" id="submit">Save priority and roll!</button>
-      <button id='no' class="not-movable" type="submit">Nope, roll it!</button>
+    <div class="button-box">
+      <div class="center w100">
+        <button type="submit" class="movable w100" id="submit">Roll it!</button>
+        <button id='no' class="not-movable w100" type="submit">Roll it!</button>
+      </div>
     </div>
 <% end %>
 </div>

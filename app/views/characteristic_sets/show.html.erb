@@ -1,8 +1,12 @@
+<div class="fright" >
+  <%= link_to 'Character Page', character_path( @character ) %>
+</div>
 <div class='page-title'>
   Characteristics
 </div>
 <div style="float: left; width: 600px;">
   <div>Do you wish to prioritize your character's attributes?  This will allow you to arrange the attributes' values from highest to lowest (the top-most attribute the will have the highest roll value, and the bottom-most attribute will have the lowest roll value).</div>
+  <div class="button-box"></div>
   <%
      characteristics = {
              strength: @character.characteristic_set.strength,
@@ -16,10 +20,6 @@
      }
   %>
   <%= render 'order_characteristics', characteristics: characteristics %>
-
-  <div class="button-box" >
-    <%= link_to 'Character Page', character_path( @character ) %>
-  </div>
 </div>
 
 

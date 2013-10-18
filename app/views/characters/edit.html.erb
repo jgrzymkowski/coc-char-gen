@@ -1,6 +1,3 @@
-<div class='page-title'>
-  Character Information
-</div>
 <%= form_for @character, method: :put, url: character_path( @character ) do |f| %>
   <%= render 'character_inputs', f: f, character: @character %>
 <% end %>
