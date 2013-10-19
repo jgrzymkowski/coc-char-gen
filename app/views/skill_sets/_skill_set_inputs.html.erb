@@ -15,33 +15,43 @@
   but be sure to consult with your GM.
 </p>
 
-<%= f.select( :skill_occupation,
-              options_for_select(
-                      [['---Choose Occupation---', '']] +
-                              occupations.keys.collect do |occupation|
-                                [sym_to_title( occupation ), occupation]
-                              end ,
-                      (character.skill_set.skill_occupation if character.skill_set)
-              )) %>
-<%= f.hidden_field :occupation_skills %>
-<%= hidden_field_tag :occupation_skills, (character.skill_set.occupation_skills if character.skill_set) %>
-<table id="occupational_skill_table"></table>
-<br/>
-<div>
-  Total Professional Skill Points:
-    <span id="occ_total" original="<%= character.characteristic_set.occupation_skill_points %>">
-        <%= character.characteristic_set.occupation_skill_points %>
-    </span>
-</div>
-<div>
-  Total Personal Interest Skill Points:
-    <span id="pi_total" original="<%= character.characteristic_set.personal_interest_points %>">
-      <%= character.characteristic_set.personal_interest_points %>
-    </span>
-</div>
-<br/>
 
-<table class="skill_table">
+<div class="skill-occupation-box">
+  <%= f.select( :skill_occupation,
+                options_for_select(
+                        [['---Choose Occupation---', '']] +
+                                occupations.keys.collect do |occupation|
+                                  [sym_to_title( occupation ), occupation]
+                                end ,
+                        (character.skill_set.skill_occupation if character.skill_set)
+                )) %>
+  <%= f.hidden_field :occupation_skills %>
+  <%= hidden_field_tag :occupation_skills, (character.skill_set.occupation_skills if character.skill_set) %>
+  <table id="occupational_skill_table"></table>
+</div>
+
+<div class="skill-totals-point-box">
+  <div class="blue-sub-point-total">
+    <div class="point-total">
+      Total Professional Skill Points
+    </div>
+    <div id="occ_total" original="<%= character.characteristic_set.occupation_skill_points %>" class="point-total point-count">
+        <%= character.characteristic_set.occupation_skill_points %>
+    </div>
+  </div>
+  <div class="blue-sub-point-total">
+    <div class="point-total">
+      Total Personal Interest Skill Points
+    </div>
+    <div id="pi_total" original="<%= character.characteristic_set.personal_interest_points %>" class="point-total point-count">
+      <%= character.characteristic_set.personal_interest_points %>
+    </div>
+  </div>
+</div>
+
+<div class="cleft"></div>
+
+<table class="skill-table">
   <thead>
     <th>Skill</th>
     <th>Spent</th>
@@ -183,7 +193,7 @@
 
 </table>
 
-<table class="skill_table">
+<table class="skill-table">
   <thead>
     <th>Skill</th>
     <th>Spent</th>
@@ -215,10 +225,6 @@
     <%= render 'skill_table_input', f: f, skill: :SMG, character: character %>
   </tr>
 </table>
-
-
-<%= f.submit 'Submit' %>
-<%= %>
 
 <script type="text/javascript">
   $(window).load(function() {

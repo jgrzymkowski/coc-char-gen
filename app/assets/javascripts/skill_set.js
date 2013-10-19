@@ -22,7 +22,7 @@ CoC.SkillPointObserver.prototype = {
       }
     );
 
-    var spentSkillInputs = _.filter($('.skill_table input.skill-input'), function(input) {
+    var spentSkillInputs = _.filter($('.skill-table input.skill-input'), function(input) {
       return $(input).val() != '';
     });
 
@@ -32,15 +32,30 @@ CoC.SkillPointObserver.prototype = {
     _.each(spentSkillInputs, function(input) {
       var skill = $(input).parents('td').attr('skill');
       if(_.include(occupationalSkills, skill)) {
-        occTotal.html(
-          parseInt(occTotal.html()) - parseInt($(input).val())
-        );
+        occTotal.html(parseInt(occTotal.html()) - (parseInt($(input).val()) || 0));
       } else {
-        piTotal.html(
-          parseInt(piTotal.html()) - parseInt($(input).val())
-        );
+        piTotal.html(parseInt(piTotal.html()) - (parseInt($(input).val()) || 0));
       }
     } );
+
+    self.validate();
+  },
+
+  validate: function() {
+    var self = this;
+    _.each([$('#'+self.occTotalId), $('#'+self.piTotalId)], function(div) {
+      if( parseInt(div.html()) < 0 ) {
+        div.parent().attr('class', '');
+        div.parent().addClass('red-sub-point-total');
+      } else if( parseInt(div.html()) > 0 ) {
+        div.parent().attr('class', '');
+        div.parent().addClass('blue-sub-point-total');
+      } else {
+        div.parent().attr('class', '');
+        div.parent().addClass('green-sub-point-total');
+      }
+
+    });
   }
 };
 
@@ -58,8 +73,16 @@ CoC.SkillTable.prototype = {
       var skill = inputTd.attr('skill');
       var titleTd = inputTd.siblings('td.' + skill + '-title')
       var totalTd = inputTd.siblings('td.' + skill + '-total');
+      var totalVal = Number(input.val()) + Number(titleTd.attr('base'));
+
+      if(totalVal > 99 || Number(input.val()) < 1) {
+        input.addClass('red');
+      } else {
+        input.removeClass('red');
+      }
+
       if( input.val() ) {
-        totalTd.html(Number(input.val()) + Number(titleTd.attr('base')));
+        totalTd.html(totalVal);
       } else {
         totalTd.html('');
       }

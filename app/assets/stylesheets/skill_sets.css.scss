@@ -3,6 +3,45 @@
   text-align: center;
 }
 
+.skill-occupation-box {
+  width: 300px;
+  padding: 20px;
+  float: left;
+}
+
+.point-total {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
 .skill-total {
   text-align: center;
+}
+
+.skill-table {
+  margin-top: 10px;
+}
+
+.skill-totals-point-box {
+  float: left;
+  margin-top: 20px;
+  width: 300px;
+}
+
+.blue-sub-point-total {
+  border: 10px solid #084B8A;
+  margin-top: 10px;
+}
+
+.red-sub-point-total {
+  border: 10px solid #FF3333;
+  margin-top: 10px;
+}
+
+.green-sub-point-total {
+  border: 10px solid #33CC33;
+  margin-top: 10px;
 }
