@@ -133,53 +133,59 @@ class CharacterSheet
         draw_text c.skill_set.swim_val, at: [480, 317] if c.skill_set.swim?
         draw_text c.skill_set.throw_val, at: [480, 305] if c.skill_set.throw?
         draw_text c.skill_set.track_val, at: [480, 293] if c.skill_set.track?
+
+        draw_text c.skill_set.handgun_val, at: [480, 197] if c.skill_set.handgun?
+        draw_text c.skill_set.machine_gun_val, at: [480, 185] if c.skill_set.machine_gun?
+        draw_text c.skill_set.rifle_val, at: [480, 173] if c.skill_set.rifle?
+        draw_text c.skill_set.shotgun_val, at: [480, 161] if c.skill_set.shotgun?
+        draw_text c.skill_set.SMG_val, at: [480, 149] if c.skill_set.SMG?
       end
 
-      draw_text 'AB', at: [83, 86]
-      draw_text 'CD', at: [83, 72]
-      draw_text 'EF', at: [83, 58]
-      draw_text 'GH', at: [83, 44]
+      draw_text c.skill_set.fist_val, at: [84, 86] if c.skill_set.fist?
+      draw_text c.skill_set.grapple_val, at: [84, 72] if c.skill_set.grapple?
+      draw_text c.skill_set.head_val, at: [84, 58] if c.skill_set.head?
+      draw_text c.skill_set.kick_val, at: [84, 44] if c.skill_set.kick?
 
-      draw_text 'IJ', at: [325, 86]
-      draw_text 'KL', at: [325, 72]
-      draw_text 'MN', at: [325, 58]
-      draw_text 'OP', at: [325, 44]
-
-      draw_text '1D6+1', at: [353, 86]
-      draw_text '10', at: [398, 86]
-      draw_text '1/2', at: [453, 86]
-      draw_text '100', at: [475, 86]
-      draw_text '10', at: [501, 86]
-
-      draw_text '2D6+1', at: [353, 72]
-      draw_text '20', at: [398, 72]
-      draw_text '2/2', at: [453, 72]
-      draw_text '200', at: [475, 72]
-      draw_text '20', at: [501, 72]
-
-      draw_text '3D6+1', at: [353, 58]
-      draw_text '30', at: [398, 58]
-      draw_text '3/2', at: [453, 58]
-      draw_text '300', at: [475, 58]
-      draw_text '30', at: [501, 58]
-
-      draw_text '4D6+1', at: [353, 44]
-      draw_text '40', at: [398, 44]
-      draw_text '4/2', at: [453, 44]
-      draw_text '400', at: [475, 44]
-      draw_text '40', at: [501, 44]
-
-      draw_text 'Gun 1', at: [280, 86]
-      draw_text '100yds', at: [420, 86]
-
-      draw_text 'Gun 2', at: [280, 72]
-      draw_text '200yds', at: [420, 72]
-
-      draw_text 'Gun 3', at: [280, 58]
-      draw_text '300yds', at: [420, 58]
-
-      draw_text 'Gun 4', at: [280, 44]
-      draw_text '400yds', at: [420, 44]
+      #draw_text 'IJ', at: [325, 86]
+      #draw_text 'KL', at: [325, 72]
+      #draw_text 'MN', at: [325, 58]
+      #draw_text 'OP', at: [325, 44]
+      #
+      #draw_text '1D6+1', at: [353, 86]
+      #draw_text '10', at: [398, 86]
+      #draw_text '1/2', at: [453, 86]
+      #draw_text '100', at: [475, 86]
+      #draw_text '10', at: [501, 86]
+      #
+      #draw_text '2D6+1', at: [353, 72]
+      #draw_text '20', at: [398, 72]
+      #draw_text '2/2', at: [453, 72]
+      #draw_text '200', at: [475, 72]
+      #draw_text '20', at: [501, 72]
+      #
+      #draw_text '3D6+1', at: [353, 58]
+      #draw_text '30', at: [398, 58]
+      #draw_text '3/2', at: [453, 58]
+      #draw_text '300', at: [475, 58]
+      #draw_text '30', at: [501, 58]
+      #
+      #draw_text '4D6+1', at: [353, 44]
+      #draw_text '40', at: [398, 44]
+      #draw_text '4/2', at: [453, 44]
+      #draw_text '400', at: [475, 44]
+      #draw_text '40', at: [501, 44]
+      #
+      #draw_text 'Gun 1', at: [280, 86]
+      #draw_text '100yds', at: [420, 86]
+      #
+      #draw_text 'Gun 2', at: [280, 72]
+      #draw_text '200yds', at: [420, 72]
+      #
+      #draw_text 'Gun 3', at: [280, 58]
+      #draw_text '300yds', at: [420, 58]
+      #
+      #draw_text 'Gun 4', at: [280, 44]
+      #draw_text '400yds', at: [420, 44]
     end
     filename
   end

@@ -36,6 +36,8 @@ class SkillSet < ActiveRecord::Base
 
   ALL_SKILLS.each do |k, v|
     define_method( "#{k}_val" ) do
+      puts '*'*10
+      puts k.inspect
       if SKILL_CATEGORIES.keys.include? k
         JSON.parse(eval(k.to_s)).reduce({}) do |m, pair|
           m.merge!( pair[0] => pair[1].to_i + v )
@@ -45,7 +47,7 @@ class SkillSet < ActiveRecord::Base
       elsif (k.to_s == 'own_language')
         eval(k.to_s).to_i + character.characteristic_set.education*5
       else
-        eval(k.to_s).to_i + v
+        self.send(k.to_s).to_i + v
       end
     end
   end

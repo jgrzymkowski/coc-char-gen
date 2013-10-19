@@ -8,13 +8,17 @@
 
 .characteristic-label {
   text-align: center;
-  border-top: 1px solid #000000;
-  border-bottom: 1px solid #000000;
+  border-top: 1px solid #909090;
+  border-bottom: 1px solid #909090;
 }
 
 .characteristic-box {
-  border-left: 1px solid #000000;
-  border-right: 1px solid #000000;
+  border-left: 1px solid #909090;
+  border-right: 1px solid #909090;
+}
+
+.characteristic-box-bottom {
+  border-bottom: 1px solid #909090;
 }
 
 .characteristic-item-box {
