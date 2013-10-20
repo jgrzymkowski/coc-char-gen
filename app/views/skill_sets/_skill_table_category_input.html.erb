@@ -7,10 +7,10 @@
    end
  %>
 <td class="<%=skill.to_s%>-title" base="<%= skill_base skill %>">
-  <%= text_field_tag "#{skill.to_s}#{i}_title", title %>
+  <%= text_field_tag "skill_set[#{skill.to_s}#{i}_title]", title %>
 </td>
 <td skill="<%=skill.to_s%>">
-  <%= text_field_tag "#{skill.to_s}#{i}_val", sub_value, class: 'skill-input' %>
+  <%= text_field_tag "skill_set[#{skill.to_s}#{i}_val]", sub_value, class: 'skill-input' %>
 </td>
 <td class="<%=skill.to_s%>-total skill-total">
   <%= total %>

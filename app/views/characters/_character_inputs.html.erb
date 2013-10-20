@@ -1,14 +1,18 @@
 <div class="fright">
-  <%= link_to( 'Characters', characters_path ) + " | "  unless character %>
-  <%= link_to( 'Character Page', character_path( character ) ) + " | " if character %>
+  <%= link_to( 'Characters', characters_path ) + " | "  unless ( character  && character.id ) %>
+  <%= link_to( 'Character Page', character_path( character ) ) + " | " if ( character && character.id ) %>
   <%= link_to 'Save', '#', onClick: 'return CoC.submitForm();' %>
 </div>
+
 <div class='page-title'>
   Character Information
 </div>
+
+<%= render '/errors' %>
+
 <p>
-  <%= f.label :investigator_name %><br>
-  <%= f.text_field :investigator_name %>
+  <%= f.label :player_name %><br>
+  <%= f.text_field :player_name %>
 </p>
 
 <p>

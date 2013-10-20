@@ -1,6 +1,6 @@
 one:
   id: 1
-  investigator_name: Jeremy
+  player_name: Jeremy
   first_name: Bob
   last_name: Smith
   occupation: Engineer

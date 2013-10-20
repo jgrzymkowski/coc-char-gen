@@ -37,9 +37,12 @@ input.error {
   clear: left;
 }
 
-html {
-  background-color: #383838;
-  color: #FFFFFF;
+.errors {
+  text-align: center;
+  background-color: pink;
+  color: red;
+  border: 2px solid red;
+  padding: 10px;
 }
 
 .fright {
@@ -48,6 +51,11 @@ html {
 
 .fleft {
   float: left;
+}
+
+html {
+  background-color: #383838;
+  color: #FFFFFF;
 }
 
 .page-title {
@@ -68,6 +76,7 @@ html {
 
 .table-title {
   border-bottom: 1px solid #909090;
+  padding: 3px;
 }
 
 td {

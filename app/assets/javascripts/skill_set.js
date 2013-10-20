@@ -32,7 +32,15 @@ CoC.SkillPointObserver.prototype = {
     _.each(spentSkillInputs, function(input) {
       var skill = $(input).parents('td').attr('skill');
       if(_.include(occupationalSkills, skill)) {
-        occTotal.html(parseInt(occTotal.html()) - (parseInt($(input).val()) || 0));
+        var currentTotal = parseInt(occTotal.html());
+        var skillPoints = parseInt($(input).val()) || 0;
+        var difference = currentTotal - skillPoints;
+        if(difference < 0) {
+          piTotal.html(parseInt(piTotal.html()) + difference);
+          occTotal.html(0);
+        } else {
+          occTotal.html(difference);
+        }
       } else {
         piTotal.html(parseInt(piTotal.html()) - (parseInt($(input).val()) || 0));
       }
@@ -75,7 +83,7 @@ CoC.SkillTable.prototype = {
       var totalTd = inputTd.siblings('td.' + skill + '-total');
       var totalVal = Number(input.val()) + Number(titleTd.attr('base'));
 
-      if(totalVal > 99 || Number(input.val()) < 1) {
+      if(totalVal > 99 || (Number(input.val()) < 1 && input.val() != '')) {
         input.addClass('red');
       } else {
         input.removeClass('red');

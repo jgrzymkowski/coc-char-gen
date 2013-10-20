@@ -3,9 +3,14 @@ class CharactersController < ApplicationController
   end
 
   def create
-    character = Character.new( params[:character] )
-    character.save!
-    redirect_to character_path character
+    @character = Character.new( params[:character] )
+    unless @character.valid?
+      flash[:error] = @character.errors.full_messages.join '<br/>'
+      render 'new'
+    else
+      @character.save!
+      redirect_to character_path @character
+    end
   end
 
   def show
@@ -33,6 +38,7 @@ class CharactersController < ApplicationController
   end
 
   def index
+    puts '$'*100
     @characters = Character.all
   end
 
