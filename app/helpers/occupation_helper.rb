@@ -1,6 +1,6 @@
 module OccupationHelper
   def occupations
-    YAML.load_file(Rails.root.join 'app/resources', 'occupation_skills.yaml')
+    YAML.load_file(Rails.root.join 'app/resources', 'occupation_skills.yml')
   end
 
   def occupations_json
