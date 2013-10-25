@@ -1,0 +1,6 @@
+- character photos
+- weapons
+- page 2 character info
+- skill-validation
+- age/education
+- users/logins

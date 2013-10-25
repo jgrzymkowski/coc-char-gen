@@ -38,7 +38,6 @@ class CharactersController < ApplicationController
   end
 
   def index
-    puts '$'*100
     @characters = Character.all
   end
 
