@@ -145,6 +145,8 @@ class CharacterSheet
       draw_text c.skill_set.grapple_val, at: [84, 72] if c.skill_set.grapple?
       draw_text c.skill_set.head_val, at: [84, 58] if c.skill_set.head?
       draw_text c.skill_set.kick_val, at: [84, 44] if c.skill_set.kick?
+      draw_text c.skill_set.melee_val, at: [84, 30] if c.skill_set.melee?
+      draw_text 'Melee (0%)', at: [32, 30] if c.skill_set.melee?
 
       #draw_text 'IJ', at: [325, 86]
       #draw_text 'KL', at: [325, 72]

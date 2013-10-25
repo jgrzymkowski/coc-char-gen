@@ -232,12 +232,8 @@
     </tr>
   </table>
 
-  <div class="weapon-title">Weapons</div>
+  <div class="weapon-title">Weapon Skills</div>
   <table>
-    <thead>
-      <th colspan=2>Melee</th>
-      <th colspan=2>Firearm</th>
-    </thead>
     <tbody>
       <tr>
         <td><%= table_title :fist %></td>
@@ -268,8 +264,8 @@
         <td><%= skill_set.shotgun_val if skill_set.shotgun%></td>
       </tr>
       <tr>
-        <td/></td>
-        <td></td>
+        <td><%= table_title :melee %></td>
+        <td><%= skill_set.melee_val if skill_set.melee %></td>
 
         <td><%= table_title :SMG %></td>
         <td><%= skill_set.shotgun_val if skill_set.shotgun %></td>

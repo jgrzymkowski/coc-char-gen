@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(:version => 20131020203113) do
     t.integer  "grapple"
     t.integer  "head"
     t.integer  "kick"
+    t.integer  "melee"
     t.text     "art"
     t.text     "craft"
     t.text     "other_language"
