@@ -1,10 +1,14 @@
 module WeaponsHelper
   include ApplicationHelper
 
-    def all_weapons
-    load_weapons_yaml.map do |h|
-      Weapon.new h
+  def all_weapons
+    load_weapons_yaml.reduce({}) do |memo, h|
+      memo.merge!( h[:id] => Weapon.new( h ) )
     end
+  end
+
+  def weapon_by_id( id )
+    all_weapons[id]
   end
 
   private

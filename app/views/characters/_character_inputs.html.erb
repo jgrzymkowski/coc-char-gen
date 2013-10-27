@@ -10,12 +10,12 @@
 
 <%= render '/errors' %>
 
-<p>
+<div class="char_field">
   <%= f.label :player_name %><br>
   <%= f.text_field :player_name %>
-</p>
+</div>
 
-<p>
+<div class="char_field">
   <%= f.label :gender %><br>
   <%= f.radio_button( :gender, "f", checked: true ) %>
   <%= f.label( :gender_m, "Female" ) %>
@@ -23,37 +23,42 @@
   <%= f.label( :gender_m, "Male" ) %>
   <%= f.radio_button( :gender, "o" ) %>
   <%= f.label( :gender_o, "Other" ) %>
-</p>
+</div>
 
-<p>
+<div class="char_field">
   <%= f.label :first_name %><br>
-  <%= f.text_field :first_name %> <%= f.button 'Random', id: 'firstNameRand', type: 'button' %>
-</p>
+  <div class="fleft"><%= f.text_field :first_name %></div> <%= content_tag :div, 'Random', id: 'firstNameRand', class: 'button' %>
+  <div class="cleft"></div>
+</div>
 
-<p>
+<div class="char_field">
   <%= f.label :last_name %><br>
-  <%= f.text_field :last_name %> <%= f.button 'Random', id: 'lastNameRand', type: 'button' %>
-</p>
+  <div class="fleft"><%= f.text_field :last_name %></div>
+  <%= content_tag :div, 'Random', id: 'lastNameRand', class: 'button fleft' %>
+  <div class="cleft"></div>
+</div>
 
-<p>
+<div class="char_field">
   <%= f.label :occupation %><br>
   <%= f.text_field :occupation %>
-</p>
+</div>
 
-<p>
+<div class="char_field">
   <%= f.label :degrees %><br>
   <%= f.text_field :degrees%>
-</p>
+</div>
 
-<p>
+<div class="char_field">
   <%= f.label :birthplace %><br>
-  <%= f.text_field :birthplace %> <%= f.button 'Random', id: 'cityRand', type: 'button' %>
-</p>
+  <div class="fleft"><%= f.text_field :birthplace %></div>
+  <%= content_tag :div, 'Random', id: 'cityRand', class: 'button fleft' %>
+  <div class="cleft"></div>
+</div>
 
-<p>
+<div class="char_field">
   <%= f.label :age %><br>
   <%= f.select(:age, options_for_select((1..100).collect { |i| [i, i]}, (character.age if character))) %>
-</p>
+</div>
 
 <script type="text/javascript">
   $(window).load(function() {

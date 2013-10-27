@@ -1,4 +1,6 @@
 class CharacterSheet
+  include WeaponsHelper
+
   BASE_CHARACTER_SHEET = "#{Rails.root}/app/resources/coc6_1920_sheet.pdf"
 
   def initialize( character )
@@ -148,46 +150,51 @@ class CharacterSheet
       draw_text c.skill_set.melee_val, at: [84, 30] if c.skill_set.melee?
       draw_text 'Melee (0%)', at: [32, 30] if c.skill_set.melee?
 
-      #draw_text 'IJ', at: [325, 86]
+
       #draw_text 'KL', at: [325, 72]
       #draw_text 'MN', at: [325, 58]
       #draw_text 'OP', at: [325, 44]
-      #
-      #draw_text '1D6+1', at: [353, 86]
-      #draw_text '10', at: [398, 86]
-      #draw_text '1/2', at: [453, 86]
-      #draw_text '100', at: [475, 86]
-      #draw_text '10', at: [501, 86]
-      #
-      #draw_text '2D6+1', at: [353, 72]
-      #draw_text '20', at: [398, 72]
-      #draw_text '2/2', at: [453, 72]
-      #draw_text '200', at: [475, 72]
-      #draw_text '20', at: [501, 72]
-      #
-      #draw_text '3D6+1', at: [353, 58]
-      #draw_text '30', at: [398, 58]
-      #draw_text '3/2', at: [453, 58]
-      #draw_text '300', at: [475, 58]
-      #draw_text '30', at: [501, 58]
-      #
-      #draw_text '4D6+1', at: [353, 44]
-      #draw_text '40', at: [398, 44]
-      #draw_text '4/2', at: [453, 44]
-      #draw_text '400', at: [475, 44]
-      #draw_text '40', at: [501, 44]
-      #
-      #draw_text 'Gun 1', at: [280, 86]
-      #draw_text '100yds', at: [420, 86]
-      #
-      #draw_text 'Gun 2', at: [280, 72]
-      #draw_text '200yds', at: [420, 72]
-      #
-      #draw_text 'Gun 3', at: [280, 58]
-      #draw_text '300yds', at: [420, 58]
-      #
-      #draw_text 'Gun 4', at: [280, 44]
-      #draw_text '400yds', at: [420, 44]
+
+      i = 0
+      c.weapons.each do |weapon|
+        draw_text weapon.name.slice(0, 11), at: [275, 86-i]
+
+        base = weapon.base.to_i
+        case weapon.type
+          when 'hand_to_hand'
+            base += c.skill_set.melee if c.skill_set.melee
+          when 'handgun'
+            base += c.skill_set.handgun if c.skill_set.handgun?
+          when 'rifle'
+            base += c.skill_set.rifle if c.skill_set.rifle?
+          when 'shotgun'
+            base += c.skill_set.shotgun if c.skill_set.shotgun?
+          when 'machine_gun'
+            base += c.skill_set.machine_gun if c.skill_set.machine_gun?
+          when 'smb'
+            base += c.skill_set.SMB_val
+        end
+        draw_text base, at: [325, 86-i]
+
+        font("#{Rails.root}/app/resources/comicsans.ttf", size: 5) if weapon.damage_done.length > 8
+        draw_text weapon.damage_done, at: [349, 86-i]
+        font("#{Rails.root}/app/resources/comicsans.ttf", size: 8)
+
+        draw_text weapon.mal, at: [398, 86-i]
+
+        range = weapon.base_range.split(' yards')[0]
+
+        font("#{Rails.root}/app/resources/comicsans.ttf", size: 6) if range.length > 6
+        draw_text range, at: [420, 86-i]
+        font("#{Rails.root}/app/resources/comicsans.ttf", size: 8)
+
+        draw_text weapon.attacks_per_round, at: [453, 86-i]
+
+        draw_text weapon.bullets_in_gun, at: [480, 86-i]
+
+        draw_text weapon.hps_resistance, at: [501, 86-i]
+        i += 14
+      end
     end
     filename
   end

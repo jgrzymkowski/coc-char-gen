@@ -273,7 +273,7 @@
   :name: War Boomerang
   :base: Throw %
   :damage_done: 1D8
-  :base_range: see Throw
+  :base_range: Throw
   :attacks_per_round: 1/2
   :bullets_in_gun:
   :hps_resistance: '8'
@@ -291,7 +291,7 @@
   :name: Thrown Rock
   :base: Throw %
   :damage_done: 1D4
-  :base_range: see Throw
+  :base_range: Throw
   :attacks_per_round: '1'
   :bullets_in_gun:
   :hps_resistance: '8'
@@ -306,7 +306,7 @@
   :name: Thrown Spear
   :base: Throw %
   :damage_done: 1D8+1
-  :base_range: see Throw
+  :base_range: Throw
   :attacks_per_round: 1/2
   :bullets_in_gun:
   :hps_resistance: '15'
@@ -324,7 +324,7 @@
   :name: Quoit
   :base: '25'
   :damage_done: 1D6+1+1/2 db
-  :base_range: see Throw
+  :base_range: Throw
   :attacks_per_round: '1'
   :bullets_in_gun:
   :hps_resistance: '15'

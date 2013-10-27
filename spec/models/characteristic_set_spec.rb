@@ -24,8 +24,6 @@ describe CharacteristicSet do
     it 'has a minimum education of age + 6' do
       RandomGenerators.stub( :generate_3d6_3_stat ).and_return 50
       cs = CharacteristicSet.new( age: 18 )
-      puts cs.errors.inspect
-      puts (cs.methods - Object.methods).inspect
       CharacteristicSet.new( age: 18 ).education.should == 12
     end
 

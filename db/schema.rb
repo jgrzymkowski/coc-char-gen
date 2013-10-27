@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131020203113) do
+ActiveRecord::Schema.define(:version => 20131025225330) do
 
   create_table "characteristic_sets", :force => true do |t|
     t.integer  "strength"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20131020203113) do
     t.integer  "age"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "weapon_ids"
   end
 
   create_table "skill_sets", :force => true do |t|

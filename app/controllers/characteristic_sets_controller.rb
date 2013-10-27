@@ -12,9 +12,6 @@ class CharacteristicSetsController < ApplicationController
     else
       @character.create_characteristic_set( generate_random_stats ).save
     end
-    puts '!'*100
-    puts character_characteristic_set_path( @character, @character.characteristic_set )
-    puts '*'*100
     redirect_to character_characteristic_set_path( @character, @character.characteristic_set )
   end
 

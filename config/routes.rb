@@ -2,8 +2,10 @@ Coc::Application.routes.draw do
   root to: "characters#index"
 
   resources :characters do
-    resources :characteristic_sets
-    resources :skill_sets
+    resources :characteristic_sets, only: [ :new, :create, :show ]
+    resources :skill_sets, only: [ :new, :create, :edit, :update ]
+    get '/weapons', to: 'weapons#edit'
+    put '/weapons', to: 'weapons#update'
   end
 
   get '/name_maker/first/:gender', to: 'name_maker#first'

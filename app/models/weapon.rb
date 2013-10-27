@@ -5,6 +5,7 @@ class Weapon
     @id = properties[:id]
     @type = properties[:type]
     @name = properties[:name]
+    @base = properties[:base]
     @damage_done = properties[:damage_done]
     @base_range = properties[:base_range]
     @attacks_per_round = properties[:attacks_per_round]

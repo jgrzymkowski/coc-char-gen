@@ -6,6 +6,11 @@ $(window).load(function() {
       return memo;
     }, []).join(',');
     $('#characteristic_set_order').val(order);
+    CoC.submitForm();
+  });
+
+  $('#no').click(function() {
+    CoC.submitForm();
   });
 
   $('#yes').click(function() {

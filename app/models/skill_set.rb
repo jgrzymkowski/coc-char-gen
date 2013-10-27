@@ -36,8 +36,6 @@ class SkillSet < ActiveRecord::Base
 
   ALL_SKILLS.each do |k, v|
     define_method( "#{k}_val" ) do
-      puts '*'*10
-      puts k.inspect
       if SKILL_CATEGORIES.keys.include? k
         JSON.parse(eval(k.to_s)).reduce({}) do |m, pair|
           m.merge!( pair[0] => pair[1].to_i + v )
