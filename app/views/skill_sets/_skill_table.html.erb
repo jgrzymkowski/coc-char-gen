@@ -1,14 +1,15 @@
 <% skill_set = character.skill_set %>
 <div class="table-summary characteristics">
   <div class="table-title">
-    <span>Skills</span>
-    <span class="fright">
+    <div class="fleft">Skills</div>
+    <div class="fright" style="margin-left: 50px;">
     <% if skill_set %>
       <%= link_to 'Edit', edit_character_skill_set_path( character ) %>
     <% elsif character.characteristic_set %>
       <%= link_to 'Add Skills', new_character_skill_set_path( character ) %>
     <% end %>
-    </span>
+    </div>
+    <div class="clear"></div>
   </div>
   <% if skill_set %>
   <table>

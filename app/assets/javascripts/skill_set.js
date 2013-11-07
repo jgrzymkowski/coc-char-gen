@@ -5,7 +5,7 @@ if( !CoC.SkillPointObserver ) { CoC.SkillPointObserver= {}; }
 if( !CoC.SubSkills ) { CoC.SubSkills= {}; }
 
 CoC.SkillPointObserver = function(options) {
-  this.occupationalSkillTableId = options.occupationalSkillTableId
+  this.occupationalSkillTableId = options.occupationalSkillTableId;
   this.occTotalId = options.occTotalId;
   this.piTotalId = options.piTotalId;
 };
@@ -55,14 +55,16 @@ CoC.SkillPointObserver.prototype = {
       if( parseInt(div.html()) < 0 ) {
         div.parent().attr('class', '');
         div.parent().addClass('red-sub-point-total');
+        div.parent().attr('errorMessage', 'You have exceeded your allotted skill points.');
       } else if( parseInt(div.html()) > 0 ) {
         div.parent().attr('class', '');
+        div.parent().removeAttr('errorMessage');
         div.parent().addClass('blue-sub-point-total');
       } else {
         div.parent().attr('class', '');
+        div.parent().removeAttr('errorMessage');
         div.parent().addClass('green-sub-point-total');
       }
-
     });
   }
 };
@@ -79,24 +81,43 @@ CoC.SkillTable.prototype = {
       var input = $(event.target);
       var inputTd = input.parent('td');
       var skill = inputTd.attr('skill');
-      var titleTd = inputTd.siblings('td.' + skill + '-title')
+      var titleTd = inputTd.siblings('td.' + skill + '-title');
       var totalTd = inputTd.siblings('td.' + skill + '-total');
       var totalVal = Number(input.val()) + Number(titleTd.attr('base'));
+      var categoryTitle = $($('input', titleTd)[0]);
 
-      if(totalVal > 99 || (Number(input.val()) < 1 && input.val() != '')) {
-        input.addClass('red');
-      } else {
-        input.removeClass('red');
+      if(categoryTitle.size() > 0) {
+        categoryTitle.change(function() { self.validateInput(totalVal, input, titleTd, categoryTitle); });
       }
-
-      if( input.val() ) {
-        totalTd.html(totalVal);
-      } else {
-        totalTd.html('');
-      }
+      self.validateInput(totalVal, input, titleTd, categoryTitle);
+      self.updateTotal(input, totalTd, totalVal);
       self.pointObserver.notify();
     });
+  },
+
+  validateInput: function(totalVal, input, titleTd, categoryTitle) {
+    if(totalVal > 99 || (Number(input.val()) < 1 && input.val() != '')) {
+      input.addClass('red');
+
+      var skillTitle = titleTd.html().split('(')[0].trim();
+      if(categoryTitle.size() > 0) {
+        skillTitle = categoryTitle.val();
+      }
+      input.attr('errorMessage', 'Total skill value must not exceed 99 (' + skillTitle + ').')
+    } else {
+      input.removeClass('red');
+      input.removeAttr('errorMessage')
+    }
+  },
+
+  updateTotal: function(input, totalTd, totalVal) {
+    if( input.val() ) {
+      totalTd.html(totalVal);
+    } else {
+      totalTd.html('');
+    }
   }
+
 };
 
 CoC.OccupationalSkillList = function(properties) {
@@ -127,7 +148,7 @@ CoC.OccupationalSkillList.prototype = {
   //updates table with select skills
   updateOccupationSkillOptions: function() {
     var self = this;
-    var options = self.properties.occupations[$('#skill_set_skill_occupation').val()].options
+    var options = self.properties.occupations[$('#skill_set_skill_occupation').val()].options;
     _.each(options, function(option) {
       var skillOptions;
       if(option == 'any') {

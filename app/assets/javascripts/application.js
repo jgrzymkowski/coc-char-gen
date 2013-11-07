@@ -27,5 +27,15 @@ CoC.humanize_sym =  function(string) {
 };
 
 CoC.submitForm = function() {
-  $('form').submit();
+  var errors = _.map($('[errorMessage]'), function(element) {
+    return $(element).attr('errorMessage');
+  });
+  if( errors.length > 0 ) {
+    var message = _.reduce(errors, function(memo, error) {
+      return memo + "\n* " + error;
+    }, "There are errors on the page.");
+    alert(message);
+  } else {
+    $('form').submit();
+  }
 }
