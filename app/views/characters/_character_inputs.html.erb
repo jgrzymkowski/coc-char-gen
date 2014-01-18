@@ -51,14 +51,91 @@
 <div class="char_field">
   <%= f.label :birthplace %><br>
   <div class="fleft"><%= f.text_field :birthplace %></div>
-  <%= content_tag :div, 'Random', id: 'cityRand', class: 'button fleft' %>
+  <%= content_tag :div, 'Random', id: 'birthplaceRand', class: 'button fleft' %>
   <div class="cleft"></div>
 </div>
 
 <div class="char_field">
   <%= f.label :age %><br>
-  <%= f.select(:age, options_for_select((1..100).collect { |i| [i, i]}, (character.age if character))) %>
+  <div class="fleft">
+    <%= f.select(:age, options_for_select((1..100).collect { |i| [i, i]}, (character.age if character))) %>
+  </div>
+  <%= content_tag :div, 'Random', id: 'ageRand', class: 'button fleft' %>
+  <div class="cleft"></div>
 </div>
+
+<% if character %>
+  <div class="char_field">
+    <%= f.label :income %><br/>
+    <div class="fleft">
+      <%= f.select( :income,
+                  options_for_select( [["", nil]] + [0.1,0.5,1,2,3,4,5,6,7,8,9,10].collect do |i|
+                    ["#{(i*10).to_i}k", i*10000]
+                  end,
+                  (character.income if character ))) %>
+    </div>
+    <%= content_tag :div, 'Random', id: 'incomeRand', class: 'button fleft' %>
+    <div class="cleft"></div>
+  </div>
+
+  <div class="char_field">
+    <%= f.label :residence %><br>
+    <div class="fleft"><%= f.text_field :residence, maxlength: 33 %></div>
+    <%= content_tag :div, 'Random', id: 'residenceRand', class: 'button fleft'%>
+    <div class="cleft"></div>
+  </div>
+
+  <div class="char_field">
+    <%= f.label :personal_description %><br>
+    <%= f.text_area :personal_description, maxlength: 144 %>
+  </div>
+
+  <div class="char_field">
+    <%= f.label :family_and_friends %><br>
+    <%= f.text_area :family_and_friends, maxlength: 199 %>
+  </div>
+
+  <div class="char_field">
+    <%= f.label :episodes_of_insanity %><br>
+    <%= f.text_area :episodes_of_insanity, maxlength: 106 %>
+  </div>
+
+  <div class="char_field">
+    <%= f.label :wounds_and_injuries %><br>
+    <%= f.text_area :wounds_and_injuries, maxlength: 144 %>
+  </div>
+
+  <div class="char_field">
+    <%= f.label :marks_and_scars %><br>
+    <%= f.text_area :marks_and_scars, maxlength: 144 %>
+  </div>
+
+  <div class="char_field">
+    <%= f.label :cash %><br>
+    <%= f.text_field :cash %>
+  </div>
+
+  <div class="char_field">
+    <%= f.label :savings %><br>
+    <%= f.text_field :savings %>
+  </div>
+
+  <div class="char_field">
+    <%= f.label :personal_property %><br>
+    <%= f.text_area :property %>
+  </div>
+
+  <div class="char_field">
+    <%= f.label :real_estate %><br>
+    <%= f.text_area :real_estate %>
+  </div>
+
+  <div class="char_field">
+    <%= f.label :history %><br>
+    <%= f.text_area :history, class: 'history_text' %>
+  </div>
+<% end %>
+
 
 <script type="text/javascript">
   $(window).load(function() {
@@ -67,15 +144,25 @@
               'character_first_name',
               'character[gender]');
     });
+
     $('#lastNameRand').click(function() {
-      CoC.Character.randomLastName(
-              'character_last_name'
-      )
+      CoC.Character.randomLastName('character_last_name');
     });
-    $('#cityRand').click(function() {
-      CoC.Character.randomCity(
-              'character_birthplace'
-      )
+
+    $('#birthplaceRand').click(function() {
+      CoC.Character.randomCity('character_birthplace');
+    });
+
+    $('#residenceRand').click(function() {
+      CoC.Character.randomCity('character_residence');
+    });
+
+    $('#ageRand').click(function() {
+      CoC.Character.randomSelect('character_age');
+    });
+
+    $('#incomeRand').click(function() {
+      CoC.Character.randomSelect('character_income');
     });
   })
 </script>

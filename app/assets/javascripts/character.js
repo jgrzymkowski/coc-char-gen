@@ -35,3 +35,12 @@ CoC.Character.randomCity= function(birthplaceInputId) {
   });
 };
 
+CoC.Character.randomSelect = function(selectInputId) {
+  $('#' + selectInputId).val(_.shuffle(
+    _.filter(
+      _.map(
+        $('#' + selectInputId + ' option'), function(o) {
+          return $(o).attr('value');}), function(o) {
+        return !!o;}))[0]);
+};
+

@@ -55,7 +55,8 @@ CoC.SkillPointObserver.prototype = {
       if( parseInt(div.html()) < 0 ) {
         div.parent().attr('class', '');
         div.parent().addClass('red-sub-point-total');
-        div.parent().attr('errorMessage', 'You have exceeded your allotted skill points.');
+        //todo fix this
+//        div.parent().attr('errorMessage', 'You have exceeded your allotted skill points.');
       } else if( parseInt(div.html()) > 0 ) {
         div.parent().attr('class', '');
         div.parent().removeAttr('errorMessage');

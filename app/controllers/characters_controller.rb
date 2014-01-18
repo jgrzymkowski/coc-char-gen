@@ -18,7 +18,7 @@ class CharactersController < ApplicationController
     respond_to do |format|
       format.html {  }
       format.pdf do
-        @filename = CharacterSheet.new( @character ).generate
+        @filename = CharacterSheetGenerator.new( @character ).generate
         send_file @filename, type: 'application/pdf'
       end
     end

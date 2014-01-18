@@ -210,75 +210,67 @@ class CharacterSheetGenerator
                                            "#{c.first_name} #{c.last_name}",
                                            self
 
-      residence = "And in each others' shadows we grew less and less small.  And eventually our theories couldn't explain it all.  I am recording our history upon the bedroom wall and eventually the landlord will come paint over it all."
-      #text_box residence,
       CharacterSheetGenerator.flowing_text_box 83,
                                            674,
                                            31,
                                            233,
                                            1,
                                            1,
-                                           residence,
+                                           c.residence,
                                            self
 
-      personal_description = "And in each others' shadows we grew less and less small.  And eventually our theories couldn't explain it all.  I am recording our history upon the bedroom wall and eventually the landlord will come paint over it all."
       CharacterSheetGenerator.flowing_text_box 130,
                                            660,
                                            31,
                                            233,
                                            3,
                                            1,
-                                           personal_description,
+                                           c.personal_description,
                                            self
 
-      friends_and_family = "And in each others' shadows we grew less and less small.  And eventually our theories couldn't explain it all.  I am recording our history upon the bedroom wall and eventually the landlord will come paint over it all."
       CharacterSheetGenerator.flowing_text_box 114,
                                            618,
                                            31,
                                            233,
                                            4,
                                            1,
-                                           friends_and_family,
+                                           c.family_and_friends,
                                            self
 
-      episodes_of_insanity = "And in each others' shadows we grew less and less small.  And eventually our theories couldn't explain it all.  I am recording our history upon the bedroom wall and eventually the landlord will come paint over it all."
       CharacterSheetGenerator.flowing_text_box 280,
                                            674,
                                            280,
                                            233,
                                            2,
                                            1,
-                                           episodes_of_insanity,
+                                           c.episodes_of_insanity,
                                            self
 
-      wounds_and_injuries = "And in each others' shadows we grew less and less small.  And eventually our theories couldn't explain it all.  I am recording our history upon the bedroom wall and eventually the landlord will come paint over it all."
       CharacterSheetGenerator.flowing_text_box 371,
                                            646,
                                            280,
                                            233,
                                            3,
                                            1,
-                                           wounds_and_injuries,
+                                           c.wounds_and_injuries,
                                            self
 
-      marks_and_scars = "And in each others' shadows we grew less and less small.  And eventually our theories couldn't explain it all.  I am recording our history upon the bedroom wall and eventually the landlord will come paint over it all."
       CharacterSheetGenerator.flowing_text_box 358,
                                            604,
                                            280,
                                            233,
                                            3,
                                            1,
-                                           marks_and_scars,
+                                           c.marks_and_scars,
                                            self
 
-      history = "And in each others' shadows we grew less and less small.  And eventually our theories couldn't explain it all.  I am recording our history upon the bedroom wall and eventually the landlord will come paint over it all.__"*10
       history = CharacterSheetGenerator.flowing_text_box 93,
                                                          518,
                                                          31,
                                                          233,
                                                          9,
                                                          3,
-                                                         history,
+                                                         c.history,
                                                          self
       CharacterSheetGenerator.flowing_text_box 285,
                                                518,
@@ -289,56 +281,50 @@ class CharacterSheetGenerator
                                                history,
                                                self
 
-      #31-113
-      #income = "And in each others' shadows we grew less and less small.  And eventually our theories couldn't explain it all.  I am recording our history upon the bedroom wall and eventually the landlord will come paint over it all."
-      #CharacterSheetGenerator.flowing_text_box 285,
-      #                                         518,
-      #                                         285,
-      #                                         233,
-      #                                         9,
-      #                                         0,
-      #                                         income,
-      #                                         self
-      #
-      #cash = "And in each others' shadows we grew less and less small.  And eventually our theories couldn't explain it all.  I am recording our history upon the bedroom wall and eventually the landlord will come paint over it all."
-      #CharacterSheetGenerator.flowing_text_box 285,
-      #                                         518,
-      #                                         285,
-      #                                         233,
-      #                                         9,
-      #                                         0,
-      #                                         cash,
-      #                                         self
-      #
-      #savings = "And in each others' shadows we grew less and less small.  And eventually our theories couldn't explain it all.  I am recording our history upon the bedroom wall and eventually the landlord will come paint over it all."
-      #CharacterSheetGenerator.flowing_text_box 285,
-      #                                         518,
-      #                                         285,
-      #                                         233,
-      #                                         9,
-      #                                         0,
-      #                                         savings,
-      #                                         self
-      #
-      #personal_property = "And in each others' shadows we grew less and less small.  And eventually our theories couldn't explain it all.  I am recording our history upon the bedroom wall and eventually the landlord will come paint over it all."
-      #CharacterSheetGenerator.flowing_text_box 285,
-      #                                         518,
-      #                                         285,
-      #                                         233,
-      #                                         9,
-      #                                         0,
-      #                                         personal_property,
-      #                                         self
-      #
-      #real_estate = "And in each others' shadows we grew less and less small.  And eventually our theories couldn't explain it all.  I am recording our history upon the bedroom wall and eventually the landlord will come paint over it all."
-      #CharacterSheetGenerator.flowing_text_box 285,
-      #                                         518,
-      #                                         285,
-      #                                         233,
-      #                                         9,
-      #                                         0,
-      #                                         real_estate,
-      #                                         self
+      CharacterSheetGenerator.flowing_text_box 67,
+                                               342,
+                                               67,
+                                               208,
+                                               1,
+                                               0,
+                                               c.income,
+                                               self
+
+      CharacterSheetGenerator.flowing_text_box 102,
+                                               328,
+                                               102,
+                                               168,
+                                               1,
+                                               0,
+                                               c.cash,
+                                               self
+
+      CharacterSheetGenerator.flowing_text_box 67,
+                                               314,
+                                               67,
+                                               208,
+                                               1,
+                                               0,
+                                               c.savings,
+                                               self
+
+      CharacterSheetGenerator.flowing_text_box 115,
+                                               300,
+                                               31,
+                                               233,
+                                               3,
+                                               1,
+                                               c.property,
+                                               self
+
+      CharacterSheetGenerator.flowing_text_box 88,
+                                               258,
+                                               31,
+                                               233,
+                                               2,
+                                               1,
+                                               c.real_estate,
+                                               self
 
     end
     filename
