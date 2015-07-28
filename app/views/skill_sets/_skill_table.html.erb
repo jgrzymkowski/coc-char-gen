@@ -4,7 +4,7 @@
     <div class="fleft">Skills</div>
     <div class="fright" style="margin-left: 50px;">
     <% if skill_set %>
-      <%= link_to 'Edit', edit_character_skill_set_path( character ) %>
+      <%= link_to 'Edit', edit_character_skill_set_path( character, character.skill_set ) %>
     <% elsif character.characteristic_set %>
       <%= link_to 'Add Skills', new_character_skill_set_path( character ) %>
     <% end %>

@@ -2,14 +2,6 @@ require 'random_generator'
 
 class CharacteristicSet < ActiveRecord::Base
   belongs_to :character
-  attr_accessible :strength,
-                  :dexterity,
-                  :intelligence,
-                  :constitution,
-                  :appearance,
-                  :power,
-                  :size,
-                  :education
 
   def sanity
     [power * 5, 99 - cthulhu_mythos].min

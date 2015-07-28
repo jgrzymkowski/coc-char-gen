@@ -1,7 +1,6 @@
 class Character < ActiveRecord::Base
   include WeaponsHelper
 
-  attr_accessible :player_name, :first_name, :last_name, :occupation, :degrees, :birthplace, :gender, :age, :skill_occupation, :residence, :personal_description, :family_and_friends, :episodes_of_insanity, :wounds_and_injuries, :marks_and_scars, :history, :income, :cash, :savings, :property, :real_estate, :weapon_ids
   has_one :characteristic_set
   has_one :skill_set
 

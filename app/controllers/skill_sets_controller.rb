@@ -1,4 +1,7 @@
 class SkillSetsController < ApplicationController
+
+  #TODO figure this out
+  SKILL_SET_ATTRIBUTES = [:id, :skill_occupation, :accounting, :anthropology, :archaeology, :astronomy, :bargain, :biology, :chemistry, :climb, :conceal, :credit_rating, :cthulhu_mythos, :disguise, :dodge, :drive_auto, :electrical_repair, :fast_talk, :first_aid, :geology, :hide, :history, :jump, :law, :library_use, :listen, :locksmith, :martial_arts, :mechanical_repair, :medicine, :natural_history, :navigate, :occult, :operate_heavy_machine, :own_language, :persuade, :pharmacy, :photography, :physics, :psychoanalysis, :psychology, :ride, :sneak, :spot_hidden, :swim, :throw, :track, :handgun, :machine_gun, :rifle, :shotgun, :SMG, :fist, :grapple, :head, :kick, :melee, :art, :craft, :other_language, :pilot, :other, :character_id, :created_at, :updated_at, :occupation_skills]
   def new
     @character = Character.find params[ :character_id ]
   end
@@ -6,7 +9,7 @@ class SkillSetsController < ApplicationController
   def create
     character = Character.find params[ :character_id ]
 
-    skill_hash = params['skill_set']
+    skill_hash = params.require(:skill_set).permit(SKILL_SET_ATTRIBUTES)
 
     new_skill_set = extract_skill_sets skill_hash
     new_skill_set.merge!( extract_sub_skill_sets skill_hash )
@@ -21,7 +24,7 @@ class SkillSetsController < ApplicationController
 
   def update
     character = Character.find params[ :character_id ]
-    skill_hash = params['skill_set']
+    skill_hash = params.require(:skill_set).permit(SKILL_SET_ATTRIBUTES)
     new_skill_set = extract_skill_occupation skill_hash
     new_skill_set.merge!( extract_skill_sets skill_hash )
     new_skill_set.merge!( extract_sub_skill_sets skill_hash )
