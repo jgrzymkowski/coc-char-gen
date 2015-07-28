@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe CharacteristicSetsHelper do
   class DummyCharacteristicSetsHelper; include CharacteristicSetsHelper end

@@ -36,6 +36,9 @@ gem 'prawn'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  #rspec
+  gem 'rspec-rails', '~> 3.0'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
