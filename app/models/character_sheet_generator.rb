@@ -8,14 +8,33 @@ class CharacterSheetGenerator
   end
 
   def generate
-    c = @character
-    filename = "#{Rails.root}/tmp/#{c.first_name}_#{c.last_name}_#{Time.now.to_i}.pdf"
+    character_pdf_filename = generate_character_pdf
+    combine_pdfs(character_pdf_filename)
+  end
 
-    Prawn::Document.generate( filename, template: BASE_CHARACTER_SHEET ) do
+  def combine_pdfs(character_pdf_filename)
+    combined_pdf = CombinePDF.load(BASE_CHARACTER_SHEET)
+    character_pdf = CombinePDF.load(character_pdf_filename)
+    combined_pdf.pages.each_index do |i|
+      combined_pdf.pages[i] << character_pdf.pages[i]
+    end
+    combined_pdf_filename = "#{filename_prefix}.pdf"
+    combined_pdf.save(combined_pdf_filename)
+    combined_pdf_filename
+  end
+
+  def filename_prefix
+    @filename_prefix ||= "#{Rails.root}/tmp/#{@character.first_name}_#{@character.last_name}_#{Time.now.to_i}"
+  end
+
+  def generate_character_pdf
+    c = @character
+    filename = "#{filename_prefix}_character_info.pdf"
+
+    Prawn::Document.generate( filename ) do
       font("#{Rails.root}/app/resources/comicsans.ttf", size: 10)
 
       #general character info
-      go_to_page 1
       draw_text "#{c.first_name} #{c.last_name}", at: [170, 710]
       draw_text c.occupation, at: [142, 696]
       draw_text c.degrees, at: [166, 682]
@@ -197,7 +216,7 @@ class CharacterSheetGenerator
         i += 14
       end
 
-      go_to_page 2
+      start_new_page
       font("#{Rails.root}/app/resources/comicsans.ttf", size: 9)
 
       #secondary skill info
@@ -333,7 +352,7 @@ class CharacterSheetGenerator
   def self.flowing_text_box( x_index, y_index, mid_x_index, mid_width, num_lines, indented_lines, text, prawn_doc )
     line_height = 14
     top_width = mid_width - x_index + mid_x_index
-    excess = text
+    excess = text || ''
     indented_lines.times do |i|
       excess = prawn_doc.text_box excess,
                                   width:     top_width,
