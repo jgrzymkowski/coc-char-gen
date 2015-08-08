@@ -1,3 +1,75 @@
+# == Schema Information
+#
+# Table name: skill_sets
+#
+#  id                    :integer          not null, primary key
+#  skill_occupation      :string
+#  accounting            :integer
+#  anthropology          :integer
+#  archaeology           :integer
+#  astronomy             :integer
+#  bargain               :integer
+#  biology               :integer
+#  chemistry             :integer
+#  climb                 :integer
+#  conceal               :integer
+#  credit_rating         :integer
+#  cthulhu_mythos        :integer
+#  disguise              :integer
+#  dodge                 :integer
+#  drive_auto            :integer
+#  electrical_repair     :integer
+#  fast_talk             :integer
+#  first_aid             :integer
+#  geology               :integer
+#  hide                  :integer
+#  history               :integer
+#  jump                  :integer
+#  law                   :integer
+#  library_use           :integer
+#  listen                :integer
+#  locksmith             :integer
+#  martial_arts          :integer
+#  mechanical_repair     :integer
+#  medicine              :integer
+#  natural_history       :integer
+#  navigate              :integer
+#  occult                :integer
+#  operate_heavy_machine :integer
+#  own_language          :integer
+#  persuade              :integer
+#  pharmacy              :integer
+#  photography           :integer
+#  physics               :integer
+#  psychoanalysis        :integer
+#  psychology            :integer
+#  ride                  :integer
+#  sneak                 :integer
+#  spot_hidden           :integer
+#  swim                  :integer
+#  throw                 :integer
+#  track                 :integer
+#  handgun               :integer
+#  machine_gun           :integer
+#  rifle                 :integer
+#  shotgun               :integer
+#  SMG                   :integer
+#  fist                  :integer
+#  grapple               :integer
+#  head                  :integer
+#  kick                  :integer
+#  melee                 :integer
+#  art                   :text
+#  craft                 :text
+#  other_language        :text
+#  pilot                 :text
+#  other                 :text
+#  character_id          :integer
+#  created_at            :datetime
+#  updated_at            :datetime
+#  occupation_skills     :string
+#
+
 require 'rails_helper'
 
 describe SkillSet do

@@ -23,3 +23,10 @@ development:
   database: coc-char-gen
   username: jeremy
   password:
+test:
+  <<: *default
+  database: coc-char-gen-test
+  username: jeremy
+  password:
+production:
+  <<: *default
