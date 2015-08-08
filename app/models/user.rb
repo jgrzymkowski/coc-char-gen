@@ -22,4 +22,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_and_belongs_to_many :campaigns
+  has_and_belongs_to_many :owned_campaigns, join_table: :campaigns_owners, class_name: Campaign.name
 end

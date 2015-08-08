@@ -1,5 +1,6 @@
 <div class="fright">
-  <%= link_to 'Create New Character', new_character_path %>
+  <%= link_to 'Create New Character', new_character_path %> |
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
 </div>
 <div class="page-title">
   Characters

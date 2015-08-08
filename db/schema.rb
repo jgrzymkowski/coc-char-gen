@@ -11,10 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150808200402) do
+ActiveRecord::Schema.define(version: 20150808213029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "campaigns", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "campaigns_owners", force: :cascade do |t|
+    t.integer "campaign_id"
+    t.integer "user_id"
+  end
+
+  add_index "campaigns_owners", ["campaign_id"], name: "index_campaigns_owners_on_campaign_id", using: :btree
+  add_index "campaigns_owners", ["user_id"], name: "index_campaigns_owners_on_user_id", using: :btree
+
+  create_table "campaigns_users", force: :cascade do |t|
+    t.integer "campaign_id"
+    t.integer "user_id"
+  end
+
+  add_index "campaigns_users", ["campaign_id"], name: "index_campaigns_users_on_campaign_id", using: :btree
+  add_index "campaigns_users", ["user_id"], name: "index_campaigns_users_on_user_id", using: :btree
 
   create_table "characteristic_sets", force: :cascade do |t|
     t.integer  "strength"
