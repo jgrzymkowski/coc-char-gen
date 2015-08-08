@@ -1,7 +1,7 @@
 <div class="fright">
   <%= link_to 'All Characters', characters_path %> |
   <%= link_to 'Download PDF', character_path( @character, format: :pdf ), method: :get%> |
-  <%= link_to 'Delete', character_path( @character ), method: :delete, confirm: 'Are you sure?' %>
+  <%= link_to 'Delete', character_path( @character ), method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>
 <div class="page-title">
   <%=@character.first_name%> <%=@character.last_name%>

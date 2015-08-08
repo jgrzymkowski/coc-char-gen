@@ -9,11 +9,14 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131224210451) do
+ActiveRecord::Schema.define(version: 20131224210451) do
 
-  create_table "characteristic_sets", :force => true do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "characteristic_sets", force: :cascade do |t|
     t.integer  "strength"
     t.integer  "dexterity"
     t.integer  "intelligence"
@@ -23,11 +26,11 @@ ActiveRecord::Schema.define(:version => 20131224210451) do
     t.integer  "size"
     t.integer  "education"
     t.integer  "character_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "characters", :force => true do |t|
+  create_table "characters", force: :cascade do |t|
     t.string   "player_name"
     t.string   "first_name"
     t.string   "last_name"
@@ -36,8 +39,8 @@ ActiveRecord::Schema.define(:version => 20131224210451) do
     t.string   "birthplace"
     t.string   "gender"
     t.integer  "age"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "weapon_ids"
     t.string   "residence"
     t.string   "personal_description"
@@ -53,7 +56,7 @@ ActiveRecord::Schema.define(:version => 20131224210451) do
     t.string   "real_estate"
   end
 
-  create_table "skill_sets", :force => true do |t|
+  create_table "skill_sets", force: :cascade do |t|
     t.string   "skill_occupation"
     t.integer  "accounting"
     t.integer  "anthropology"
@@ -116,8 +119,8 @@ ActiveRecord::Schema.define(:version => 20131224210451) do
     t.text     "pilot"
     t.text     "other"
     t.integer  "character_id"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "occupation_skills"
   end
 
