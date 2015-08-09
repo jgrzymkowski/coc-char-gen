@@ -43,7 +43,7 @@ class CharacterSheetGenerator
       draw_text c.gender_read, at: [107, 640]
       draw_text c.age, at: [217, 640]
 
-      draw_text c.player_name, at: [48 , 510], rotate: 90
+      draw_text c.user.display_name, at: [48 , 510], rotate: 90
 
 
       #characteristics

@@ -11,11 +11,6 @@
 <%= render '/errors' %>
 
 <div class="char_field">
-  <%= f.label :player_name %><br>
-  <%= f.text_field :player_name %>
-</div>
-
-<div class="char_field">
   <%= f.label :gender %><br>
   <%= f.radio_button( :gender, "f", checked: true ) %>
   <%= f.label( :gender_m, "Female" ) %>

@@ -20,5 +20,30 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#display_name' do
+    it 'displays names nicely' do
+      user = User.new(first_name: 'Howard', last_name: 'Lovecraft')
+      expect(user.display_name).to eq('Howard Lovecraft')
+    end
+
+    context 'no last name' do
+      it 'displays names nicely' do
+        user = User.new(first_name: 'Howard')
+        expect(user.display_name).to eq('Howard')
+
+        user = User.new(first_name: 'Howard', last_name: '')
+        expect(user.display_name).to eq('Howard')
+      end
+    end
+
+    context 'no first name' do
+      it 'displays names nicely' do
+        user = User.new(last_name: 'Lovecraft')
+        expect(user.display_name).to eq('Lovecraft')
+
+        user = User.new(last_name: 'Lovecraft')
+        expect(user.display_name).to eq('Lovecraft')
+      end
+    end
+  end
 end

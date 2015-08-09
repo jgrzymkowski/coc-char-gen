@@ -27,4 +27,14 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :owned_campaigns, join_table: :campaigns_owners, class_name: Campaign.name
 
   has_many :characters
+
+  def display_name
+    if first_name.blank?
+      last_name
+    elsif last_name.blank?
+      first_name
+    else
+      [first_name, last_name].join(' ')
+    end
+  end
 end

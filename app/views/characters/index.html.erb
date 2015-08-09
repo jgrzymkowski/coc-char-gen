@@ -21,7 +21,7 @@
 
   <% @characters.each do |character| %>
   <tr>
-    <td><%= character.player_name %></td>
+    <td><%= character.user.display_name %></td>
     <td><%= character.first_name %></td>
     <td><%= character.last_name %></td>
     <td><%= character.occupation %></td>

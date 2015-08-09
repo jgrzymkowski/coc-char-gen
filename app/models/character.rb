@@ -3,7 +3,6 @@
 # Table name: characters
 #
 #  id                   :integer          not null, primary key
-#  player_name          :string
 #  first_name           :string
 #  last_name            :string
 #  occupation           :string
@@ -38,7 +37,7 @@ class Character < ActiveRecord::Base
   belongs_to :user
   belongs_to :campaign
 
-  validates :player_name, :first_name, :last_name, :occupation, :birthplace, :gender, :age, presence: true
+  validates :first_name, :last_name, :occupation, :birthplace, :gender, :age, presence: true
 
   validates_length_of :residence, :maximum => 33
   validates_length_of :personal_description, :maximum => 144

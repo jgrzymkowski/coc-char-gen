@@ -1,5 +1,6 @@
+- fix UI
+- add user properites (name)
+- add user homepage
+- add campaign creation/idit/show page
+- add decent exposure & pundit to other entities
 - character photos
-- weapons
-- page 2 character info
-- age/education
-- users/logins
