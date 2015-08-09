@@ -1,4 +1,6 @@
 class CharactersController < ApplicationController
+  expose(:character)
+
   # TODO figure this out
   PLAYER_ATTRIBUTES = [:player_name, :gender, :first_name, :last_name, :occupation, :degrees, :birthplace, :age, :income, :residence, :personal_description, :friends_and_family, :episodes_of_insanity, :wounds_and_injuries, :marks_and_scars, :cash, :savings, :property, :real_estate, :history]
 
@@ -17,23 +19,25 @@ class CharactersController < ApplicationController
   end
 
   def show
-    @character = Character.find( params[:id] )
+    authorize character
+
     respond_to do |format|
       format.html {  }
       format.pdf do
-        @filename = CharacterSheetGenerator.new( @character ).generate
+        @filename = CharacterSheetGenerator.new( character ).generate
         send_file @filename, type: 'application/pdf'
       end
     end
   end
 
   def edit
-    @character = Character.find( params[:id] )
+    authorize character
   end
 
   def update
-    @character = Character.find( params[:id] )
-    if @character.update_attributes( params.require(:character).permit(PLAYER_ATTRIBUTES) )
+    authorize character
+
+    if character.update_attributes( params.require(:character).permit(PLAYER_ATTRIBUTES) )
       render action: :show
     else
       render action: :edit
@@ -41,11 +45,13 @@ class CharactersController < ApplicationController
   end
 
   def index
-    @characters = Character.all
+    @characters = policy_scope(Character)
   end
 
   def destroy
-    Character.find( params[:id] ).destroy
+    authorize character
+
+    character.destroy
     redirect_to characters_path
   end
 

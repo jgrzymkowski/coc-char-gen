@@ -39,6 +39,8 @@ gem 'combine_pdf'
 # gem 'capistrano-rails', group: :development
 
 gem 'devise'
+gem 'pundit'
+gem 'decent_exposure'
 
 group :development, :test do
   #rspec

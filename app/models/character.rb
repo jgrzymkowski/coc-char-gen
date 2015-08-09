@@ -26,6 +26,7 @@
 #  savings              :string
 #  property             :string
 #  real_estate          :string
+#  user_id              :integer
 #
 
 class Character < ActiveRecord::Base
@@ -33,6 +34,9 @@ class Character < ActiveRecord::Base
 
   has_one :characteristic_set
   has_one :skill_set
+
+  belongs_to :user
+  belongs_to :campaign
 
   validates :player_name, :first_name, :last_name, :occupation, :birthplace, :gender, :age, presence: true
 

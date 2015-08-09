@@ -26,6 +26,7 @@
 #  savings              :string
 #  property             :string
 #  real_estate          :string
+#  user_id              :integer
 #
 
 require 'test_helper'
