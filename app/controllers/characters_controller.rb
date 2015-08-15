@@ -1,5 +1,5 @@
 class CharactersController < ApplicationController
-  expose(:character)
+  expose(:character) { Character.find(params.permit(:id)[:id]) }
 
   # TODO figure this out
   PLAYER_ATTRIBUTES = [:gender, :first_name, :last_name, :occupation, :degrees, :birthplace, :age, :income, :residence, :personal_description, :friends_and_family, :episodes_of_insanity, :wounds_and_injuries, :marks_and_scars, :cash, :savings, :property, :real_estate, :history]
