@@ -8,7 +8,7 @@ class CharacterPolicy < ApplicationPolicy
   end
 
   def edit?
-    @record.campiagn.owners.include?(@user) ||
+    @record.campaign.owners.include?(@user) ||
       @record.user == @user
   end
 
