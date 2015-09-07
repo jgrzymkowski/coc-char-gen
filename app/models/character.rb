@@ -30,6 +30,7 @@
 
 class Character < ActiveRecord::Base
   include WeaponsHelper
+  include SoftDeletable
 
   has_one :characteristic_set
   has_one :skill_set

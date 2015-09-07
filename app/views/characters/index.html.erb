@@ -1,37 +1,6 @@
 <div class="fright">
+  <%= link_to 'Home', root_path %> |
   <%= link_to 'Create New Character', new_character_path %> |
   <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
 </div>
-<div class="page-title">
-  Characters
-</div>
-<div class="cright"></div>
-<table>
-  <thead>
-    <th>Player</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Occupation</th>
-    <th>Degrees</th>
-    <th>Birthplace</th>
-    <th>Gender</th>
-    <th>Age</th>
-    <th></th>
-  </thead>
-
-  <% @characters.each do |character| %>
-  <tr>
-    <td><%= character.user.display_name %></td>
-    <td><%= character.first_name %></td>
-    <td><%= character.last_name %></td>
-    <td><%= character.occupation %></td>
-    <td><%= character.degrees %></td>
-    <td><%= character.birthplace %></td>
-    <td><%= character.gender %></td>
-    <td><%= character.age %></td>
-    <td>
-      <%= link_to 'View', character_path( character ), method: :get %>
-    </td>
-  </tr>
-  <% end %>
-</table>
+<%= render 'character_table', characters: @characters %>

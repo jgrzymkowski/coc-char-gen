@@ -1,4 +1,5 @@
 <div class="fright">
+  <%= link_to 'Home', root_path %> |
   <%= link_to 'All Characters', characters_path %> |
   <%= link_to 'Download PDF', character_path( character, format: :pdf ), method: :get%> |
   <%= link_to 'Delete', character_path( character ), method: :delete, data: { confirm: 'Are you sure?' } %>

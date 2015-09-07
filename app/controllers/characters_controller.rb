@@ -1,14 +1,13 @@
 class CharactersController < ApplicationController
-  expose(:character) { Character.find(params.permit(:id)[:id]) }
+  expose(:character) { params.permit(:id)[:id] && Character.find(params.permit(:id)[:id]) }
 
   # TODO figure this out
-  PLAYER_ATTRIBUTES = [:gender, :first_name, :last_name, :occupation, :degrees, :birthplace, :age, :income, :residence, :personal_description, :friends_and_family, :episodes_of_insanity, :wounds_and_injuries, :marks_and_scars, :cash, :savings, :property, :real_estate, :history]
-
-  def new
-  end
+  PLAYER_ATTRIBUTES = [:campaign_id, :gender, :first_name, :last_name, :occupation, :degrees, :birthplace, :age, :income, :residence, :personal_description, :friends_and_family, :episodes_of_insanity, :wounds_and_injuries, :marks_and_scars, :cash, :savings, :property, :real_estate, :history]
 
   def create
-    @character = Character.new( params.require(:character).permit(PLAYER_ATTRIBUTES) )
+    character_attributes = params.require(:character).permit(PLAYER_ATTRIBUTES)
+    character_attributes.merge!(user: current_user)
+    @character = Character.new(character_attributes)
     unless @character.valid?
       flash[:error] = @character.errors.full_messages.join '<br/>'
       render 'new'

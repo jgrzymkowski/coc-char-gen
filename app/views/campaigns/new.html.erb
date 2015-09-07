@@ -1,0 +1,9 @@
+<%= form_for :campaign, method: :post, url: campaigns_path do |f| %>
+  <div class="fright">
+    <%= link_to 'Home', root_path %> |
+    <%= link_to( 'Save', '#', onClick: 'return CoC.submitForm();') %> |
+    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+  </div>
+
+  <%= render 'campaign_inputs', f: f, campaign: campaign %>
+<% end %>

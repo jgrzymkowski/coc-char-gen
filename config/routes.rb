@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
 
-  root to: "characters#index"
+  root to: "users#show"
 
   resources :characters do
     resources :characteristic_sets, only: [ :new, :create, :show ]
@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     get '/weapons', to: 'weapons#edit'
     put '/weapons', to: 'weapons#update'
   end
+
+  resources :users, only: [:show]
+  resources :campaigns, only: [:new, :create, :show, :destroy]
 
   get '/name_maker/first/:gender', to: 'name_maker#first'
   get '/name_maker/surname', to: 'name_maker#surname'

@@ -11,6 +11,12 @@
 <%= render '/errors' %>
 
 <div class="char_field">
+  <%= f.label :campaign %>
+  <% options = ([['--No Campaign--', nil]] + current_user.all_campaigns.map { |c| [c.name, c.id]}) %>
+  <%= f.select(:campaign_id, options_for_select(options, (character.campaign_id if character))) %>
+</div>
+
+<div class="char_field">
   <%= f.label :gender %><br>
   <%= f.radio_button( :gender, "f", checked: true ) %>
   <%= f.label( :gender_m, "Female" ) %>

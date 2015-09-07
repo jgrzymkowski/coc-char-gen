@@ -1,0 +1,10 @@
+<%= render '/errors' %>
+
+<div class='page-title'>
+  <%= campaign.nil? ? 'New' : 'Edit' %> Campaign
+</div>
+
+<div>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br>
+</div>

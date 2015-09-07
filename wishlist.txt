@@ -1,6 +1,7 @@
 - fix UI
 - add user properites (name)
 - add user homepage
-- add campaign creation/idit/show page
+- add campaign creation (add users)
 - add decent exposure & pundit to other entities
 - character photos
+- interactors

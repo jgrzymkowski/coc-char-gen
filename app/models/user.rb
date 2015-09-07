@@ -37,4 +37,8 @@ class User < ActiveRecord::Base
       [first_name, last_name].join(' ')
     end
   end
+
+  def all_campaigns
+    (campaigns + owned_campaigns).uniq
+  end
 end

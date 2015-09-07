@@ -4,12 +4,19 @@ class CharacterPolicy < ApplicationPolicy
   end
 
   def show?
-    @record.campaign.members.include?(@user)
+    if @record.user == @user
+      true
+    else
+      @record.campaign && @record.campaign.members.include?(@user)
+    end
   end
 
   def edit?
-    @record.campaign.owners.include?(@user) ||
-      @record.user == @user
+    if @record.user == user
+      true
+    else
+      @record.campaign && @record.campaign.owners.include?(@user)
+    end
   end
 
   def update?

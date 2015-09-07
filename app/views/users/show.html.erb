@@ -1,0 +1,29 @@
+<div class="fright">
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+</div>
+
+<div class="page-title">
+  <%= user.display_name %>
+</div>
+
+<div class="table-summary">
+  <div class="table-title">
+    <span>Campaigns</span>
+    <span class="fright">
+      <%= link_to 'Create Campaign', new_campaign_path %>
+    </span>
+  </div>
+  <div>
+    <ul>
+      <% user.all_campaigns.each do |campaign| %>
+        <li>
+          <%= link_to campaign.name, campaign_path( campaign ) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="cleft"> </div>
+
+<%= render 'characters/character_table', characters: user.characters %>

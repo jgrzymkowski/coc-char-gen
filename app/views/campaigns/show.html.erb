@@ -1,0 +1,8 @@
+<div class="fright">
+  <%= link_to 'Home', root_path %> |
+  <%= link_to 'Delete', campaign_path(campaign), method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+</div>
+
+<%= render 'characters/character_table', characters: campaign.characters %>
+
