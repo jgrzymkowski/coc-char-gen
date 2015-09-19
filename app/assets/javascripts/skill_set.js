@@ -194,6 +194,7 @@ CoC.OccupationalSkillList.prototype = {
     var occ_skills = JSON.parse($('#occupation_skills').val());
     for( var i = 0; i < skill_selects.length; i++ ) {
       $(skill_selects[i]).val(occ_skills[i]);
+      $(skill_selects[i]).change();
     }
   }
 };
