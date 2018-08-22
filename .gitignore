@@ -21,3 +21,7 @@
 
 # Vim
 *.swp
+
+# data
+/data
+*.dump
