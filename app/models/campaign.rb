@@ -21,4 +21,8 @@ class Campaign < ActiveRecord::Base
   def members
     (owners.to_a + users.to_a).uniq
   end
+
+  def game_system
+    GameSystem.find(game_system_id)
+  end
 end
