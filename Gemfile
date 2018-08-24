@@ -42,10 +42,6 @@ gem 'devise'
 gem 'pundit'
 gem 'decent_exposure'
 
-# Foundation
-gem 'foundation-rails'
-gem 'autoprefixer-rails'
-
 group :development, :test do
   #rspec
   gem 'rspec-rails', '~> 3.0'
