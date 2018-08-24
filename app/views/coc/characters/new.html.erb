@@ -1,0 +1,3 @@
+<%= form_for :character, method: :post, url: coc_characters_path do |f| %>
+  <%= render 'character_inputs', f: f, character: character %>
+<% end %>

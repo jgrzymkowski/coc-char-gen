@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150907212141) do
+ActiveRecord::Schema.define(version: 20180822011245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20150907212141) do
   add_index "campaigns_users", ["campaign_id"], name: "index_campaigns_users_on_campaign_id", using: :btree
   add_index "campaigns_users", ["user_id"], name: "index_campaigns_users_on_user_id", using: :btree
 
-  create_table "characteristic_sets", force: :cascade do |t|
+  create_table "coc_characteristic_sets", force: :cascade do |t|
     t.integer  "strength"
     t.integer  "dexterity"
     t.integer  "intelligence"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20150907212141) do
     t.datetime "updated_at"
   end
 
-  create_table "characters", force: :cascade do |t|
+  create_table "coc_characters", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "occupation"
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 20150907212141) do
     t.datetime "deleted_at"
   end
 
-  create_table "skill_sets", force: :cascade do |t|
+  create_table "coc_skill_sets", force: :cascade do |t|
     t.string   "skill_occupation"
     t.integer  "accounting"
     t.integer  "anthropology"

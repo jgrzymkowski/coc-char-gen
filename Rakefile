@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Coc::Application.load_tasks
+CocCharacterGenerator::Application.load_tasks

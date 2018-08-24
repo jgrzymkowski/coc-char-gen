@@ -1,0 +1,58 @@
+---
+- name: First Name
+  max_length: 100
+  campaign: call-of-cthulhu-1920
+- name: Last Name
+  max_length: 100
+  campaign: call-of-cthulhu-1920
+- name: Occupation
+  max_length: 100
+  campaign: call-of-cthulhu-1920
+- name: Degrees
+  max_length: 100
+  campaign: call-of-cthulhu-1920
+- name: Birthplace
+  max_length: 100
+  campaign: call-of-cthulhu-1920
+- name: Gender
+  max_length: 100
+  campaign: call-of-cthulhu-1920
+- name: Age
+  max_length: 100
+  campaign: call-of-cthulhu-1920
+- name: Residence
+  max_length: 33
+  campaign: call-of-cthulhu-1920
+- name: Person Description
+  max_lengthi: 144
+  campaign: call-of-cthulhu-1920
+- name: Family and Friends
+  max_length: 199
+  campaign: call-of-cthulhu-1920
+- name: Episodes of Insanity
+  max_length: 106
+  campaign: call-of-cthulhu-1920
+- name: Wounds and Injuries
+  max_length: 144
+  campaign: call-of-cthulhu-1920
+- name: Marks and Scars
+  max_length: 144
+  campaign: call-of-cthulhu-1920
+- name: History
+  max_length: 925
+  campaign: call-of-cthulhu-1920
+- name: Income
+  max_length: 36
+  campaign: call-of-cthulhu-1920
+- name: Cash
+  max_length: 36
+  campaign: call-of-cthulhu-1920
+- name: Savings
+  max_length: 45
+  campaign: call-of-cthulhu-1920
+- name: Property
+  max_length: 139
+  campaign: call-of-cthulhu-1920
+- name: Real Estate
+  max_length: 95
+  campaign: call-of-cthulhu-1920

@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :campaigns
   has_and_belongs_to_many :owned_campaigns, join_table: :campaigns_owners, class_name: Campaign.name
 
-  has_many :characters
+  has_many :coc_characters, class_name: "Coc::Character"
 
   def display_name
     if first_name.blank?

@@ -1,0 +1,53 @@
+<div class="characteristics table-summary">
+  <div class="table-title">
+    <span>Characteristics & Rolls</span>
+    <% unless character.characteristic_set %>
+      <%= link_to 'Add Characteristics', new_coc_character_characteristic_set_path( character ) %>
+    <% end %>
+  </div>
+
+  <% if character.characteristic_set %>
+  <table>
+    <tr>
+      <td>STR</td>
+      <td><%=character.characteristic_set.strength%></td>
+      <td>DEX</td>
+      <td><%=character.characteristic_set.dexterity%></td>
+      <td>INT</td>
+      <td><%=character.characteristic_set.intelligence%></td>
+      <td>Idea</td>
+      <td><%=character.characteristic_set.idea%></td>
+    </tr>
+    <tr>
+      <td>CON</td>
+      <td><%=character.characteristic_set.constitution%></td>
+      <td>APP</td>
+      <td><%=character.characteristic_set.appearance%></td>
+      <td>POW</td>
+      <td><%=character.characteristic_set.power%></td>
+      <td>Luck</td>
+      <td><%=character.characteristic_set.luck%></td>
+    </tr>
+    <tr>
+      <td>SIZ</td>
+      <td><%=character.characteristic_set.size%></td>
+      <td>SAN</td>
+      <td><%=character.characteristic_set.sanity%></td>
+      <td>EDU</td>
+      <td><%=character.characteristic_set.education%></td>
+      <td>Know</td>
+      <td><%=character.characteristic_set.know%></td>
+    </tr>
+    <tr>
+      <td colspan="3">99-Cthulhu Mythos</td>
+      <td><%=character.skill_set.cthulhu_mythos if character.skill_set %></td>
+      <td colspan="3">Damage Bonus</td>
+      <td><%=character.characteristic_set.damage_bonus%></td>
+    </tr>
+  </table>
+  <br/>
+  <div>Sanity: <%=character.characteristic_set.sanity %></div>
+  <div>Magic Points: <%=character.characteristic_set.magic_points %></div>
+  <div>Hit Points: <%=character.characteristic_set.hit_points %></div>
+  <% end %> 
+</div>

@@ -1,0 +1,277 @@
+<% skill_set = character.skill_set %>
+<div class="table-summary characteristics">
+  <div class="table-title">
+    <div class="fleft">Skills</div>
+    <div class="fright" style="margin-left: 50px;">
+    <% if skill_set %>
+      <%= link_to 'Edit', edit_coc_character_skill_set_path( character, character.skill_set ) %>
+    <% elsif character.characteristic_set %>
+      <%= link_to 'Add Skills', new_coc_character_skill_set_path( character ) %>
+    <% end %>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <% if skill_set %>
+  <table>
+    <tr>
+      <td><%= table_title :accounting %></td>
+      <td><%= skill_set.accounting_val if skill_set.accounting %></td>
+
+      <td><%= table_title :drive_auto %></td>
+      <td><%= skill_set.drive_auto_val if skill_set.drive_auto %></td>
+
+      <td><%= table_title :other_language %></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><%= table_title :anthropology %></td>
+      <td><%= skill_set.anthropology_val if skill_set.anthropology %></td>
+
+      <td><%= table_title :electrical_repair %></td>
+      <td><%= skill_set.electrical_repair_val if skill_set.electrical_repair %></td>
+
+      <td><%= skill_set.other_language_val.to_a[0][0] if skill_set.other_language_val? 0 %></td>
+      <td><%= skill_set.other_language_val.to_a[0][1] if skill_set.other_language_val? 0 %></td>
+    </tr>
+
+    <tr>
+      <td><%= table_title :archaeology %></td>
+      <td><%= skill_set.archaeology_val if skill_set.archaeology %></td>
+
+      <td><%= table_title :fast_talk %></td>
+      <td><%= skill_set.fast_talk_val if skill_set.fast_talk %></td>
+
+      <td><%= skill_set.other_language_val.to_a[1][0] if skill_set.other_language_val? 1 %></td>
+      <td><%= skill_set.other_language_val.to_a[1][1] if skill_set.other_language_val? 1 %></td>
+    </tr>
+
+    <tr>
+      <td><%= table_title :art %></td>
+      <td></td>
+
+      <td><%= table_title :first_aid %></td>
+      <td><%= skill_set.first_aid_val if skill_set.first_aid %></td>
+
+      <td><%= skill_set.other_language_val.to_a[2][0] if skill_set.other_language_val? 2 %></td>
+      <td><%= skill_set.other_language_val.to_a[2][1] if skill_set.other_language_val? 2 %></td>
+    </tr>
+
+    <tr>
+      <td><%= skill_set.art_val.to_a[0][0] if skill_set.art_val? 0 %></td>
+      <td><%= skill_set.art_val.to_a[0][1] if skill_set.art_val? 0%></td>
+
+      <td><%= table_title :geology %></td>
+      <td><%= skill_set.geology_val if skill_set.geology %></td>
+
+      <td><%= table_title :own_language %></td>
+      <td><%= skill_set.own_language_val if skill_set.own_language %></td>
+    </tr>
+
+    <tr>
+      <td><%= skill_set.art_val.to_a[1][0] if skill_set.art_val? 1 %></td>
+      <td><%= skill_set.art_val.to_a[1][1] if skill_set.art_val? 1 %></td>
+
+      <td><%= table_title :hide %></td>
+      <td><%= skill_set.hide_val if skill_set.hide %></td>
+
+      <td><%= table_title :persuade %></td>
+      <td><%= skill_set.persuade_val if skill_set.persuade %></td>
+    </tr>
+
+    <tr>
+      <td><%= table_title :astronomy %></td>
+      <td><%= skill_set.astronomy_val if skill_set.astronomy %></td>
+
+      <td><%= table_title :history %></td>
+      <td><%= skill_set.history_val if skill_set.history %></td>
+
+      <td><%= table_title :pharmacy %></td>
+      <td><%= skill_set.pharmacy_val if skill_set.pharmacy %></td>
+    </tr>
+
+    <tr>
+      <td><%= table_title :bargain %></td>
+      <td><%= skill_set.bargain_val if skill_set.bargain %></td>
+
+      <td><%= table_title :jump %></td>
+      <td><%= skill_set.jump_val if skill_set.jump %></td>
+
+      <td><%= table_title :photography %></td>
+      <td><%= skill_set.photography_val if skill_set.photography %></td>
+    </tr>
+
+    <tr>
+      <td><%= table_title :biology %></td>
+      <td><%= skill_set.biology_val if skill_set.biology %></td>
+
+      <td><%= table_title :law %></td>
+      <td><%= skill_set.law_val if skill_set.law %></td>
+
+      <td><%= table_title :physics %></td>
+      <td><%= skill_set.physics_val if skill_set.physics %></td>
+    </tr>
+
+    <tr>
+      <td><%= table_title :chemistry %></td>
+      <td><%= skill_set.chemistry_val if skill_set.chemistry %></td>
+
+      <td><%= table_title :library_use %></td>
+      <td><%= skill_set.library_use_val if skill_set.library_use %></td>
+
+      <td><%= table_title :pilot %></td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td><%= table_title :climb %></td>
+      <td><%= skill_set.climb_val if skill_set.climb %></td>
+
+      <td><%= table_title :listen %></td>
+      <td><%= skill_set.listen_val if skill_set.listen %></td>
+
+      <td><%= skill_set.pilot_val.to_a[0][0] if skill_set.pilot_val? 0 %></td>
+      <td><%= skill_set.pilot_val.to_a[0][1] if skill_set.pilot_val? 0 %></td>
+    </tr>
+
+    <tr>
+      <td><%= table_title :conceal %></td>
+      <td><%= skill_set.conceal_val if skill_set.conceal %></td>
+
+      <td><%= table_title :locksmith %></td>
+      <td><%= skill_set.locksmith_val if skill_set.locksmith %></td>
+
+      <td><%= skill_set.pilot_val.to_a[1][0] if skill_set.pilot_val? 1 %></td>
+      <td><%= skill_set.pilot_val.to_a[1][1] if skill_set.pilot_val? 1 %></td>
+    </tr>
+
+    <tr>
+      <td><%= table_title :craft %></td>
+      <td></td>
+
+      <td><%= table_title :martial_arts %></td>
+      <td><%= skill_set.martial_arts_val if skill_set.martial_arts %></td>
+
+      <td><%= table_title :psychoanalysis %></td>
+      <td><%= skill_set.psychoanalysis_val if skill_set.psychoanalysis %></td>
+    </tr>
+
+    <tr>
+      <td><%= skill_set.craft_val.to_a[0][0] if skill_set.craft_val? 0 %></td>
+      <td><%= skill_set.craft_val.to_a[0][1] if skill_set.craft_val? 0 %></td>
+
+      <td><%= table_title :mechanical_repair %></td>
+      <td><%= skill_set.mechanical_repair_val if skill_set.mechanical_repair %></td>
+
+      <td><%= table_title :psychology %></td>
+      <td><%= skill_set.psychology_val if skill_set.psychology %></td>
+    </tr>
+
+    <tr>
+      <td><%= skill_set.craft_val.to_a[1][0] if skill_set.craft_val? 1 %></td>
+      <td><%= skill_set.craft_val.to_a[1][1] if skill_set.craft_val? 1 %></td>
+
+      <td><%= table_title :medicine %></td>
+      <td><%= skill_set.medicine_val if skill_set.medicine %></td>
+
+      <td><%= table_title :ride %></td>
+      <td><%= skill_set.ride_val if skill_set.ride %></td>
+    </tr>
+
+    <tr>
+      <td><%= table_title :credit_rating %></td>
+      <td><%= skill_set.credit_rating_val if skill_set.credit_rating %></td>
+
+      <td><%= table_title :natural_history %></td>
+      <td><%= skill_set.natural_history_val if skill_set.natural_history %></td>
+
+      <td><%= table_title :sneak %></td>
+      <td><%= skill_set.sneak_val if skill_set.sneak %></td>
+    </tr>
+
+    <tr>
+      <td><%= table_title :cthulhu_mythos %></td>
+      <td><%= skill_set.cthulhu_mythos_val if skill_set.cthulhu_mythos %></td>
+
+      <td><%= table_title :navigate %></td>
+      <td><%= skill_set.navigate_val if skill_set.navigate %></td>
+
+      <td><%= table_title :spot_hidden %></td>
+      <td><%= skill_set.spot_hidden_val if skill_set.spot_hidden %></td>
+    </tr>
+
+    <tr>
+      <td><%= table_title :disguise %></td>
+      <td><%= skill_set.disguise_val if skill_set.disguise %></td>
+
+      <td><%= table_title :occult %></td>
+      <td><%= skill_set.occult_val if skill_set.occult %></td>
+
+      <td><%= table_title :swim %></td>
+      <td><%= skill_set.swim_val if skill_set.swim %></td>
+    </tr>
+
+    <tr>
+      <td><%= table_title :dodge %></td>
+      <td><%= skill_set.dodge_val if skill_set.dodge %></td>
+
+      <td><%= table_title :operate_heavy_machine %></td>
+      <td><%= skill_set.operate_heavy_machine_val if skill_set.operate_heavy_machine %></td>
+
+      <td><%= table_title :throw %></td>
+      <td><%= skill_set.throw_val if skill_set.throw %></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td></td>
+
+      <td></td>
+      <td></td>
+
+      <td><%= table_title :track %></td>
+      <td><%= skill_set.track_val if skill_set.track %></td>
+    </tr>
+  </table>
+
+  <div class="weapon-title">Weapon Skills</div>
+  <table>
+    <tbody>
+      <tr>
+        <td><%= table_title :fist %></td>
+        <td><%= skill_set.fist_val if skill_set.fist %></td>
+
+        <td><%= table_title :handgun %></td>
+        <td><%= skill_set.handgun_val if skill_set.handgun %></td>
+      </tr>
+      <tr>
+        <td><%= table_title :grapple %></td>
+        <td><%= skill_set.grapple_val if skill_set.grapple %></td>
+
+        <td><%= table_title :machine_gun %></td>
+        <td><%= skill_set.machine_gun_val if skill_set.machine_gun %></td>
+      </tr>
+      <tr>
+        <td><%= table_title :head %></td>
+        <td><%= skill_set.head_val if skill_set.head %></td>
+
+        <td><%= table_title :rifle %></td>
+        <td><%= skill_set.rifle_val if skill_set.rifle%></td>
+      </tr>
+      <tr>
+        <td><%= table_title :kick %></td>
+        <td><%= skill_set.kick_val if skill_set.kick %></td>
+
+        <td><%= table_title :shotgun %></td>
+        <td><%= skill_set.shotgun_val if skill_set.shotgun%></td>
+      </tr>
+      <tr>
+        <td><%= table_title :melee %></td>
+        <td><%= skill_set.melee_val if skill_set.melee %></td>
+
+        <td><%= table_title :SMG %></td>
+        <td><%= skill_set.shotgun_val if skill_set.shotgun %></td>
+      </tr>
+    </tbody>
+  </table>
+  <% end %>
+</div>

@@ -1,0 +1,22 @@
+<div class="fright">
+  <%= link_to 'Home', root_path %> |
+  <%= link_to 'All Characters', coc_characters_path %> |
+  <%= link_to 'Download PDF', coc_character_path( character, format: :pdf ), method: :get%> |
+  <%= link_to 'Delete', coc_character_path( character ), method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
+<div class="page-title">
+  <%=character.first_name%> <%=character.last_name%>
+</div>
+<div class="cright"></div>
+
+<%= render 'character_summary', character: character %>
+
+<%= render 'coc/characteristic_sets/characteristic_table', character: character %>
+
+<div class="cleft"></div>
+
+<%= render 'coc/skill_sets/skill_table', character: character %>
+
+<div class="cleft"></div>
+
+<%= render 'coc/weapons/weapon_table', character: character %>

@@ -1,0 +1,43 @@
+<div class='page-title'>
+  Characteristics
+</div>
+<div style="float: left; width: 600px;">
+  <%= form_for :characteristic_set, method: :post, url: coc_character_characteristic_sets_path do |f| %>
+    <div>Do you wish to prioritize your character's attributes?  This will allow you to arrange the attributes' values from highest to lowest (the top-most attribute the will have the highest roll value, and the bottom-most attribute will have the lowest roll value).</div>
+    <div class="button-box">
+      <div class="center w100">
+        <div id='yes' class="button not-movable w100">Yes</div>
+        <div class="button movable w100" id="no-order">No</div>
+      </div>
+    </div>
+
+    <%= f.hidden_field :arranged, value: false %>
+    <%= f.hidden_field :order %>
+
+    <%
+      characteristics = {
+         strength: '?',
+         dexterity: '?',
+         power: '?',
+         intelligence: '?',
+         appearance: '?',
+         constitution: '?',
+         size: '?',
+         education: '?'
+      }
+    %>
+    <%= render 'order_characteristics', characteristics: characteristics %>
+
+    <div class="button-box">
+      <div class="center w100">
+        <div id="submit" class="button movable w100">Roll it!</div>
+        <div id='no' class="button not-movable w100">Roll it!</div>
+      </div>
+    </div>
+<% end %>
+</div>
+
+
+<div style="float: left; width: 300px;">
+  <%= render 'characteristic_info' %>
+</div>

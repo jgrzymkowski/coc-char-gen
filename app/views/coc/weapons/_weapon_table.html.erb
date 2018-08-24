@@ -1,0 +1,36 @@
+<% weapons = character.weapons %>
+<div class="table-summary weapons">
+  <div class="table-title">
+    <span>Weapons</span>
+    <span class="fright">
+    <% if weapons %>
+      <%= link_to 'Edit', coc_character_weapons_path( character ) %>
+    <% elsif character.characteristic_set %>
+      <%= link_to 'Add Weapons', new_coc_character_skill_set_path( character ) %>
+    <% end %>
+    </span>
+  </div>
+  <% if weapons %>
+    <table>
+      <thead>
+        <th>Weapon</th>
+        <th>Base Chance</th>
+        <th>Damage</th>
+        <th>Attacks/Round</th>
+        <th>Number of Bullets</th>
+        <th>Malfunction</th>
+      </thead>
+      <% weapons.each do |weapon| %>
+        <tr>
+          <td><%= weapon.name %></td>
+          <td><%= weapon.base %></td>
+          <td><%= weapon.damage_done %></td>
+          <td><%= weapon.base_range %></td>
+          <td><%= weapon.attacks_per_round %></td>
+          <td><%= weapon.bullets_in_gun %></td>
+          <td><%= weapon.mal %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</div>

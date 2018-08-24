@@ -1,0 +1,265 @@
+<div class="fright">
+  <%= link_to( 'Character Page', coc_character_path( character ) ) + " | " if character %>
+  <%= link_to 'Save', '#', onClick: 'return CoC.submitForm();' %>
+</div>
+<div class="page-title">
+  <%= "#{character.first_name} #{character.last_name}" %> Skills
+</div>
+<p>Choose your skill occupation.  The skill occupation is for choosing
+  your occupation-specific skills, and does not have to exactly match
+  your previously chosen character's occupation.  However, it should
+  appropriately represent your character's occupational skills.  For
+  example, if your character's occupation is "Train Conductor," the
+  closest match for skill occupation would be "Pilot."  If you cannot
+  find an appropriate skill set for your chosen occupation, chose "other",
+  but be sure to consult with your GM.
+</p>
+
+
+<div class="skill-occupation-box">
+  <%= f.select( :skill_occupation,
+                options_for_select(
+                        [['---Choose Occupation---', '']] +
+                                occupations.keys.collect do |occupation|
+                                  [sym_to_title( occupation ), occupation]
+                                end ,
+                        (character.skill_set.skill_occupation if character.skill_set)
+                )) %>
+  <%= f.hidden_field :occupation_skills %>
+  <%= hidden_field_tag :occupation_skills, (character.skill_set.occupation_skills if character.skill_set) %>
+  <table id="occupational_skill_table"></table>
+</div>
+
+<div class="skill-totals-point-box">
+  <div class="blue-sub-point-total">
+    <div class="point-total">
+      Total Professional Skill Points
+    </div>
+    <div id="occ_total" original="<%= character.characteristic_set.occupation_skill_points %>" class="point-total point-count">
+        <%= character.characteristic_set.occupation_skill_points %>
+    </div>
+  </div>
+  <div class="blue-sub-point-total">
+    <div class="point-total">
+      Total Personal Interest Skill Points
+    </div>
+    <div id="pi_total" original="<%= character.characteristic_set.personal_interest_points %>" class="point-total point-count">
+      <%= character.characteristic_set.personal_interest_points %>
+    </div>
+  </div>
+</div>
+
+<div class="cleft"></div>
+
+<table class="skill-table">
+  <thead>
+    <th>Skill</th>
+    <th>Spent</th>
+    <th>Total</th>
+    <th>Skill</th>
+    <th>Spent</th>
+    <th>Total</th>
+    <th>Skill</th>
+    <th>Spent</th>
+    <th>Total</th>
+  </thead>
+
+  <tr>
+    <%= render 'skill_table_input', f: f, skill: :accounting, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :drive_auto, character: character %>
+    <%= render 'skill_table_category_title', f: f, skill: :other_language, character: character %>
+  </tr>
+
+  <tr>
+    <%= render 'skill_table_input', f: f, skill: :anthropology, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :electrical_repair, character: character %>
+    <%= render 'skill_table_category_input', f: f, skill: :other_language, character: character, i: 0 %>
+  </tr>
+
+  <tr>
+    <%= render 'skill_table_input', f: f, skill: :archaeology, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :fast_talk, character: character %>
+    <%= render 'skill_table_category_input', f: f, skill: :other_language, character: character, i: 1 %>
+  </tr>
+
+  <tr>
+    <%= render 'skill_table_category_title', f: f, skill: :art, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :first_aid, character: character %>
+    <%= render 'skill_table_category_input', f: f, skill: :other_language, character: character, i: 2 %>
+  </tr>
+
+  <tr>
+    <%= render 'skill_table_category_input', f: f, skill: :art, character: character, i: 0 %>
+    <%= render 'skill_table_input', f: f, skill: :geology, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :own_language, character: character %>
+  </tr>
+
+  <tr>
+    <%= render 'skill_table_category_input', f: f, skill: :art, character: character, i: 1 %>
+    <%= render 'skill_table_input', f: f, skill: :hide, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :persuade, character: character %>
+  </tr>
+
+  <tr>
+    <%= render 'skill_table_input', f: f, skill: :astronomy, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :history, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :pharmacy, character: character %>
+  </tr>
+
+  <tr>
+    <%= render 'skill_table_input', f: f, skill: :bargain, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :jump, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :photography, character: character %>
+
+  </tr>
+
+  <tr>
+    <%= render 'skill_table_input', f: f, skill: :biology, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :law, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :physics, character: character %>
+  </tr>
+
+  <tr>
+    <%= render 'skill_table_input', f: f, skill: :chemistry, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :library_use, character: character %>
+    <%= render 'skill_table_category_title', f: f, skill: :pilot, character: character %>
+  </tr>
+
+  <tr>
+    <%= render 'skill_table_input', f: f, skill: :climb, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :listen, character: character %>
+    <%= render 'skill_table_category_input', f: f, skill: :pilot, character: character, i: 0 %>
+  </tr>
+
+  <tr>
+    <%= render 'skill_table_input', f: f, skill: :conceal, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :locksmith, character: character %>
+    <%= render 'skill_table_category_input', f: f, skill: :pilot, character: character, i: 1 %>
+  </tr>
+
+  <tr>
+    <%= render 'skill_table_category_title', f: f, skill: :craft, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :martial_arts, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :psychoanalysis, character: character %>
+  </tr>
+
+  <tr>
+    <%= render 'skill_table_category_input', f: f, skill: :craft, character: character, i: 0 %>
+    <%= render 'skill_table_input', f: f, skill: :mechanical_repair, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :psychology, character: character %>
+  </tr>
+
+  <tr>
+    <%= render 'skill_table_category_input', f: f, skill: :craft, character: character, i: 1 %>
+    <%= render 'skill_table_input', f: f, skill: :medicine, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :ride, character: character %>
+  </tr>
+
+  <tr>
+    <%= render 'skill_table_input', f: f, skill: :credit_rating, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :natural_history, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :sneak, character: character %>
+  </tr>
+
+  <tr>
+    <%= render 'skill_table_input', f: f, skill: :cthulhu_mythos, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :navigate, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :spot_hidden, character: character %>
+  </tr>
+
+  <tr>
+    <%= render 'skill_table_input', f: f, skill: :disguise, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :occult, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :swim, character: character %>
+  </tr>
+
+  <tr>
+    <%= render 'skill_table_input', f: f, skill: :dodge, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :operate_heavy_machine, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :throw, character: character %>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+
+    <td></td>
+    <td></td>
+    <td></td>
+
+    <%= render 'skill_table_input', f: f, skill: :track, character: character %>
+  </tr>
+
+</table>
+
+<table class="skill-table">
+  <thead>
+    <th>Skill</th>
+    <th>Spent</th>
+    <th>Total</th>
+    <th>Skill</th>
+    <th>Spent</th>
+    <th>Total</th>
+  </thead>
+  <tr>
+    <%= render 'skill_table_input', f: f, skill: :fist, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :handgun, character: character %>
+  </tr>
+  <tr>
+    <%= render 'skill_table_input', f: f, skill: :grapple, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :machine_gun, character: character %>
+  </tr>
+  <tr>
+    <%= render 'skill_table_input', f: f, skill: :head, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :rifle, character: character %>
+  </tr>
+  <tr>
+    <%= render 'skill_table_input', f: f, skill: :kick, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :shotgun, character: character %>
+  </tr>
+  <tr>
+    <%= render 'skill_table_input', f: f, skill: :melee, character: character %>
+    <%= render 'skill_table_input', f: f, skill: :SMG, character: character %>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  $(window).load(function() {
+    var pointObserver = new CoC.SkillPointObserver( {
+      occupationalSkillTableId: 'occupational_skill_table',
+      occTotalId: 'occ_total',
+      piTotalId: 'pi_total'
+    });
+
+    var occupationSelector = $('#coc_skill_set_skill_occupation');
+    var occupationalSkillList = new CoC.OccupationalSkillList( {
+      occupations: <%= occupations_json %>,
+      all_skills: <%= Coc::SkillSet::ALL_SKILLS.to_a.to_json.html_safe %>,
+      skill_categories: <%= Coc::SkillSet::SKILL_CATEGORIES.to_a.to_json.html_safe %>,
+      pointObserver: pointObserver,
+      occupation_skills: <%= character.skill_set && character.skill_set.occupation_skills? ? character.skill_set.occupation_skills.html_safe : 'null' %>
+    });
+
+    new CoC.SkillTable( {
+      allSkills: <%= all_skills( character ).to_a.to_json.html_safe %>,
+      skillCategories: <%= Coc::SkillSet::SKILL_CATEGORIES.to_a.to_json.html_safe %>,
+      pointObserver: pointObserver
+    });
+
+    occupationSelector.change( function(event) {
+      occupationalSkillList.notify();
+      pointObserver.notify();
+    } );
+
+    occupationalSkillList.notify();
+    pointObserver.notify();
+
+    occupationalSkillList.setOccupationSkillSelects();
+    occupationalSkillList.updateOccupationSkillSelects();
+
+    _.each(<%=Coc::SkillSet::SKILL_CATEGORIES.keys.map( &:to_s ).to_json.html_safe%>, function(skill) {
+      new CoC.SubSkills({ skill: skill });
+    });
+  });
+</script>

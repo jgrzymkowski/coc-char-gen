@@ -1,0 +1,25 @@
+---
+- name: Sanity
+  readable_calculation: 'Power x 5'
+  calculation: '[power * 5, 99 - cthulhu_mythos].min'
+- name: Idea
+  readable_calculation: 'Intelligence x 5'
+  calculation: 'intelligence * 5'
+- name: Luck
+  readable_calculation: 'Power x 5'
+  calculation: 'power * 5'
+- name: Know
+  readable_calculation: 'Education x 5'
+  calculation: 'education * 5'
+- name: Hit Points
+  readable_calculation: '(Constituation + Size) / 2'
+  calculation: '(constitution + size) / 2'
+- name: Magic Points
+  readable_calculation: 'Power'
+  calculation: 'power'
+- name: Occupational Skill Points
+  readable_calculation: 'Education x 20'
+  calculation: 'education * 20'
+- name: Personal Interest Points
+  readable_calculation: 'Intelligence x 1-'
+  calculation: 'intelligence * 10'

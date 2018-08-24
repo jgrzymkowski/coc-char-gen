@@ -129,7 +129,7 @@ CoC.OccupationalSkillList.prototype = {
   notify: function() {
     var self = this;
     $('#occupational_skill_table').html('');
-    if($('#skill_set_skill_occupation').val()) {
+    if($('#coc_skill_set_skill_occupation').val()) {
       self.updateOccupationSkillList();
       self.updateOccupationSkillOptions();
     }
@@ -138,7 +138,7 @@ CoC.OccupationalSkillList.prototype = {
   //updates table with static skills
   updateOccupationSkillList: function() {
     var self = this;
-    var skills = self.properties.occupations[$('#skill_set_skill_occupation').val()].set;
+    var skills = self.properties.occupations[$('#coc_skill_set_skill_occupation').val()].set;
     _.each(skills, function(skill) {
       $('#occupational_skill_table').append($('<tr>').
         append('<td skill="'+skill+'">' + CoC.humanize_sym(skill) + '</td>') );
@@ -149,7 +149,7 @@ CoC.OccupationalSkillList.prototype = {
   //updates table with select skills
   updateOccupationSkillOptions: function() {
     var self = this;
-    var options = self.properties.occupations[$('#skill_set_skill_occupation').val()].options;
+    var options = self.properties.occupations[$('#coc_skill_set_skill_occupation').val()].options;
     _.each(options, function(option) {
       var skillOptions;
       if(option == 'any') {
@@ -185,7 +185,7 @@ CoC.OccupationalSkillList.prototype = {
     var occupation_skills = _.map($('.occupation-skill'), function(select) {
       return $(select).val();
     });
-    $('#skill_set_occupation_skills').val(JSON.stringify(occupation_skills));
+    $('#coc_skill_set_occupation_skills').val(JSON.stringify(occupation_skills));
   },
 
   //update selects to match saved values (from hidden field)
@@ -220,6 +220,6 @@ CoC.SubSkills.prototype = {
       values[$('#'+this.skill+i+'_title').val()] = $('#'+this.skill+i+'_val').val();
       i++;
     }
-    $('#skill_set_'+this.skill).val(JSON.stringify(values));
+    $('#coc_skill_set_'+this.skill).val(JSON.stringify(values));
   }
 };

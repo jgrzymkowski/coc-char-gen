@@ -1,0 +1,2 @@
+module Coc::CharactersHelper
+end

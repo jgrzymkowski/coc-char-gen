@@ -3,11 +3,13 @@ Rails.application.routes.draw do
 
   root to: "users#show"
 
-  resources :characters do
-    resources :characteristic_sets, only: [ :new, :create, :show ]
-    resources :skill_sets, only: [ :new, :create, :edit, :update ]
-    get '/weapons', to: 'weapons#edit'
-    put '/weapons', to: 'weapons#update'
+  namespace :coc do
+    resources :characters do
+      resources :characteristic_sets, only: [ :new, :create, :show ]
+      resources :skill_sets, only: [ :new, :create, :edit, :update ]
+      get '/weapons', to: 'weapons#edit'
+      put '/weapons', to: 'weapons#update'
+    end
   end
 
   resources :users, only: [:show]
