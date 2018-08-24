@@ -1,29 +1,42 @@
-<div class="fright">
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-</div>
-
-<div class="page-title">
-  <%= user.display_name %>
-</div>
-
-<div class="table-summary">
-  <div class="table-title">
-    <span>Campaigns</span>
-    <span class="fright">
-      <%= link_to 'Create Campaign', new_campaign_path %>
-    </span>
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="breadcrumbs">
+      <li>Campaigns</li>
+    </ul>
   </div>
-  <div>
-    <ul>
-      <% user.all_campaigns.each do |campaign| %>
-        <li>
-          <%= link_to campaign.name, campaign_path( campaign ) %>
-        </li>
-      <% end %>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li>
+        <div class="small">
+          <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'button') %>
+        </div>
+      </li>
+      <li>
+        <div class="small">
+          <%= link_to('Create Campaign', new_campaign_path, class: 'button') %>
+        </div>
+      </li>
     </ul>
   </div>
 </div>
 
-<div class="cleft"> </div>
-
-<%= render 'coc/characters/character_table', characters: user.coc_characters %>
+<div class="row align-center">
+  <div class="column small-12 medium-10">
+    <table>
+      <thead>
+        <tr>
+          <th>Campagin</th>
+          <th>System</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% user.all_campaigns.each do |campaign| %>
+          <tr>
+            <td><%= link_to(campaign.name, campaign_path(campaign)) %></td>
+            <td><%= campaign.game_system.name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

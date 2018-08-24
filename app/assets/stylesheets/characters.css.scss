@@ -1,22 +1,24 @@
-.char_field {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
+.deprecated {
+  .char_field {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 
-.char_field input[type=text] {
-  width: 200px;
-  margin-right: 10px;
-}
+  .char_field input[type=text] {
+    width: 200px;
+    margin-right: 10px;
+  }
 
-.char_field select {
-  margin-right: 10px;
-}
+  .char_field select {
+    margin-right: 10px;
+  }
 
-.char_field textarea {
-  width: 400px;
-  height: 50px;
-}
+  .char_field textarea {
+    width: 400px;
+    height: 50px;
+  }
 
-.char_field .history_text {
-  height: 300px;
+  .char_field .history_text {
+    height: 300px;
+  }
 }

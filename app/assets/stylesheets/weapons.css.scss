@@ -1,14 +1,16 @@
-.weapon-table-title {
-  margin-top: 20px;
-  font-size: 20px;
-  padding: 10px;
-}
+.deprecated {
+  .weapon-table-title {
+    margin-top: 20px;
+    font-size: 20px;
+    padding: 10px;
+  }
 
-.addWeapon, .removeWeapon {
-  margin-left: 3px;
-  margin-right: 3px;
-}
+  .addWeapon, .removeWeapon {
+    margin-left: 3px;
+    margin-right: 3px;
+  }
 
-tr.selected {
-  color: cornflowerblue
+  tr.selected {
+    color: cornflowerblue
+  }
 }

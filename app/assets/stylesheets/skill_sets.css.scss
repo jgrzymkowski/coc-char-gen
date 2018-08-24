@@ -1,55 +1,57 @@
-.skill-input {
-  width: 50px;
-  text-align: center;
-}
+.deprecated {
+  .skill-input {
+    width: 50px;
+    text-align: center;
+  }
 
-.skill-occupation-box {
-  width: 300px;
-  padding: 20px;
-  float: left;
-}
+  .skill-occupation-box {
+    width: 300px;
+    padding: 20px;
+    float: left;
+  }
 
-.point-total {
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  text-align: center;
-}
+  .point-total {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+  }
 
-.skill-total {
-  text-align: center;
-}
+  .skill-total {
+    text-align: center;
+  }
 
-.skill-table {
-  margin-top: 10px;
-}
+  .skill-table {
+    margin-top: 10px;
+  }
 
-.skill-totals-point-box {
-  float: left;
-  margin-top: 20px;
-  width: 300px;
-}
+  .skill-totals-point-box {
+    float: left;
+    margin-top: 20px;
+    width: 300px;
+  }
 
-.blue-sub-point-total {
-  border: 10px solid #084B8A;
-  margin-top: 10px;
-}
+  .blue-sub-point-total {
+    border: 10px solid #084B8A;
+    margin-top: 10px;
+  }
 
-.red-sub-point-total {
-  border: 10px solid #FF3333;
-  margin-top: 10px;
-}
+  .red-sub-point-total {
+    border: 10px solid #FF3333;
+    margin-top: 10px;
+  }
 
-.green-sub-point-total {
-  border: 10px solid #33CC33;
-  margin-top: 10px;
-}
+  .green-sub-point-total {
+    border: 10px solid #33CC33;
+    margin-top: 10px;
+  }
 
-.weapon-title {
-  border-top: 1px solid #909090;
-  border-bottom: 1px solid #909090;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 3px;
+  .weapon-title {
+    border-top: 1px solid #909090;
+    border-bottom: 1px solid #909090;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 3px;
+  }
 }

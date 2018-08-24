@@ -1,3 +1,25 @@
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="breadcrumbs">
+      <li><%= link_to('Campaigns', user_path(current_user)) %></li>
+      <li>New Campaign</li>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li>
+        <div class="small">
+          <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'button') %>
+        </div>
+      </li>
+      <li>
+        <div class="small">
+          <%= link_to('Create Campaign', new_campaign_path, class: 'button') %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
 <%= form_for :campaign, method: :post, url: campaigns_path do |f| %>
   <div class="fright">
     <%= link_to 'Home', root_path %> |
