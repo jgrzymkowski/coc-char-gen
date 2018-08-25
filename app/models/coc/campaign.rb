@@ -8,7 +8,7 @@
 #  updated_at :datetime         not null
 #
 
-class Campaign < ActiveRecord::Base
+class Coc::Campaign < ActiveRecord::Base
   include SoftDeletable
 
   has_and_belongs_to_many :users

@@ -12,6 +12,11 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :dg do
+    resources :characters do
+    end
+  end
+
   resources :users, only: [:show]
   resources :campaigns, only: [:new, :create, :show, :destroy]
 

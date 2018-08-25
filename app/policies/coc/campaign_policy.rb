@@ -1,4 +1,4 @@
-class CampaignPolicy < ApplicationPolicy
+class Coc::CampaignPolicy < ApplicationPolicy
   def create?
     true
   end

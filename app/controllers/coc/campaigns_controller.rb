@@ -1,7 +1,7 @@
-class CampaignsController < ApplicationController
+class Coc::CampaignsController < ApplicationController
   expose(:campaign) do
     if params.permit(:id)[:id]
-      Campaign.find(params.permit(:id)[:id])
+      Coc::Campaign.find(params.permit(:id)[:id])
     end
   end
 
@@ -9,9 +9,9 @@ class CampaignsController < ApplicationController
   end
 
   def create
-    attributes = params.require(:campaign).permit(:name)
+    attributes = params.require(:campaign).permit(:name, :game_system_id)
     attributes.merge!(owners: [current_user])
-    @campaign = Campaign.new(attributes)
+    @campaign = Coc::Campaign.new(attributes)
 
     authorize @campaign
     unless @campaign.valid?

@@ -23,8 +23,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_and_belongs_to_many :campaigns
-  has_and_belongs_to_many :owned_campaigns, join_table: :campaigns_owners, class_name: Campaign.name
+  has_many :campaigns_users
+  has_many :campaigns_owners
 
   has_many :coc_characters, class_name: "Coc::Character"
 

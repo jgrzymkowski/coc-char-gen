@@ -1,0 +1,26 @@
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="breadcrumbs">
+      <li><%= link_to('Campaigns', user_path(current_user)) %></li>
+      <li><%=campaign.name%></li>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li>
+        <div class="button-group">
+          <%= link_to 'Delete Campaign', campaign_path(campaign), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button' %>
+          <%= link_to 'Create Character', new_coc_character_path, class: 'button' %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row align-center">
+  <div class="column small-12 medium-10">
+    <%= render 'coc/characters/character_table', characters: campaign.coc_characters %>
+  </div>
+</div>
+
+

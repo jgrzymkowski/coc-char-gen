@@ -28,6 +28,10 @@ class GameSystem
   end
 
   def campaigns
-    Campaign.where(game_system_id: id)
+    case id
+    when 'call-of-cthulhu-1920'
+      Coc::Campaign.all
+    when 'delta-green'
+    end
   end
 end

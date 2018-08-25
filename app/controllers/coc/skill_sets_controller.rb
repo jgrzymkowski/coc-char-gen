@@ -28,10 +28,6 @@ class Coc::SkillSetsController < ApplicationController
     new_skill_set = extract_skill_occupation skill_hash
     new_skill_set.merge!( extract_skill_sets skill_hash )
     new_skill_set.merge!( extract_sub_skill_sets skill_hash )
-    puts '*'*100
-    puts params.inspect
-    puts '!'*100
-    puts new_skill_set
 
     character.skill_set.update_attributes new_skill_set
     redirect_to coc_character_path character
