@@ -7,12 +7,8 @@
   <div class="top-bar-right">
     <ul class="menu">
       <li>
-        <div class="small">
+        <div class="button-group">
           <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'button') %>
-        </div>
-      </li>
-      <li>
-        <div class="small">
           <%= link_to('Create Campaign', new_campaign_path, class: 'button') %>
         </div>
       </li>
@@ -25,7 +21,7 @@
     <table>
       <thead>
         <tr>
-          <th>Campagin</th>
+          <th>Campaign</th>
           <th>System</th>
         </tr>
       </thead>
