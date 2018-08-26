@@ -1,7 +1,7 @@
 <div class="top-bar">
   <div class="top-bar-left">
     <ul class="breadcrumbs">
-      <li><%= link_to('Campaigns', user_path(current_user)) %></li>
+      <li><%= link_to('Home', user_path(current_user)) %></li>
       <li>New Campaign</li>
     </ul>
   </div>
@@ -16,8 +16,8 @@
   </div>
 </div>
 <div class="row align-center">
-  <div class="column small-12 medium-10">
-    <%= form_for :campaign, method: :post, url: campaigns_path do |f| %>
+  <div class="column small-12 medium-6">
+    <%= form_for :campaign, method: :post, url: coc_campaigns_path do |f| %>
       <%= render 'campaign_inputs', f: f, campaign: campaign %>
     <% end %>
   </div>

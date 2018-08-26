@@ -2,16 +2,16 @@
   <div class="top-bar-left">
     <ul class="breadcrumbs">
       <li><%= link_to('Home', user_path(current_user)) %></li>
-      <li><%= link_to(campaign.name, campaign) %></li>
-      <li>New Character</li>
+      <li><%= link_to(character.campaign.name, character.campaign) %></li>
+      <li><%= character.display_name %></li>
     </ul>
   </div>
 </div>
 <div class="row align-center">
   <div class="column small-12 medium-6">
     <fieldset class="fieldset">
-      <legend>New Character</legend>
-      <%= form_for :dg_character, method: :post, url: dg_campaign_characters_path do |f| %>
+      <legend>Edit Character</legend>
+      <%= form_for character, method: :put, url: dg_character_path(character) do |f| %>
         <%= render 'character_inputs', f: f, character: character %>
       <% end %>
     </fieldset>

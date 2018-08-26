@@ -5,13 +5,18 @@ class AddDeltaGreen < ActiveRecord::Migration
     rename_table :skill_sets, :coc_skill_sets
     rename_table :campaigns, :coc_campaigns
 
-    add_column :campaigns_users, :campaign_type, :text
-    remove_index :campaigns_users, name: :index_campaigns_users_on_user_id
-    add_index :campaigns_users, [:campaign_id, :campaign_type], name: :index_campaigns_users_campaign
+    add_column :coc_campaigns, :owner_id, :integer
+    add_foreign_key :coc_campaigns, :users, column: :owner_id
 
-    add_column :campaigns_owners, :campaign_type, :text
-    remove_index :campaigns_owners, name: :index_campaigns_owners_on_campaign_id
-    add_index :campaigns_owners, [:campaign_id, :campaign_type], name: :index_campaigns_owners_campaign
+    drop_table :campaigns_users do |t|
+      t.belongs_to :campaign, index: true
+      t.belongs_to :user, index: true
+    end
+
+    drop_table :campaigns_owners do |t|
+      t.belongs_to :campaign, index: true
+      t.belongs_to :user, index: true
+    end
   end
 end
 

@@ -4,6 +4,4 @@
   <legend><%= campaign.nil? ? 'New' : 'Edit' %> Campaign</legend>
   <%= f.label :name %>
   <%= f.text_field :name %>
-  <%= f.label :game_system %>
-  <%= f.collection_select(:game_system_id, GameSystem.all, :id, :name) %>
 </fieldset>

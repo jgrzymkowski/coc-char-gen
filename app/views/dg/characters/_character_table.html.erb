@@ -1,0 +1,19 @@
+<table>
+  <thead>
+    <th>Player</th>
+    <th>Name</th>
+    <th>Profession</th>
+    <th>Age</th>
+    <th></th>
+  </thead>
+
+  <% characters.each do |character| %>
+    <tr>
+      <td><%= character.user.display_name %></td>
+      <td><%= character.display_name %></td>
+      <td><%= character.age %></td>
+        <%= link_to 'View', character, method: :get %>
+      </td>
+    </tr>
+  <% end %>
+</table>

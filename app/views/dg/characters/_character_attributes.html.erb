@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="card-divider">
+    <div class="clearfix" style="width: 100%">
+      <div class="float-left">
+        Personal Data
+      </div>
+      <div class="float-right">
+        <%= link_to( 'Edit', edit_dg_character_path(character), class: 'button small') %>
+      </div>
+    </div>
+  </div>
+  <div class="card-section">
+    <div class="grid-x">
+      <div class="cell small-12 medium-7 attribute">
+        <div class='attribute-label'>Name</div>
+        <div class='attribute-value'><%= character.display_name %></div>
+      </div>
+      <div class="cell small-12 medium-5 attribute">
+        <div class='attribute-label'>Profession</div>
+        <div class='attribute-value'><%= character.profession %></div>
+      </div>
+      <div class="cell small-12 medium-3 attribute">
+        <div class='attribute-label'>Sex</div>
+        <div class='attribute-value'><%= character.profession %></div>
+      </div>
+      <div class="cell small-12 medium-3 attribute">
+        <div class='attribute-label'>Age and D.O.B.</div>
+        <div class='attribute-value'><%= "#{character.date_of_birth} (#{character.age})"%></div>
+      </div>
+      <div class="cell small-12 medium-6 attribute">
+        <div class='attribute-label'>Education and Occupational History</div>
+        <div class='attribute-value'><%= character.education_and_occupational_history %></div>
+      </div>
+    </div>
+  </div>
+</div>

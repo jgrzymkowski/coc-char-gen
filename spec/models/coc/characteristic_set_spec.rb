@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: characteristic_sets
+# Table name: coc_characteristic_sets
 #
 #  id           :integer          not null, primary key
 #  strength     :integer

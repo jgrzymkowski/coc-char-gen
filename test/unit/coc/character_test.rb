@@ -1,9 +1,8 @@
 # == Schema Information
 #
-# Table name: characters
+# Table name: coc_characters
 #
 #  id                   :integer          not null, primary key
-#  player_name          :string
 #  first_name           :string
 #  last_name            :string
 #  occupation           :string
@@ -27,6 +26,8 @@
 #  property             :string
 #  real_estate          :string
 #  user_id              :integer
+#  campaign_id          :integer
+#  deleted_at           :datetime
 #
 
 require 'test_helper'

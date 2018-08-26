@@ -1,4 +1,4 @@
-class Coc::CampaignPolicy < ApplicationPolicy
+class Dg::CampaignPolicy < ApplicationPolicy
   def create?
     true
   end
@@ -13,7 +13,7 @@ class Coc::CampaignPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      scope.where("id IN (?) OR id IN (?)", @user.coc_campaigns.map(&:id), @user.owned_coc_campaigns.map(&:id))
+      scope.where("id IN (?) OR id IN (?)", @user.dg_campaigns.map(&:id), @user.owned_dg_campaigns.map(&:id))
     end
   end
 end

@@ -15,6 +15,8 @@
 #  last_sign_in_ip        :inet
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  first_name             :text
+#  last_name              :text
 #
 
 class User < ActiveRecord::Base
@@ -23,10 +25,15 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :campaigns_users
-  has_many :campaigns_owners
+  has_many :campaign_users
+  has_many :owned_coc_campaigns, through: :campaign_users, source: 'campaign', source_type: 'Coc::Campaign'
+  has_many :owned_dg_campaigns, through: :campaign_users, source: 'campaign', source_type: 'Dg::Campaign'
 
   has_many :coc_characters, class_name: "Coc::Character"
+  has_many :coc_campaigns, through: :coc_characters, source: :campaign
+
+  has_many :dg_characters, class_name: "Dg::Character"
+  has_many :dg_campaigns, through: :dg_characters, source: :campaign
 
   def display_name
     if first_name.blank?

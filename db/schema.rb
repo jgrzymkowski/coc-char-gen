@@ -16,29 +16,12 @@ ActiveRecord::Schema.define(version: 20180825062640) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "campaigns_owners", force: :cascade do |t|
-    t.integer "campaign_id"
-    t.integer "user_id"
-    t.text    "campaign_type"
-  end
-
-  add_index "campaigns_owners", ["campaign_id", "campaign_type"], name: "index_campaigns_owners_campaign", using: :btree
-  add_index "campaigns_owners", ["user_id"], name: "index_campaigns_owners_on_user_id", using: :btree
-
-  create_table "campaigns_users", force: :cascade do |t|
-    t.integer "campaign_id"
-    t.integer "user_id"
-    t.text    "campaign_type"
-  end
-
-  add_index "campaigns_users", ["campaign_id", "campaign_type"], name: "index_campaigns_users_campaign", using: :btree
-  add_index "campaigns_users", ["campaign_id"], name: "index_campaigns_users_on_campaign_id", using: :btree
-
   create_table "coc_campaigns", force: :cascade do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
+    t.integer  "owner_id"
   end
 
   create_table "coc_characteristic_sets", force: :cascade do |t|
@@ -154,24 +137,29 @@ ActiveRecord::Schema.define(version: 20180825062640) do
   create_table "dg_campaigns", force: :cascade do |t|
     t.string   "name"
     t.datetime "deleted_at"
+    t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "dg_characters", force: :cascade do |t|
-    t.string   "investigator_name"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "middle_initial"
+    t.string   "alias"
     t.string   "profession"
     t.string   "employer"
     t.string   "nationality"
     t.string   "gender"
-    t.string   "date_of_birth"
+    t.date     "date_of_birth"
     t.string   "education_and_occupational_history"
+    t.integer  "user_id"
+    t.integer  "campaign_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "dg_characters", ["campaign_id"], name: "index_dg_characters_on_campaign_id", using: :btree
+  add_index "dg_characters", ["user_id"], name: "index_dg_characters_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -193,4 +181,6 @@ ActiveRecord::Schema.define(version: 20180825062640) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "coc_campaigns", "users", column: "owner_id"
+  add_foreign_key "dg_campaigns", "users", column: "owner_id"
 end

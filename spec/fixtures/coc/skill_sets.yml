@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: skill_sets
+# Table name: coc_skill_sets
 #
 #  id                    :integer          not null, primary key
 #  skill_occupation      :string

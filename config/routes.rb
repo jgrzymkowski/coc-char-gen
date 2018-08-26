@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root to: "users#show"
 
   namespace :coc do
+    resources :campaigns, only: [:new, :create, :show, :destroy]
+
     resources :characters do
       resources :characteristic_sets, only: [ :new, :create, :show ]
       resources :skill_sets, only: [ :new, :create, :edit, :update ]
@@ -13,12 +15,13 @@ Rails.application.routes.draw do
   end
 
   namespace :dg do
-    resources :characters do
+    resources :campaigns, only: [:new, :create, :show, :destroy] do
+      resources :characters, only: [:new, :create]
     end
+    resources :characters, only: [:show, :edit, :update]
   end
 
   resources :users, only: [:show]
-  resources :campaigns, only: [:new, :create, :show, :destroy]
 
   get '/name_maker/first/:gender', to: 'name_maker#first'
   get '/name_maker/surname', to: 'name_maker#surname'

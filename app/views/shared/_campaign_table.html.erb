@@ -1,0 +1,27 @@
+<div class="column small-12 medium-5">
+  <div class="card">
+    <div class="card-divider">
+      <div class="clearfix" style="width: 100%">
+        <div class="float-left">
+          <h4><%= title %></h4>
+        </div>
+        <div class="float-right">
+          <%= link_to('Create Campaign', new_campaign_path, class: 'button small') %>
+        </div>
+      </div>
+    </div>
+    <div class="row align-center">
+      <div class="column small-12 medium-10">
+        <table>
+          <tbody>
+            <% campaigns.each do |campaign| %>
+              <tr>
+                <td><%= link_to(campaign.name, campaign) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

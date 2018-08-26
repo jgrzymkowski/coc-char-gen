@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: characters
+# Table name: coc_characters
 #
 #  id                   :integer          not null, primary key
 #  first_name           :string
@@ -26,6 +26,8 @@
 #  property             :string
 #  real_estate          :string
 #  user_id              :integer
+#  campaign_id          :integer
+#  deleted_at           :datetime
 #
 
 class Coc::Character < ActiveRecord::Base
@@ -36,7 +38,7 @@ class Coc::Character < ActiveRecord::Base
   has_one :skill_set
 
   belongs_to :user
-  belongs_to :campaign
+  belongs_to :campaign, class_name: 'Coc::Campaign'
 
   validates :first_name, :last_name, :occupation, :birthplace, :gender, :age, presence: true
 
