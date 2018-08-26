@@ -32,6 +32,7 @@ class GameSystem
     when 'call-of-cthulhu-1920'
       Coc::Campaign.all
     when 'delta-green'
+      Dg::Campaign.all
     end
   end
 end

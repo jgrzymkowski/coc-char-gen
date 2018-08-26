@@ -21,5 +21,9 @@ class Dg::Campaign < ActiveRecord::Base
   has_many :users, through: :dg_characters
 
   default_scope { where(deleted_at: nil) }
+
+  def game_system
+    GameSystem.find('delta-green')
+  end
 end
 

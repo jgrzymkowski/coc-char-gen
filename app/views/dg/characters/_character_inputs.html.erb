@@ -1,14 +1,23 @@
+<div class="char_field">
+  <%= f.label :gender %><br>
+  <%= f.radio_button( :gender, "f", checked: true ) %>
+  <%= f.label( :gender_m, "Female" ) %>
+  <%= f.radio_button( :gender, "m" ) %>
+  <%= f.label( :gender_m, "Male" ) %>
+  <%= f.radio_button( :gender, "o" ) %>
+  <%= f.label( :gender_o, "Other" ) %>
+</div>
+
 <%= f.label :first_name %>
 <%= f.text_field :first_name %>
+<%= link_to('Random', '#', id: 'firstNameRand') %>
 
 <%= f.label :last_name %>
 <%= f.text_field :last_name %>
+<%= link_to('Random', '#', id: 'lastNameRand') %>
 
 <%= f.label :alias %>
 <%= f.text_field :alias %>
-
-<%= f.label :gender %>
-<%= f.text_field :gender %>
 
 <%= f.label :profession %>
 <%= f.text_field :profession %>
@@ -21,8 +30,33 @@
 
 <%= f.label :date_of_birth %>
 <%= f.date_field :date_of_birth %>
+<%= link_to('Random', '#', id: 'dateOfBirthRand') %>
 
 <%= f.label :education_and_occupational_history %>
 <%= f.text_field :education_and_occupational_history %>
 
 <%= f.submit 'Save', class: 'button' %>
+
+<script type="text/javascript">
+  $(window).load(function() {
+    $('#firstNameRand').click(function(event) {
+      event.preventDefault()
+      CoC.Character.randomFirstName(
+              'delta-green',
+              'dg_character_first_name',
+              'dg_character[gender]');
+    });
+
+    $('#lastNameRand').click(function(event) {
+      event.preventDefault()
+      CoC.Character.randomLastName(
+        'delta_green',
+        'dg_character_last_name');
+    });
+
+    $('#dateOfBirthRand').click(function(event) {
+      event.preventDefault()
+      CoC.Character.dateOfBirth('dg_character_date_of_birth');
+    });
+  })
+</script>

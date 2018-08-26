@@ -1,20 +1,39 @@
 module NameMaker
 
-  def self.male_name
-    find_name 'male.txt'
+  def self.male_name_2010
+    find_name 'male-2010.txt'
   end
 
-  def self.female_name
-    find_name 'female.txt'
+  def self.female_name_2010
+    find_name 'female-2010.txt'
   end
 
-  def self.surname
-    find_name 'surname.txt'
+  def self.surname_2010
+    find_name 'surname-2010.txt'
+  end
+
+  def self.male_name_1920
+    find_name 'male-1920.txt'
+  end
+
+  def self.female_name_1920
+    find_name 'female-1920.txt'
+  end
+
+  def self.surname_1920
+    find_name 'surname-1920.txt'
   end
 
   def self.city
     lines = IO.read( self.file_path( 'cities.txt' ) ).split(';')
     lines[(lines.count*rand).to_i]
+  end
+
+  def self.date_of_birth
+    max_age = 75
+    min_age = 18
+    days = 365*(max_age-min_age) + (max_age-min_age/4).to_i
+    ((rand*days).to_i.days.ago - min_age.years).to_date
   end
 
   def self.find_name( filename )

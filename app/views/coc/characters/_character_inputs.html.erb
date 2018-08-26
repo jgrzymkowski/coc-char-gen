@@ -12,7 +12,7 @@
 
 <div class="char_field">
   <%= f.label :campaign %>
-  <% options = ([['--No Campaign--', nil]] + current_user.all_campaigns.map { |c| [c.name, c.id]}) %>
+  <% options = ([['--No Campaign--', nil]] + current_user.coc_campaigns.map { |c| [c.name, c.id]}) %>
   <%= f.select(:campaign_id, options_for_select(options, (character.campaign_id if character))) %>
 </div>
 
@@ -142,12 +142,15 @@
   $(window).load(function() {
     $('#firstNameRand').click(function() {
       CoC.Character.randomFirstName(
+              'call-of-cthulhu-1920',
               'character_first_name',
               'character[gender]');
     });
 
     $('#lastNameRand').click(function() {
-      CoC.Character.randomLastName('character_last_name');
+      CoC.Character.randomLastName(
+        'call-of-cthulhu-1920',
+        'character_last_name');
     });
 
     $('#birthplaceRand').click(function() {

@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get '/name_maker/first/:gender', to: 'name_maker#first'
   get '/name_maker/surname', to: 'name_maker#surname'
   get '/name_maker/city', to: 'name_maker#city'
+  get '/name_maker/date_of_birth', to: 'name_maker#date_of_birth'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
