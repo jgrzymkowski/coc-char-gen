@@ -5,7 +5,7 @@
 #  id         :integer          not null, primary key
 #  name       :string
 #  deleted_at :datetime
-#  users_id   :integer
+#  owner_id   :integer
 #  created_at :datetime
 #  updated_at :datetime
 #

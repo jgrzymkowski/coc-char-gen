@@ -7,6 +7,30 @@
   }
 }
 
+.assign-attribute-name {
+  border-top: solid 2px #e6e6e6;
+  border-left: solid 2px #e6e6e6;
+  border-right: solid 1px #e6e6e6;
+  border-bottom: solid 2px #e6e6e6;
+  margin: 5px 0 5px 5px;
+  padding: 8px;
+}
+
+.statistic-value {
+  background-color: white;
+  border-top: solid 2px #e6e6e6;
+  border-right: solid 2px #e6e6e6;
+  border-left: solid 1px #e6e6e6;
+  border-bottom: solid 2px #e6e6e6;
+  margin: 5px 5px 5px 0;
+  padding: 8px;
+}
+
+.assign-attribute-subtext {
+  font-size: .75rem;
+  color: gray;
+}
+
 .deprecated {
   a:link {
     color: #0066FF;

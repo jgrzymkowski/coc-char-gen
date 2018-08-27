@@ -39,4 +39,4 @@ CoC.submitForm = function() {
     $('form').submit();
   }
 }
-$(function(){ $(document).foundation(); });
+//$(function(){ $(document).foundation(); });

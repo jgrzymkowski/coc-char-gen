@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180825062640) do
+ActiveRecord::Schema.define(version: 20180826200917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -160,6 +160,18 @@ ActiveRecord::Schema.define(version: 20180825062640) do
 
   add_index "dg_characters", ["campaign_id"], name: "index_dg_characters_on_campaign_id", using: :btree
   add_index "dg_characters", ["user_id"], name: "index_dg_characters_on_user_id", using: :btree
+
+  create_table "dg_statistic_sets", force: :cascade do |t|
+    t.integer  "strength"
+    t.integer  "constitution"
+    t.integer  "dexterity"
+    t.integer  "intelligence"
+    t.integer  "power"
+    t.integer  "charisma"
+    t.integer  "character_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

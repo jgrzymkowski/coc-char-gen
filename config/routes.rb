@@ -18,7 +18,9 @@ Rails.application.routes.draw do
     resources :campaigns, only: [:new, :create, :show, :destroy] do
       resources :characters, only: [:new, :create]
     end
-    resources :characters, only: [:show, :edit, :update]
+    resources :characters, only: [:show, :edit, :update] do
+      resources :statistic_sets, only: [:new, :create]
+    end
   end
 
   resources :users, only: [:show]

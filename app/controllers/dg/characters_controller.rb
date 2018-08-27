@@ -40,7 +40,6 @@ class Dg::CharactersController < ApplicationController
 
   def update
     authorize(character)
-    puts params.inspect
 
     if character.update_attributes(character_params)
       render action: :show

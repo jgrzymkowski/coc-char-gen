@@ -5,12 +5,12 @@
 #  id                                 :integer          not null, primary key
 #  first_name                         :string
 #  last_name                          :string
-#  middle_initial                     :string
+#  alias                              :string
 #  profession                         :string
 #  employer                           :string
 #  nationality                        :string
 #  gender                             :string
-#  date_of_birth                      :string
+#  date_of_birth                      :date
 #  education_and_occupational_history :string
 #  user_id                            :integer
 #  campaign_id                        :integer
@@ -26,6 +26,9 @@ class Dg::Character < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :campaign, class_name: 'Dg::Campaign'
+
+  has_one :dg_statistic_set, class_name: 'Dg::StatisticSet'
+  alias :statistic_set :dg_statistic_set
 
   validates :first_name, :last_name, presence: true
 
