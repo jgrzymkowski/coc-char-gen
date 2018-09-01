@@ -62,6 +62,14 @@
   margin-bottom: 0;
 }
 
+.option-text-field[disabled] {
+  opacity: 0;
+}
+
+.option-text-field[disabled][value] {
+  opacity: 1;
+}
+
 .deprecated {
   a:link {
     color: #0066FF;

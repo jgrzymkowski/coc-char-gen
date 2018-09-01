@@ -76,7 +76,7 @@ class AddDgSkillSet < ActiveRecord::Migration
       t.string :foreign_language_3_text
       t.references :character
       t.string :occupation
-      t.integer :number
+      t.integer :bonds
       t.string :bonus_skill_package
       t.timestamps
     end

@@ -1,0 +1,65 @@
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="breadcrumbs">
+      <li><%= link_to('Home', user_path(current_user)) %></li>
+      <li><%= link_to(character.campaign.name, character.campaign) %></li>
+      <li><%= link_to(character.display_name, character) %></li>
+      <li>Set Statistics</li>
+    </ul>
+  </div>
+</div>
+
+<div class="grid-x align-center">
+  <div class="cell small-12">
+    <fieldset class="fieldset">
+      <legend>Choose Occupation</legend>
+      <div class="grid-x align-center">
+        <div class="cell small-12 medium-4">
+          <%= f.select :occupation, options_for_select([['---Choose Occupation---', '']]) %>
+        </div>
+        <%= f.hidden_field :bonds %>
+        <div class="cell small-12 medium-4"> </div>
+        <div class="cell small-12 medium-4"> </div>
+        <div class="cell small-12 medium-4">
+          <table id="info-occupational-skills-table">
+            <tr><td><strong>Description: </strong></span></td></tr>
+            <tr><td><strong>Reccomended Stats: </strong></span></td></tr>
+            <tr><td><strong>Bonds: </strong></td></tr>
+          </table>
+        </div>
+        <div class="cell small-12 medium-4">
+          <table id="occupational-skills-table">
+            <tr><td><strong>Included Occupation Skills: </strong></td></tr>
+          </table>
+        </div>
+        <div class="cell small-12 medium-4">
+          <table id="optional-occupational-skills-table">
+            <tr><td><strong>Optional Occupation Skills: </strong></td></tr>
+          </table>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+<div class="grid-x align-center">
+  <div class="cell small-12">
+    <fieldset class="fieldset">
+      <legend>Choose Skill Package</legend>
+      <div class="grid-x align-center">
+        <div class="cell small-12 medium-4">
+          <%= f.select :bonus_skill_package, options_for_select([['---Choose Skill Package---', '']]) %>
+        </div>
+        <div class="cell small-12 medium-4">
+          <table id="skill-packages-table">
+            <tr><td><strong>Package Skills: </strong></span></td></tr>
+          </table>
+        </div>
+        <div class="cell small-12 medium-4"></div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+<%= render '/shared/skill_set_table', f: f, character: character, skill_set: skill_set %>
+<div>
+  <%= f.submit "Save", class: 'button' %>
+</div>

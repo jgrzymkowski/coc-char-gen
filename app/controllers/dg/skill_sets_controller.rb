@@ -7,111 +7,107 @@ class Dg::SkillSetsController < ApplicationController
   def new
     authorize(Dg::SkillSet, :new?)
     @skill_set = Dg::SkillSet.new(YAML.load_file('app/resources/dg_skill_sets.yml'))
-    @skill_occupations = JSON.parse(File.read('app/resources/dg-occupation-skills.json'))
+  end
+
+  def edit
+    authorize(character.skill_set)
+  end
+
+  def update
+    character.dg_skill_set.update(skill_set_params)
+    redirect_to dg_character_path(character)
   end
 
   def create
     authorize(Dg::SkillSet, :create?)
-    character.create_dg_skill_set(skill_set_params)
+    attributes = skill_set_params.inject({}) do |mem, k_v|
+      if k_v.first =~ /_\d/ && k_v.last == 0
+        mem
+      else
+        mem.merge(k_v.first => k_v.last)
+      end
+    end
+    puts attributes.inspect
+    character.create_dg_skill_set(attributes)
     redirect_to dg_character_path(character)
   end
 
-  #count = 0
-  #YAML.load_file('app/resources/dg_skill_sets.yml').keys.each do |attr|
-    #count += 1
-    #if attr =~ /_1/
-      #count += 1
-      #str = <<STR
-     #<tr>
-        #<td>
-      ##{attr.split('_')[0].humanize.capitalize}
-        #</td>
-        #<td></td>
-      #</tr>
-     #<tr>
-        #<td id="#{attr}_text">
-      ##{attr.humanize.capitalize}
-          #<%= f.hidden_field :#{attr} %>
-          #<%= f.hidden_field :#{attr}_text %>
-        #</td>
-        #<td id="#{attr}">
-          #<%= skill_set.#{attr} %>%
-        #</td>
-      #</tr>
-#STR
-    #elsif attr =~ /_2/ || attr =~ /_3/
-      #str = <<STR
-      #<tr>
-        #<td id="#{attr}_text">
-      ##{attr.humanize.capitalize}
-          #<%= f.hidden_field :#{attr} %>
-          #<%= f.hidden_field :#{attr}_text %>
-        #</td>
-        #<td id="#{attr}">
-          #<%= skill_set.#{attr} %>%
-        #</td>
-      #</tr>
-#STR
-    #else
-      #str = <<STR
-     #<tr>
-        #<td>
-      ##{attr.humanize.capitalize}
-          #<%= f.hidden_field :#{attr} %>
-        #</td>
-        #<td id="#{attr}">
-          #<%= skill_set.#{attr} %>%
-        #</td>
-      #</tr>
-#STR
-    #end
-
-
-      #puts str
-    #end
-
-    def skill_set_params
-      params.require(:skill_set).permit(:accounting,
-                                        :alertness,
-                                        :anthropology,
-                                        :archeology,
-                                        :art,
-                                        :artillery,
-                                        :athletics,
-                                        :bureaucracy,
-                                        :computer_science,
-                                        :craft,
-                                        :criminology,
-                                        :demolitions,
-                                        :disguise,
-                                        :dodge,
-                                        :drive,
-                                        :firearms,
-                                        :first_aid,
-                                        :forensics,
-                                        :humint,
-                                        :heavy_machinery,
-                                        :heavy_weapons,
-                                        :history,
-                                        :law,
-                                        :medicine,
-                                        :melee_weapons,
-                                        :military_science,
-                                        :navigate,
-                                        :occult,
-                                        :persuade,
-                                        :pharmacy,
-                                        :pilot,
-                                        :psychotherapy,
-                                        :ride,
-                                        :sigint,
-                                        :science,
-                                        :search,
-                                        :stealth,
-                                        :surgery,
-                                        :survival,
-                                        :swim,
-                                        :unarmed_combat,
-                                        :unnatural)
-    end
+  def skill_set_params
+    params.require(:dg_skill_set).permit(:accounting,
+                                         :alertness,
+                                         :anthropology,
+                                         :archeology,
+                                         :art_1,
+                                         :art_2,
+                                         :art_3,
+                                         :art_1_text,
+                                         :art_2_text,
+                                         :art_3_text,
+                                         :artillery,
+                                         :athletics,
+                                         :bureaucracy,
+                                         :computer_science,
+                                         :craft_1,
+                                         :craft_2,
+                                         :craft_3,
+                                         :craft_1_text,
+                                         :craft_2_text,
+                                         :craft_3_text,
+                                         :criminology,
+                                         :demolitions,
+                                         :disguise,
+                                         :dodge,
+                                         :drive,
+                                         :firearms,
+                                         :first_aid,
+                                         :foreign_language_1,
+                                         :foreign_language_2,
+                                         :foreign_language_3,
+                                         :foreign_language_1_text,
+                                         :foreign_language_2_text,
+                                         :foreign_language_3_text,
+                                         :forensics,
+                                         :humint,
+                                         :heavy_machinery,
+                                         :heavy_weapons,
+                                         :history,
+                                         :law,
+                                         :medicine,
+                                         :melee_weapons,
+                                         :military_science_1,
+                                         :military_science_2,
+                                         :military_science_3,
+                                         :military_science_1_text,
+                                         :military_science_2_text,
+                                         :military_science_3_text,
+                                         :navigate,
+                                         :occult,
+                                         :persuade,
+                                         :pharmacy,
+                                         :pilot_1,
+                                         :pilot_2,
+                                         :pilot_3,
+                                         :pilot_1_text,
+                                         :pilot_2_text,
+                                         :pilot_3_text,
+                                         :psychotherapy,
+                                         :ride,
+                                         :sigint,
+                                         :science_1,
+                                         :science_2,
+                                         :science_3,
+                                         :science_1_text,
+                                         :science_2_text,
+                                         :science_3_text,
+                                         :search,
+                                         :stealth,
+                                         :surgery,
+                                         :survival,
+                                         :swim,
+                                         :unarmed_combat,
+                                         :unnatural,
+                                         :occupation,
+                                         :bonus_skill_package,
+                                         :bonds)
   end
+end

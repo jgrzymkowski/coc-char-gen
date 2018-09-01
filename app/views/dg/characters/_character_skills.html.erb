@@ -8,9 +8,22 @@
         <div class="float-right">
           <%= link_to( 'Set Skills', new_dg_character_skill_set_path(character), class: 'button small') %>
         </div>
+      <% else %>
+        <div class="float-right">
+          <%= link_to( 'Edit Skills', edit_dg_character_skill_set_path(character, character.skill_set), class: 'button small') %>
+        </div>
       <% end %>
     </div>
   </div>
   <div class="card-section">
+    <% if character.skill_set %>
+      <%= form_for(character.skill_set, url: dg_character_skill_sets_path(character)) do |f| %>
+        <%= render '/shared/skill_set_table',
+          f: f,
+          character: character,
+          skill_set: character.skill_set
+        %>
+    <% end %>
+  <% end %>
   </div>
 </div>

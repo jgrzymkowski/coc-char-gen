@@ -38,6 +38,7 @@ end
 
 def do_occupation_skills
   occupations = {}
+  id = nil
   occ = nil
   professional = false
   ms = multi_skills
@@ -45,8 +46,8 @@ def do_occupation_skills
   File.readlines('occupations.txt').each do |line|
     if line.starts_with?('NAME')
       name = line.split('NAME: ').last.strip
-      id = name.parameterize.underscore
       occupations[id] = occ if occ
+      id = name.parameterize.underscore
       ms = multi_skills
       occ = {
         id: id,
@@ -56,6 +57,8 @@ def do_occupation_skills
       }
     elsif line.starts_with?('RECOMMENDED')
       occ[:recommended_stats] = line.split('RECOMMENDED STATS: ').last.strip
+    elsif line.starts_with?('DESCRIPTION')
+      occ[:description] = line.split('DESCRIPTION: ').last.strip
     elsif line.starts_with?('BONDS')
       occ[:bonds] = line.split('BONDS: ').last.strip.to_i
     elsif line.starts_with?('PROFESSIONAL')
@@ -69,8 +72,9 @@ def do_occupation_skills
       occ[:options] << parse_skill(line, ms)
     end
   end
-  puts JSON.pretty_generate(occupations)
-  puts occupations.to_json
+  ordered = occupations.keys.sort.inject({}) { |occs, key| occs.merge(key => occupations[key]) }
+  puts JSON.pretty_generate(ordered)
+  puts ordered.to_json
 end
 
 

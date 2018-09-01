@@ -237,7 +237,7 @@ ActiveRecord::Schema.define(version: 20180827043012) do
     t.string   "foreign_language_3_text"
     t.integer  "character_id"
     t.string   "occupation"
-    t.integer  "number"
+    t.integer  "bonds"
     t.string   "bonus_skill_package"
     t.datetime "created_at"
     t.datetime "updated_at"

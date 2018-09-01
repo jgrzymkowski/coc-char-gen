@@ -1,4 +1,8 @@
 class Dg::SkillSetPolicy < ApplicationPolicy
+  def edit?
+    true
+  end
+
   def new?
     true
   end

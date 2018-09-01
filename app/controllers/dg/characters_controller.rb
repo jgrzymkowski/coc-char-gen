@@ -49,6 +49,7 @@ class Dg::CharactersController < ApplicationController
   end
 
   def character_params
+    puts params.inspect
     params.require(:dg_character).permit(:first_name,
                                       :last_name,
                                       :alias,

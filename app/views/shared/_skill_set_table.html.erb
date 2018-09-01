@@ -1,47 +1,9 @@
-<div class="top-bar">
-  <div class="top-bar-left">
-    <ul class="breadcrumbs">
-      <li><%= link_to('Home', user_path(current_user)) %></li>
-      <li><%= link_to(character.campaign.name, character.campaign) %></li>
-      <li><%= link_to(character.display_name, character) %></li>
-      <li>Set Statistics</li>
-    </ul>
-  </div>
-</div>
-
-<div class="grid-x align-center">
-  <div class="cell small-12 medium-6">
-    <fieldset class="fieldset">
-      <legend>Choose Occupation</legend>
-      <%= f.select :occupation, options_for_select([['---Choose Occupation---', '']]) %>
-      <div class="grid-x align-center">
-        <table id="occupational-skills-table">
-          <tr><td><strong>Reccomended Stats: </strong></span></td></tr>
-          <tr><td><strong>Bonds: </strong></td></tr>
-          <tr><td><strong>Included Occupation Skills: </strong></td></tr>
-          <tr><td><strong>Optional Occupation Skills: </strong></td></tr>
-        </table>
-      </div>
-    </fieldset>
-  </div>
-  <div class="cell small-12 medium-6">
-    <fieldset class="fieldset">
-      <legend>Choose Skill Package</legend>
-      <%= f.select :bonus_skill_package, options_for_select([['---Choose Skill Package---', '']]) %>
-      <div class="grid-x align-center">
-        <table id="skill-packages-table">
-          <tr><td><strong>Package Skills: </strong></span></td></tr>
-        </table>
-      </div>
-    </fieldset>
-  </div>
-</div>
 <div class="grid-x align-center skill-set">
   <div class="cell small-12 medium-4 large-4">
     <table>
       <tr>
         <td>
-          Accounting <span class="skill-addition" id="accounting-additions" />
+          Accounting <span class="skill-addition" id="accounting-additions" ></span>
           <%= f.hidden_field :accounting %>
         </td>
         <td id="accounting">
@@ -50,7 +12,7 @@
       </tr>
       <tr>
         <td>
-          Alertness <span class="skill-addition" id="alertness-additions" />
+          Alertness <span class="skill-addition" id="alertness-additions" ></span>
           <%= f.hidden_field :alertness %>
         </td>
         <td id="alertness">
@@ -59,7 +21,7 @@
       </tr>
       <tr>
         <td>
-          Anthropology <span class="skill-addition" id="anthropology-additions" />
+          Anthropology <span class="skill-addition" id="anthropology-additions" ></span>
           <%= f.hidden_field :anthropology %>
         </td>
         <td id="anthropology">
@@ -68,7 +30,7 @@
       </tr>
       <tr>
         <td>
-          Archeology <span class="skill-addition" id="archeology-additions" />
+          Archeology <span class="skill-addition" id="archeology-additions" ></span>
           <%= f.hidden_field :archeology %>
         </td>
         <td id="archeology">
@@ -85,38 +47,38 @@
         <td>
           <div id="art_1_text">
           <%= f.hidden_field :art_1 %>
-          <%= f.text_field :art_1_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="art_1-additions" />
+          <%= f.text_field :art_1_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="art_1-additions" ></span>
           </div>
         </td>
         <td id="art_1">
-          <%= skill_set.art_1 %>%
+          <%= skill_set.art_1.to_i > 0 ? "#{skill_set.art_1}%" : '' %>
         </td>
       </tr>
       <tr>
         <td>
           <div id="art_2_text">
           <%= f.hidden_field :art_2 %>
-          <%= f.text_field :art_2_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="art_2-additions" />
+          <%= f.text_field :art_2_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="art_2-additions" ></span>
           </div>
         </td>
         <td id="art_2">
-          <%= skill_set.art_2 %>%
+          <%= skill_set.art_2.to_i > 0 ? "#{skill_set.art_2}%" : '' %>
         </td>
       </tr>
       <tr>
         <td>
           <div id="art_3_text">
             <%= f.hidden_field :art_3 %>
-            <%= f.text_field :art_3_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="art_3-additions" />
+            <%= f.text_field :art_3_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="art_3-additions" ></span>
           </div>
         </td>
         <td id="art_3">
-          <%= skill_set.art_3 %>%
+          <%= skill_set.art_3.to_i > 0 ? "#{skill_set.art_3}%" : '' %>
         </td>
       </tr>
       <tr>
         <td>
-          Artillery <span class="skill-addition" id="artillery-additions" />
+          Artillery <span class="skill-addition" id="artillery-additions" ></span>
           <%= f.hidden_field :artillery %>
         </td>
         <td id="artillery">
@@ -125,7 +87,7 @@
       </tr>
       <tr>
         <td>
-          Athletics <span class="skill-addition" id="athletics-additions" />
+          Athletics <span class="skill-addition" id="athletics-additions" ></span>
           <%= f.hidden_field :athletics %>
         </td>
         <td id="athletics">
@@ -134,7 +96,7 @@
       </tr>
       <tr>
         <td>
-          Bureaucracy <span class="skill-addition" id="bureaucracy-additions" />
+          Bureaucracy <span class="skill-addition" id="bureaucracy-additions" ></span>
           <%= f.hidden_field :bureaucracy %>
         </td>
         <td id="bureaucracy">
@@ -143,7 +105,7 @@
       </tr>
       <tr>
         <td>
-          Computer science <span class="skill-addition" id="computer_science-additions" />
+          Computer science <span class="skill-addition" id="computer_science-additions" ></span>
           <%= f.hidden_field :computer_science %>
         </td>
         <td id="computer_science">
@@ -160,38 +122,38 @@
         <td>
           <div id="craft_1_text">
             <%= f.hidden_field :craft_1 %>
-            <%= f.text_field :craft_1_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="craft_1-additions" />
+            <%= f.text_field :craft_1_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="craft_1-additions" ></span>
           </div>
         </td>
         <td id="craft_1">
-          <%= skill_set.craft_1 %>%
+          <%= skill_set.craft_1.to_i > 0 ? "#{skill_set.craft_1}%" : '' %>
         </td>
       </tr>
       <tr>
         <td>
           <div id="craft_2_text">
             <%= f.hidden_field :craft_2 %>
-            <%= f.text_field :craft_2_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="craft_2-additions" />
+            <%= f.text_field :craft_2_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="craft_2-additions" ></span>
           </div>
         </td>
         <td id="craft_2">
-          <%= skill_set.craft_2 %>%
+          <%= skill_set.craft_2.to_i > 0 ? "#{skill_set.craft_2}%" : '' %>
         </td>
       </tr>
       <tr>
         <td>
           <div id="craft_3_text">
             <%= f.hidden_field :craft_3 %>
-            <%= f.text_field :craft_3_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="craft_3-additions" />
+            <%= f.text_field :craft_3_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="craft_3-additions" ></span>
           </div>
         </td>
         <td id="craft_3">
-          <%= skill_set.craft_3 %>%
+          <%= skill_set.craft_3.to_i > 0 ? "#{skill_set.craft_3}%" : '' %>
         </td>
       </tr>
       <tr>
         <td>
-          Criminology <span class="skill-addition" id="criminology-additions" />
+          Criminology <span class="skill-addition" id="criminology-additions" ></span>
           <%= f.hidden_field :criminology %>
         </td>
         <td id="criminology">
@@ -200,7 +162,7 @@
       </tr>
       <tr>
         <td>
-          Demolitions <span class="skill-addition" id="demolitions-additions" />
+          Demolitions <span class="skill-addition" id="demolitions-additions" ></span>
           <%= f.hidden_field :demolitions %>
         </td>
         <td id="demolitions">
@@ -209,7 +171,7 @@
       </tr>
       <tr>
         <td>
-          Disguise <span class="skill-addition" id="disguise-additions" />
+          Disguise <span class="skill-addition" id="disguise-additions" ></span>
           <%= f.hidden_field :disguise %>
         </td>
         <td id="disguise">
@@ -218,7 +180,7 @@
       </tr>
       <tr>
         <td>
-          Dodge <span class="skill-addition" id="dodge-additions" />
+          Dodge <span class="skill-addition" id="dodge-additions" ></span>
           <%= f.hidden_field :dodge %>
         </td>
         <td id="dodge">
@@ -227,7 +189,7 @@
       </tr>
       <tr>
         <td>
-          Drive <span class="skill-addition" id="drive-additions" />
+          Drive <span class="skill-addition" id="drive-additions" ></span>
           <%= f.hidden_field :drive %>
         </td>
         <td id="drive">
@@ -240,7 +202,7 @@
     <table>
       <tr>
         <td>
-          Firearms <span class="skill-addition" id="firearms-additions" />
+          Firearms <span class="skill-addition" id="firearms-additions" ></span>
           <%= f.hidden_field :firearms %>
         </td>
         <td id="firearms">
@@ -249,7 +211,7 @@
       </tr>
       <tr>
         <td>
-          First aid <span class="skill-addition" id="first_aid-additions" />
+          First aid <span class="skill-addition" id="first_aid-additions" ></span>
           <%= f.hidden_field :first_aid %>
         </td>
         <td id="first_aid">
@@ -258,7 +220,7 @@
       </tr>
       <tr>
         <td>
-          Forensics <span class="skill-addition" id="forensics-additions" />
+          Forensics <span class="skill-addition" id="forensics-additions" ></span>
           <%= f.hidden_field :forensics %>
         </td>
         <td id="forensics">
@@ -275,38 +237,38 @@
         <td>
           <div id="foreign_language_1_text">
             <%= f.hidden_field :foreign_language_1 %>
-            <%= f.text_field :foreign_language_1_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="foreign_language_1-additions" />
+            <%= f.text_field :foreign_language_1_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="foreign_language_1-additions" ></span>
           </div>
         </td>
         <td id="foreign_language_1">
-          <%= skill_set.foreign_language_1 %>%
+          <%= skill_set.foreign_language_1.to_i > 0 ? "#{skill_set.foreign_language_1}%" : '' %>
         </td>
       </tr>
       <tr>
         <td>
           <div id="foreign_language_2_text">
             <%= f.hidden_field :foreign_language_2 %>
-            <%= f.text_field :foreign_language_2_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="foreign_language_2-additions" />
+            <%= f.text_field :foreign_language_2_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="foreign_language_2-additions" ></span>
           </div>
         </td>
         <td id="foreign_language_2">
-          <%= skill_set.foreign_language_2 %>%
+          <%= skill_set.foreign_language_2.to_i > 0 ? "#{skill_set.foreign_language_2}%" : '' %>
         </td>
       </tr>
       <tr>
         <td>
           <div id="foreign_language_3_text">
             <%= f.hidden_field :foreign_language_3 %>
-            <%= f.text_field :foreign_language_3_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="foreign_language_3-additions" />
+            <%= f.text_field :foreign_language_3_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="foreign_language_3-additions" ></span>
           </div>
         </td>
         <td id="foreign_language_3">
-          <%= skill_set.foreign_language_3 %>%
+          <%= skill_set.foreign_language_3.to_i > 0 ? "#{skill_set.foreign_language_3}%" : '' %>
         </td>
       </tr>
       <tr>
         <td>
-          Humint <span class="skill-addition" id="humint-additions" />
+          Humint <span class="skill-addition" id="humint-additions" ></span>
           <%= f.hidden_field :humint %>
         </td>
         <td id="humint">
@@ -315,7 +277,7 @@
       </tr>
       <tr>
         <td>
-          Heavy machinery <span class="skill-addition" id="heavy_machinery-additions" />
+          Heavy machinery <span class="skill-addition" id="heavy_machinery-additions" ></span>
           <%= f.hidden_field :heavy_machinery %>
         </td>
         <td id="heavy_machinery">
@@ -324,7 +286,7 @@
       </tr>
       <tr>
         <td>
-          Heavy weapons <span class="skill-addition" id="heavy_weapons-additions" />
+          Heavy weapons <span class="skill-addition" id="heavy_weapons-additions" ></span>
           <%= f.hidden_field :heavy_weapons %>
         </td>
         <td id="heavy_weapons">
@@ -333,7 +295,7 @@
       </tr>
       <tr>
         <td>
-          History <span class="skill-addition" id="history-additions" />
+          History <span class="skill-addition" id="history-additions" ></span>
           <%= f.hidden_field :history %>
         </td>
         <td id="history">
@@ -342,7 +304,7 @@
       </tr>
       <tr>
         <td>
-          Law <span class="skill-addition" id="law-additions" />
+          Law <span class="skill-addition" id="law-additions" ></span>
           <%= f.hidden_field :law %>
         </td>
         <td id="law">
@@ -351,7 +313,7 @@
       </tr>
       <tr>
         <td>
-          Medicine <span class="skill-addition" id="medicine-additions" />
+          Medicine <span class="skill-addition" id="medicine-additions" ></span>
           <%= f.hidden_field :medicine %>
         </td>
         <td id="medicine">
@@ -360,7 +322,7 @@
       </tr>
       <tr>
         <td>
-          Melee weapons <span class="skill-addition" id="melee_weapons-additions" />
+          Melee weapons <span class="skill-addition" id="melee_weapons-additions" ></span>
           <%= f.hidden_field :melee_weapons %>
         </td>
         <td id="melee_weapons">
@@ -369,7 +331,7 @@
       </tr>
       <tr>
         <td>
-          Military
+          Military Science
         </td>
         <td></td>
       </tr>
@@ -377,38 +339,38 @@
         <td>
           <div id="military_science_1_text">
             <%= f.hidden_field :military_science_1 %>
-            <%= f.text_field :military_science_1_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="military_science_1-additions" />
+            <%= f.text_field :military_science_1_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="military_science_1-additions" ></span>
           </div>
         </td>
         <td id="military_science_1">
-          <%= skill_set.military_science_1 %>%
+          <%= skill_set.military_science_1.to_i > 0 ? "#{skill_set.military_science_1}%" : '' %>
         </td>
       </tr>
       <tr>
         <td>
           <div id="military_science_2_text">
             <%= f.hidden_field :military_science_2 %>
-            <%= f.text_field :military_science_2_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="military_science_2-additions" />
+            <%= f.text_field :military_science_2_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="military_science_2-additions" ></span>
           </div>
         </td>
         <td id="military_science_2">
-          <%= skill_set.military_science_2 %>%
+          <%= skill_set.military_science_2.to_i > 0 ? "#{skill_set.military_science_2}%" : '' %>
         </td>
       </tr>
       <tr>
         <td>
           <div id="military_science_3_text">
             <%= f.hidden_field :military_science_3 %>
-            <%= f.text_field :military_science_3_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="military_science_3-additions" />
+            <%= f.text_field :military_science_3_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="military_science_3-additions" ></span>
           </div>
         </td>
         <td id="military_science_3">
-          <%= skill_set.military_science_3 %>%
+          <%= skill_set.military_science_3.to_i > 0 ? "#{skill_set.military_science_3}%" : '' %>
         </td>
       </tr>
       <tr>
         <td>
-          Navigate <span class="skill-addition" id="navigate-additions" />
+          Navigate <span class="skill-addition" id="navigate-additions" ></span>
           <%= f.hidden_field :navigate %>
         </td>
         <td id="navigate">
@@ -417,7 +379,7 @@
       </tr>
       <tr>
         <td>
-          Occult <span class="skill-addition" id="occult-additions" />
+          Occult <span class="skill-addition" id="occult-additions" ></span>
           <%= f.hidden_field :occult %>
         </td>
         <td id="occult">
@@ -426,7 +388,7 @@
       </tr>
       <tr>
         <td>
-          Persuade <span class="skill-addition" id="persuade-additions" />
+          Persuade <span class="skill-addition" id="persuade-additions" ></span>
           <%= f.hidden_field :persuade %>
         </td>
         <td id="persuade">
@@ -439,7 +401,7 @@
     <table>
       <tr>
         <td>
-          Pharmacy <span class="skill-addition" id="pharmacy-additions" />
+          Pharmacy <span class="skill-addition" id="pharmacy-additions" ></span>
           <%= f.hidden_field :pharmacy %>
         </td>
         <td id="pharmacy">
@@ -456,38 +418,38 @@
         <td>
           <div id="pilot_1_text">
             <%= f.hidden_field :pilot_1 %>
-            <%= f.text_field :pilot_1_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="pilot_1-additions" />
+            <%= f.text_field :pilot_1_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="pilot_1-additions" ></span>
           </div>
         </td>
         <td id="pilot_1">
-          <%= skill_set.pilot_1 %>%
+          <%= skill_set.pilot_1.to_i > 0 ? "#{skill_set.pilot_1}%" : '' %>
         </td>
       </tr>
       <tr>
         <td>
           <div id="pilot_2_text">
             <%= f.hidden_field :pilot_2 %>
-            <%= f.text_field :pilot_2_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="pilot_2-additions" />
+            <%= f.text_field :pilot_2_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="pilot_2-additions" ></span>
           </div>
         </td>
         <td id="pilot_2">
-          <%= skill_set.pilot_2 %>%
+          <%= skill_set.pilot_2.to_i > 0 ? "#{skill_set.pilot_2}%" : '' %>
         </td>
       </tr>
       <tr>
         <td>
           <div id="pilot_3_text">
             <%= f.hidden_field :pilot_3 %>
-            <%= f.text_field :pilot_3_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="pilot_3-additions" />
+            <%= f.text_field :pilot_3_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="pilot_3-additions" ></span>
           </div>
         </td>
         <td id="pilot_3">
-          <%= skill_set.pilot_3 %>%
+          <%= skill_set.pilot_3.to_i > 0 ? "#{skill_set.pilot_3}%" : '' %>
         </td>
       </tr>
       <tr>
         <td>
-          Psychotherapy <span class="skill-addition" id="psychotherapy-additions" />
+          Psychotherapy <span class="skill-addition" id="psychotherapy-additions" ></span>
           <%= f.hidden_field :psychotherapy %>
         </td>
         <td id="psychotherapy">
@@ -496,7 +458,7 @@
       </tr>
       <tr>
         <td>
-          Ride <span class="skill-addition" id="ride-additions" />
+          Ride <span class="skill-addition" id="ride-additions" ></span>
           <%= f.hidden_field :ride %>
         </td>
         <td id="ride">
@@ -505,7 +467,7 @@
       </tr>
       <tr>
         <td>
-          Sigint <span class="skill-addition" id="sigint-additions" />
+          Sigint <span class="skill-addition" id="sigint-additions" ></span>
           <%= f.hidden_field :sigint %>
         </td>
         <td id="sigint">
@@ -522,38 +484,38 @@
         <td>
           <div id="science_1_text">
             <%= f.hidden_field :science_1 %>
-            <%= f.text_field :science_1_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="science_1-additions" />
+            <%= f.text_field :science_1_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="science_1-additions" ></span>
           </div>
         </td>
         <td id="science_1">
-          <%= skill_set.science_1 %>%
+          <%= skill_set.science_1.to_i > 0 ? "#{skill_set.science_1}%" : '' %>
         </td>
       </tr>
       <tr>
         <td>
           <div id="science_2_text">
             <%= f.hidden_field :science_2 %>
-            <%= f.text_field :science_2_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="science_2-additions" />
+            <%= f.text_field :science_2_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="science_2-additions" ></span>
           </div>
         </td>
         <td id="science_2">
-          <%= skill_set.science_2 %>%
+          <%= skill_set.science_2.to_i > 0 ? "#{skill_set.science_2}%" : '' %>
         </td>
       </tr>
       <tr>
         <td>
           <div id="science_3_text">
             <%= f.hidden_field :science_3 %>
-            <%= f.text_field :science_3_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="science_3-additions" />
+            <%= f.text_field :science_3_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="science_3-additions" ></span>
           </div>
         </td>
         <td id="science_3">
-          <%= skill_set.science_3 %>%
+          <%= skill_set.science_3.to_i > 0 ? "#{skill_set.science_3}%" : '' %>
         </td>
       </tr>
       <tr>
         <td>
-          Search <span class="skill-addition" id="search-additions" />
+          Search <span class="skill-addition" id="search-additions" ></span>
           <%= f.hidden_field :search %>
         </td>
         <td id="search">
@@ -562,7 +524,7 @@
       </tr>
       <tr>
         <td>
-          Stealth <span class="skill-addition" id="stealth-additions" />
+          Stealth <span class="skill-addition" id="stealth-additions" ></span>
           <%= f.hidden_field :stealth %>
         </td>
         <td id="stealth">
@@ -571,7 +533,7 @@
       </tr>
       <tr>
         <td>
-          Surgery <span class="skill-addition" id="surgery-additions" />
+          Surgery <span class="skill-addition" id="surgery-additions" ></span>
           <%= f.hidden_field :surgery %>
         </td>
         <td id="surgery">
@@ -580,7 +542,7 @@
       </tr>
       <tr>
         <td>
-          Survival <span class="skill-addition" id="survival-additions" />
+          Survival <span class="skill-addition" id="survival-additions" ></span>
           <%= f.hidden_field :survival %>
         </td>
         <td id="survival">
@@ -589,7 +551,7 @@
       </tr>
       <tr>
         <td>
-          Swim <span class="skill-addition" id="swim-additions" />
+          Swim <span class="skill-addition" id="swim-additions" ></span>
           <%= f.hidden_field :swim %>
         </td>
         <td id="swim">
@@ -598,7 +560,7 @@
       </tr>
       <tr>
         <td>
-          Unarmed combat <span class="skill-addition" id="unarmed_combat-additions" />
+          Unarmed combat <span class="skill-addition" id="unarmed_combat-additions" ></span>
           <%= f.hidden_field :unarmed_combat %>
         </td>
         <td id="unarmed_combat">
@@ -607,7 +569,7 @@
       </tr>
       <tr>
         <td>
-          Unnatural <span class="skill-addition" id="unnatural-additions" />
+          Unnatural <span class="skill-addition" id="unnatural-additions" ></span>
           <%= f.hidden_field :unnatural %>
         </td>
         <td id="unnatural">
@@ -626,6 +588,7 @@ $(window).load(function() {
     const option = $(`<option value="${id}">${occ.name}</option>`)
     $('#dg_skill_set_occupation').append(option)
   })
+
 
   _.each(Dg.SkillPackages, (pack, name) => {
     const option = $(`<option value="${name}">${name}</option>`)
@@ -657,29 +620,13 @@ $(window).load(function() {
     }
 
     td.append(div)
-    //if(_.has(skill, 'type') && skill.type == '') {
-     //td.append(`<input id="${skill.id}_text_input" type="text" />`)
-    //}
 
     tr.append(td)
-    $('#occupational-skills-table').append(tr)
+    $(`#${option ? 'optional-' : ''}occupational-skills-table`).append(tr)
     $(`#option-${skill.id}`).change(_selectOption(skill.id))
     if(selected) {
       $(`#option-${skill.id}`).prop('checked', true)
     }
-
-    //if(!skill.id.match(/_\d/)) {
-    //  const underscoreId = skill.id.replace('-', '_')
-    //  const input = $(`#dg_skill_set_${underscoreId}`)
-    //  if(skill.value == '') {
-    //    input.prop('disabled', false)
-    //  } else if (skill.value) {
-    //    input.val(skill.value)
-    //    input.prop('disabled', true)
-    //  } else {
-    //    input.prop('disabled', true)
-    //  }
-    //}
   }
 
   _renderSkillPackageSkill = (packageOptions, packageSkill) => {
@@ -715,13 +662,19 @@ $(window).load(function() {
 
   const _reset = () => {
     const value = occupationSkill.getValues()
+    $('#info-occupational-skills-table').html('')
     $('#occupational-skills-table').html('')
+    $('#optional-occupational-skills-table').html('')
+
+    //description
+    $('#info-occupational-skills-table').append($(`<tr><td><strong>Description: </strong>${value.occupation.description || ''}</td></tr>`))
 
     //recomended stats
-    $('#occupational-skills-table').append($(`<tr><td><strong>Reccomended Stats: </strong>${value.occupation.recommended_stats || ''}</td></tr>`))
+    $('#info-occupational-skills-table').append($(`<tr><td><strong>Reccomended Stats: </strong>${value.occupation.recommended_stats || ''}</td></tr>`))
 
     //bonds
-    $('#occupational-skills-table').append($(`<tr><td><strong>Bonds: </strong>${value.occupation.bonds || ''}</td></tr>`))
+    $('#info-occupational-skills-table').append($(`<tr><td><strong>Bonds: </strong>${value.occupation.bonds || ''}</td></tr>`))
+    $('#bonds').val(value.occupation.bonds)
 
     //occupation skills
     $('#occupational-skills-table').append($(`<tr><td><strong>Included Occupation Skills: </strong></td></tr>`))
@@ -737,7 +690,7 @@ $(window).load(function() {
       optionsTd.append(`Choose ${value.occupation.choose}`)
     }
     optionsTr.append(optionsTd)
-    $('#occupational-skills-table').append(optionsTr)
+    $('#optional-occupational-skills-table').append(optionsTr)
 
     _.each(value.occupation.options, (option) => {
       const selected = _.contains(value.chosenOptions, option.id)
@@ -754,7 +707,7 @@ $(window).load(function() {
     //reset table
     _.each(value.skills, (skill, id) => {
       const underscoreId = id.replace('-', '_')
-      const percentage = _.reduce(skill.additions, (perc, addition) => perc + addition, skill.value)
+      const percentage = Math.min(_.reduce(skill.additions, (perc, addition) => perc + addition, skill.value), 80)
       $(`#${id}-additions`).html('')
       _.each(skill.additions, (addition) => {
         $(`#${id}-additions`).append(` + ${addition}%`)
@@ -788,5 +741,11 @@ $(window).load(function() {
     occupationSkill.setSkillPackage(event.target.value)
     _reset()
   })
+
+  $('#dg_skill_set_occupation').val('<%= skill_set.occupation%>')
+  occupationSkill.setOccupation('<%= skill_set.occupation%>')
+  $('#dg_skill_set_bonus_skill_package').val('<%= skill_set.bonus_skill_package%>')
+  occupationSkill.setSkillPackage('<%= skill_set.bonus_skill_package%>')
+  _reset()
 })
 </script>
