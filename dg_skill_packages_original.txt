@@ -1,0 +1,28 @@
+ARTIST, ACTOR, OR MUSICIAN: Alertness, Craft, Disguise, Persuade, Art, Art, Art, Humint
+ATHLETE: Alertness, Athletics, Dodge, First Aid, Humint, Persuade, Swim, Unarmed Combat
+AUTHOR, EDITOR, OR JOURNALIST: Anthropology, Art, Bureaucracy, History, Law, Occult, Persuade, Humint
+“BLACK BAG” TRAINING: Alertness, Athletics, Craft, Craft, Criminology, Disguise, Search, Stealth
+BLUE-COLLAR WORKER: Alertness, Craft, Craft, Drive, First Aid, Heavy Machinery, Navigate, Search
+BUREAUCRAT: Accounting, Bureaucracy, Computer Science, Criminology, Humint, Law, Persuade, and one other as a personal specialty
+CLERGY: Foreign Languages, History, Humint, Occult, Persuade, Psychotherapy
+COMBAT VETERAN: Alertness, Dodge, Firearms, First Aid, Heavy Weapons, Melee Weapons, Stealth, Unarmed Combat
+COMPUTER ENTHUSIAST OR HACKER: Computer Science, Craft, Science, SIGINT, and any four others as personal specialties
+COUNSELOR: Bureaucracy, First Aid, Foreign Language, Humint, Law, Persuade, Psychotherapy, Search
+CRIMINALIST: Accounting, Bureaucracy, Computer Science, Criminology, Forensics, Law, Pharmacy, Search
+FIREFIGHTER: Alertness, Demolitions, Drive, First Aid, Forensics, Heavy Machinery, Navigate, Search
+GANGSTER OR DEEP COVER: Alertness, Criminology, Dodge, Drive, Persuade, Stealth; choose two from: Athletics, Foreign Language, Firearms, Humint, Melee Weapons, Pharmacy, or Unarmed Combat
+INTERROGATOR: Criminology, Foreign Language, Foreign Language, Humint, Law, Persuade, Pharmacy, Search
+LIBERAL ARTS DEGREE: Anthropology or Archeology, Art, Foreign Language, History, Persuade, and any three others as personal specialties
+MILITARY OFFICER: Bureaucracy, Firearms, History, Military Science, Navigate, Persuade, Unarmed Combat; choose one: Artillery, Heavy Machinery, Heavy Weapons, Humint, Pilot, or SIGINT
+MBA: Accounting, Bureaucracy, Humint, Law, Persuade, and any three others as personal specialties
+NURSE, PARAMEDIC, OR PRE-MED: Alertness, First Aid, Medicine, Persuade, Pharmacy, Psychotherapy, Science, Search
+OCCULT INVESTIGATOR OR CONSPIRACY THEORIST: Anthropology, Archeology, Computer Science, Criminology, History, Occult, Persuade, Search
+OUTDOORSMAN: Alertness, Athletics, Firearms, Navigate, Ride, Search, Stealth, Survival
+PHOTOGRAPHER: Alertness, Art, Computer Science, Persuade, Search, Stealth, and any two others as personal specialties
+PILOT OR SAILOR: Alertness, Craft, First Aid, Foreign Language, Navigate, Pilot, Survival, Swim
+POLICE OFFICER: Alertness, Criminology, Drive, Firearms, Humint, Law, Melee Weapons, Unarmed Combat
+SCIENCE GRAD STUDENT: Bureaucracy, Computer Use, Craft, Foreign Language, Science, Science, Science; choose one: Accounting, Forensics, Law, or Pharmacy
+SOCIAL WORKER OR CRIMINAL JUSTICE DEGREE: Bureaucracy, Criminology, Forensics, Foreign Language, Humint, Law, Persuade, Search
+SOLDIER OR MARINE: Alertness, Artillery, Athletics, Drive, Firearms, Heavy Weapons, Military Science, Unarmed Combat
+TRANSLATOR: Anthropology, Foreign Language, Foreign Language, Foreign Language, History, Humint, Persuade, and any one other as a personal specialty
+URBAN EXPLORER: Alertness, Athletics, Craft, Law, Navigate, Persuade, Search, Stealth

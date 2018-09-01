@@ -36,7 +36,7 @@ def multi_skills
   }
 end
 
-def do_thing
+def do_occupation_skills
   occupations = {}
   occ = nil
   professional = false
@@ -71,4 +71,23 @@ def do_thing
   end
   puts JSON.pretty_generate(occupations)
   puts occupations.to_json
+end
+
+
+def do_skill_packages
+  skill_packages = {}
+  File.readlines('dg_skill_packages.txt').each do |line|
+    name, skills = line.split(': ')
+    skill_packages[name.downcase.capitalize] = skills.split(', ').map do |skill|
+      { skill: skill.strip, id: skill.strip.parameterize.underscore }
+    end
+  end
+  puts JSON.pretty_generate(skill_packages)
+  puts skill_packages.to_json
+  #skill_packages.each do |k, v|
+    #puts k.inspect
+    #puts v.length
+    #puts v.inspect
+    #puts ''
+  #end
 end
