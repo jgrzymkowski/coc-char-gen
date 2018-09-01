@@ -1,0 +1,482 @@
+{
+  "historian": {
+    "id": "anthropologist",
+    "name": "Anthropologist",
+    "skills": [
+      {
+        "id": "anthropology",
+        "skill": "Anthropology",
+        "percentage": 50
+      },
+      {
+        "id": "bureaucracy",
+        "skill": "Bureaucracy",
+        "percentage": 40
+      },
+      {
+        "id": "foreign_language_1",
+        "skill": "Foreign Language",
+        "percentage": 50,
+        "type": ""
+      },
+      {
+        "id": "foreign_language_2",
+        "skill": "Foreign Language",
+        "percentage": 40,
+        "type": ""
+      },
+      {
+        "id": "history",
+        "skill": "History",
+        "percentage": 60
+      },
+      {
+        "id": "occult",
+        "skill": "Occult",
+        "percentage": 40
+      },
+      {
+        "id": "persuade",
+        "skill": "Persuade",
+        "percentage": 40
+      }
+    ],
+    "options": [
+      {
+        "id": "anthropology",
+        "skill": "Anthropology",
+        "percentage": 40
+      },
+      {
+        "id": "archeology",
+        "skill": "Archeology",
+        "percentage": 40
+      },
+      {
+        "id": "humint",
+        "skill": "HUMINT",
+        "percentage": 50
+      },
+      {
+        "id": "navigate",
+        "skill": "Navigate",
+        "percentage": 50
+      },
+      {
+        "id": "ride",
+        "skill": "Ride",
+        "percentage": 50
+      },
+      {
+        "id": "search",
+        "skill": "Search",
+        "percentage": 60
+      },
+      {
+        "id": "survival",
+        "skill": "Survival",
+        "percentage": 50
+      }
+    ],
+    "recommended_stats": "INT",
+    "choose": 2,
+    "bonds": 4
+  },
+  "computer_engineer": {
+    "id": "historian",
+    "name": "Historian",
+    "skills": [
+      {
+        "id": "archeology",
+        "skill": "Archeology",
+        "percentage": 50
+      },
+      {
+        "id": "bureaucracy",
+        "skill": "Bureaucracy",
+        "percentage": 40
+      },
+      {
+        "id": "foreign_language_1",
+        "skill": "Foreign Language",
+        "percentage": 50,
+        "type": ""
+      },
+      {
+        "id": "foreign_language_2",
+        "skill": "Foreign Language",
+        "percentage": 40,
+        "type": ""
+      },
+      {
+        "id": "history",
+        "skill": "History",
+        "percentage": 60
+      },
+      {
+        "id": "occult",
+        "skill": "Occult",
+        "percentage": 40
+      },
+      {
+        "id": "persuade",
+        "skill": "Persuade",
+        "percentage": 40
+      }
+    ],
+    "options": [
+      {
+        "id": "anthropology",
+        "skill": "Anthropology",
+        "percentage": 40
+      },
+      {
+        "id": "archeology",
+        "skill": "Archeology",
+        "percentage": 40
+      },
+      {
+        "id": "humint",
+        "skill": "HUMINT",
+        "percentage": 50
+      },
+      {
+        "id": "navigate",
+        "skill": "Navigate",
+        "percentage": 50
+      },
+      {
+        "id": "ride",
+        "skill": "Ride",
+        "percentage": 50
+      },
+      {
+        "id": "search",
+        "skill": "Search",
+        "percentage": 60
+      },
+      {
+        "id": "survival",
+        "skill": "Survival",
+        "percentage": 50
+      }
+    ],
+    "recommended_stats": "INT",
+    "choose": 2,
+    "bonds": 4
+  },
+  "federal_agent": {
+    "id": "computer_engineer",
+    "name": "Computer Engineer",
+    "skills": [
+      {
+        "id": "computer_science",
+        "skill": "Computer Science",
+        "percentage": 60
+      },
+      {
+        "id": "craft_1",
+        "skill": "Craft",
+        "percentage": 30,
+        "type": "Electrician"
+      },
+      {
+        "id": "craft_2",
+        "skill": "Craft",
+        "percentage": 30,
+        "type": "Mechanic"
+      },
+      {
+        "id": "craft_3",
+        "skill": "Craft",
+        "percentage": 40,
+        "type": "Microelectronics"
+      },
+      {
+        "id": "science_1",
+        "skill": "Science",
+        "percentage": 40,
+        "type": "Mathematics"
+      },
+      {
+        "id": "sigint",
+        "skill": "SIGINT",
+        "percentage": 40
+      }
+    ],
+    "options": [
+      {
+        "id": "accounting",
+        "skill": "Accounting",
+        "percentage": 50
+      },
+      {
+        "id": "bureaucracy",
+        "skill": "Bureaucracy",
+        "percentage": 50
+      },
+      {
+        "id": "craft_4",
+        "skill": "Craft",
+        "percentage": 40,
+        "type": ""
+      },
+      {
+        "id": "foreign_language_1",
+        "skill": "Foreign Language",
+        "percentage": 40,
+        "type": ""
+      },
+      {
+        "id": "heavy_machinery",
+        "skill": "Heavy Machinery",
+        "percentage": 50
+      },
+      {
+        "id": "law",
+        "skill": "Law",
+        "percentage": 40
+      },
+      {
+        "id": "science_2",
+        "skill": "Science",
+        "percentage": 40,
+        "type": ""
+      }
+    ],
+    "recommended_stats": "INT",
+    "choose": 4,
+    "bonds": 3
+  },
+  "physician": {
+    "id": "federal_agent",
+    "name": "Federal Agent",
+    "skills": [
+      {
+        "id": "alertness",
+        "skill": "Alertness",
+        "percentage": 50
+      },
+      {
+        "id": "bureaucracy",
+        "skill": "Bureaucracy",
+        "percentage": 40
+      },
+      {
+        "id": "criminology",
+        "skill": "Criminology",
+        "percentage": 50
+      },
+      {
+        "id": "drive",
+        "skill": "Drive",
+        "percentage": 50
+      },
+      {
+        "id": "firearms",
+        "skill": "Firearms",
+        "percentage": 50
+      },
+      {
+        "id": "forensics",
+        "skill": "Forensics",
+        "percentage": 30
+      },
+      {
+        "id": "humint",
+        "skill": "HUMINT",
+        "percentage": 60
+      },
+      {
+        "id": "law",
+        "skill": "Law",
+        "percentage": 30
+      },
+      {
+        "id": "persuade",
+        "skill": "Persuade",
+        "percentage": 50
+      },
+      {
+        "id": "search",
+        "skill": "Search",
+        "percentage": 50
+      },
+      {
+        "id": "unarmed_combat",
+        "skill": "Unarmed Combat",
+        "percentage": 60
+      }
+    ],
+    "options": [
+      {
+        "id": "accounting",
+        "skill": "Accounting",
+        "percentage": 60
+      },
+      {
+        "id": "computer_science",
+        "skill": "Computer Science",
+        "percentage": 50
+      },
+      {
+        "id": "foreign_language_1",
+        "skill": "Foreign Language",
+        "percentage": 50,
+        "type": ""
+      },
+      {
+        "id": "heavy_weapons",
+        "skill": "Heavy Weapons",
+        "percentage": 50
+      },
+      {
+        "id": "pharmacy",
+        "skill": "Pharmacy",
+        "percentage": 50
+      }
+    ],
+    "recommended_stats": "CON, POW, CHA",
+    "choose": 1,
+    "bonds": 3
+  },
+  "scientist": {
+    "id": "physician",
+    "name": "Physician",
+    "skills": [
+      {
+        "id": "bureaucracy",
+        "skill": "Bureaucracy",
+        "percentage": 50
+      },
+      {
+        "id": "first_aid",
+        "skill": "First Aid",
+        "percentage": 60
+      },
+      {
+        "id": "medicine",
+        "skill": "Medicine",
+        "percentage": 60
+      },
+      {
+        "id": "persuade",
+        "skill": "Persuade",
+        "percentage": 40
+      },
+      {
+        "id": "pharmacy",
+        "skill": "Pharmacy",
+        "percentage": 50
+      },
+      {
+        "id": "science_1",
+        "skill": "Science",
+        "percentage": 60,
+        "type": "Biology"
+      },
+      {
+        "id": "search",
+        "skill": "Search",
+        "percentage": 40
+      }
+    ],
+    "options": [
+      {
+        "id": "forensics",
+        "skill": "Forensics",
+        "percentage": 50
+      },
+      {
+        "id": "psychotherapy",
+        "skill": "Psychotherapy",
+        "percentage": 60
+      },
+      {
+        "id": "science_2",
+        "skill": "Science",
+        "percentage": 50,
+        "type": ""
+      },
+      {
+        "id": "surgery",
+        "skill": "Surgery",
+        "percentage": 50
+      }
+    ],
+    "recommended_stats": "INT, POW, DEX",
+    "choose": 2,
+    "bonds": 3
+  },
+  "special_operator": {
+    "id": "scientist",
+    "name": "Scientist",
+    "skills": [
+      {
+        "id": "bureaucracy",
+        "skill": "Bureaucracy",
+        "percentage": 40
+      },
+      {
+        "id": "computer_science",
+        "skill": "Computer Science",
+        "percentage": 40
+      },
+      {
+        "id": "science_1",
+        "skill": "Science",
+        "percentage": 60,
+        "type": ""
+      },
+      {
+        "id": "science_2",
+        "skill": "Science",
+        "percentage": 50,
+        "type": ""
+      },
+      {
+        "id": "science_3",
+        "skill": "Science",
+        "percentage": 50,
+        "type": ""
+      }
+    ],
+    "options": [
+      {
+        "id": "accounting",
+        "skill": "Accounting",
+        "percentage": 50
+      },
+      {
+        "id": "craft_1",
+        "skill": "Craft",
+        "percentage": 40,
+        "type": ""
+      },
+      {
+        "id": "foreign_language_1",
+        "skill": "Foreign Language",
+        "percentage": 40,
+        "type": ""
+      },
+      {
+        "id": "forensics",
+        "skill": "Forensics",
+        "percentage": 40
+      },
+      {
+        "id": "law",
+        "skill": "Law",
+        "percentage": 40
+      },
+      {
+        "id": "pharmacy",
+        "skill": "Pharmacy",
+        "percentage": 40
+      }
+    ],
+    "recommended_stats": "INT",
+    "choose": 3,
+    "bonds": 4
+  }
+}

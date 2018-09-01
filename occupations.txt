@@ -1,0 +1,125 @@
+NAME: Anthropologist
+RECOMMENDED STATS: INT
+PROFESSIONAL SKILLS:
+Anthropology 50
+Bureaucracy 40
+Foreign Language (choose) 50
+Foreign Language (choose) 40
+History 60
+Occult 40
+Persuade 40
+CHOOSE: 2
+Anthropology 40
+Archeology 40
+HUMINT 50
+Navigate 50
+Ride 50
+Search 60
+Survival 50
+BONDS: 4
+NAME: Historian
+RECOMMENDED STATS: INT
+PROFESSIONAL SKILLS:
+Archeology 50
+Bureaucracy 40
+Foreign Language (choose) 50
+Foreign Language (choose) 40
+History 60
+Occult 40
+Persuade 40
+CHOOSE: 2
+Anthropology 40
+Archeology 40
+HUMINT 50
+Navigate 50
+Ride 50
+Search 60
+Survival 50
+BONDS: 4
+NAME: Computer Engineer
+RECOMMENDED STATS: INT
+PROFESSIONAL SKILLS:
+Computer Science 60
+Craft (Electrician) 30
+Craft (Mechanic) 30
+Craft (Microelectronics) 40
+Science (Mathematics) 40
+SIGINT 40
+CHOOSE: 4
+Accounting 50
+Bureaucracy 50
+Craft (choose) 40
+Foreign Language (choose) 40
+Heavy Machinery 50
+Law 40
+Science (choose) 40
+BONDS: 3
+NAME: Federal Agent
+RECOMMENDED STATS: CON, POW, CHA
+PROFESSIONAL SKILLS:
+Alertness 50
+Bureaucracy 40
+Criminology 50
+Drive 50
+Firearms 50
+Forensics 30
+HUMINT 60
+Law 30
+Persuade 50
+Search 50
+Unarmed Combat 60
+CHOOSE: 1
+Accounting 60
+Computer Science 50
+Foreign Language (choose) 50
+Heavy Weapons 50
+Pharmacy 50
+BONDS: 3
+NAME: Physician
+RECOMMENDED STATS: INT, POW, DEX
+PROFESSIONAL SKILLS:
+Bureaucracy 50
+First Aid 60
+Medicine 60
+Persuade 40
+Pharmacy 50
+Science (Biology) 60
+Search 40
+CHOOSE: 2
+Forensics 50
+Psychotherapy 60
+Science (choose) 50
+Surgery 50
+BONDS: 3
+NAME: Scientist
+RECOMMENDED STATS: INT
+PROFESSIONAL SKILLS:
+Bureaucracy 40
+Computer Science 40
+Science (choose) 60
+Science (choose) 50
+Science (choose) 50
+CHOOSE: 3
+Accounting 50
+Craft (choose) 40
+Foreign Language (choose) 40
+Forensics 40
+Law 40
+Pharmacy 40
+BONDS: 4
+NAME: Special Operator
+RECOMMENDED STATS: STR, CON, POW
+PROFESSIONAL SKILLS:
+Alertness 60
+Athletics 60
+Demolitions 40
+Firearms 60
+Heavy Weapons 50
+Melee Weapons 50
+Military Science (Land) 60
+Navigate 50
+Stealth 50
+Survival 50
+Swim 50
+Unarmed Combat 60
+BONDS: 2

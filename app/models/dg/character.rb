@@ -30,6 +30,9 @@ class Dg::Character < ActiveRecord::Base
   has_one :dg_statistic_set, class_name: 'Dg::StatisticSet'
   alias :statistic_set :dg_statistic_set
 
+  has_one :dg_skill_set, class_name: 'Dg::SkillSet'
+  alias :skill_set :dg_skill_set
+
   validates :first_name, :last_name, presence: true
 
   def age

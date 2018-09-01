@@ -1,0 +1,740 @@
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="breadcrumbs">
+      <li><%= link_to('Home', user_path(current_user)) %></li>
+      <li><%= link_to(character.campaign.name, character.campaign) %></li>
+      <li><%= link_to(character.display_name, character) %></li>
+      <li>Set Statistics</li>
+    </ul>
+  </div>
+</div>
+
+<div class="grid-x align-center">
+  <div class="cell small-12 medium-9 large-6">
+    <fieldset class="fieldset">
+      <legend>Choose Occupation</legend>
+      <%= f.select :occupation, options_for_select([['---Choose Occupation---', '']]) %>
+      <div class="grid-x align-center">
+        <table id="occupational-skills-table">
+          <tr><td><strong>Reccomended Stats: </strong></span></td></tr>
+          <tr><td><strong>Bonds: </strong></td></tr>
+          <tr><td><strong>Included Occupation Skills: </strong></td></tr>
+          <tr><td><strong>Optional Occupation Options: </strong></td></tr>
+        </table>
+      </div>
+    </fieldset>
+  </div>
+</div>
+<div class="grid-x align-center">
+  <div class="cell small-12 medium-9 large-6">
+    <fieldset class="fieldset">
+      <legend>Choose Skill Package</legend>
+    </fieldset>
+  </div>
+</div>
+<div class="grid-x align-center skill-set">
+  <div class="cell small-12 medium-3 large-2">
+    <table>
+      <tr>
+        <td>
+          Accounting <span class="skill-addition" id="accounting-additions" />
+          <%= f.hidden_field :accounting %>
+        </td>
+        <td id="accounting">
+          <%= skill_set.accounting %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Alertness <span class="skill-addition" id="alertness-additions" />
+          <%= f.hidden_field :alertness %>
+        </td>
+        <td id="alertness">
+          <%= skill_set.alertness %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Anthropology <span class="skill-addition" id="anthropology-additions" />
+          <%= f.hidden_field :anthropology %>
+        </td>
+        <td id="anthropology">
+          <%= skill_set.anthropology %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Archeology <span class="skill-addition" id="archeology-additions" />
+          <%= f.hidden_field :archeology %>
+        </td>
+        <td id="archeology">
+          <%= skill_set.archeology %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Art
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <div id="art_1_text">
+          <%= f.hidden_field :art_1 %>
+          <%= f.text_field :art_1_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="art_1-additions" />
+          </div>
+        </td>
+        <td id="art_1">
+          <%= skill_set.art_1 %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div id="art_2_text">
+          <%= f.hidden_field :art_2 %>
+          <%= f.text_field :art_2_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="art_2-additions" />
+          </div>
+        </td>
+        <td id="art_2">
+          <%= skill_set.art_2 %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div id="art_3_text">
+            <%= f.hidden_field :art_3 %>
+            <%= f.text_field :art_3_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="art_3-additions" />
+          </div>
+        </td>
+        <td id="art_3">
+          <%= skill_set.art_3 %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Artillery <span class="skill-addition" id="artillery-additions" />
+          <%= f.hidden_field :artillery %>
+        </td>
+        <td id="artillery">
+          <%= skill_set.artillery %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Athletics <span class="skill-addition" id="athletics-additions" />
+          <%= f.hidden_field :athletics %>
+        </td>
+        <td id="athletics">
+          <%= skill_set.athletics %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Bureaucracy <span class="skill-addition" id="bureaucracy-additions" />
+          <%= f.hidden_field :bureaucracy %>
+        </td>
+        <td id="bureaucracy">
+          <%= skill_set.bureaucracy %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Computer science <span class="skill-addition" id="computer_science-additions" />
+          <%= f.hidden_field :computer_science %>
+        </td>
+        <td id="computer_science">
+          <%= skill_set.computer_science %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Craft
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <div id="craft_1_text">
+            <%= f.hidden_field :craft_1 %>
+            <%= f.text_field :craft_1_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="craft_1-additions" />
+          </div>
+        </td>
+        <td id="craft_1">
+          <%= skill_set.craft_1 %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div id="craft_2_text">
+            <%= f.hidden_field :craft_2 %>
+            <%= f.text_field :craft_2_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="craft_2-additions" />
+          </div>
+        </td>
+        <td id="craft_2">
+          <%= skill_set.craft_2 %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div id="craft_3_text">
+            <%= f.hidden_field :craft_3 %>
+            <%= f.text_field :craft_3_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="craft_3-additions" />
+          </div>
+        </td>
+        <td id="craft_3">
+          <%= skill_set.craft_3 %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Criminology <span class="skill-addition" id="criminology-additions" />
+          <%= f.hidden_field :criminology %>
+        </td>
+        <td id="criminology">
+          <%= skill_set.criminology %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Demolitions <span class="skill-addition" id="demolitions-additions" />
+          <%= f.hidden_field :demolitions %>
+        </td>
+        <td id="demolitions">
+          <%= skill_set.demolitions %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Disguise <span class="skill-addition" id="disguise-additions" />
+          <%= f.hidden_field :disguise %>
+        </td>
+        <td id="disguise">
+          <%= skill_set.disguise %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Dodge <span class="skill-addition" id="dodge-additions" />
+          <%= f.hidden_field :dodge %>
+        </td>
+        <td id="dodge">
+          <%= skill_set.dodge %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Drive <span class="skill-addition" id="drive-additions" />
+          <%= f.hidden_field :drive %>
+        </td>
+        <td id="drive">
+          <%= skill_set.drive %>%
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="cell small-12 medium-3 large-2">
+    <table>
+      <tr>
+        <td>
+          Firearms <span class="skill-addition" id="firearms-additions" />
+          <%= f.hidden_field :firearms %>
+        </td>
+        <td id="firearms">
+          <%= skill_set.firearms %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          First aid <span class="skill-addition" id="first_aid-additions" />
+          <%= f.hidden_field :first_aid %>
+        </td>
+        <td id="first_aid">
+          <%= skill_set.first_aid %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Forensics <span class="skill-addition" id="forensics-additions" />
+          <%= f.hidden_field :forensics %>
+        </td>
+        <td id="forensics">
+          <%= skill_set.forensics %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Foreign Language
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <div id="foreign_language_1_text">
+            <%= f.hidden_field :foreign_language_1 %>
+            <%= f.text_field :foreign_language_1_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="foreign_language_1-additions" />
+          </div>
+        </td>
+        <td id="foreign_language_1">
+          <%= skill_set.foreign_language_1 %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div id="foreign_language_2_text">
+            <%= f.hidden_field :foreign_language_2 %>
+            <%= f.text_field :foreign_language_2_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="foreign_language_2-additions" />
+          </div>
+        </td>
+        <td id="foreign_language_2">
+          <%= skill_set.foreign_language_2 %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div id="foreign_language_3_text">
+            <%= f.hidden_field :foreign_language_3 %>
+            <%= f.text_field :foreign_language_3_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="foreign_language_3-additions" />
+          </div>
+        </td>
+        <td id="foreign_language_3">
+          <%= skill_set.foreign_language_3 %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Humint <span class="skill-addition" id="humint-additions" />
+          <%= f.hidden_field :humint %>
+        </td>
+        <td id="humint">
+          <%= skill_set.humint %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Heavy machinery <span class="skill-addition" id="heavy_machinery-additions" />
+          <%= f.hidden_field :heavy_machinery %>
+        </td>
+        <td id="heavy_machinery">
+          <%= skill_set.heavy_machinery %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Heavy weapons <span class="skill-addition" id="heavy_weapons-additions" />
+          <%= f.hidden_field :heavy_weapons %>
+        </td>
+        <td id="heavy_weapons">
+          <%= skill_set.heavy_weapons %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          History <span class="skill-addition" id="history-additions" />
+          <%= f.hidden_field :history %>
+        </td>
+        <td id="history">
+          <%= skill_set.history %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Law <span class="skill-addition" id="law-additions" />
+          <%= f.hidden_field :law %>
+        </td>
+        <td id="law">
+          <%= skill_set.law %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Medicine <span class="skill-addition" id="medicine-additions" />
+          <%= f.hidden_field :medicine %>
+        </td>
+        <td id="medicine">
+          <%= skill_set.medicine %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Melee weapons <span class="skill-addition" id="melee_weapons-additions" />
+          <%= f.hidden_field :melee_weapons %>
+        </td>
+        <td id="melee_weapons">
+          <%= skill_set.melee_weapons %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Military
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <div id="military_science_1_text">
+            <%= f.hidden_field :military_science_1 %>
+            <%= f.text_field :military_science_1_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="military_science_1-additions" />
+          </div>
+        </td>
+        <td id="military_science_1">
+          <%= skill_set.military_science_1 %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div id="military_science_2_text">
+            <%= f.hidden_field :military_science_2 %>
+            <%= f.text_field :military_science_2_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="military_science_2-additions" />
+          </div>
+        </td>
+        <td id="military_science_2">
+          <%= skill_set.military_science_2 %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div id="military_science_3_text">
+            <%= f.hidden_field :military_science_3 %>
+            <%= f.text_field :military_science_3_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="military_science_3-additions" />
+          </div>
+        </td>
+        <td id="military_science_3">
+          <%= skill_set.military_science_3 %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Navigate <span class="skill-addition" id="navigate-additions" />
+          <%= f.hidden_field :navigate %>
+        </td>
+        <td id="navigate">
+          <%= skill_set.navigate %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Occult <span class="skill-addition" id="occult-additions" />
+          <%= f.hidden_field :occult %>
+        </td>
+        <td id="occult">
+          <%= skill_set.occult %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Persuade <span class="skill-addition" id="persuade-additions" />
+          <%= f.hidden_field :persuade %>
+        </td>
+        <td id="persuade">
+          <%= skill_set.persuade %>%
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="cell small-12 medium-3 large-2">
+    <table>
+      <tr>
+        <td>
+          Pharmacy <span class="skill-addition" id="pharmacy-additions" />
+          <%= f.hidden_field :pharmacy %>
+        </td>
+        <td id="pharmacy">
+          <%= skill_set.pharmacy %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Pilot
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <div id="pilot_1_text">
+            <%= f.hidden_field :pilot_1 %>
+            <%= f.text_field :pilot_1_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="pilot_1-additions" />
+          </div>
+        </td>
+        <td id="pilot_1">
+          <%= skill_set.pilot_1 %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div id="pilot_2_text">
+            <%= f.hidden_field :pilot_2 %>
+            <%= f.text_field :pilot_2_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="pilot_2-additions" />
+          </div>
+        </td>
+        <td id="pilot_2">
+          <%= skill_set.pilot_2 %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div id="pilot_3_text">
+            <%= f.hidden_field :pilot_3 %>
+            <%= f.text_field :pilot_3_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="pilot_3-additions" />
+          </div>
+        </td>
+        <td id="pilot_3">
+          <%= skill_set.pilot_3 %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Psychotherapy <span class="skill-addition" id="psychotherapy-additions" />
+          <%= f.hidden_field :psychotherapy %>
+        </td>
+        <td id="psychotherapy">
+          <%= skill_set.psychotherapy %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Ride <span class="skill-addition" id="ride-additions" />
+          <%= f.hidden_field :ride %>
+        </td>
+        <td id="ride">
+          <%= skill_set.ride %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Sigint <span class="skill-addition" id="sigint-additions" />
+          <%= f.hidden_field :sigint %>
+        </td>
+        <td id="sigint">
+          <%= skill_set.sigint %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Science
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <div id="science_1_text">
+            <%= f.hidden_field :science_1 %>
+            <%= f.text_field :science_1_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="science_1-additions" />
+          </div>
+        </td>
+        <td id="science_1">
+          <%= skill_set.science_1 %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div id="science_2_text">
+            <%= f.hidden_field :science_2 %>
+            <%= f.text_field :science_2_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="science_2-additions" />
+          </div>
+        </td>
+        <td id="science_2">
+          <%= skill_set.science_2 %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div id="science_3_text">
+            <%= f.hidden_field :science_3 %>
+            <%= f.text_field :science_3_text, disabled: true, class: "option-text-field" %> <span class="skill-addition" id="science_3-additions" />
+          </div>
+        </td>
+        <td id="science_3">
+          <%= skill_set.science_3 %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Search <span class="skill-addition" id="search-additions" />
+          <%= f.hidden_field :search %>
+        </td>
+        <td id="search">
+          <%= skill_set.search %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Stealth <span class="skill-addition" id="stealth-additions" />
+          <%= f.hidden_field :stealth %>
+        </td>
+        <td id="stealth">
+          <%= skill_set.stealth %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Surgery <span class="skill-addition" id="surgery-additions" />
+          <%= f.hidden_field :surgery %>
+        </td>
+        <td id="surgery">
+          <%= skill_set.surgery %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Survival <span class="skill-addition" id="survival-additions" />
+          <%= f.hidden_field :survival %>
+        </td>
+        <td id="survival">
+          <%= skill_set.survival %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Swim <span class="skill-addition" id="swim-additions" />
+          <%= f.hidden_field :swim %>
+        </td>
+        <td id="swim">
+          <%= skill_set.swim %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Unarmed combat <span class="skill-addition" id="unarmed_combat-additions" />
+          <%= f.hidden_field :unarmed_combat %>
+        </td>
+        <td id="unarmed_combat">
+          <%= skill_set.unarmed_combat %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Unnatural <span class="skill-addition" id="unnatural-additions" />
+          <%= f.hidden_field :unnatural %>
+        </td>
+        <td id="unnatural">
+          <%= skill_set.unnatural %>%
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<script type="text/javascript">
+$(window).load(function() {
+
+  const occupationSkill = new Dg.OccupationSkill()
+
+  _.each(Dg.OccupationSkills, (occ, id) => {
+    const option = $(`<option value="${id}">${occ.name}</option>`)
+    $('#dg_skill_set_occupation').append(option)
+  })
+
+  _selectOption = (skill) => {
+    return (event) => {
+      occupationSkill.selectOption(skill)
+      _reset()
+    }
+  }
+
+  _renderOccupationSkill = (skill, option, selected) => {
+    const tr = $('<tr></tr>')
+    const td = $('<td></td>')
+    const div = $('<div class="clearfix"></div>')
+    const leftDiv = $('<div class="float-left"></div>')
+    const rightDiv = $('<div class="float-right"></div>')
+    leftDiv.append(skill.skill)
+    if(skill.type) {
+      leftDiv.append(` (${skill.type})`)
+    }
+    leftDiv.append(` +${skill.percentage}%`)
+    div.append(leftDiv)
+    if(option) {
+      rightDiv.append(`<input class="switch-input" id="option-${skill.id}" type="checkbox" name="exampleSwitch"><label class="switch-paddle" for="option-${skill.id}"><span class="show-for-sr"></span></label>`)
+      div.append(rightDiv)
+    }
+
+    td.append(div)
+    //if(_.has(skill, 'type') && skill.type == '') {
+     //td.append(`<input id="${skill.id}_text_input" type="text" />`)
+    //}
+
+    tr.append(td)
+    $('#occupational-skills-table').append(tr)
+    $(`#option-${skill.id}`).change(_selectOption(skill.id))
+    if(selected) {
+      $(`#option-${skill.id}`).prop('checked', true)
+    }
+
+    //if(!skill.id.match(/_\d/)) {
+    //  const underscoreId = skill.id.replace('-', '_')
+    //  const input = $(`#dg_skill_set_${underscoreId}`)
+    //  if(skill.value == '') {
+    //    input.prop('disabled', false)
+    //  } else if (skill.value) {
+    //    input.val(skill.value)
+    //    input.prop('disabled', true)
+    //  } else {
+    //    input.prop('disabled', true)
+    //  }
+    //}
+  }
+
+  const _reset = () => {
+    const value = occupationSkill.getValues()
+    $('#occupational-skills-table').html('')
+
+    //recomended stats
+    $('#occupational-skills-table').append($(`<tr><td><strong>Reccomended Stats: </strong>${value.occupation.recommended_stats || ''}</td></tr>`))
+
+    //bonds
+    $('#occupational-skills-table').append($(`<tr><td><strong>Bonds: </strong>${value.occupation.bonds || ''}</td></tr>`))
+
+    //occupation skills
+    $('#occupational-skills-table').append($(`<tr><td><strong>Included Occupation Skills: </strong></td></tr>`))
+    _.each(value.occupation.skills, (skill, id) => {
+      _renderOccupationSkill(skill, false)
+    })
+
+    //optional skills
+    const optionsTr = $('<tr></tr>')
+    const optionsTd = $('<td></td>')
+    optionsTd.append($('<strong>Optional Occupation Skills: </strong>'))
+    if(value.occupation.choose) {
+      optionsTd.append(`Choose ${value.occupation.choose}`)
+    }
+    optionsTr.append(optionsTd)
+    $('#occupational-skills-table').append(optionsTr)
+
+    _.each(value.occupation.options, (option) => {
+      const selected = _.contains(value.chosenOptions, option.id)
+      _renderOccupationSkill(option, true, selected)
+    })
+
+    //reset table
+    _.each(value.skills, (skill, id) => {
+      const underscoreId = id.replace('-', '_')
+      const percentage = _.reduce(skill.additions, (perc, addition) => perc + addition, skill.value)
+      $(`#${id}-additions`).html('')
+      _.each(skill.additions, (addition) => {
+        $(`#${id}-additions`).append(` + ${addition}%`)
+      })
+      $(`#dg_skill_set_${underscoreId}`).val(percentage)
+      $(`#${underscoreId}`).html(`${percentage}%`)
+
+      if(id.match(/_\d/)) {
+        if(percentage > 0) {
+          if(skill.type) {
+            $(`#dg_skill_set_${underscoreId}_text`).val(skill.type)
+            $(`#dg_skill_set_${underscoreId}_text`).prop('disabled', true)
+          } else {
+            $(`#dg_skill_set_${underscoreId}_text`).val('')
+            $(`#dg_skill_set_${underscoreId}_text`).prop('disabled', false)
+          }
+        } else {
+          $(`#dg_skill_set_${underscoreId}_text`).val('')
+          $(`#dg_skill_set_${underscoreId}_text`).prop('disabled', true)
+        }
+      }
+    })
+  }
+
+  $('#dg_skill_set_occupation').change( (event) => {
+    occupationSkill.setOccupation(event.target.value)
+    _reset()
+  })
+})
+</script>

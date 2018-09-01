@@ -8,13 +8,11 @@
   <%= f.label( :gender_o, "Other" ) %>
 </div>
 
-<%= f.label :first_name %>
+<%= f.label(:first_name) { "First Name <a id='firstNameRand' to='#'>Randomize</a>".html_safe } %>
 <%= f.text_field :first_name %>
-<%= link_to('Random', '#', id: 'firstNameRand') %>
 
-<%= f.label :last_name %>
+<%= f.label(:last_name) { "Last Name <a id='lastNameRand' to='#'>Randomize</a>".html_safe } %>
 <%= f.text_field :last_name %>
-<%= link_to('Random', '#', id: 'lastNameRand') %>
 
 <%= f.label :alias %>
 <%= f.text_field :alias %>
@@ -28,9 +26,8 @@
 <%= f.label :nationality %>
 <%= f.text_field :nationality %>
 
-<%= f.label :date_of_birth %>
+<%= f.label(:date_of_birth) { "Date of birth <a id='dateOfBirthRand' to='#'>Randomize</a>".html_safe } %>
 <%= f.date_field :date_of_birth %>
-<%= link_to('Random', '#', id: 'dateOfBirthRand') %>
 
 <%= f.label :education_and_occupational_history %>
 <%= f.text_field :education_and_occupational_history %>

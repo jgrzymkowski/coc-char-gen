@@ -31,6 +31,31 @@
   color: gray;
 }
 
+.occupation-skill {
+}
+
+.occupation-skill-option {
+  width: 100%;
+}
+
+.skill-addition {
+  color: #1779ba;
+}
+
+.skill-set td {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.625rem 0.25rem 0.625rem;
+}
+
+.option-text-field {
+  height: 1.5rem;
+  font-size: .75rem;
+  margin-bottom: -5px;
+  margin-top: -5px;
+  display: inline-block;
+  max-width: 100px;
+}
+
 .deprecated {
   a:link {
     color: #0066FF;

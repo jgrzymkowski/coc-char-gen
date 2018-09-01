@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     end
     resources :characters, only: [:show, :edit, :update] do
       resources :statistic_sets, only: [:new, :create]
+      resources :skill_sets, only: [:new, :create]
     end
   end
 
