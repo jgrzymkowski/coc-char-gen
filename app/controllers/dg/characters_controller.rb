@@ -11,7 +11,7 @@ class Dg::CharactersController < ApplicationController
     respond_to do |format|
       format.html {  }
       format.pdf do
-        @filename = Coc::CharacterSheetGenerator.new( character ).generate
+        @filename = Dg::CharacterSheetGenerator.new( character ).generate
         send_file @filename, type: 'application/pdf'
       end
     end

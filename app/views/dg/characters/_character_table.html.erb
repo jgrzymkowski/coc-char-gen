@@ -16,6 +16,9 @@
       <td>
         <%= link_to 'View', character, method: :get %>
       </td>
+      <td>
+        <%= link_to 'Download', dg_character_path(character, format: :pdf), method: :get %>
+      </td>
     </tr>
   <% end %>
 </table>
