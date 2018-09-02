@@ -43,7 +43,8 @@
                 <%= f.hidden_field :strength %>
               </div>
               <div class="float-right">
-                <%= fa_icon 'sort' %>
+                <div class="hide-for-small-only"><%= fa_icon 'sort' %></div>
+                <div class="show-for-small-only"><a href="#" class="reorder-on-click"><%= fa_icon 'arrow-up' %></a></div>
               </div>
             </div>
             <div class="statistic-value sortable-statistic clearset">&nbsp;
@@ -51,7 +52,8 @@
                 <%= f.hidden_field :constitution %>
               </div>
               <div class="float-right">
-                <%= fa_icon 'sort' %>
+                <div class="hide-for-small-only"><%= fa_icon 'sort' %></div>
+                <div class="show-for-small-only"><a href="#" class="reorder-on-click"><%= fa_icon 'arrow-up' %></a></div>
               </div>
             </div>
             <div class="statistic-value sortable-statistic clearset">&nbsp;
@@ -59,7 +61,8 @@
                 <%= f.hidden_field :dexterity %>
               </div>
               <div class="float-right">
-                <%= fa_icon 'sort' %>
+                <div class="hide-for-small-only"><%= fa_icon 'sort' %></div>
+                <div class="show-for-small-only"><a href="#" class="reorder-on-click"><%= fa_icon 'arrow-up' %></a></div>
               </div>
             </div>
             <div class="statistic-value sortable-statistic clearset">&nbsp;
@@ -67,7 +70,8 @@
                 <%= f.hidden_field :intelligence %>
               </div>
               <div class="float-right">
-                <%= fa_icon 'sort' %>
+                <div class="hide-for-small-only"><%= fa_icon 'sort' %></div>
+                <div class="show-for-small-only"><a href="#" class="reorder-on-click"><%= fa_icon 'arrow-up' %></a></div>
               </div>
             </div>
             <div class="statistic-value sortable-statistic clearset">&nbsp;
@@ -75,7 +79,8 @@
                 <%= f.hidden_field :power %>
               </div>
               <div class="float-right">
-                <%= fa_icon 'sort' %>
+                <div class="hide-for-small-only"><%= fa_icon 'sort' %></div>
+                <div class="show-for-small-only"><a href="#" class="reorder-on-click"><%= fa_icon 'arrow-up' %></a></div>
               </div>
             </div>
             <div class="statistic-value sortable-statistic clearset">&nbsp;
@@ -83,7 +88,8 @@
                 <%= f.hidden_field :charisma %>
               </div>
               <div class="float-right">
-                <%= fa_icon 'sort' %>
+                <div class="hide-for-small-only"><%= fa_icon 'sort' %></div>
+                <div class="show-for-small-only"><a href="#" class="reorder-on-click"><%= fa_icon 'arrow-up' %></a></div>
               </div>
             </div>
           </div>
@@ -91,28 +97,28 @@
             Derived Statistics:
           </div>
           <div class="cell small-8">
-            <div class='assign-attribute-name'>
-              <span>Hit Points (HP)</span>
-              <span class='assign-attribute-subtext'>(STR + CON) ÷ 2</span>
+            <div class='assign-attribute-name grid-x'>
+              <span class="small-12 medium-6">Hit Points (HP)</span>
+              <span class='assign-attribute-subtext small-12 medium-6'>(STR + CON) ÷ 2</span>
             </div>
-            <div class='assign-attribute-name'>
-              <span>Willpower (WP)</span>
-              <span class='assign-attribute-subtext'>(POW)</span>
+            <div class='assign-attribute-name  grid-x'>
+              <span class="small-12 medium-6">Willpower (WP)</span>
+              <span class='assign-attribute-subtext small-12 medium-6'>(POW)</span>
             </div>
-            <div class='assign-attribute-name'>
-              <span>Sanity (SAN)</span>
-              <span class='assign-attribute-subtext'>(POW x 5)</span>
+            <div class='assign-attribute-name grid-x'>
+              <span class="small-12 medium-6">Sanity (SAN)</span>
+              <span class='assign-attribute-subtext small-12 medium-6'>(POW x 5)</span>
             </div>
-            <div class='assign-attribute-name'>
-              <span>Breaking Point (BP)</span>
-              <span class='assign-attribute-subtext'>(SAN - POW)</span>
+            <div class='assign-attribute-name grid-x'>
+              <span class="small-12 medium-6">Breaking Point (BP)</span>
+              <span class='assign-attribute-subtext small-12 medium-6'>(SAN - POW)</span>
             </div>
           </div>
           <div class="cell small-4">
-            <div class="statistic-value" id="hit-point">&nbsp;</div>
-            <div class="statistic-value" id="willpower">&nbsp;</div>
-            <div class="statistic-value" id="sanity">&nbsp;</div>
-            <div class="statistic-value" id="breaking-point">&nbsp;</div>
+            <div class="statistic-value derived" id="hit-point">&nbsp;</div>
+            <div class="statistic-value derived" id="willpower">&nbsp;</div>
+            <div class="statistic-value derived" id="sanity">&nbsp;</div>
+            <div class="statistic-value derived" id="breaking-point">&nbsp;</div>
           </div>
         </div>
         <%= f.submit 'Save', id: 'submit-statistics', disabled: true, class: 'button float-right' %>
@@ -125,8 +131,7 @@
 $(window).load(function() {
   _selectedOption = null
 
-  $('.sortable-statistics').sortable({
-    stop: (event, ui) => {
+  const _finishSort = (event, ui) => {
       $($('.sortable-statistic input')[0]).attr('name', 'statistic_set[strength]')
       $($('.sortable-statistic input')[0]).attr('id', 'statistic_set_strength')
       $($('.sortable-statistic input')[1]).attr('name', 'statistic_set[constitution]')
@@ -140,8 +145,26 @@ $(window).load(function() {
       $($('.sortable-statistic input')[5]).attr('name', 'statistic_set[charisma]')
       $($('.sortable-statistic input')[5]).attr('id', 'statistic_set_charisma')
       _resetDerivedStats()
+  }
+
+  const _onClickReorder = (event) => {
+    event.preventDefault()
+    const index = $('.reorder-on-click').toArray().indexOf(event.target.parentElement)
+    const children = $('.sortable-statistics').children()
+    const childToMove = children.splice(index, 1)[0]
+    if(index==0) {
+      children.push(childToMove)
+    } else {
+      children.splice(index-1,0, childToMove)
     }
-  })
+    $('.sortable-statistics').html('')
+    _.each(children, (child) =>  $('.sortable-statistics').append(child))
+    _finishSort()
+    $('.reorder-on-click').click(_onClickReorder)
+  }
+  $('.reorder-on-click').click(_onClickReorder)
+
+  $('.sortable-statistics').sortable({ stop: _finishSort })
 
   _resetDerivedStats = () => {
     const str = Number($('#statistic_set_strength').val())

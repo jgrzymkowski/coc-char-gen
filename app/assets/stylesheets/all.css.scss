@@ -26,6 +26,13 @@
   padding: 8px;
 }
 
+
+@media screen and (max-width: 39.9375em) {
+  .statistic-value.derived {
+    height: 62px;
+  }
+}
+
 .assign-attribute-subtext {
   font-size: .75rem;
   color: gray;
