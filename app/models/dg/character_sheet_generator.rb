@@ -50,7 +50,7 @@ class Dg::CharacterSheetGenerator
       draw_text c.employer, at: [x_1, y_2]
       draw_text c.nationality, at: [x_2, y_2]
       draw_text c.gender == 'f' ? 'Female': c.gender == 'm' ? 'Male' : '', at: [x_1+50, y_3+3]
-      draw_text "#{c.age} (#{c.date_of_birth.strftime('%m-%d-%Y')})", at: [x_1+96, y_3]
+      draw_text c.display_age_and_dob, at: [x_1+96, y_3]
       draw_text c.education_and_occupational_history, at: [x_1+190, y_3]
 
 

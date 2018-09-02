@@ -12,76 +12,84 @@
     </div>
   </div>
   <div class="card-section">
-    <table>
-      <thead>
-        <tr>
-          <th>Statistics</th>
-          <th>Score</th>
-          <th>x5</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Strength (STR)</td>
-          <td><%= character.statistic_set&.strength %></td>
-          <td><%= character.statistic_set&.strength&.*5 %></td>
-        </tr>
-        <tr>
-          <td>Constitution (CON)</td>
-          <td><%= character.statistic_set&.constitution %></td>
-          <td><%= character.statistic_set&.constitution&.*5 %></td>
-        </tr>
-        <tr>
-          <td>Dexterity (DEX)</td>
-          <td><%= character.statistic_set&.dexterity %></td>
-          <td><%= character.statistic_set&.dexterity&.*5 %></td>
-        </tr>
-        <tr>
-          <td>Intelligence (INT)</td>
-          <td><%= character.statistic_set&.intelligence %></td>
-          <td><%= character.statistic_set&.intelligence&.*5 %></td>
-        </tr>
-        <tr>
-          <td>Power (POW)</td>
-          <td><%= character.statistic_set&.power %></td>
-          <td><%= character.statistic_set&.power&.*5 %></td>
-        </tr>
-        <tr>
-          <td>Charisma (CHA)</td>
-          <td><%= character.statistic_set&.charisma %></td>
-          <td><%= character.statistic_set&.charisma&.*5 %></td>
-        </tr>
-      </tbody>
-      <thead>
-        <tr>
-          <th>Derived Statistics</th>
-          <th>Maximum</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Hit Points (HP)</td>
-          <td><%= character.statistic_set&.hit_points %></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Willpower (WP)</td>
-          <td><%= character.statistic_set&.willpower %></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Sanity Points (SAN)</td>
-          <td><%= character.statistic_set&.sanity %></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Breaking Point (BP)</td>
-          <td><%= character.statistic_set&.breaking_point %></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="grid-x align-center">
+      <div class="cell small-6">
+        <table>
+          <thead>
+            <tr>
+              <th>Statistics</th>
+              <th>Score</th>
+              <th>x5</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Strength (STR)</td>
+              <td><%= character.statistic_set&.strength %></td>
+              <td><%= character.statistic_set&.strength&.*5 %></td>
+            </tr>
+            <tr>
+              <td>Constitution (CON)</td>
+              <td><%= character.statistic_set&.constitution %></td>
+              <td><%= character.statistic_set&.constitution&.*5 %></td>
+            </tr>
+            <tr>
+              <td>Dexterity (DEX)</td>
+              <td><%= character.statistic_set&.dexterity %></td>
+              <td><%= character.statistic_set&.dexterity&.*5 %></td>
+            </tr>
+            <tr>
+              <td>Intelligence (INT)</td>
+              <td><%= character.statistic_set&.intelligence %></td>
+              <td><%= character.statistic_set&.intelligence&.*5 %></td>
+            </tr>
+            <tr>
+              <td>Power (POW)</td>
+              <td><%= character.statistic_set&.power %></td>
+              <td><%= character.statistic_set&.power&.*5 %></td>
+            </tr>
+            <tr>
+              <td>Charisma (CHA)</td>
+              <td><%= character.statistic_set&.charisma %></td>
+              <td><%= character.statistic_set&.charisma&.*5 %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="cell small-6">
+        <table>
+          <thead>
+            <tr>
+              <th>Derived Statistics</th>
+              <th>Maximum</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Hit Points (HP)</td>
+              <td><%= character.statistic_set&.hit_points %></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Willpower (WP)</td>
+              <td><%= character.statistic_set&.willpower %></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Sanity Points (SAN)</td>
+              <td><%= character.statistic_set&.sanity %></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Breaking Point (BP)</td>
+              <td><%= character.statistic_set&.breaking_point %></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
 

@@ -39,7 +39,7 @@
 }
 
 .skill-addition {
-  color: #1779ba;
+  color: green;
 }
 
 .skill-set td {
@@ -60,14 +60,6 @@
   width: 180px;
   display: inline-block;
   margin-bottom: 0;
-}
-
-.option-text-field[disabled] {
-  opacity: 0;
-}
-
-.option-text-field[disabled][value] {
-  opacity: 1;
 }
 
 .deprecated {

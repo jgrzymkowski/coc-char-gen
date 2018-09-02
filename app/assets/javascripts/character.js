@@ -1,10 +1,9 @@
 if( !('CoC' in window ) ) { CoC = {}; }
 if( !CoC.Character ) { CoC.Character = {}; }
 
-CoC.Character.randomFirstName = function(gameSystemId, nameInputId, genderInputName) {
-  var genderInput = $('input:radio[name="' + genderInputName + '"]:checked');
-  $.ajax('/name_maker/first/' + genderInput.val(), {
-    data: { gender: genderInput.val(), game_system_id: gameSystemId },
+CoC.Character.randomFirstName = function(gameSystemId, nameInputId, gender) {
+  $.ajax('/name_maker/first/' + gender, {
+    data: { gender: gender, game_system_id: gameSystemId },
     success: function(data, textStatus, jqXHR) {
       $('#'+nameInputId).val(data);
     },
@@ -46,10 +45,11 @@ CoC.Character.randomSelect = function(selectInputId) {
         return !!o;}))[0]);
 };
 
-CoC.Character.dateOfBirth= function(dateOfBirthId) {
+CoC.Character.dateOfBirth= function(dateOfBirthId, complete) {
   $.ajax('/name_maker/date_of_birth', {
     success: function(data, textStatus, jqXHR) {
       $('#'+dateOfBirthId).val(data);
+      complete()
     },
     error: function() {
       //todo errorhandling

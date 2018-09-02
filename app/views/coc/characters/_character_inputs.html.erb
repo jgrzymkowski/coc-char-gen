@@ -144,7 +144,7 @@
       CoC.Character.randomFirstName(
               'call-of-cthulhu-1920',
               'character_first_name',
-              'character[gender]');
+              $('input:radio[name="character[gender]"]:checked').val());
     });
 
     $('#lastNameRand').click(function() {

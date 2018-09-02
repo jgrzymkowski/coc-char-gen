@@ -1,17 +1,10 @@
-<div class="char_field">
-  <%= f.label :gender %><br>
-  <%= f.radio_button( :gender, "f", checked: true ) %>
-  <%= f.label( :gender_m, "Female" ) %>
-  <%= f.radio_button( :gender, "m" ) %>
-  <%= f.label( :gender_m, "Male" ) %>
-  <%= f.radio_button( :gender, "o" ) %>
-  <%= f.label( :gender_o, "Other" ) %>
-</div>
+<%= f.label :gender %>
+<%= f.text_field :gender %>
 
-<%= f.label(:first_name) { "First Name <a id='firstNameRand' to='#'>Randomize</a>".html_safe } %>
+<%= f.label(:first_name) { "First Name | <a class='random-link' id='firstNameRandMale' to='#'>Random (Male)</a> | <a class='random-link' id='firstNameRandFemale' to='#'>Random (Female)</a>".html_safe } %>
 <%= f.text_field :first_name %>
 
-<%= f.label(:last_name) { "Last Name <a id='lastNameRand' to='#'>Randomize</a>".html_safe } %>
+<%= f.label(:last_name) { "Last Name | <a id='lastNameRand' to='#'>Random</a>".html_safe } %>
 <%= f.text_field :last_name %>
 
 <%= f.label :alias %>
@@ -26,8 +19,18 @@
 <%= f.label :nationality %>
 <%= f.text_field :nationality %>
 
-<%= f.label(:date_of_birth) { "Date of birth <a id='dateOfBirthRand' to='#'>Randomize</a>".html_safe } %>
-<%= f.date_field :date_of_birth %>
+<div class="grid-x">
+  <div class="cell small-8">
+    <%= f.label(:date_of_birth) { "Date of birth | <a id='dateOfBirthRand' to='#'>Random</a>".html_safe } %>
+    <%= f.date_field :date_of_birth %>
+  </div>
+  <div class="cell small-4">
+    <div style="padding-left: 10px">
+      <%= f.label(:age) %>
+      <div id="age" style="padding-top: 5px" > </div>
+    </div>
+  </div>
+</div>
 
 <%= f.label :education_and_occupational_history %>
 <%= f.text_field :education_and_occupational_history %>
@@ -36,12 +39,14 @@
 
 <script type="text/javascript">
   $(window).load(function() {
-    $('#firstNameRand').click(function(event) {
+    $('#firstNameRandMale').click(function(event) {
       event.preventDefault()
-      CoC.Character.randomFirstName(
-              'delta-green',
-              'dg_character_first_name',
-              'dg_character[gender]');
+      CoC.Character.randomFirstName('delta-green', 'dg_character_first_name', 'm')
+    });
+
+    $('#firstNameRandFemale').click(function(event) {
+      event.preventDefault()
+      CoC.Character.randomFirstName('delta-green', 'dg_character_first_name', 'f')
     });
 
     $('#lastNameRand').click(function(event) {
@@ -51,9 +56,17 @@
         'dg_character_last_name');
     });
 
+    const _updateDate = () => {
+      var ageDifMs = Date.now() - new Date($('#dg_character_date_of_birth').val()).getTime()
+      var ageDate = new Date(ageDifMs)
+      $('#age').html(Math.abs(ageDate.getUTCFullYear() - 1970))
+    }
+
     $('#dateOfBirthRand').click(function(event) {
       event.preventDefault()
-      CoC.Character.dateOfBirth('dg_character_date_of_birth');
+      CoC.Character.dateOfBirth('dg_character_date_of_birth', _updateDate);
     });
+
+    $('#dg_character_date_of_birth').change(_updateDate)
   })
 </script>

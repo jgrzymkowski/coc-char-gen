@@ -13,12 +13,14 @@
   <div class="column small-12 medium-8">
     <fieldset class="fieldset">
       <legend>Choose Statistic Values</legend>
+      <div class="callout secondary">
+        Choose your numbers.  You can assign these values to statistics after you select a set.
+      </div>
       <table id='field-set-options'> </table>
       <div>
         Select One:
       </div>
-      <div class='button-group small' id="option-select">
-      </div>
+      <div class='button-group tiny' id="option-select"> </div>
     </fieldset>
 
     <fieldset class="fieldset">
@@ -78,7 +80,7 @@
             </div>
             <div class="statistic-value sortable-statistic clearset">&nbsp;
               <div class="float-left">
-                <%= f.hidden_field :charmisma %>
+                <%= f.hidden_field :charisma %>
               </div>
               <div class="float-right">
                 <%= fa_icon 'sort' %>
@@ -113,7 +115,7 @@
             <div class="statistic-value" id="breaking-point">&nbsp;</div>
           </div>
         </div>
-        <%= f.submit 'Save', id: 'submit-statistics', disabled: true, class: 'button' %>
+        <%= f.submit 'Save', id: 'submit-statistics', disabled: true, class: 'button float-right' %>
       <% end %>
     </fieldset>
   </div>

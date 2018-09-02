@@ -44,6 +44,10 @@ class Dg::Character < ActiveRecord::Base
     0 : 1)
   end
 
+  def display_age_and_dob
+    "#{age} (#{date_of_birth.strftime('%m-%d-%Y')})"
+  end
+
   def display_name
     @display_name = [first_name, last_name].compact.join(' ')
     self.alias ? "#{@display_name} (#{self.alias})" : @display_name
