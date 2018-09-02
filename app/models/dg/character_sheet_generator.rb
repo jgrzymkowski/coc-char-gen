@@ -117,6 +117,12 @@ class Dg::CharacterSheetGenerator
         y_17 = y_1-(18)*16
         y_18 = y_1-(18)*17
 
+        bonds_x = 488
+        bonds_y = 570
+        c.skill_set.bonds.times do |i|
+          draw_text c.statistic_set.charisma, at: [bonds_x, bonds_y - (i)*18]
+        end
+
         # 1st column
 
         draw_text c.skill_set.accounting, at: [x_1, y_1]
