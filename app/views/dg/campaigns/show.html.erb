@@ -1,8 +1,15 @@
-<%= render '/shared/campaign',
-  new_character_path: new_dg_campaign_character_path(campaign) %>
+<%= render '/shared/campaign', new_character_path: new_dg_campaign_character_path(campaign) %>
 
-<div class="row align-center">
-  <div class="column small-12 medium-10">
-    <%= render '/dg/characters/character_table', characters: campaign.characters %>
+<% if campaign.owner == current_user %>
+  <div class="character-cards">
+    <% campaign.characters.each do |character| %>
+      <%= render '/dg/characters/character_card', character: character %>
+    <% end %>
   </div>
-</div>
+<% else %>
+  <div class="row align-center">
+    <div class="column small-12 medium-10">
+      <%= render '/dg/characters/character_table', characters: campaign.characters %>
+    </div>
+  </div>
+<% end %>

@@ -54,3 +54,14 @@
 //
 // @include motion-ui-transitions;
 // @include motion-ui-animations;
+
+.card {
+  border-radius: 5px;
+  margin: 0.5rem 0;
+}
+
+.button {
+  margin: 0
+}
+
+$table-color-scale: 3%;

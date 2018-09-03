@@ -1,25 +1,17 @@
-<table>
+<table class="hover">
   <thead>
-    <th>Player</th>
     <th>Name</th>
     <th>Profession</th>
     <th>Age</th>
-    <th></th>
     <th></th>
   </thead>
 
   <% characters.each do |character| %>
     <tr>
-      <td><%= character.user.display_name %></td>
-      <td><%= character.display_name %></td>
+      <td><%= link_to character.display_name, character, method: :get %></td>
       <td><%= character.profession %></td>
       <td><%= character.age %></td>
-      <td>
-        <%= link_to 'View', character, method: :get %>
-      </td>
-      <td>
-        <%= link_to 'Download PDF', dg_character_path(character, format: :pdf), method: :get %>
-      </td>
+      <td><%= link_to 'Download PDF', dg_character_path(character, format: :pdf), method: :get %></td>
     </tr>
   <% end %>
 </table>
