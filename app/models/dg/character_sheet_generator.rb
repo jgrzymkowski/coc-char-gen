@@ -119,7 +119,7 @@ class Dg::CharacterSheetGenerator
 
         bonds_x = 488
         bonds_y = 570
-        c.skill_set.bonds.times do |i|
+        (c.skill_set&.bonds || 0).times do |i|
           draw_text c.statistic_set.charisma, at: [bonds_x, bonds_y - (i)*18]
         end
 

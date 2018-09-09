@@ -1,67 +1,85 @@
 <div class="card character-card">
-  <div class="card-divider">
-    <h4><%= character.display_name %></h4>
+  <div class="card-divider character-card-header">
+    <h4><%= link_to(character.display_name, character, method: :get) %>
+    <%= link_to(dg_character_path(character, format: :pdf), class: 'download-pdf', method: :get)  do %>
+      <%= fa_icon 'download' %>
+    <% end %>
+    </h4>
   </div>
   <div class="card-section">
     <h5>Stats</h5>
-    <table class='unstriped'>
-      <tr class="stat-row">
-        <td class="stat-label">STR</td>
-        <td class="stat-value"><%= character.statistic_set&.strength %></td>
-        <td class="stat-value"><%= character.statistic_set&.strength&.* 5 %></td>
-        <td class="stat-label">CON</td>
-        <td class="stat-value"><%= character.statistic_set&.constitution %></td>
-        <td class="stat-value"><%= character.statistic_set&.constitution&.* 5 %></td>
-      </tr>
-      <tr class="stat-row">
-        <td class="stat-label">DEX</td>
-        <td class="stat-value"><%= character.statistic_set&.dexterity %></td>
-        <td class="stat-value"><%= character.statistic_set&.dexterity&.* 5 %></td>
-        <td class="stat-label">INT</td>
-        <td class="stat-value"><%= character.statistic_set&.intelligence %></td>
-        <td class="stat-value"><%= character.statistic_set&.intelligence&.* 5 %></td>
-      </tr>
-      <tr class="stat-row">
-        <td class="stat-label">POW</td>
-        <td class="stat-value"><%= character.statistic_set&.power %></td>
-        <td class="stat-value"><%= character.statistic_set&.power&.* 5 %></td>
-        <td class="stat-label">CHA</td>
-        <td class="stat-value"><%= character.statistic_set&.charisma %></td>
-        <td class="stat-value"><%= character.statistic_set&.charisma&.* 5 %></td>
-      </tr>
-      <tr class="stat-row">
-        <td class="stat-label">HP</td>
-        <td class="stat-value"><%= character.statistic_set&.hit_points %></td>
-        <td></td>
-        <td class="stat-label">SAN</td>
-        <td class="stat-value"><%= character.statistic_set&.sanity %></td>
-        <td></td>
-      </tr>
-      <tr class="stat-row">
-        <td class="stat-label">BP</td>
-        <td class="stat-value"><%= character.statistic_set&.breaking_point %></td>
-        <td></td>
-        <td class="stat-label">WP</td>
-        <td class="stat-value"><%= character.statistic_set&.willpower %></td>
-        <td></td>
-      </tr>
-    </table>
+    <div class="grid-x grid-margin-x">
+      <div class='cell small-12 medium-7'>
+        <table class='unstriped'>
+          <tr class="stat-row">
+            <td class="stat-label">STR</td>
+            <td class="stat-value"><%= character.statistic_set&.strength %></td>
+            <td class="stat-value"><%= character.statistic_set&.strength&.* 5 %></td>
+          </tr>
+          <tr class="stat-row">
+            <td class="stat-label">CON</td>
+            <td class="stat-value"><%= character.statistic_set&.constitution %></td>
+            <td class="stat-value"><%= character.statistic_set&.constitution&.* 5 %></td>
+          </tr>
+          <tr class="stat-row">
+            <td class="stat-label">DEX</td>
+            <td class="stat-value"><%= character.statistic_set&.dexterity %></td>
+            <td class="stat-value"><%= character.statistic_set&.dexterity&.* 5 %></td>
+          </tr>
+          <tr class="stat-row">
+            <td class="stat-label">INT</td>
+            <td class="stat-value"><%= character.statistic_set&.intelligence %></td>
+            <td class="stat-value"><%= character.statistic_set&.intelligence&.* 5 %></td>
+          </tr>
+          <tr class="stat-row">
+            <td class="stat-label">POW</td>
+            <td class="stat-value"><%= character.statistic_set&.power %></td>
+            <td class="stat-value"><%= character.statistic_set&.power&.* 5 %></td>
+          </tr>
+          <tr class="stat-row">
+            <td class="stat-label">CHA</td>
+            <td class="stat-value"><%= character.statistic_set&.charisma %></td>
+            <td class="stat-value"><%= character.statistic_set&.charisma&.* 5 %></td>
+          </tr>
+        </table>
+      </div>
+      <div class='cell small-12 medium-5'>
+        <table class='unstriped'>
+          <tr class="stat-row">
+            <td class="stat-label">HP</td>
+            <td class="stat-value"><%= character.statistic_set&.hit_points %></td>
+          </tr>
+          <tr class="stat-row">
+            <td class="stat-label">SAN</td>
+            <td class="stat-value"><%= character.statistic_set&.sanity %></td>
+          </tr>
+          <tr class="stat-row">
+            <td class="stat-label">BP</td>
+            <td class="stat-value"><%= character.statistic_set&.breaking_point %></td>
+          </tr>
+          <tr class="stat-row">
+            <td class="stat-label">WP</td>
+            <td class="stat-value"><%= character.statistic_set&.willpower %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
     <div class="high-skills">
-    <h5>High Skills</h5>
-    <% (character.skill_set&.skills || {}).each do |attr, value|
-      unless attr =~ /_\d_text/
-        if attr =~ /_\d/
-          if value.to_i > 50
-          %> <div class="high-skill"><%= character.skill_set.attributes["#{attr}_text"] %>: <%= value %>%</div> <%
-          end
-        else
-          if value.to_i > 50
-          %> <div class="high-skill"><%= attr.humanize.capitalize %>: <%= value %>%</div> <%
+      <h5>High Skills</h5>
+      <% (character.skill_set&.skills || {}).each do |attr, value|
+        unless attr =~ /_\d_text/
+          if attr =~ /_\d/
+            if value.to_i > 40
+            %> <div class="high-skill"><%= character.skill_set.attributes["#{attr}_text"] %>: <%= value %>%</div> <%
+            end
+          else
+            if value.to_i > 40
+            %> <div class="high-skill"><%= attr.humanize.capitalize %>: <%= value %>%</div> <%
+            end
           end
         end
-      end
-    %>
-<% end %>
+      %>
+  <% end %>
     </div>
   </div>
 </div>

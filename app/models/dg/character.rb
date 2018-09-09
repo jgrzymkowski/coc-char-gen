@@ -50,6 +50,6 @@ class Dg::Character < ActiveRecord::Base
 
   def display_name
     @display_name = [first_name, last_name].compact.join(' ')
-    self.alias ? "#{@display_name} (#{self.alias})" : @display_name
+    !self.alias.blank? ? "#{@display_name} (#{self.alias})" : @display_name
   end
 end
