@@ -1,3 +1,15 @@
-<%= form_for(@skill_set, url: dg_character_skill_sets_path(character)) do |f| %>
-  <%= render 'skill_set_form', character: character, skill_set: @skill_set, f: f %>
-<% end %>
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="breadcrumbs">
+      <li><%= link_to('Home', user_path(current_user)) %></li>
+      <li><%= link_to(character.campaign.name, character.campaign) %></li>
+      <li><%= link_to(character.display_name, character) %></li>
+      <li>Set Statistics</li>
+    </ul>
+  </div>
+</div>
+
+<%= react_component('NewSkillSet',
+                    baseSkills: @base_skills,
+                    skillPackages: @skill_packages,
+                    occupationSkills: @occupation_skills) %>

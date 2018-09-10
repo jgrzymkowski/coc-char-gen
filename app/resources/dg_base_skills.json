@@ -1,0 +1,277 @@
+{
+  "accounting": {
+    "id": "accounting",
+    "label": "Accounting",
+    "base": 10
+  },
+  "alertness": {
+    "id": "alertness",
+    "label": "Alertness",
+    "base": 20
+  },
+  "anthropology": {
+    "id": "anthropology",
+    "label": "Anthropology",
+    "base": 0
+  },
+  "archeology": {
+    "id": "archeology",
+    "label": "Archeology",
+    "base": 0
+  },
+  "art_1": {
+    "id": "art_1",
+    "label": "Art 1",
+    "base": 0
+  },
+  "art_2": {
+    "id": "art_2",
+    "label": "Art 2",
+    "base": 0
+  },
+  "art_3": {
+    "id": "art_3",
+    "label": "Art 3",
+    "base": 0
+  },
+  "artillery": {
+    "id": "artillery",
+    "label": "Artillery",
+    "base": 0
+  },
+  "athletics": {
+    "id": "athletics",
+    "label": "Athletics",
+    "base": 30
+  },
+  "bureaucracy": {
+    "id": "bureaucracy",
+    "label": "Bureaucracy",
+    "base": 10
+  },
+  "computer_science": {
+    "id": "computer_science",
+    "label": "Computer science",
+    "base": 0
+  },
+  "craft_1": {
+    "id": "craft_1",
+    "label": "Craft 1",
+    "base": 0
+  },
+  "craft_2": {
+    "id": "craft_2",
+    "label": "Craft 2",
+    "base": 0
+  },
+  "craft_3": {
+    "id": "craft_3",
+    "label": "Craft 3",
+    "base": 0
+  },
+  "criminology": {
+    "id": "criminology",
+    "label": "Criminology",
+    "base": 10
+  },
+  "demolitions": {
+    "id": "demolitions",
+    "label": "Demolitions",
+    "base": 0
+  },
+  "disguise": {
+    "id": "disguise",
+    "label": "Disguise",
+    "base": 10
+  },
+  "dodge": {
+    "id": "dodge",
+    "label": "Dodge",
+    "base": 30
+  },
+  "drive": {
+    "id": "drive",
+    "label": "Drive",
+    "base": 20
+  },
+  "firearms": {
+    "id": "firearms",
+    "label": "Firearms",
+    "base": 20
+  },
+  "first_aid": {
+    "id": "first_aid",
+    "label": "First aid",
+    "base": 10
+  },
+  "foreign_language_1": {
+    "id": "foreign_language_1",
+    "label": "Foreign language 1",
+    "base": 0
+  },
+  "foreign_language_2": {
+    "id": "foreign_language_2",
+    "label": "Foreign language 2",
+    "base": 0
+  },
+  "foreign_language_3": {
+    "id": "foreign_language_3",
+    "label": "Foreign language 3",
+    "base": 0
+  },
+  "forensics": {
+    "id": "forensics",
+    "label": "Forensics",
+    "base": 0
+  },
+  "humint": {
+    "id": "humint",
+    "label": "Humint",
+    "base": 10
+  },
+  "heavy_machinery": {
+    "id": "heavy_machinery",
+    "label": "Heavy machinery",
+    "base": 10
+  },
+  "heavy_weapons": {
+    "id": "heavy_weapons",
+    "label": "Heavy weapons",
+    "base": 0
+  },
+  "history": {
+    "id": "history",
+    "label": "History",
+    "base": 10
+  },
+  "law": {
+    "id": "law",
+    "label": "Law",
+    "base": 0
+  },
+  "medicine": {
+    "id": "medicine",
+    "label": "Medicine",
+    "base": 0
+  },
+  "melee_weapons": {
+    "id": "melee_weapons",
+    "label": "Melee weapons",
+    "base": 30
+  },
+  "military_science_1": {
+    "id": "military_science_1",
+    "label": "Military science 1",
+    "base": 0
+  },
+  "military_science_2": {
+    "id": "military_science_2",
+    "label": "Military science 2",
+    "base": 0
+  },
+  "military_science_3": {
+    "id": "military_science_3",
+    "label": "Military science 3",
+    "base": 0
+  },
+  "navigate": {
+    "id": "navigate",
+    "label": "Navigate",
+    "base": 10
+  },
+  "occult": {
+    "id": "occult",
+    "label": "Occult",
+    "base": 10
+  },
+  "persuade": {
+    "id": "persuade",
+    "label": "Persuade",
+    "base": 20
+  },
+  "pharmacy": {
+    "id": "pharmacy",
+    "label": "Pharmacy",
+    "base": 0
+  },
+  "pilot_1": {
+    "id": "pilot_1",
+    "label": "Pilot 1",
+    "base": 0
+  },
+  "pilot_2": {
+    "id": "pilot_2",
+    "label": "Pilot 2",
+    "base": 0
+  },
+  "pilot_3": {
+    "id": "pilot_3",
+    "label": "Pilot 3",
+    "base": 0
+  },
+  "psychotherapy": {
+    "id": "psychotherapy",
+    "label": "Psychotherapy",
+    "base": 10
+  },
+  "ride": {
+    "id": "ride",
+    "label": "Ride",
+    "base": 10
+  },
+  "sigint": {
+    "id": "sigint",
+    "label": "Sigint",
+    "base": 0
+  },
+  "science_1": {
+    "id": "science_1",
+    "label": "Science 1",
+    "base": 0
+  },
+  "science_2": {
+    "id": "science_2",
+    "label": "Science 2",
+    "base": 0
+  },
+  "science_3": {
+    "id": "science_3",
+    "label": "Science 3",
+    "base": 0
+  },
+  "search": {
+    "id": "search",
+    "label": "Search",
+    "base": 20
+  },
+  "stealth": {
+    "id": "stealth",
+    "label": "Stealth",
+    "base": 10
+  },
+  "surgery": {
+    "id": "surgery",
+    "label": "Surgery",
+    "base": 0
+  },
+  "survival": {
+    "id": "survival",
+    "label": "Survival",
+    "base": 10
+  },
+  "swim": {
+    "id": "swim",
+    "label": "Swim",
+    "base": 20
+  },
+  "unarmed_combat": {
+    "id": "unarmed_combat",
+    "label": "Unarmed combat",
+    "base": 40
+  },
+  "unnatural": {
+    "id": "unnatural",
+    "label": "Unnatural",
+    "base": 0
+  }
+}

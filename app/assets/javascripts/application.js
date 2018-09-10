@@ -12,9 +12,12 @@
 //
 //= require jquery-1.10.2.min.js
 //= require jquery-ui.min.js
-//= require underscore-min.js
 //= require jquery_ujs
+//= require react
+//= require react_ujs
+//= require components
 //= require_tree .
+//= require lodash
 
 if( !('CoC' in window ) ) { CoC = {}; }
 

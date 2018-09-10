@@ -7,6 +7,9 @@ class Dg::SkillSetsController < ApplicationController
   def new
     authorize(Dg::SkillSet, :new?)
     @skill_set = Dg::SkillSet.new(YAML.load_file('app/resources/dg_skill_sets.yml'))
+    @base_skills = JSON.parse(File.read('app/resources/dg_base_skills.json'))
+    @skill_packages = JSON.parse(File.read('app/resources/dg_skill_packages.json'))
+    @occupation_skills = JSON.parse(File.read('app/resources/dg_occupation_skills.json'))
   end
 
   def edit

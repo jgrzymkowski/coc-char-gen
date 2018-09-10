@@ -1,0 +1,994 @@
+{
+  "artist-actor-or-musician": {
+    "id": "artist-actor-or-musician",
+    "label": "Artist, actor, or musician",
+    "skills": [
+      {
+        "id": "alertness",
+        "label": "Alertness"
+      },
+      {
+        "id": "craft_1",
+        "label": "Craft 1"
+      },
+      {
+        "id": "disguise",
+        "label": "Disguise"
+      },
+      {
+        "id": "persuade",
+        "label": "Persuade"
+      },
+      {
+        "id": "art_1",
+        "label": "Art 1"
+      },
+      {
+        "id": "art_2",
+        "label": "Art 2"
+      },
+      {
+        "id": "art_3",
+        "label": "Art 3"
+      },
+      {
+        "id": "humint",
+        "label": "Humint"
+      }
+    ]
+  },
+  "athlete": {
+    "id": "athlete",
+    "label": "Athlete",
+    "skills": [
+      {
+        "id": "alertness",
+        "label": "Alertness"
+      },
+      {
+        "id": "athletics",
+        "label": "Athletics"
+      },
+      {
+        "id": "dodge",
+        "label": "Dodge"
+      },
+      {
+        "id": "first_aid",
+        "label": "First Aid"
+      },
+      {
+        "id": "humint",
+        "label": "Humint"
+      },
+      {
+        "id": "persuade",
+        "label": "Persuade"
+      },
+      {
+        "id": "swim",
+        "label": "Swim"
+      },
+      {
+        "id": "unarmed_combat",
+        "label": "Unarmed Combat"
+      }
+    ]
+  },
+  "author-editor-or-journalist": {
+    "id": "author-editor-or-journalist",
+    "label": "Author, editor, or journalist",
+    "skills": [
+      {
+        "id": "anthropology",
+        "label": "Anthropology"
+      },
+      {
+        "id": "art_1",
+        "label": "Art_1"
+      },
+      {
+        "id": "bureaucracy",
+        "label": "Bureaucracy"
+      },
+      {
+        "id": "history",
+        "label": "History"
+      },
+      {
+        "id": "law",
+        "label": "Law"
+      },
+      {
+        "id": "occult",
+        "label": "Occult"
+      },
+      {
+        "id": "persuade",
+        "label": "Persuade"
+      },
+      {
+        "id": "humint",
+        "label": "Humint"
+      }
+    ]
+  },
+  "black-bag-training": {
+    "id": "black-bag-training",
+    "label": "“black bag” training",
+    "skills": [
+      {
+        "id": "alertness",
+        "label": "Alertness"
+      },
+      {
+        "id": "athletics",
+        "label": "Athletics"
+      },
+      {
+        "id": "craft_1",
+        "label": "Craft 1"
+      },
+      {
+        "id": "craft_2",
+        "label": "Craft 2"
+      },
+      {
+        "id": "criminology",
+        "label": "Criminology"
+      },
+      {
+        "id": "disguise",
+        "label": "Disguise"
+      },
+      {
+        "id": "search",
+        "label": "Search"
+      },
+      {
+        "id": "stealth",
+        "label": "Stealth"
+      }
+    ]
+  },
+  "blue-collar-worker": {
+    "id": "blue-collar-worker",
+    "label": "Blue-collar worker",
+    "skills": [
+      {
+        "id": "alertness",
+        "label": "Alertness"
+      },
+      {
+        "id": "craft_1",
+        "label": "Craft 1"
+      },
+      {
+        "id": "craft_2",
+        "label": "Craft 2"
+      },
+      {
+        "id": "drive",
+        "label": "Drive"
+      },
+      {
+        "id": "first_aid",
+        "label": "First Aid"
+      },
+      {
+        "id": "heavy_machinery",
+        "label": "Heavy Machinery"
+      },
+      {
+        "id": "navigate",
+        "label": "Navigate"
+      },
+      {
+        "id": "search",
+        "label": "Search"
+      }
+    ]
+  },
+  "bureaucrat": {
+    "id": "bureaucrat",
+    "label": "Bureaucrat",
+    "skills": [
+      {
+        "id": "accounting",
+        "label": "Accounting"
+      },
+      {
+        "id": "bureaucracy",
+        "label": "Bureaucracy"
+      },
+      {
+        "id": "computer_science",
+        "label": "Computer Science"
+      },
+      {
+        "id": "criminology",
+        "label": "Criminology"
+      },
+      {
+        "id": "humint",
+        "label": "Humint"
+      },
+      {
+        "id": "law",
+        "label": "Law"
+      },
+      {
+        "id": "persuade",
+        "label": "Persuade"
+      }
+    ]
+  },
+  "clergy": {
+    "id": "clergy",
+    "label": "Clergy",
+    "skills": [
+      {
+        "id": "foreign_language_1",
+        "label": "Foreign Language 1"
+      },
+      {
+        "id": "foreign_language_2",
+        "label": "Foreign Language 2"
+      },
+      {
+        "id": "foreign_language_3",
+        "label": "Foreign Language 3"
+      },
+      {
+        "id": "history",
+        "label": "History"
+      },
+      {
+        "id": "humint",
+        "label": "Humint"
+      },
+      {
+        "id": "occult",
+        "label": "Occult"
+      },
+      {
+        "id": "persuade",
+        "label": "Persuade"
+      },
+      {
+        "id": "psychotherapy",
+        "label": "Psychotherapy"
+      }
+    ]
+  },
+  "combat-veteran": {
+    "id": "combat-veteran",
+    "label": "Combat veteran",
+    "skills": [
+      {
+        "id": "alertness",
+        "label": "Alertness"
+      },
+      {
+        "id": "dodge",
+        "label": "Dodge"
+      },
+      {
+        "id": "firearms",
+        "label": "Firearms"
+      },
+      {
+        "id": "first_aid",
+        "label": "First Aid"
+      },
+      {
+        "id": "heavy_weapons",
+        "label": "Heavy Weapons"
+      },
+      {
+        "id": "melee_weapons",
+        "label": "Melee Weapons"
+      },
+      {
+        "id": "stealth",
+        "label": "Stealth"
+      },
+      {
+        "id": "unarmed_combat",
+        "label": "Unarmed Combat"
+      }
+    ]
+  },
+  "computer-enthusiast-or-hacker": {
+    "id": "computer-enthusiast-or-hacker",
+    "label": "Computer enthusiast or hacker",
+    "skills": [
+      {
+        "id": "computer_science",
+        "label": "Computer Science"
+      },
+      {
+        "id": "craft_1",
+        "label": "Craft 1"
+      },
+      {
+        "id": "science",
+        "label": "Science"
+      },
+      {
+        "id": "sigint",
+        "label": "Sigint"
+      }
+    ]
+  },
+  "counselor": {
+    "id": "counselor",
+    "label": "Counselor",
+    "skills": [
+      {
+        "id": "bureaucracy",
+        "label": "Bureaucracy"
+      },
+      {
+        "id": "first_aid",
+        "label": "First Aid"
+      },
+      {
+        "id": "foreign_language_1",
+        "label": "Foreign Language 1"
+      },
+      {
+        "id": "humint",
+        "label": "Humint"
+      },
+      {
+        "id": "law",
+        "label": "Law"
+      },
+      {
+        "id": "persuade",
+        "label": "Persuade"
+      },
+      {
+        "id": "psychotherapy",
+        "label": "Psychotherapy"
+      },
+      {
+        "id": "search",
+        "label": "Search"
+      }
+    ]
+  },
+  "criminalist": {
+    "id": "criminalist",
+    "label": "Criminalist",
+    "skills": [
+      {
+        "id": "accounting",
+        "label": "Accounting"
+      },
+      {
+        "id": "bureaucracy",
+        "label": "Bureaucracy"
+      },
+      {
+        "id": "computer_science",
+        "label": "Computer Science"
+      },
+      {
+        "id": "criminology",
+        "label": "Criminology"
+      },
+      {
+        "id": "forensics",
+        "label": "Forensics"
+      },
+      {
+        "id": "law",
+        "label": "Law"
+      },
+      {
+        "id": "pharmacy",
+        "label": "Pharmacy"
+      },
+      {
+        "id": "search",
+        "label": "Search"
+      }
+    ]
+  },
+  "firefighter": {
+    "id": "firefighter",
+    "label": "Firefighter",
+    "skills": [
+      {
+        "id": "alertness",
+        "label": "Alertness"
+      },
+      {
+        "id": "demolitions",
+        "label": "Demolitions"
+      },
+      {
+        "id": "drive",
+        "label": "Drive"
+      },
+      {
+        "id": "first_aid",
+        "label": "First Aid"
+      },
+      {
+        "id": "forensics",
+        "label": "Forensics"
+      },
+      {
+        "id": "heavy_machinery",
+        "label": "Heavy Machinery"
+      },
+      {
+        "id": "navigate",
+        "label": "Navigate"
+      },
+      {
+        "id": "search",
+        "label": "Search"
+      }
+    ]
+  },
+  "gangster-or-deep-cover": {
+    "id": "gangster-or-deep-cover",
+    "label": "Gangster or deep cover",
+    "skills": [
+      {
+        "id": "alertness",
+        "label": "Alertness"
+      },
+      {
+        "id": "criminology",
+        "label": "Criminology"
+      },
+      {
+        "id": "dodge",
+        "label": "Dodge"
+      },
+      {
+        "id": "drive",
+        "label": "Drive"
+      },
+      {
+        "id": "persuade",
+        "label": "Persuade"
+      },
+      {
+        "id": "stealth",
+        "label": "Stealth"
+      }
+    ]
+  },
+  "interrogator": {
+    "id": "interrogator",
+    "label": "Interrogator",
+    "skills": [
+      {
+        "id": "criminology",
+        "label": "Criminology"
+      },
+      {
+        "id": "foreign_language_1",
+        "label": "Foreign Language 1"
+      },
+      {
+        "id": "foreign_language_2",
+        "label": "Foreign Language 2"
+      },
+      {
+        "id": "humint",
+        "label": "Humint"
+      },
+      {
+        "id": "law",
+        "label": "Law"
+      },
+      {
+        "id": "persuade",
+        "label": "Persuade"
+      },
+      {
+        "id": "pharmacy",
+        "label": "Pharmacy"
+      },
+      {
+        "id": "search",
+        "label": "Search"
+      }
+    ]
+  },
+  "liberal-arts-degree": {
+    "id": "liberal-arts-degree",
+    "label": "Liberal arts degree",
+    "skills": [
+      {
+        "id": "anthropology-or-archeology",
+        "label": "Anthropology or Archeology"
+      },
+      {
+        "id": "art_1",
+        "label": "Art 1"
+      },
+      {
+        "id": "foreign_language_1",
+        "label": "Foreign Language 1"
+      },
+      {
+        "id": "history",
+        "label": "History"
+      },
+      {
+        "id": "persuade",
+        "label": "Persuade"
+      }
+    ]
+  },
+  "military-officer": {
+    "id": "military-officer",
+    "label": "Military officer",
+    "skills": [
+      {
+        "id": "bureaucracy",
+        "label": "Bureaucracy"
+      },
+      {
+        "id": "firearms",
+        "label": "Firearms"
+      },
+      {
+        "id": "history",
+        "label": "History"
+      },
+      {
+        "id": "military_science",
+        "label": "Military Science"
+      },
+      {
+        "id": "navigate",
+        "label": "Navigate"
+      },
+      {
+        "id": "persuade",
+        "label": "Persuade"
+      },
+      {
+        "id": "unarmed_combat",
+        "label": "Unarmed Combat"
+      }
+    ]
+  },
+  "mba": {
+    "id": "mba",
+    "label": "Mba",
+    "skills": [
+      {
+        "id": "accounting",
+        "label": "Accounting"
+      },
+      {
+        "id": "bureaucracy",
+        "label": "Bureaucracy"
+      },
+      {
+        "id": "humint",
+        "label": "Humint"
+      },
+      {
+        "id": "law",
+        "label": "Law"
+      },
+      {
+        "id": "persuade",
+        "label": "Persuade"
+      }
+    ]
+  },
+  "nurse-paramedic-or-pre-med": {
+    "id": "nurse-paramedic-or-pre-med",
+    "label": "Nurse, paramedic, or pre-med",
+    "skills": [
+      {
+        "id": "alertness",
+        "label": "Alertness"
+      },
+      {
+        "id": "first_aid",
+        "label": "First Aid"
+      },
+      {
+        "id": "medicine",
+        "label": "Medicine"
+      },
+      {
+        "id": "persuade",
+        "label": "Persuade"
+      },
+      {
+        "id": "pharmacy",
+        "label": "Pharmacy"
+      },
+      {
+        "id": "psychotherapy",
+        "label": "Psychotherapy"
+      },
+      {
+        "id": "science",
+        "label": "Science"
+      },
+      {
+        "id": "search",
+        "label": "Search"
+      }
+    ]
+  },
+  "occult-investigator-or-conspiracy-theorist": {
+    "id": "occult-investigator-or-conspiracy-theorist",
+    "label": "Occult investigator or conspiracy theorist",
+    "skills": [
+      {
+        "id": "anthropology",
+        "label": "Anthropology"
+      },
+      {
+        "id": "archeology",
+        "label": "Archeology"
+      },
+      {
+        "id": "computer_science",
+        "label": "Computer Science"
+      },
+      {
+        "id": "criminology",
+        "label": "Criminology"
+      },
+      {
+        "id": "history",
+        "label": "History"
+      },
+      {
+        "id": "occult",
+        "label": "Occult"
+      },
+      {
+        "id": "persuade",
+        "label": "Persuade"
+      },
+      {
+        "id": "search",
+        "label": "Search"
+      }
+    ]
+  },
+  "outdoorsman": {
+    "id": "outdoorsman",
+    "label": "Outdoorsman",
+    "skills": [
+      {
+        "id": "alertness",
+        "label": "Alertness"
+      },
+      {
+        "id": "athletics",
+        "label": "Athletics"
+      },
+      {
+        "id": "firearms",
+        "label": "Firearms"
+      },
+      {
+        "id": "navigate",
+        "label": "Navigate"
+      },
+      {
+        "id": "ride",
+        "label": "Ride"
+      },
+      {
+        "id": "search",
+        "label": "Search"
+      },
+      {
+        "id": "stealth",
+        "label": "Stealth"
+      },
+      {
+        "id": "survival",
+        "label": "Survival"
+      }
+    ]
+  },
+  "photographer": {
+    "id": "photographer",
+    "label": "Photographer",
+    "skills": [
+      {
+        "id": "alertness",
+        "label": "Alertness"
+      },
+      {
+        "id": "art_1",
+        "label": "Art 1"
+      },
+      {
+        "id": "computer_science",
+        "label": "Computer Science"
+      },
+      {
+        "id": "persuade",
+        "label": "Persuade"
+      },
+      {
+        "id": "search",
+        "label": "Search"
+      },
+      {
+        "id": "stealth",
+        "label": "Stealth"
+      }
+    ]
+  },
+  "pilot-or-sailor": {
+    "id": "pilot-or-sailor",
+    "label": "Pilot or sailor",
+    "skills": [
+      {
+        "id": "alertness",
+        "label": "Alertness"
+      },
+      {
+        "id": "craft_1",
+        "label": "Craft 1"
+      },
+      {
+        "id": "first_aid",
+        "label": "First Aid"
+      },
+      {
+        "id": "foreign_language_1",
+        "label": "Foreign Language 1"
+      },
+      {
+        "id": "navigate",
+        "label": "Navigate"
+      },
+      {
+        "id": "pilot_1",
+        "label": "Pilot 1"
+      },
+      {
+        "id": "survival",
+        "label": "Survival"
+      },
+      {
+        "id": "swim",
+        "label": "Swim"
+      }
+    ]
+  },
+  "police-officer": {
+    "id": "police-officer",
+    "label": "Police officer",
+    "skills": [
+      {
+        "id": "alertness",
+        "label": "Alertness"
+      },
+      {
+        "id": "criminology",
+        "label": "Criminology"
+      },
+      {
+        "id": "drive",
+        "label": "Drive"
+      },
+      {
+        "id": "firearms",
+        "label": "Firearms"
+      },
+      {
+        "id": "humint",
+        "label": "Humint"
+      },
+      {
+        "id": "law",
+        "label": "Law"
+      },
+      {
+        "id": "melee_weapons",
+        "label": "Melee Weapons"
+      },
+      {
+        "id": "unarmed_combat",
+        "label": "Unarmed Combat"
+      }
+    ]
+  },
+  "science-grad-student": {
+    "id": "science-grad-student",
+    "label": "Science grad student",
+    "skills": [
+      {
+        "id": "bureaucracy",
+        "label": "Bureaucracy"
+      },
+      {
+        "id": "computer-use",
+        "label": "Computer Use"
+      },
+      {
+        "id": "craft_1",
+        "label": "Craft 1"
+      },
+      {
+        "id": "foreign_language_1",
+        "label": "Foreign Language 1"
+      },
+      {
+        "id": "science_1",
+        "label": "Science 1"
+      },
+      {
+        "id": "science_2",
+        "label": "Science 2"
+      },
+      {
+        "id": "science_3",
+        "label": "Science"
+      }
+    ]
+  },
+  "social-worker-or-criminal-justice-degree": {
+    "id": "social-worker-or-criminal-justice-degree",
+    "label": "Social worker or criminal justice degree",
+    "skills": [
+      {
+        "id": "bureaucracy",
+        "label": "Bureaucracy"
+      },
+      {
+        "id": "criminology",
+        "label": "Criminology"
+      },
+      {
+        "id": "forensics",
+        "label": "Forensics"
+      },
+      {
+        "id": "foreign_language_1",
+        "label": "Foreign Language 1"
+      },
+      {
+        "id": "humint",
+        "label": "Humint"
+      },
+      {
+        "id": "law",
+        "label": "Law"
+      },
+      {
+        "id": "persuade",
+        "label": "Persuade"
+      },
+      {
+        "id": "search",
+        "label": "Search"
+      }
+    ]
+  },
+  "soldier-or-marine": {
+    "id": "soldier-or-marine",
+    "label": "Soldier or marine",
+    "skills": [
+      {
+        "id": "alertness",
+        "label": "Alertness"
+      },
+      {
+        "id": "artillery",
+        "label": "Artillery"
+      },
+      {
+        "id": "athletics",
+        "label": "Athletics"
+      },
+      {
+        "id": "drive",
+        "label": "Drive"
+      },
+      {
+        "id": "firearms",
+        "label": "Firearms"
+      },
+      {
+        "id": "heavy_weapons",
+        "label": "Heavy Weapons"
+      },
+      {
+        "id": "military_science_1",
+        "label": "Military Science 1"
+      },
+      {
+        "id": "unarmed_combat",
+        "label": "Unarmed Combat"
+      }
+    ]
+  },
+  "translator": {
+    "id": "translator",
+    "label": "Translator",
+    "skills": [
+      {
+        "id": "anthropology",
+        "label": "Anthropology"
+      },
+      {
+        "id": "foreign_language_1",
+        "label": "Foreign Language 1"
+      },
+      {
+        "id": "foreign_language_2",
+        "label": "Foreign Language 2"
+      },
+      {
+        "id": "foreign_language_3",
+        "label": "Foreign Language 3"
+      },
+      {
+        "id": "history",
+        "label": "History"
+      },
+      {
+        "id": "humint",
+        "label": "Humint"
+      },
+      {
+        "id": "persuade",
+        "label": "Persuade"
+      }
+    ]
+  },
+  "urban-explorer": {
+    "id": "urban-explorer",
+    "label": "Urban explorer",
+    "skills": [
+      {
+        "id": "alertness",
+        "label": "Alertness"
+      },
+      {
+        "id": "athletics",
+        "label": "Athletics"
+      },
+      {
+        "id": "craft_1",
+        "label": "Craft 1"
+      },
+      {
+        "id": "law",
+        "label": "Law"
+      },
+      {
+        "id": "navigate",
+        "label": "Navigate"
+      },
+      {
+        "id": "persuade",
+        "label": "Persuade"
+      },
+      {
+        "id": "search",
+        "label": "Search"
+      },
+      {
+        "id": "stealth",
+        "label": "Stealth"
+      }
+    ]
+  }
+}
