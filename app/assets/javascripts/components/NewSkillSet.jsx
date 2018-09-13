@@ -1,4 +1,4 @@
-const _findSkills = function(props, occupation, skillPackage) {
+const _findSkills = function(props, state) {
   let skills = []
   _.each(props.baseSkills, (baseSkill) => {
     if(baseSkill.id.match(/_1/)) {
@@ -12,12 +12,17 @@ const _findSkills = function(props, occupation, skillPackage) {
     }
 
     let additions = []
-    const occupationSkill = _.find(_.get(occupation, 'skills') || [], { id: baseSkill.id })
+    const occupationSkill = _.find(_.get(state.occupation, 'skills') || [], { id: baseSkill.id })
     if(occupationSkill) {
       additions.push(occupationSkill.percentage)
     }
 
-    const skillPackageSkill = _.find(_.get(skillPackage, 'skills') || [], { id: baseSkill.id })
+    const occupationSkillOption = _.find(state.occupationOptions || [], { id: baseSkill.id })
+    if(occupationSkillOption) {
+      additions.push(occupationSkillOption.percentage)
+    }
+
+    const skillPackageSkill = _.find(_.get(state.skillPackage, 'skills') || [], { id: baseSkill.id })
     if(skillPackageSkill) {
       additions.push(20)
     }
@@ -44,7 +49,7 @@ class NewSkillSet extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      skills: _findSkills(props),
+      skills: _findSkills(props, {}),
       occupation: null,
       skillPackage: null
     }
@@ -57,7 +62,8 @@ class NewSkillSet extends React.Component {
       <div className="new-skills">
         <OccupationChooser
           occupationSkills={occupationSkills}
-          setOccupation={(occupation) => this._setOccupation(occupation)} />
+          setOccupation={(occupation) => this._setOccupation(occupation)}
+          setOccupationOptions={(occupationOptions) => this._setOccupationOptions(occupationOptions)} />
         <SkillPackageChooser
           skillPackages={skillPackages}
           setSkillPackage={(skillPackage) => this._setSkillPackage(skillPackage)} />
@@ -66,18 +72,20 @@ class NewSkillSet extends React.Component {
     )
   }
 
+  _updateSkills() {
+    this.setState({ skills: _findSkills(this.props, this.state) })
+  }
+
   _setOccupation(occupation) {
-    this.setState({
-      occupation,
-      skills: _findSkills(this.props, occupation, this.state.skillPackage)
-    })
+    this.setState({ occupation }, this._updateSkills)
+  }
+
+  _setOccupationOptions(occupationOptions) {
+    this.setState({ occupationOptions }, this._updateSkills)
   }
 
   _setSkillPackage(skillPackage) {
-    this.setState({
-      skillPackage,
-      skills: _findSkills(this.props, this.state.occupation, skillPackage)
-    })
+    this.setState({ skillPackage }, this._updateSkills)
   }
 }
 

@@ -76,15 +76,21 @@ class OccupationChooser extends React.Component {
 
   _onClickOption(skillId) {
     const { occupation, occupationOptions } = this.state
+    let newOptions
     if(_.includes(occupationOptions, skillId)) {
-      this.setState({ occupationOptions: _.without(occupationOptions, skillId) })
+      newOptions = _.without(occupationOptions, skillId)
     } else {
-      occupationOptions.push(skillId)
-      if(occupationOptions.length > occupation.choose) {
-        occupationOptions.shift()
+      newOptions = _.clone(occupationOptions)
+      newOptions.push(skillId)
+      if(newOptions.length > occupation.choose) {
+        newOptions.shift()
       }
-      this.setState({ occupationOptions })
     }
+    this.setState({ occupationOptions: newOptions }, () => {
+      this.props.setOccupationOptions(_.map(newOptions, (skillId) => {
+        return _.find(occupation.options, { id: skillId })
+      }))
+    })
   }
 
   _renderOccupationSelect() {
@@ -125,5 +131,6 @@ class OccupationChooser extends React.Component {
 
 OccupationChooser.propTypes = {
   occupationSkills: PropTypes.object,
-  setOccupation: PropTypes.func
+  setOccupation: PropTypes.func,
+  setOccupationOptions: PropTypes.func
 }
