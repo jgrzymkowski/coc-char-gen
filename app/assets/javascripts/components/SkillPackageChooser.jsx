@@ -2,7 +2,8 @@ class SkillPackageChooser extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      skillPackage: null
+      skillPackage: null,
+      skillPackageOptions: []
     }
   }
 
@@ -39,10 +40,15 @@ class SkillPackageChooser extends React.Component {
   }
 
   _onChangeSkillPackage(event) {
-    const { skillPackages, setSkillPackage } = this.props
+    const { skillPackages, setSkillPackage, setSkillPackageOptions } = this.props
     const skillPackage = skillPackages[event.target.value]
+    let skillPackageOptions = []
+    if(skillPackage) {
+      _.times(8 - skillPackage.skills.length, () => skillPackageOptions.push(''))
+    }
     setSkillPackage(skillPackage)
-    this.setState({ skillPackage })
+    setSkillPackageOptions(skillPackageOptions)
+    this.setState({ skillPackage, skillPackageOptions })
   }
 
   _renderInstructions() {
@@ -54,7 +60,7 @@ class SkillPackageChooser extends React.Component {
   }
 
   _renderSkillPackage() {
-    const { skillPackage } = this.state
+    const { skillPackage, skillPackageOptions } = this.state
     return (
       <div className="grid-x grid-margin-x align-center">
         <div className="cell small-12 medium-4"> </div>
@@ -62,28 +68,60 @@ class SkillPackageChooser extends React.Component {
           <strong>Included Skills: </strong>
           {_.map(_.get(skillPackage, 'skills') || [], (skill, i) => {
             return <div key={skill.id} className="occupation-skill selected">{skill.label} + 20%</div>
-            })}
-          </div>
-          <div className="cell small-12 medium-4"> </div>
+          })}
+          {_.map(skillPackageOptions, (id, index) => this._renderSkillPackageOption(id, index))}
         </div>
+        <div className="cell small-12 medium-4"> </div>
+      </div>
     )
   }
 
+  _renderSkillPackageOption(id, index) {
+    return (
+      <select
+        value={id}
+        key={index}
+        className={`occupation-skill-option ${_.isEmpty(id) ? '' : 'selected'}`}
+        onChange={(event) => this._onChangeSkillPackageOption(event, index)}>
+        <option key="null" value=''>---Choose Option---</option>
+        {_.map(this.props.baseSkills, (skill) => {
+          return <option key={skill.id} value={skill.id}>{skill.label}</option>
+        })}
+      </select>
+    )
+  }
+
+  _onChangeSkillPackageOption(event, index) {
+    const { setSkillPackageOptions } = this.props
+    const optionValue = event.target.value
+    const skillPackageOptions = _.clone(this.state.skillPackageOptions)
+    _.set(skillPackageOptions, index, optionValue)
+    this.setState({ skillPackageOptions })
+    setSkillPackageOptions(skillPackageOptions)
+  }
+
   _renderHiddenInputs() {
-    const { skillPackage } = this.state
+    const { skillPackage, skillPackageOptions } = this.state
     return (
       <div>
         <input
           type="hidden"
           name="dg_skill_set[skill_package]"
-          id="dg_skill_set_occupation_skill_package"
+          id="dg_skill_set_bonus_skill_package"
           value={_.get(skillPackage, 'id') || ''} />
+        <input
+          type="hidden"
+          name="dg_skill_set[skill_package_options]"
+          id="dg_skill_set_bonsu_skill_package_options"
+          value={JSON.stringify(skillPackageOptions)} />
       </div>
     )
   }
 }
 
 SkillPackageChooser.propTypes = {
+  baseSkills: PropTypes.object,
   skillPackages: PropTypes.object,
-  setSkillPackage: PropTypes.func
+  setSkillPackage: PropTypes.func,
+  setSkillPackageOptions: PropTypes.func
 }

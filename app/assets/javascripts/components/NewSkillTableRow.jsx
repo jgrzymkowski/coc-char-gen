@@ -2,7 +2,10 @@ class NewSkillTableRow extends React.Component {
 
   render() {
     const { label, attribute, basePercentage, additions } = this.props
-    const value = _.reduce(additions, (sum, add) => sum + add, basePercentage)
+    let value
+    if(basePercentage !== null) {
+      value = Math.min(_.reduce(additions, (sum, add) => sum + add, basePercentage), 80)
+    }
     return (
       <tr>
         {this._renderLabel(label, basePercentage, additions)}
@@ -22,10 +25,6 @@ class NewSkillTableRow extends React.Component {
     if(_.isEmpty(label)) {
       return <td></td>
     }
-
-    //if(_.isEmpty(basePercentage)) {
-      //return label
-    //}
 
     const additionsHtml = _.map(additions, (addition, i) => <span key={i} className="skill-addition">+{addition}</span>)
     const base = basePercentage === null ? '' : `(${basePercentage}%)`

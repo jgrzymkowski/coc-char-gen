@@ -116,7 +116,7 @@ class OccupationChooser extends React.Component {
       <div>
         <input
           type="hidden"
-          name="dg_skill_set[occupationOptions]"
+          name="dg_skill_set[occupation_options]"
           id="dg_skill_set_occupation_options"
           value={occupationOptions || ''} />
         <input

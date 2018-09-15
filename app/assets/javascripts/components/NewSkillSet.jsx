@@ -27,6 +27,11 @@ const _findSkills = function(props, state) {
       additions.push(20)
     }
 
+    const skillPackageOption = _.includes(state.skillPackageOptions || [], baseSkill.id)
+    if(skillPackageOption) {
+      additions.push(20)
+    }
+
     let label = baseSkill.label
     if(baseSkill.id.match(/_\d/)) {
       if(_.isEmpty(additions)) {
@@ -65,8 +70,10 @@ class NewSkillSet extends React.Component {
           setOccupation={(occupation) => this._setOccupation(occupation)}
           setOccupationOptions={(occupationOptions) => this._setOccupationOptions(occupationOptions)} />
         <SkillPackageChooser
+          baseSkills={this.props.baseSkills}
           skillPackages={skillPackages}
-          setSkillPackage={(skillPackage) => this._setSkillPackage(skillPackage)} />
+          setSkillPackage={(skillPackage) => this._setSkillPackage(skillPackage)}
+          setSkillPackageOptions={(skillPackageOptions) => this._setSkillPackageOptions(skillPackageOptions)} />
         <SkillTable skills={skills} />
       </div>
     )
@@ -86,6 +93,10 @@ class NewSkillSet extends React.Component {
 
   _setSkillPackage(skillPackage) {
     this.setState({ skillPackage }, this._updateSkills)
+  }
+
+  _setSkillPackageOptions(skillPackageOptions) {
+    this.setState({ skillPackageOptions }, this._updateSkills)
   }
 }
 
