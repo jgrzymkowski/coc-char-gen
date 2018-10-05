@@ -70,24 +70,51 @@ class NewSkillSet extends React.Component {
         <form
           method="post"
           action={`/dg/characters/${this.props.characterId}/skill_sets`} >
+
+
           <input
             type="hidden"
             name="authenticity_token"
             value={authenticityToken} />
-          <OccupationChooser
-            occupationSkills={occupationSkills}
-            setOccupation={(occupation) => this._setOccupation(occupation)}
-            setOccupationOptions={(occupationOptions) => this._setOccupationOptions(occupationOptions)} />
-          <SkillPackageChooser
-            baseSkills={baseSkills}
-            skillPackages={skillPackages}
-            setSkillPackage={(skillPackage) => this._setSkillPackage(skillPackage)}
-            setSkillPackageOptions={(skillPackageOptions) => this._setSkillPackageOptions(skillPackageOptions)} />
-          <SpecifiedSkillChooser
-            skills={skills}
-            baseSkills={baseSkills}
-            specifiedSkills={specifiedSkills}
-            setSpecifiedSkills={(specifiedSkills) => this._setSpecifiedSkills(specifiedSkills)}/>
+
+          <div className="large reveal" id="occupation-modal" data-reveal>
+            <OccupationChooser
+              occupationSkills={occupationSkills}
+              setOccupation={(occupation) => this._setOccupation(occupation)}
+              setOccupationOptions={(occupationOptions) => this._setOccupationOptions(occupationOptions)} />
+          </div>
+          <p>
+            <button type="button" className="button" data-open="occupation-modal">
+              Select Occupation
+            </button>
+          </p>
+
+          <div className="large reveal" id="skill-package-modal" data-reveal>
+            <SkillPackageChooser
+              baseSkills={baseSkills}
+              skillPackages={skillPackages}
+              setSkillPackage={(skillPackage) => this._setSkillPackage(skillPackage)}
+              setSkillPackageOptions={(skillPackageOptions) => this._setSkillPackageOptions(skillPackageOptions)} />
+          </div>
+          <p>
+            <button type="button" className="button" data-open="skill-package-modal">
+              Select Skill Package
+            </button>
+          </p>
+
+          <div className="large reveal" id="specified-skill-modal" data-reveal>
+            <SpecifiedSkillChooser
+              skills={skills}
+              baseSkills={baseSkills}
+              specifiedSkills={specifiedSkills}
+              setSpecifiedSkills={(specifiedSkills) => this._setSpecifiedSkills(specifiedSkills)}/>
+          </div>
+          <p>
+            <button type="button" className="button" data-open="specified-skill-modal">
+              Select Specific Skills
+            </button>
+          </p>
+
           {this._renderSumbit()}
           <NewSkillTable skills={skills} />
         </form>

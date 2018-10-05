@@ -9,20 +9,25 @@ class OccupationChooser extends React.Component {
 
   render() {
     return (
-      <div className="grid-x grid-padding-x align-center">
+      <div className="occupation-chooser grid-x grid-padding-x align-center">
         <div className="cell small-12">
           {this._renderHiddenInputs()}
-          <fieldset className="fieldset">
-            <legend>Choose Occupation</legend>
-            <div className="grid-x grid-margin-x align-center">
-              <div className="cell small-12 medium-4">
-                {this._renderOccupationSelect()}
-              </div>
-              <div className="cell small-12 medium-4"> </div>
-              <div className="cell small-12 medium-4"> </div>
+          <div className="clearfix">
+            <div className="float-left">
+              <h4>Choose Occupation</h4>
             </div>
-            { this.state.occupation ? this._renderOccupation() : this._renderInstructions() }
-          </fieldset>
+            <div className="float-right">
+              <button type="button" className="button" data-close="">Done</button>
+            </div>
+          </div>
+          <div className="grid-x grid-margin-x align-center">
+            <div className="cell small-12 medium-4">
+              {this._renderOccupationSelect()}
+            </div>
+            <div className="cell small-12 medium-4"> </div>
+            <div className="cell small-12 medium-4"> </div>
+          </div>
+          { this.state.occupation ? this._renderOccupation() : this._renderInstructions() }
         </div>
       </div>
     )

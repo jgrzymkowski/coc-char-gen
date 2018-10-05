@@ -10,14 +10,19 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery-1.10.2.min.js
-//= require jquery-ui.min.js
+//= require jquery
 //= require jquery_ujs
+//= require turbolinks
 //= require react
 //= require react_ujs
 //= require components
 //= require_tree .
 //= require lodash
+//= require foundation
+
+$(document).on('turbolinks:load', function() {
+    $(function(){ $(document).foundation(); });
+});
 
 if( !('CoC' in window ) ) { CoC = {}; }
 
@@ -42,4 +47,3 @@ CoC.submitForm = function() {
     $('form').submit();
   }
 }
-//$(function(){ $(document).foundation(); });

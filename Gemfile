@@ -51,6 +51,7 @@ gem 'decent_exposure'
 # Foundation
 gem 'foundation-rails'
 gem 'autoprefixer-rails'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   #rspec

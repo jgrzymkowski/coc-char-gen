@@ -9,20 +9,25 @@ class SkillPackageChooser extends React.Component {
 
   render() {
     return (
-      <div className="grid-x grid-padding-x align-center">
+      <div className="skill-package-chooser grid-x grid-padding-x align-center">
         {this._renderHiddenInputs()}
         <div className="cell small-12">
-          <fieldset className="fieldset">
-            <legend>Choose Skill Package</legend>
-            <div className="grid-x grid-margin-x align-center">
-              <div className="cell small-12 medium-4">
-                {this._renderSkillPackageSelect()}
-              </div>
-              <div className="cell small-12 medium-4"> </div>
-              <div className="cell small-12 medium-4"> </div>
+          <div className="clearfix">
+            <div className="float-left">
+              <h4>Choose Skill Package</h4>
             </div>
-            { this.state.skillPackage ? this._renderSkillPackage() : this._renderInstructions() }
-          </fieldset>
+            <div className="float-right">
+              <button type="button" className="button" data-close="">Done</button>
+            </div>
+          </div>
+          <div className="grid-x grid-margin-x align-center">
+            <div className="cell small-12 medium-4">
+              {this._renderSkillPackageSelect()}
+            </div>
+            <div className="cell small-12 medium-4"> </div>
+            <div className="cell small-12 medium-4"> </div>
+          </div>
+          { this.state.skillPackage ? this._renderSkillPackage() : this._renderInstructions() }
         </div>
       </div>
     )
@@ -68,11 +73,11 @@ class SkillPackageChooser extends React.Component {
           <strong>Included Skills: </strong>
           {_.map(_.get(skillPackage, 'skills') || [], (skill, i) => {
             return <div key={skill.id} className="occupation-skill selected">{skill.label} + 20%</div>
-          })}
-          {_.map(skillPackageOptions, (id, index) => this._renderSkillPackageOption(id, index))}
+            })}
+            {_.map(skillPackageOptions, (id, index) => this._renderSkillPackageOption(id, index))}
+          </div>
+          <div className="cell small-12 medium-4"> </div>
         </div>
-        <div className="cell small-12 medium-4"> </div>
-      </div>
     )
   }
 
@@ -86,8 +91,8 @@ class SkillPackageChooser extends React.Component {
         <option key="null" value=''>---Choose Option---</option>
         {_.map(this.props.baseSkills, (skill) => {
           return <option key={skill.id} value={skill.id}>{skill.label}</option>
-        })}
-      </select>
+          })}
+        </select>
     )
   }
 
