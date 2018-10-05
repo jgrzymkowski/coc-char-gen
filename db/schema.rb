@@ -241,6 +241,7 @@ ActiveRecord::Schema.define(version: 20180915161732) do
     t.string   "bonus_skill_package"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.jsonb    "occupation_options"
     t.jsonb    "bonus_skill_package_options"
   end
 

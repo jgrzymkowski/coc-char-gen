@@ -89,7 +89,7 @@ class Dg::SkillSet < ActiveRecord::Base
 
   def skills
     attributes.reject do |k, v|
-      %w(id character_id created_at updated_at occupation bonds bonus_skill_package).include?(k)
+      %w(id character_id created_at updated_at occupation bonds bonus_skill_package bonus_skill_package_options).include?(k)
     end
   end
 end

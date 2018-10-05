@@ -10,6 +10,8 @@
 </div>
 
 <%= react_component('NewSkillSet',
+                    characterId: character.id,
+                    authenticityToken: form_authenticity_token,
                     baseSkills: @base_skills,
                     skillPackages: @skill_packages,
                     occupationSkills: @occupation_skills) %>

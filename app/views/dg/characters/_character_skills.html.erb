@@ -17,13 +17,9 @@
   </div>
   <div class="card-section">
     <% if character.skill_set %>
-      <%= form_for(character.skill_set, url: dg_character_skill_sets_path(character)) do |f| %>
-        <%= render '/dg/skill_sets/skill_set_table',
-          f: f,
-          character: character,
-          skill_set: character.skill_set
-        %>
+      <%= react_component('SkillTable',
+                          skillSet: character.skill_set,
+                          baseSkills: @base_skills) %>
     <% end %>
-  <% end %>
   </div>
 </div>

@@ -106,13 +106,13 @@ class SkillPackageChooser extends React.Component {
       <div>
         <input
           type="hidden"
-          name="dg_skill_set[skill_package]"
+          name="dg_skill_set[bonus_skill_package]"
           id="dg_skill_set_bonus_skill_package"
           value={_.get(skillPackage, 'id') || ''} />
         <input
           type="hidden"
-          name="dg_skill_set[skill_package_options]"
-          id="dg_skill_set_bonsu_skill_package_options"
+          name="dg_skill_set[bonus_skill_package_options]"
+          id="dg_skill_set_bonus_skill_package_options"
           value={JSON.stringify(skillPackageOptions)} />
       </div>
     )

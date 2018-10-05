@@ -67,6 +67,8 @@
     <div class="high-skills">
       <h5>High Skills</h5>
       <% (character.skill_set&.skills || {}).each do |attr, value|
+        puts attr.inspect
+        puts value.inspect
         unless attr =~ /_\d_text/
           if attr =~ /_\d/
             if value.to_i > 40

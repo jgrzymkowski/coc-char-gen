@@ -36,6 +36,8 @@ const _findSkills = function(props, state) {
     if(baseSkill.id.match(/_\d/)) {
       if(_.isEmpty(additions)) {
         label = ''
+      } else if(_.has(state.specifiedSkills, baseSkill.id)) {
+        label = _.get(state.specifiedSkills, baseSkill.id, '')
       }
     }
 
@@ -56,25 +58,50 @@ class NewSkillSet extends React.Component {
     this.state = {
       skills: _findSkills(props, {}),
       occupation: null,
-      skillPackage: null
+      skillPackage: null,
     }
   }
 
   render() {
-    const { occupationSkills, skillPackages } = this.props
-    const { skills } = this.state
+    const { baseSkills, occupationSkills, skillPackages, authenticityToken } = this.props
+    const { skills, specifiedSkills } = this.state
     return (
       <div className="new-skills">
-        <OccupationChooser
-          occupationSkills={occupationSkills}
-          setOccupation={(occupation) => this._setOccupation(occupation)}
-          setOccupationOptions={(occupationOptions) => this._setOccupationOptions(occupationOptions)} />
-        <SkillPackageChooser
-          baseSkills={this.props.baseSkills}
-          skillPackages={skillPackages}
-          setSkillPackage={(skillPackage) => this._setSkillPackage(skillPackage)}
-          setSkillPackageOptions={(skillPackageOptions) => this._setSkillPackageOptions(skillPackageOptions)} />
-        <SkillTable skills={skills} />
+        <form
+          method="post"
+          action={`/dg/characters/${this.props.characterId}/skill_sets`} >
+          <input
+            type="hidden"
+            name="authenticity_token"
+            value={authenticityToken} />
+          <OccupationChooser
+            occupationSkills={occupationSkills}
+            setOccupation={(occupation) => this._setOccupation(occupation)}
+            setOccupationOptions={(occupationOptions) => this._setOccupationOptions(occupationOptions)} />
+          <SkillPackageChooser
+            baseSkills={baseSkills}
+            skillPackages={skillPackages}
+            setSkillPackage={(skillPackage) => this._setSkillPackage(skillPackage)}
+            setSkillPackageOptions={(skillPackageOptions) => this._setSkillPackageOptions(skillPackageOptions)} />
+          <SpecifiedSkillChooser
+            skills={skills}
+            baseSkills={baseSkills}
+            specifiedSkills={specifiedSkills}
+            setSpecifiedSkills={(specifiedSkills) => this._setSpecifiedSkills(specifiedSkills)}/>
+          {this._renderSumbit()}
+          <NewSkillTable skills={skills} />
+        </form>
+      </div>
+    )
+  }
+
+  _renderSumbit() {
+    return (
+      <div className="clearfix">
+        <div className="float-right">
+          <a className="button secondary" href={`/dg/characters/${this.props.characterId}`}>Cancel</a>
+          <button type="submit" className="button">Save</button>
+        </div>
       </div>
     )
   }
@@ -98,8 +125,14 @@ class NewSkillSet extends React.Component {
   _setSkillPackageOptions(skillPackageOptions) {
     this.setState({ skillPackageOptions }, this._updateSkills)
   }
+
+  _setSpecifiedSkills(specifiedSkills) {
+    this.setState({ specifiedSkills }, this._updateSkills)
+  }
 }
 
 NewSkillSet.propTypes = {
-  baseSkills: PropTypes.object
+  characterId: PropTypes.number,
+  baseSkills: PropTypes.object,
+  authenticityToken: PropTypes.string
 }

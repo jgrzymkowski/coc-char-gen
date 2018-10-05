@@ -18,8 +18,6 @@ class Dg::SkillSetsController < ApplicationController
 
   def update
     character.dg_skill_set.update(skill_set_params)
-    puts '*'*100
-    puts skill_set_params.inspect
     redirect_to dg_character_path(character)
   end
 
@@ -32,6 +30,7 @@ class Dg::SkillSetsController < ApplicationController
         mem.merge(k_v.first => k_v.last)
       end
     end
+    puts '*'*100
     puts attributes.inspect
     character.create_dg_skill_set(attributes)
     redirect_to dg_character_path(character)
@@ -113,9 +112,11 @@ class Dg::SkillSetsController < ApplicationController
              :unarmed_combat,
              :unnatural,
              :occupation,
+             :occupation_options,
              :bonus_skill_package,
              :bonds)
     skill_set_params[:bonus_skill_package_options] =
       JSON.parse(params[:dg_skill_set][:bonus_skill_package_options])
+    skill_set_params
   end
 end

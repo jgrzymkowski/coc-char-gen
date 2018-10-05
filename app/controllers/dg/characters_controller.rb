@@ -7,6 +7,7 @@ class Dg::CharactersController < ApplicationController
 
   def show
     authorize(character)
+    @base_skills = JSON.parse(File.read('app/resources/dg_base_skills.json'))
 
     respond_to do |format|
       format.html {  }
