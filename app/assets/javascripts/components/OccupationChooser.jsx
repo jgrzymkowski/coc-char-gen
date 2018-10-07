@@ -51,7 +51,7 @@ class OccupationChooser extends React.Component {
               <tr><td>{occupation.description}</td></tr>
               <tr><td><strong>Reccomended Stats: </strong></td></tr>
               <tr><td>{occupation.recommended_stats}</td></tr>
-              <tr><td><strong>Number of Bonds: </strong>{ occupation.bonds }</td></tr>
+              <tr><td><strong>Number of Bonds: </strong>{occupation.bonds}</td></tr>
             </tbody>
           </table>
         </div>

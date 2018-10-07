@@ -156,6 +156,7 @@ ActiveRecord::Schema.define(version: 20180915161732) do
     t.integer  "campaign_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "bonds",                              default: [], array: true
   end
 
   add_index "dg_characters", ["campaign_id"], name: "index_dg_characters_on_campaign_id", using: :btree

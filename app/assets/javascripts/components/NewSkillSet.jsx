@@ -176,14 +176,19 @@ class NewSkillSet extends React.Component {
           value={authenticityToken} />
         <input
           type="hidden"
-          name="dg_skill_set[occupation_options]"
-          id="dg_skill_set_occupation_options"
-          value={occupationOptions || ''} />
-        <input
-          type="hidden"
           name="dg_skill_set[occupation]"
           id="dg_skill_set_occupation"
           value={_.get(occupation, 'id') || ''} />
+        <input
+          type="hidden"
+          name="dg_skill_set[bonds]"
+          id="dg_skill_set_bonds"
+          value={_.get(occupation, 'bonds') || 0} />
+        <input
+          type="hidden"
+          name="dg_skill_set[occupation_options]"
+          id="dg_skill_set_occupation_options"
+          value={occupationOptions || ''} />
         <input
           type="hidden"
           name="dg_skill_set[bonus_skill_package]"

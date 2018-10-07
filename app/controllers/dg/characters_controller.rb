@@ -1,5 +1,8 @@
 class Dg::CharactersController < ApplicationController
-  expose(:character) { params.permit(:id)[:id] && Dg::Character.find(params.permit(:id)[:id]) }
+  expose(:character) do
+    id = params.permit(:id)[:id] || params.permit(:character_id)[:character_id]
+    id && Dg::Character.find(id)
+  end
   expose(:campaign) { Dg::Campaign.find(params[:campaign_id]) }
 
   def new
@@ -49,8 +52,20 @@ class Dg::CharactersController < ApplicationController
     end
   end
 
+  def edit_bonds
+    authorize(character, :edit?)
+  end
+
+  def update_bonds
+    authorize(character, :update?)
+    bonds = params.require(:dg_character).permit(bonds: [])[:bonds]
+    character.update!(bonds: bonds)
+    redirect_to dg_character_path(character)
+  end
+
+  private
+
   def character_params
-    puts params.inspect
     params.require(:dg_character).permit(:first_name,
                                       :last_name,
                                       :alias,

@@ -30,8 +30,6 @@ class Dg::SkillSetsController < ApplicationController
         mem.merge(k_v.first => k_v.last)
       end
     end
-    puts '*'*100
-    puts attributes.inspect
     character.create_dg_skill_set(attributes)
     redirect_to dg_character_path(character)
   end

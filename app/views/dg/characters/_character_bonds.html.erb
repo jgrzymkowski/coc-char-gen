@@ -4,9 +4,23 @@
       <div class="float-left">
         <h4>Bonds</h4>
       </div>
+      <div class="float-right">
+        <%= link_to( 'Edit Bonds', dg_character_bonds_path(character), class: 'button small') %>
+      </div>
     </div>
   </div>
   <div class="card-section">
-    Number of bonds: <%= character&.skill_set&.bonds || ''%>
+    <div class="grid-x">
+      <div class="cell small-12 attribute">
+        <div class='attribute-label'>Bonds</div>
+        <ul>
+        <% character.bonds.map do |bond| %>
+          <li>
+            <div class='attribute-value'><%= bond %></div>
+          </li>
+        <% end %>
+        <ul>
+      </div>
+    </div>
   </div>
 </div>

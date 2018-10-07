@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     resources :characters, only: [:show, :edit, :update] do
       resources :statistic_sets, only: [:new, :create]
       resources :skill_sets, only: [:new, :edit, :update, :create]
+      get '/bonds', to: 'characters#edit_bonds', param: :id
+      put '/bonds', to: 'characters#update_bonds', param: :id
     end
   end
 
