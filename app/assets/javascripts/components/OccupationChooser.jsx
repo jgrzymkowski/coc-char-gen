@@ -11,7 +11,6 @@ class OccupationChooser extends React.Component {
     return (
       <div className="occupation-chooser grid-x grid-padding-x align-center">
         <div className="cell small-12">
-          {this._renderHiddenInputs()}
           <div className="clearfix">
             <div className="float-left">
               <h4>Choose Occupation</h4>
@@ -113,24 +112,6 @@ class OccupationChooser extends React.Component {
     const occupation = Dg.OccupationSkills[event.target.value]
     this.props.setOccupation(occupation)
     this.setState({ occupation, occupationOptions: [] })
-  }
-
-  _renderHiddenInputs() {
-    const { occupation, occupationOptions } = this.state
-    return (
-      <div>
-        <input
-          type="hidden"
-          name="dg_skill_set[occupation_options]"
-          id="dg_skill_set_occupation_options"
-          value={occupationOptions || ''} />
-        <input
-          type="hidden"
-          name="dg_skill_set[occupation]"
-          id="dg_skill_set_occupation"
-          value={_.get(occupation, 'id') || ''} />
-      </div>
-    )
   }
 }
 

@@ -38,35 +38,36 @@
 <%= f.submit 'Save', class: 'button' %>
 
 <script type="text/javascript">
-  $(window).load(function() {
-    $('#firstNameRandMale').click(function(event) {
-      event.preventDefault()
-      CoC.Character.randomFirstName('delta-green', 'dg_character_first_name', 'm')
-    });
 
-    $('#firstNameRandFemale').click(function(event) {
-      event.preventDefault()
-      CoC.Character.randomFirstName('delta-green', 'dg_character_first_name', 'f')
-    });
+$('#firstNameRandMale').click(function(event) {
+  event.preventDefault()
+  CoC.Character.randomFirstName('delta-green', 'dg_character_first_name', 'm')
+});
 
-    $('#lastNameRand').click(function(event) {
-      event.preventDefault()
-      CoC.Character.randomLastName(
-        'delta_green',
-        'dg_character_last_name');
-    });
+$('#firstNameRandFemale').click(function(event) {
+  event.preventDefault()
+  CoC.Character.randomFirstName('delta-green', 'dg_character_first_name', 'f')
+});
 
-    const _updateDate = () => {
-      var ageDifMs = Date.now() - new Date($('#dg_character_date_of_birth').val()).getTime()
-      var ageDate = new Date(ageDifMs)
-      $('#age').html(Math.abs(ageDate.getUTCFullYear() - 1970))
-    }
+$('#lastNameRand').click(function(event) {
+  event.preventDefault()
+  CoC.Character.randomLastName(
+    'delta_green',
+    'dg_character_last_name');
+});
 
-    $('#dateOfBirthRand').click(function(event) {
-      event.preventDefault()
-      CoC.Character.dateOfBirth('dg_character_date_of_birth', _updateDate);
-    });
+const _updateDate = () => {
+  var ageDifMs = Date.now() - new Date($('#dg_character_date_of_birth').val()).getTime()
+  var ageDate = new Date(ageDifMs)
+  $('#age').html(Math.abs(ageDate.getUTCFullYear() - 1970))
+}
 
-    $('#dg_character_date_of_birth').change(_updateDate)
-  })
+$('#dateOfBirthRand').click(function(event) {
+  event.preventDefault()
+  CoC.Character.dateOfBirth('dg_character_date_of_birth', _updateDate);
+});
+
+$('#dg_character_date_of_birth').change(_updateDate)
+_updateDate()
+
 </script>

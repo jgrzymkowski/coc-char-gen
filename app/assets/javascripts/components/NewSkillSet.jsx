@@ -63,8 +63,7 @@ class NewSkillSet extends React.Component {
   }
 
   render() {
-    const { baseSkills, occupationSkills, skillPackages, authenticityToken } = this.props
-    const { skills, specifiedSkills } = this.state
+    const { skills } = this.state
     return (
       <div className="new-skills">
         <form
@@ -72,52 +71,85 @@ class NewSkillSet extends React.Component {
           action={`/dg/characters/${this.props.characterId}/skill_sets`} >
 
 
-          <input
-            type="hidden"
-            name="authenticity_token"
-            value={authenticityToken} />
+          <div className="occupation-chooser grid-x grid-padding-x align-center">
+            <div className="cell small-12 medium-3 skill-fields">
+              {this._renderHiddenInputs()}
 
-          <div className="large reveal" id="occupation-modal" data-reveal>
-            <OccupationChooser
-              occupationSkills={occupationSkills}
-              setOccupation={(occupation) => this._setOccupation(occupation)}
-              setOccupationOptions={(occupationOptions) => this._setOccupationOptions(occupationOptions)} />
+              {this._renderOccupationChooser()}
+              {this._renderSkillPackageChooser()}
+              {this._renderSpecifiedSkills()}
+              {this._renderSumbit()}
+            </div>
+            <div className="cell small-12 medium-9">
+              <NewSkillTable skills={skills} />
+            </div>
           </div>
-          <p>
-            <button type="button" className="button" data-open="occupation-modal">
-              Select Occupation
-            </button>
-          </p>
-
-          <div className="large reveal" id="skill-package-modal" data-reveal>
-            <SkillPackageChooser
-              baseSkills={baseSkills}
-              skillPackages={skillPackages}
-              setSkillPackage={(skillPackage) => this._setSkillPackage(skillPackage)}
-              setSkillPackageOptions={(skillPackageOptions) => this._setSkillPackageOptions(skillPackageOptions)} />
-          </div>
-          <p>
-            <button type="button" className="button" data-open="skill-package-modal">
-              Select Skill Package
-            </button>
-          </p>
-
-          <div className="large reveal" id="specified-skill-modal" data-reveal>
-            <SpecifiedSkillChooser
-              skills={skills}
-              baseSkills={baseSkills}
-              specifiedSkills={specifiedSkills}
-              setSpecifiedSkills={(specifiedSkills) => this._setSpecifiedSkills(specifiedSkills)}/>
-          </div>
-          <p>
-            <button type="button" className="button" data-open="specified-skill-modal">
-              Select Specific Skills
-            </button>
-          </p>
-
-          {this._renderSumbit()}
-          <NewSkillTable skills={skills} />
         </form>
+      </div>
+    )
+  }
+
+  _renderOccupationChooser() {
+    const { occupationSkills } = this.props
+    const { occupation } = this.state
+    const chosen = !!occupation
+    return (
+      <div className="skill-option">
+        <div className="large reveal" id="occupation-modal" data-reveal>
+          <OccupationChooser
+            occupationSkills={occupationSkills}
+            setOccupation={(occupation) => this._setOccupation(occupation)}
+            setOccupationOptions={(occupationOptions) => this._setOccupationOptions(occupationOptions)} />
+        </div>
+        <strong>Choose Occupation</strong>
+        <div className={`selectable set-skill-option ${chosen ? 'selected' : ''}`} data-open="occupation-modal">
+          {chosen ? occupation.name : 'Select Occupation'}
+        </div>
+      </div>
+    )
+  }
+
+  _renderSkillPackageChooser() {
+    const { baseSkills, skillPackages } = this.props
+    const { skillPackage } = this.state
+    const chosen = !!skillPackage
+    return (
+      <div className="skill-option">
+        <div className="reveal" id="skill-package-modal" data-reveal>
+          <SkillPackageChooser
+            baseSkills={baseSkills}
+            skillPackages={skillPackages}
+            setSkillPackage={(skillPackage) => this._setSkillPackage(skillPackage)}
+            setSkillPackageOptions={(skillPackageOptions) => this._setSkillPackageOptions(skillPackageOptions)} />
+        </div>
+        <strong>Choose Skill Package</strong>
+        <div className={`selectable set-skill-option ${chosen ? 'selected' : ''}`} data-open="skill-package-modal">
+          {chosen ? skillPackage.label : 'Select Skill Package'}
+        </div>
+      </div>
+    )
+  }
+
+  _renderSpecifiedSkills() {
+    const { baseSkills } = this.props
+    const { skills, occupation, skillPackage, specifiedSkills } = this.state
+    const chosen = occupation &&
+      skillPackage &&
+      !_.isEmpty(specifiedSkills) &&
+      _.every(_.values(specifiedSkills), (val) => !_.isEmpty(val))
+    return (
+      <div className="skill-option">
+        <div className="reveal" id="specified-skill-modal" data-reveal>
+          <SpecifiedSkillChooser
+            skills={skills}
+            baseSkills={baseSkills}
+            specifiedSkills={specifiedSkills}
+            setSpecifiedSkills={(specifiedSkills) => this._setSpecifiedSkills(specifiedSkills)}/>
+        </div>
+        <strong>Choose Specific Skills</strong>
+        <div className={`selectable set-skill-option ${chosen ? 'selected' : ''}`} data-open="specified-skill-modal">
+          {chosen ? 'Selected' : 'Select Specific Skills'}
+        </div>
       </div>
     )
   }
@@ -129,6 +161,49 @@ class NewSkillSet extends React.Component {
           <a className="button secondary" href={`/dg/characters/${this.props.characterId}`}>Cancel</a>
           <button type="submit" className="button">Save</button>
         </div>
+      </div>
+    )
+  }
+
+  _renderHiddenInputs() {
+    const { authenticityToken } = this.props
+    const { occupation, occupationOptions, skillPackage, skillPackageOptions, specifiedSkills } = this.state
+    return (
+      <div>
+        <input
+          type="hidden"
+          name="authenticity_token"
+          value={authenticityToken} />
+        <input
+          type="hidden"
+          name="dg_skill_set[occupation_options]"
+          id="dg_skill_set_occupation_options"
+          value={occupationOptions || ''} />
+        <input
+          type="hidden"
+          name="dg_skill_set[occupation]"
+          id="dg_skill_set_occupation"
+          value={_.get(occupation, 'id') || ''} />
+        <input
+          type="hidden"
+          name="dg_skill_set[bonus_skill_package]"
+          id="dg_skill_set_bonus_skill_package"
+          value={_.get(skillPackage, 'id') || ''} />
+        <input
+          type="hidden"
+          name="dg_skill_set[bonus_skill_package_options]"
+          id="dg_skill_set_bonus_skill_package_options"
+          value={JSON.stringify(skillPackageOptions) || ''} />
+      {_.map(specifiedSkills, (value, id) => {
+        return (
+          <input
+            key={id}
+            type="hidden"
+            name={`dg_skill_set[${id}_text]`}
+            id={`dg_skill_set_${id}_text`}
+            value={value} />
+          )
+      })}
       </div>
     )
   }
@@ -154,7 +229,9 @@ class NewSkillSet extends React.Component {
   }
 
   _setSpecifiedSkills(specifiedSkills) {
-    this.setState({ specifiedSkills }, this._updateSkills)
+    if(!_.isEqual(specifiedSkills, this.state.specifiedSkills)) {
+      this.setState({ specifiedSkills }, this._updateSkills)
+    }
   }
 }
 

@@ -10,7 +10,6 @@ class SkillPackageChooser extends React.Component {
   render() {
     return (
       <div className="skill-package-chooser grid-x grid-padding-x align-center">
-        {this._renderHiddenInputs()}
         <div className="cell small-12">
           <div className="clearfix">
             <div className="float-left">
@@ -20,14 +19,17 @@ class SkillPackageChooser extends React.Component {
               <button type="button" className="button" data-close="">Done</button>
             </div>
           </div>
-          <div className="grid-x grid-margin-x align-center">
-            <div className="cell small-12 medium-4">
-              {this._renderSkillPackageSelect()}
-            </div>
-            <div className="cell small-12 medium-4"> </div>
-            <div className="cell small-12 medium-4"> </div>
-          </div>
-          { this.state.skillPackage ? this._renderSkillPackage() : this._renderInstructions() }
+        </div>
+        <div className="cell small-12">
+        <div className="callout secondary">
+          What did your Agent do before their current profession? What skills have they
+          picked up through hobbies or other experiences? Choose a skill package. Each skill
+          will add 20% to your current score (to a maximum of 80%).
+        </div>
+        </div>
+        <div className="cell small-8">
+          {this._renderSkillPackageSelect()}
+          { this.state.skillPackage ? this._renderSkillPackage() : null }
         </div>
       </div>
     )
@@ -56,27 +58,15 @@ class SkillPackageChooser extends React.Component {
     this.setState({ skillPackage, skillPackageOptions })
   }
 
-  _renderInstructions() {
-    return (
-      <div className="callout secondary">
-        Then, choose your bonus skill package. These are additional skills that are not necessarily associated with your occupation. These skills might have come from a prior career or personal hobby.
-      </div>
-    )
-  }
-
   _renderSkillPackage() {
     const { skillPackage, skillPackageOptions } = this.state
     return (
-      <div className="grid-x grid-margin-x align-center">
-        <div className="cell small-12 medium-4"> </div>
-        <div className="cell small-12 medium-4">
-          <strong>Included Skills: </strong>
-          {_.map(_.get(skillPackage, 'skills') || [], (skill, i) => {
-            return <div key={skill.id} className="occupation-skill selected">{skill.label} + 20%</div>
-            })}
-            {_.map(skillPackageOptions, (id, index) => this._renderSkillPackageOption(id, index))}
-          </div>
-          <div className="cell small-12 medium-4"> </div>
+      <div>
+        <strong>Included Skills: </strong>
+        {_.map(_.get(skillPackage, 'skills') || [], (skill, i) => {
+          return <div key={skill.id} className="occupation-skill selected">{skill.label} + 20%</div>
+          })}
+          {_.map(skillPackageOptions, (id, index) => this._renderSkillPackageOption(id, index))}
         </div>
     )
   }
@@ -103,24 +93,6 @@ class SkillPackageChooser extends React.Component {
     _.set(skillPackageOptions, index, optionValue)
     this.setState({ skillPackageOptions })
     setSkillPackageOptions(skillPackageOptions)
-  }
-
-  _renderHiddenInputs() {
-    const { skillPackage, skillPackageOptions } = this.state
-    return (
-      <div>
-        <input
-          type="hidden"
-          name="dg_skill_set[bonus_skill_package]"
-          id="dg_skill_set_bonus_skill_package"
-          value={_.get(skillPackage, 'id') || ''} />
-        <input
-          type="hidden"
-          name="dg_skill_set[bonus_skill_package_options]"
-          id="dg_skill_set_bonus_skill_package_options"
-          value={JSON.stringify(skillPackageOptions)} />
-      </div>
-    )
   }
 }
 
