@@ -1,21 +1,5 @@
-<div class="top-bar">
-  <div class="top-bar-left">
-    <ul class="breadcrumbs">
-      <li>Home</li>
-    </ul>
-  </div>
-  <div class="top-bar-right">
-    <ul class="menu">
-      <li>
-        <div class="button-group">
-          <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'button') %>
-        </div>
-      </li>
-    </ul>
-  </div>
-</div>
-
-<div class="row align-center">
+<%= render '/shared/header' %>
+<div class="grid-x grid-padding-x align-center">
   <%= render '/shared/campaign_table', title: 'Call of Cthulhu', new_campaign_path: new_coc_campaign_path, campaigns: Coc::Campaign.all %>
   <%= render '/shared/campaign_table', title: 'Delta Green', new_campaign_path: new_dg_campaign_path, campaigns: Dg::Campaign.all %>
 </div>

@@ -19,13 +19,18 @@ class SkillTable extends React.Component {
         <table>
           <tbody>
             {_.map(skillIds, (skillId) => {
+              const label = (skillId.match(/_\d/) ? _.get(skillSet, `${skillId}_text`) : baseSkills[skillId].label)
+              let percentage = skillSet[skillId]
+              if(label && !percentage) {
+                percentage = 0
+              }
               return (
                 <tr key={skillId}>
                   <td>
-                    {baseSkills[skillId].label}
+                    {label}&nbsp;
                   </td>
                   <td>
-                    {skillSet[skillId]}%
+                    {!_.isNil(percentage) ? `${percentage}%` : ''}
                   </td>
                 </tr>
                 )

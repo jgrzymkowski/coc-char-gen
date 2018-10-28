@@ -1,24 +1,16 @@
-<div class="top-bar">
-  <div class="top-bar-left">
-    <ul class="breadcrumbs">
-      <li><%= link_to('Home', user_path(current_user)) %></li>
-      <li>New Campaign</li>
-    </ul>
-  </div>
-  <div class="top-bar-right">
-    <ul class="menu">
-      <li>
-        <div class="button-group">
-          <%= link_to( 'Save', '#', onClick: 'return CoC.submitForm();', class: 'button') %>
-        </div>
-      </li>
-    </ul>
-  </div>
-</div>
-<div class="row align-center">
-  <div class="column small-12 medium-6">
+<%= render '/shared/header' %>
+<%= render '/shared/breadcrumbs', crumbs: ["New Campaign'] %>
+<div class="grid-x align-center">
+  <div class="cell small-12 medium-6">
     <%= form_for :campaign, method: :post, url: dg_campaigns_path do |f| %>
-      <%= render 'campaign_inputs', f: f, campaign: campaign %>
+      <%= render '/errors' %>
+
+      <fieldset class="fieldset">
+        <legend><%= campaign.nil? ? 'New' : 'Edit' %> Campaign</legend>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <%= f.submit 'Save', class: 'button' %>
+      </fieldset>
     <% end %>
   </div>
 </div>

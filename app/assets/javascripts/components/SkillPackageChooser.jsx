@@ -21,7 +21,7 @@ class SkillPackageChooser extends React.Component {
           </div>
         </div>
         <div className="cell small-12">
-        <div className="callout secondary">
+        <div className="callout primary">
           What did your Agent do before their current profession? What skills have they
           picked up through hobbies or other experiences? Choose a skill package. Each skill
           will add 20% to your current score (to a maximum of 80%).

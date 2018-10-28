@@ -1,12 +1,7 @@
-<div class="top-bar">
-  <div class="top-bar-left">
-    <ul class="breadcrumbs">
-      <li><%= link_to('Home', user_path(current_user)) %></li>
-      <li><%= link_to(character.campaign.name, character.campaign) %></li>
-      <li><%= character.display_name %></li>
-    </ul>
-  </div>
-</div>
+<%= render '/shared/header' %>
+<%= render '/shared/breadcrumbs', crumbs: [
+  link_to(character.campaign.name, character.campaign),
+  character.display_name] %>
 
 <div class="grid-x align-center">
   <div class="cell small-12 medium-10">

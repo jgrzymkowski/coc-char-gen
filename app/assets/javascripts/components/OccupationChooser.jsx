@@ -34,7 +34,7 @@ class OccupationChooser extends React.Component {
 
   _renderInstructions() {
     return (
-      <div className="callout secondary">
+      <div className="callout primary">
         First, choose your occupation. This should align with your "profession" (chosen previously). Each occupation has a set of skills associated with it.  Some professions also provide optional skills.
       </div>
     )

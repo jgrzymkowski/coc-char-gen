@@ -1,134 +1,131 @@
-<div class="top-bar">
-  <div class="top-bar-left">
-    <ul class="breadcrumbs">
-      <li><%= link_to('Home', user_path(current_user)) %></li>
-      <li><%= link_to(character.campaign.name, character.campaign) %></li>
-      <li><%= link_to(character.display_name, character) %></li>
-      <li>Set Statistics</li>
-    </ul>
-  </div>
-</div>
+<%= render '/shared/header' %>
+<%= render '/shared/breadcrumbs', crumbs: [
+      link_to(character.campaign.name, character.campaign),
+      link_to(character.display_name, character),
+      'Set Statistics'] %>
 
-<div class="row align-center">
-  <div class="column small-12 medium-8">
-    <fieldset class="fieldset">
-      <legend>Choose Statistic Values</legend>
-      <div class="callout secondary">
-        Choose your numbers.  You can assign these values to statistics after you select a set.
-      </div>
-      <table id='field-set-options'> </table>
-      <div>
-        Select One:
-      </div>
-      <div class='button-group tiny' id="option-select"> </div>
-    </fieldset>
-
-    <fieldset class="fieldset">
-      <legend>Assign Statistics</legend>
-      <%= form_for :statistic_set,
-        method: :post,
-        url: dg_character_statistic_sets_path(character) do |f| %>
-        <div class="grid-x">
-          <div class="cell small-8">
-            <div class='assign-attribute-name'>Strength (STR)</div>
-            <div class='assign-attribute-name'>Constitution (CON)</div>
-            <div class='assign-attribute-name'>Dexterity (DEX)</div>
-            <div class='assign-attribute-name'>Intelligence (INT)</div>
-            <div class='assign-attribute-name'>Power (POW)</div>
-            <div class='assign-attribute-name'>Charisma (CHA)</div>
-          </div>
-          <div class="cell small-4 sortable-statistics">
-            <div class="statistic-value sortable-statistic clearset">&nbsp;
-              <div class="float-left">
-                <%= f.hidden_field :strength %>
-              </div>
-              <div class="float-right">
-                <div class="hide-for-small-only"><%= fa_icon 'sort' %></div>
-                <div class="show-for-small-only"><a href="#" class="reorder-on-click"><%= fa_icon 'arrow-up' %></a></div>
-              </div>
-            </div>
-            <div class="statistic-value sortable-statistic clearset">&nbsp;
-              <div class="float-left">
-                <%= f.hidden_field :constitution %>
-              </div>
-              <div class="float-right">
-                <div class="hide-for-small-only"><%= fa_icon 'sort' %></div>
-                <div class="show-for-small-only"><a href="#" class="reorder-on-click"><%= fa_icon 'arrow-up' %></a></div>
-              </div>
-            </div>
-            <div class="statistic-value sortable-statistic clearset">&nbsp;
-              <div class="float-left">
-                <%= f.hidden_field :dexterity %>
-              </div>
-              <div class="float-right">
-                <div class="hide-for-small-only"><%= fa_icon 'sort' %></div>
-                <div class="show-for-small-only"><a href="#" class="reorder-on-click"><%= fa_icon 'arrow-up' %></a></div>
-              </div>
-            </div>
-            <div class="statistic-value sortable-statistic clearset">&nbsp;
-              <div class="float-left">
-                <%= f.hidden_field :intelligence %>
-              </div>
-              <div class="float-right">
-                <div class="hide-for-small-only"><%= fa_icon 'sort' %></div>
-                <div class="show-for-small-only"><a href="#" class="reorder-on-click"><%= fa_icon 'arrow-up' %></a></div>
-              </div>
-            </div>
-            <div class="statistic-value sortable-statistic clearset">&nbsp;
-              <div class="float-left">
-                <%= f.hidden_field :power %>
-              </div>
-              <div class="float-right">
-                <div class="hide-for-small-only"><%= fa_icon 'sort' %></div>
-                <div class="show-for-small-only"><a href="#" class="reorder-on-click"><%= fa_icon 'arrow-up' %></a></div>
-              </div>
-            </div>
-            <div class="statistic-value sortable-statistic clearset">&nbsp;
-              <div class="float-left">
-                <%= f.hidden_field :charisma %>
-              </div>
-              <div class="float-right">
-                <div class="hide-for-small-only"><%= fa_icon 'sort' %></div>
-                <div class="show-for-small-only"><a href="#" class="reorder-on-click"><%= fa_icon 'arrow-up' %></a></div>
-              </div>
-            </div>
-          </div>
-          <div class="cell small-12">
-            Derived Statistics:
-          </div>
-          <div class="cell small-8">
-            <div class='assign-attribute-name grid-x'>
-              <span class="small-12 medium-6">Hit Points (HP)</span>
-              <span class='assign-attribute-subtext small-12 medium-6'>(STR + CON) ÷ 2</span>
-            </div>
-            <div class='assign-attribute-name  grid-x'>
-              <span class="small-12 medium-6">Willpower (WP)</span>
-              <span class='assign-attribute-subtext small-12 medium-6'>(POW)</span>
-            </div>
-            <div class='assign-attribute-name grid-x'>
-              <span class="small-12 medium-6">Sanity (SAN)</span>
-              <span class='assign-attribute-subtext small-12 medium-6'>(POW x 5)</span>
-            </div>
-            <div class='assign-attribute-name grid-x'>
-              <span class="small-12 medium-6">Breaking Point (BP)</span>
-              <span class='assign-attribute-subtext small-12 medium-6'>(SAN - POW)</span>
-            </div>
-          </div>
-          <div class="cell small-4">
-            <div class="statistic-value derived" id="hit-point">&nbsp;</div>
-            <div class="statistic-value derived" id="willpower">&nbsp;</div>
-            <div class="statistic-value derived" id="sanity">&nbsp;</div>
-            <div class="statistic-value derived" id="breaking-point">&nbsp;</div>
-          </div>
+<div class="page statistic-sets new">
+  <div class="grid-x align-center">
+    <div class="cell small-12 medium-8">
+      <fieldset class="fieldset">
+        <legend>Choose Statistic Values</legend>
+        <div class="callout primary">
+          Choose your numbers.  You can assign these values to statistics after you select a set.
         </div>
-        <%= f.submit 'Save', id: 'submit-statistics', disabled: true, class: 'button float-right' %>
-      <% end %>
-    </fieldset>
+        <div>
+          Select One:
+        </div>
+        <div id='field-set-options'> </div>
+        <div class='button-group tiny' id="option-select"> </div>
+      </fieldset>
+
+      <fieldset class="fieldset">
+        <legend>Assign Statistics</legend>
+        <%= form_for :statistic_set,
+          method: :post,
+          url: dg_character_statistic_sets_path(character) do |f| %>
+          <div class="grid-x">
+            <div class="cell small-8">
+              <div class='assign-attribute-name'>Strength (STR)</div>
+              <div class='assign-attribute-name'>Constitution (CON)</div>
+              <div class='assign-attribute-name'>Dexterity (DEX)</div>
+              <div class='assign-attribute-name'>Intelligence (INT)</div>
+              <div class='assign-attribute-name'>Power (POW)</div>
+              <div class='assign-attribute-name'>Charisma (CHA)</div>
+            </div>
+            <div class="cell small-4 sortable-statistics">
+              <div class="statistic-value sortable-statistic clearset">&nbsp;
+                <div class="float-left">
+                  <%= f.hidden_field :strength %>
+                </div>
+                <div class="float-right">
+                  <div class="hide-for-small-only"><%= fa_icon 'sort' %></div>
+                  <div class="show-for-small-only"><a href="#" class="reorder-on-click"><%= fa_icon 'arrow-up' %></a></div>
+                </div>
+              </div>
+              <div class="statistic-value sortable-statistic clearset">&nbsp;
+                <div class="float-left">
+                  <%= f.hidden_field :constitution %>
+                </div>
+                <div class="float-right">
+                  <div class="hide-for-small-only"><%= fa_icon 'sort' %></div>
+                  <div class="show-for-small-only"><a href="#" class="reorder-on-click"><%= fa_icon 'arrow-up' %></a></div>
+                </div>
+              </div>
+              <div class="statistic-value sortable-statistic clearset">&nbsp;
+                <div class="float-left">
+                  <%= f.hidden_field :dexterity %>
+                </div>
+                <div class="float-right">
+                  <div class="hide-for-small-only"><%= fa_icon 'sort' %></div>
+                  <div class="show-for-small-only"><a href="#" class="reorder-on-click"><%= fa_icon 'arrow-up' %></a></div>
+                </div>
+              </div>
+              <div class="statistic-value sortable-statistic clearset">&nbsp;
+                <div class="float-left">
+                  <%= f.hidden_field :intelligence %>
+                </div>
+                <div class="float-right">
+                  <div class="hide-for-small-only"><%= fa_icon 'sort' %></div>
+                  <div class="show-for-small-only"><a href="#" class="reorder-on-click"><%= fa_icon 'arrow-up' %></a></div>
+                </div>
+              </div>
+              <div class="statistic-value sortable-statistic clearset">&nbsp;
+                <div class="float-left">
+                  <%= f.hidden_field :power %>
+                </div>
+                <div class="float-right">
+                  <div class="hide-for-small-only"><%= fa_icon 'sort' %></div>
+                  <div class="show-for-small-only"><a href="#" class="reorder-on-click"><%= fa_icon 'arrow-up' %></a></div>
+                </div>
+              </div>
+              <div class="statistic-value sortable-statistic clearset">&nbsp;
+                <div class="float-left">
+                  <%= f.hidden_field :charisma %>
+                </div>
+                <div class="float-right">
+                  <div class="hide-for-small-only"><%= fa_icon 'sort' %></div>
+                  <div class="show-for-small-only"><a href="#" class="reorder-on-click"><%= fa_icon 'arrow-up' %></a></div>
+                </div>
+              </div>
+            </div>
+            <div class="cell small-12">
+              Derived Statistics:
+            </div>
+            <div class="cell small-8">
+              <div class='assign-attribute-name grid-x'>
+                <span class="small-12 medium-6">Hit Points (HP)</span>
+                <span class='assign-attribute-subtext small-12 medium-6'>(STR + CON) ÷ 2</span>
+              </div>
+              <div class='assign-attribute-name  grid-x'>
+                <span class="small-12 medium-6">Willpower (WP)</span>
+                <span class='assign-attribute-subtext small-12 medium-6'>(POW)</span>
+              </div>
+              <div class='assign-attribute-name grid-x'>
+                <span class="small-12 medium-6">Sanity (SAN)</span>
+                <span class='assign-attribute-subtext small-12 medium-6'>(POW x 5)</span>
+              </div>
+              <div class='assign-attribute-name grid-x'>
+                <span class="small-12 medium-6">Breaking Point (BP)</span>
+                <span class='assign-attribute-subtext small-12 medium-6'>(SAN - POW)</span>
+              </div>
+            </div>
+            <div class="cell small-4">
+              <div class="statistic-value derived" id="hit-point">&nbsp;</div>
+              <div class="statistic-value derived" id="willpower">&nbsp;</div>
+              <div class="statistic-value derived" id="sanity">&nbsp;</div>
+              <div class="statistic-value derived" id="breaking-point">&nbsp;</div>
+            </div>
+          </div>
+          <%= f.submit 'Save', id: 'submit-statistics', disabled: true, class: 'button float-right' %>
+        <% end %>
+      </fieldset>
+    </div>
   </div>
 </div>
 
 <script type="text/javascript">
-$(window).load(function() {
+$('.pages.statistic-sets.new').ready(function() {
   _selectedOption = null
 
   const _finishSort = (event, ui) => {
@@ -184,38 +181,40 @@ $(window).load(function() {
   }
 
   _.each(Dg.CharacteristSetOptions, (option) => {
-    const tr = $(`<tr class="option-row" id='${option.id}'></tr>`)
-    tr.append(`<td>${option.name}</td>`)
-    _.each(option.values, (v) => tr.append(`<td>${v || '?'}</td>`))
-    tr.appendTo('#field-set-options')
+    const optionDiv = $(`<div class="statistic-set-option selectable" id='${option.id}'></div>`)
+    optionDiv.append(`<div class="statistic-set-option-name">${option.name}</div>`)
+    _.each(option.values, (v) => optionDiv.append(`<div class="statistic-set-option-value">${v || '?'}</div>`))
+    optionDiv.appendTo('#field-set-options')
 
-    const button = $('<button type="button" class="button option-selector"></button>')
-    button.append(option.name)
-    button.click((event) => {
+    optionDiv.click((event) => {
       event.preventDefault()
-      if(confirm(`Are you sure you want "${option.name}"? There is no going back...`)) {
-        _selectedOption = option
-        if(option.id == 'randomized') {
-          _selectedOption.values = [_roll(), _roll(), _roll(), _roll(), _roll(), _roll()]
-        }
-        $('.option-selector').each((i, o) => {
-          $(o).attr('disabled', true)
-        })
-        $('#submit-statistics').attr('disabled', false)
-        $('tr.option-row').each((i, tr) => {
-          if($(tr).attr('id') != option.id) {
-            $(tr).css('opacity', '0.25')
-          }
-        })
+      if(!optionDiv.hasClass('unselectable')) {
+        if(confirm(`Are you sure you want "${option.name}"? There is no going back...`)) {
+          _.each($('.statistic-set-option'), (o) => $(o).addClass('unselectable'))
+          optionDiv.addClass('selected')
 
-        $(option.values).each( (i, v) => {
-          $($('.sortable-statistic')[i]).append(v)
-          $($('.sortable-statistic input')[i]).val(v)
-        })
+          _selectedOption = option
+          if(option.id == 'randomized') {
+            _selectedOption.values = [_roll(), _roll(), _roll(), _roll(), _roll(), _roll()]
+          }
+          $('.option-selector').each((i, o) => {
+            $(o).attr('disabled', true)
+          })
+          $('#submit-statistics').attr('disabled', false)
+          $('tr.option-row').each((i, tr) => {
+            if($(tr).attr('id') != option.id) {
+              $(tr).css('opacity', '0.25')
+            }
+          })
+
+          $(option.values).each( (i, v) => {
+            $($('.sortable-statistic')[i]).append(v)
+            $($('.sortable-statistic input')[i]).val(v)
+          })
+        }
       }
       _resetDerivedStats()
     })
-    button.appendTo('#option-select')
   })
 })
 </script>

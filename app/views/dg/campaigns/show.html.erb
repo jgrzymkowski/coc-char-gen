@@ -1,15 +1,28 @@
-<%= render '/shared/campaign', new_character_path: new_dg_campaign_character_path(campaign) %>
+<%= render '/shared/header' %>
+<%= render '/shared/breadcrumbs', crumbs: [campaign.name] %>
 
 <% if campaign.owner == current_user %>
   <div class="character-cards">
     <% campaign.characters.each do |character| %>
       <%= render '/dg/characters/character_card', character: character %>
     <% end %>
+
+    <div class="card character-card">
+      <div class="card-divider character-card-header">
+        <h4>
+          <%= link_to('Add New Character', new_dg_campaign_character_path(campaign.id), method: :get) %>
+          <%= link_to(new_dg_campaign_character_path(campaign.id), method: :get) do %>
+            <%= fa_icon 'plus' %>
+          <% end %>
+        </h4>
+      </div>
+    </div>
+
   </div>
 <% else %>
-  <div class="row align-center">
-    <div class="column small-12 medium-10">
-      <%= render '/dg/characters/character_table', characters: campaign.characters %>
+  <div class="grid-x align-center">
+    <div class="cell small-12 medium-10">
+      <%= render '/dg/characters/character_table', characters: campaign.characters, campaign: campaign %>
     </div>
   </div>
 <% end %>

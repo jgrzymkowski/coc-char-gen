@@ -44,7 +44,7 @@ class SpecifiedSkillChooser extends React.Component {
   }
 
   _renderNoSpecifiedSkills() {
-    return <div className="callout secondary">
+    return <div className="callout primary">
       You have no skills to specify
     </div>
   }

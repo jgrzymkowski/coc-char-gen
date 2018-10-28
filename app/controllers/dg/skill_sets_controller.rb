@@ -14,6 +14,8 @@ class Dg::SkillSetsController < ApplicationController
 
   def edit
     authorize(character.skill_set)
+    @base_skills = JSON.parse(File.read('app/resources/dg_base_skills.json'))
+    @skill_set = character.skill_set
   end
 
   def update

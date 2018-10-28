@@ -1,13 +1,8 @@
-<div class="top-bar">
-  <div class="top-bar-left">
-    <ul class="breadcrumbs">
-      <li><%= link_to('Home', user_path(current_user)) %></li>
-      <li><%= link_to(character.campaign.name, character.campaign) %></li>
-      <li><%= link_to(character.display_name, character) %></li>
-      <li>Set Statistics</li>
-    </ul>
-  </div>
-</div>
+<%= render '/shared/header' %>
+<%= render '/shared/breadcrumbs', crumbs: [
+      link_to(character.campaign.name, character.campaign),
+      link_to(character.display_name, character),
+      'Set Skills'] %>
 
 <%= react_component('NewSkillSet',
                     characterId: character.id,

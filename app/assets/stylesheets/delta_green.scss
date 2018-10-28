@@ -1,6 +1,19 @@
 @import '_settings';
 @import 'all';
 
+.breadcrumbs-container {
+  padding: 10px;
+}
+
+.add-new-link {
+  float: right;
+  padding-right: 20px;
+}
+
+.download-pdf {
+  margin-left: 15px;
+}
+
 .attribute {
   border: 1px solid lightgray;
   padding: 10px 5px;
@@ -19,6 +32,71 @@
   padding: 8px;
 }
 
+@mixin selectable-option {
+  border: solid 1px grey;
+  margin: 5px 0;
+  padding: 2px 10px;
+
+  &:focus {
+    background-color: $gray-light;
+    outline: none;
+  }
+  &.selected {
+    background-color: $main-color-light;
+  }
+  &.selected:focus {
+    background-color: $main-color-light;
+  }
+}
+
+.selectable {
+  cursor: pointer;
+  background-color: $gray-light;
+
+  &:hover {
+    background-color: $gray-extra-light;
+  }
+
+  &.selected {
+    background-color: $main-color-light;
+  }
+  &.selected:hover {
+    background-color: $main-color-extra-light;
+  }
+
+  &.unselectable {
+    cursor: auto;
+    background-color: $gray-extra-light;
+    &:hover {
+      background-color: $gray-extra-light;
+    }
+    &.selected {
+      background-color: $main-color-light;
+      &:hover {
+        background-color: $main-color-light;
+      }
+    }
+  }
+}
+
+.statistic-set-option {
+  @include selectable-option;
+  display: flex;
+  justify-content: center;
+  border-radius: 15px;
+
+  .statistic-set-option-name {
+    width: 120px;
+    padding: 3px;
+  }
+
+  .statistic-set-option-value {
+    width: 20px;
+    text-align: center;
+    padding: 3px 20px;;
+  }
+}
+
 .statistic-value {
   background-color: white;
   border-top: solid 2px #e6e6e6;
@@ -29,15 +107,10 @@
   padding: 8px;
 }
 
-
 .assign-attribute-subtext {
   font-size: .75rem;
   color: gray;
 }
-
-/*.occupation-skill-option {*/
-  /*width: 100%;*/
-/*}*/
 
 .skill-addition {
   color: $main-color;
@@ -71,26 +144,33 @@
 
   .character-card {
     min-width: 350px;
+    max-width: 350px;
     margin-left: 5px;
     margin-right: 5px;
 
-    .stat-label {
-      border-left: 1px solid smart-scale($table-background, $table-color-scale);
-    }
     .stat-value {
       color: $secondary-color;
     }
 
     .character-card-header {
-      h4 {
-        justify-content: space-between;
-        display: flex;
+      .header-container {
         width: 100%;
+        .header-title {
+          justify-content: space-between;
+          display: flex;
+          width: 100%;
+          font-size: 18px;
+        }
+        .header-subtitle {
+          font-size: 12px;
+          color: $secondary-color;
+        }
       }
     }
 
     .card-section {
       max-height: 515px;
+      min-height: 515px;
       overflow-y: scroll;
     }
   }
@@ -98,25 +178,6 @@
 
 
 .occupation-chooser, .skill-package-chooser, .new-skills {
-
-  @mixin selectable-option {
-    border: solid 1px grey;
-    margin: 5px 0;
-    padding: 2px 10px;
-    background-color: $gray-light;
-
-    &:focus {
-      background-color: $gray-light;
-      outline: none;
-    }
-    &.selected {
-      background-color: $main-color-light;
-    }
-    &.selected:focus {
-      background-color: $main-color-light;
-    }
-  }
-
   .set-skill-option {
     @include selectable-option;
   }
@@ -135,20 +196,6 @@
     padding-right: 30px;
   }
 
-  .selected {
-    background-color: $main-color-light;
-  }
-
-  .selectable {
-    cursor: pointer;
-
-    &.selected:hover {
-      background-color: $main-color-extra-light;
-    }
-    &:hover {
-      background-color: $gray-extra-light;
-    }
-  }
 
   .skill-option {
     padding-bottom: 20px;

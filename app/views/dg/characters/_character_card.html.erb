@@ -1,10 +1,14 @@
 <div class="card character-card">
   <div class="card-divider character-card-header">
-    <h4><%= link_to(character.display_name, character, method: :get) %>
-    <%= link_to(dg_character_path(character, format: :pdf), class: 'download-pdf', method: :get)  do %>
-      <%= fa_icon 'download' %>
-    <% end %>
-    </h4>
+    <div class="header-container">
+      <div class="header-title">
+        <%= link_to(character.display_name, character, method: :get) %>
+        <%= link_to(dg_character_path(character, format: :pdf), class: 'download-pdf', method: :get)  do %>
+          <%= fa_icon 'download' %>
+        <% end %>
+      </div>
+      <div class="header-subtitle"><%= character.user.display_name %></div>
+    </div>
   </div>
   <div class="card-section">
     <h5>Stats</h5>
