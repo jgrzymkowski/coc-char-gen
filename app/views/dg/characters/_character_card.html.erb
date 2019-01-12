@@ -70,16 +70,15 @@
     </div>
     <div class="high-skills">
       <h5>High Skills</h5>
-      <% skills = (character.skill_set&.skills || []).to_a.select { |a| a.last.kind_of?(Integer) }
-      skills.sort_by(&:last).reverse.slice(0, skills.length/2).each do |attr_value|
-        attr, value = attr_value
-        unless attr =~ /_\d_text/
-          if attr =~ /_\d/
-            if value.to_i > 40
+      <% skills = (character.skill_set&.skills || []).to_a.select { |a| a.last.kind_of?(Integer) }.sort_by(&:last).reverse
+      unless skills.empty?
+        level_limit = skills[10].last
+        skills.select { |s| s.last >= level_limit }.each do |attr_value|
+          attr, value = attr_value
+          unless attr =~ /_\d_text/
+            if attr =~ /_\d/
             %> <div class="high-skill"><%= character.skill_set.attributes["#{attr}_text"] %>: <%= value %>%</div> <%
-            end
-          else
-            if value.to_i > 40
+            else
             %> <div class="high-skill"><%= attr.humanize.capitalize %>: <%= value %>%</div> <%
             end
           end
