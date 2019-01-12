@@ -3,7 +3,7 @@
 
 <% if campaign.owner == current_user %>
   <div class="character-cards">
-    <% campaign.characters.each do |character| %>
+    <% campaign.characters.sort_by(&:display_name).each do |character| %>
       <%= render '/dg/characters/character_card', character: character %>
     <% end %>
 

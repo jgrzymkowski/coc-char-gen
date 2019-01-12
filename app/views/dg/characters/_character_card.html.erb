@@ -70,9 +70,9 @@
     </div>
     <div class="high-skills">
       <h5>High Skills</h5>
-      <% (character.skill_set&.skills || {}).each do |attr, value|
-        puts attr.inspect
-        puts value.inspect
+      <% skills = (character.skill_set&.skills || []).to_a.select { |a| a.last.kind_of?(Integer) }
+      skills.sort_by(&:last).reverse.slice(0, skills.length/2).each do |attr_value|
+        attr, value = attr_value
         unless attr =~ /_\d_text/
           if attr =~ /_\d/
             if value.to_i > 40
