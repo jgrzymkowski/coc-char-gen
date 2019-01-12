@@ -9,9 +9,8 @@ class EditSkillTableRow extends React.Component {
     const { value } = this.state
     return (
       <tr>
-        {this._renderLabel(label, additions)}
+        <td>{label}</td>
         <td>
-          <td>{label}</td>
           <input
             type="text"
             name={`dg_skill_set[${attribute}]`}

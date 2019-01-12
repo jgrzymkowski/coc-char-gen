@@ -1,6 +1,6 @@
 class EditSkillSet extends React.Component {
   render() {
-    const { baseSkills } = this.props
+    const baseSkills = _.values(this.props.baseSkills)
     const tableLength = Math.ceil(baseSkills.length/3)
     return (
       <div className="grid-x grid-padding-x align-center skill-set">
