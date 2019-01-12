@@ -45,7 +45,7 @@ class EditSkillSet extends React.Component {
   }
 }
 
-EditSkillTable.propTypes = {
+EditSkillSet.propTypes = {
   characterId: PropTypes.number,
   authenticityToken: PropTypes.string,
   baseSkills: PropTypes.arrayOf(PropTypes.object),

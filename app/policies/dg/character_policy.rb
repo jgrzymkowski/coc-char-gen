@@ -7,7 +7,7 @@ class Dg::CharacterPolicy < ApplicationPolicy
     if @record.user == @user
       true
     else
-      @record.campaign && @record.campaign.members.include?(@user)
+      @record.campaign && @record.campaign.users.include?(@user)
     end
   end
 
