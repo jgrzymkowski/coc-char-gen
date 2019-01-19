@@ -115,8 +115,10 @@ class Dg::SkillSetsController < ApplicationController
              :occupation_options,
              :bonus_skill_package,
              :bonds)
-    skill_set_params[:bonus_skill_package_options] =
-      JSON.parse(params[:dg_skill_set][:bonus_skill_package_options])
+    if params.dig(:dg_skill_set, :bonus_skill_package_options)
+      skill_set_params[:bonus_skill_package_options] =
+        JSON.parse(params[:dg_skill_set][:bonus_skill_package_options])
+    end
     skill_set_params
   end
 end

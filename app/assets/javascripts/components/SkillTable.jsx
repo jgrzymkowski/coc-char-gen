@@ -4,12 +4,10 @@ class SkillTable extends React.Component {
 
     const labelAndPercentages = _.compact(_.map(baseSkills, (baseSkill, skillId) => {
       const label = (skillId.match(/_\d/) ? _.get(skillSet, `${skillId}_text`) : baseSkill.label)
-      let percentage = skillSet[skillId]
       if(_.isEmpty(label)) {
         return null
-      } else if (_.isNil(percentage)) {
-        percentage = 0
       }
+      let percentage = skillSet[skillId] || 0
       return [label, percentage]
     }))
     const tableLength = Math.ceil(labelAndPercentages.length/3)

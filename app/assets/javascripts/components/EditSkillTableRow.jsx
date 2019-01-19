@@ -12,10 +12,13 @@ class EditSkillTableRow extends React.Component {
         <td>{label}</td>
         <td>
           <input
-            type="text"
+            type="number"
+            min="0"
+            max="100"
             name={`dg_skill_set[${attribute}]`}
             id={`dg_skill_set_${attribute}`}
-            value={value || ''} />
+            value={value || ''}
+            onChange={(event) => { this.setState({ value: event.target.value})}}/>
         </td>
       </tr>
     )
