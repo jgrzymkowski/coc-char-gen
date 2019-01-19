@@ -1,36 +1,40 @@
 class SkillTable extends React.Component {
   render() {
-    const { baseSkills } = this.props
-    const skillIds = _.keys(baseSkills)
-    const tableLength = Math.ceil(skillIds.length/3)
+    const { baseSkills, skillSet } = this.props
+
+    const labelAndPercentages = _.compact(_.map(baseSkills, (baseSkill, skillId) => {
+      const label = (skillId.match(/_\d/) ? _.get(skillSet, `${skillId}_text`) : baseSkill.label)
+      let percentage = skillSet[skillId]
+      if(_.isEmpty(label)) {
+        return null
+      } else if (_.isNil(percentage)) {
+        percentage = 0
+      }
+      return [label, percentage]
+    }))
+    const tableLength = Math.ceil(labelAndPercentages.length/3)
     return (
       <div className="grid-x grid-padding-x align-center skill-set">
-        {this._renderTable(skillIds.slice(0, tableLength ))}
-        {this._renderTable(skillIds.slice(tableLength, tableLength*2))}
-        {this._renderTable(skillIds.slice(tableLength*2, tableLength*3))}
+        {this._renderTable(labelAndPercentages.slice(0, tableLength ))}
+        {this._renderTable(labelAndPercentages.slice(tableLength, tableLength*2))}
+        {this._renderTable(labelAndPercentages.slice(tableLength*2, tableLength*3))}
       </div>
     )
   }
 
-  _renderTable(skillIds) {
-    const { skillSet, baseSkills } = this.props
+  _renderTable(labelAndPercentages) {
     return (
       <div className="cell small-12 medium-4 large-4">
         <table>
           <tbody>
-            {_.map(skillIds, (skillId) => {
-              const label = (skillId.match(/_\d/) ? _.get(skillSet, `${skillId}_text`) : baseSkills[skillId].label)
-              let percentage = skillSet[skillId]
-              if(label && !percentage) {
-                percentage = 0
-              }
+            {_.map(labelAndPercentages, (labelAndPercentage) => {
               return (
-                <tr key={skillId}>
+                <tr key={labelAndPercentage[0]}>
                   <td>
-                    {label}&nbsp;
+                    {labelAndPercentage[0]}&nbsp;
                   </td>
                   <td>
-                    {!_.isNil(percentage) ? `${percentage}%` : ''}
+                    {labelAndPercentage[1]}
                   </td>
                 </tr>
                 )
