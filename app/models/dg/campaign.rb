@@ -18,7 +18,8 @@ class Dg::Campaign < ActiveRecord::Base
   has_many :dg_characters, class_name: 'Dg::Character'
   alias :characters :dg_characters
 
-  has_many :users, through: :dg_characters
+  has_many :campaign_users, class_name: 'CampaignUsers', as: :campaign
+  has_many :users, through: :campaign_users
 
   default_scope { where(deleted_at: nil) }
 

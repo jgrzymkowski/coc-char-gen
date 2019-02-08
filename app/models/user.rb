@@ -25,15 +25,16 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :campaign_users
-  has_many :owned_coc_campaigns, through: :campaign_users, source: 'campaign', source_type: 'Coc::Campaign'
-  has_many :owned_dg_campaigns, through: :campaign_users, source: 'campaign', source_type: 'Dg::Campaign'
+  has_many :campaign_users, class_name: 'CampaignUsers'
+
+  has_many :owned_coc_campaigns, class_name: 'Coc::Campaign', foreign_key: :owner_id
+  has_many :owned_dg_campaigns, class_name: 'Dg::Campaign', foreign_key: :owner_id
 
   has_many :coc_characters, class_name: "Coc::Character"
-  has_many :coc_campaigns, through: :coc_characters, source: :campaign
+  has_many :coc_campaigns, through: :campaign_users, source: 'campaign', source_type: 'Coc::Campaign'
 
   has_many :dg_characters, class_name: "Dg::Character"
-  has_many :dg_campaigns, through: :dg_characters, source: :campaign
+  has_many :dg_campaigns, through: :campaign_users, source: 'campaign', source_type: 'Dg::Campaign'
 
   def display_name
     if first_name.blank?
