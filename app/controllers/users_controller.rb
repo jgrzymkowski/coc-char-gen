@@ -8,6 +8,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @coc_campaigns = policy_scope(Coc::Campaign)
+    @dg_campaigns = policy_scope(Dg::Campaign)
     authorize user
   end
 end

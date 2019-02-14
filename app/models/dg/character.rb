@@ -35,6 +35,9 @@ class Dg::Character < ActiveRecord::Base
 
   validates :first_name, :last_name, presence: true
 
+  scope :belonging_to, -> (user) { where(user: user) }
+  scope :not_belonging_to, -> (user) { where.not(user: user) }
+
   def age
     now = Time.now.utc.to_date
     now.year -

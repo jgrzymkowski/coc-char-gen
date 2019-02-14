@@ -4,9 +4,11 @@
       <div class="float-left">
         <h4>Bonds</h4>
       </div>
-      <div class="float-right">
-        <%= link_to( 'Edit Bonds', dg_character_bonds_path(character), class: 'button small') %>
-      </div>
+      <% if policy(character).edit? %>
+        <div class="float-right">
+          <%= link_to( 'Edit Bonds', dg_character_bonds_path(character), class: 'button small') %>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="card-section">

@@ -4,6 +4,18 @@ $main-color-extra-light: #c6ecd7;
 $gray-light: #b3b3b3;
 $gray-extra-light: #e6e6e6;
 
+.small-font {
+  font-size: 8px;
+}
+
+.medium-font {
+  font-size: 16px;
+}
+
+.large-font {
+  font-size: 24px;
+}
+
 .deprecated {
   a:link {
     color: #0066FF;

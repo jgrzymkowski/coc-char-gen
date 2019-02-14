@@ -4,11 +4,7 @@ class Dg::CharacterPolicy < ApplicationPolicy
   end
 
   def show?
-    if @record.user == @user
-      true
-    else
-      @record.campaign && @record.campaign.owner == @user
-    end
+    true
   end
 
   def edit?

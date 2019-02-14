@@ -1,5 +1,5 @@
 <%= render '/shared/header' %>
 <div class="grid-x grid-padding-x align-center">
-  <%= render '/shared/campaign_table', title: 'Call of Cthulhu', new_campaign_path: new_coc_campaign_path, campaigns: Coc::Campaign.all %>
-  <%= render '/shared/campaign_table', title: 'Delta Green', new_campaign_path: new_dg_campaign_path, campaigns: Dg::Campaign.all %>
+  <%= render '/shared/campaign_table', title: 'Call of Cthulhu', new_campaign_path: new_coc_campaign_path, campaigns: @coc_campaigns %>
+  <%= render '/shared/campaign_table', title: 'Delta Green', new_campaign_path: new_dg_campaign_path, campaigns: @dg_campaigns %>
 </div>

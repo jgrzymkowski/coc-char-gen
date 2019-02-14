@@ -5,8 +5,15 @@
         <h4>Personal Data</h4>
       </div>
       <div class="float-right">
-        <%= link_to( 'Edit', edit_dg_character_path(character), class: 'button small') %>
+        <%= link_to(dg_character_path(character, format: :pdf), class: 'download-pdf large-font', method: :get) do %>
+          <%= fa_icon 'download' %>
+        <% end %>
       </div>
+      <% if policy(character).edit? %>
+        <div class="float-right">
+          <%= link_to( 'Edit', edit_dg_character_path(character), class: 'button small') %>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="card-section">

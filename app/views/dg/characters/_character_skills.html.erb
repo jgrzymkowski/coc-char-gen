@@ -4,14 +4,16 @@
       <div class="float-left">
         <h4>Skills</h4>
       </div>
-      <% if character.skill_set.nil? %>
-        <div class="float-right">
-          <%= link_to( 'Set Skills', new_dg_character_skill_set_path(character), class: 'button small') %>
-        </div>
-      <% else %>
-        <div class="float-right">
-          <%= link_to( 'Edit Skills', edit_dg_character_skill_set_path(character, character.skill_set), class: 'button small') %>
-        </div>
+      <% if policy(character).edit? %>
+        <% if character.skill_set.nil? %>
+          <div class="float-right">
+            <%= link_to( 'Set Skills', new_dg_character_skill_set_path(character), class: 'button small') %>
+          </div>
+        <% else %>
+          <div class="float-right">
+            <%= link_to( 'Edit Skills', edit_dg_character_skill_set_path(character, character.skill_set), class: 'button small') %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>

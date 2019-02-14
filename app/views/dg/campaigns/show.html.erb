@@ -9,20 +9,38 @@
 
     <div class="card character-card">
       <div class="card-divider character-card-header">
-        <h4>
+        <h5>
           <%= link_to('Add New Character', new_dg_campaign_character_path(campaign.id), method: :get) %>
           <%= link_to(new_dg_campaign_character_path(campaign.id), method: :get) do %>
             <%= fa_icon 'plus' %>
           <% end %>
-        </h4>
+        </h5>
       </div>
     </div>
 
   </div>
 <% else %>
   <div class="grid-x align-center">
+    <div class="cell small-12 medium-5">
+      <h5>My Characters</h5>
+    </div>
+    <div class="cell small-12 medium-5">
+      <div class="add-new-link">
+        <%= link_to(new_dg_campaign_character_path(campaign.id), method: :get) do %>
+          <%= fa_icon 'plus' %> Add New Character
+        <% end %>
+      </div>
+    </div>
     <div class="cell small-12 medium-10">
-      <%= render '/dg/characters/character_table', characters: campaign.characters, campaign: campaign %>
+      <%= render '/dg/characters/character_table', characters: campaign.characters.belonging_to(current_user), campaign: campaign %>
+    </div>
+  </div>
+  <div class="grid-x align-center">
+    <div class="cell small-12 medium-10">
+      <h5>Other Characters</h5>
+    </div>
+    <div class="cell small-12 medium-10">
+      <%= render '/dg/characters/character_table', characters: campaign.characters.not_belonging_to(current_user), campaign: campaign %>
     </div>
   </div>
 <% end %>
