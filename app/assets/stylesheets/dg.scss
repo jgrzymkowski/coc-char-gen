@@ -32,6 +32,21 @@
   padding: 8px;
 }
 
+.dg-card {
+  border: solid $medium-gray;
+  border-radius: 10px;
+  margin-bottom: 20px;
+
+  .dg-card-header {
+    padding: 10px;
+    background-color: $medium-gray;
+  }
+
+  .dg-card-section {
+    padding: 10px;
+  }
+}
+
 @mixin selectable-option {
   border: solid 1px grey;
   margin: 5px 0;
@@ -135,45 +150,6 @@
   width: 180px;
   display: inline-block;
   margin-bottom: 0;
-}
-
-.character-cards {
-  height: 600px;
-  display: flex;
-  overflow-x: scroll;
-
-  .character-card {
-    min-width: 350px;
-    max-width: 350px;
-    margin-left: 5px;
-    margin-right: 5px;
-
-    .stat-value {
-      color: $secondary-color;
-    }
-
-    .character-card-header {
-      .header-container {
-        width: 100%;
-        .header-title {
-          justify-content: space-between;
-          display: flex;
-          width: 100%;
-          font-size: 18px;
-        }
-        .header-subtitle {
-          font-size: 12px;
-          color: $secondary-color;
-        }
-      }
-    }
-
-    .card-section {
-      max-height: 515px;
-      min-height: 515px;
-      overflow-y: scroll;
-    }
-  }
 }
 
 

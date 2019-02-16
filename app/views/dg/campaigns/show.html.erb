@@ -7,14 +7,15 @@
       <%= render '/dg/characters/character_card', character: character %>
     <% end %>
 
-    <div class="card character-card">
-      <div class="card-divider character-card-header">
-        <h5>
+    <div class="dg-card character-card">
+      <div class="dg-card-header character-card-header">
+        <div class="header-title">
           <%= link_to('Add New Character', new_dg_campaign_character_path(campaign.id), method: :get) %>
           <%= link_to(new_dg_campaign_character_path(campaign.id), method: :get) do %>
             <%= fa_icon 'plus' %>
           <% end %>
-        </h5>
+        </div>
+        <div class="header-subtitle">&nbsp;</div>
       </div>
     </div>
 

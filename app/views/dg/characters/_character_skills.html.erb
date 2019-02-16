@@ -1,5 +1,5 @@
-<div class="card">
-  <div class="card-divider">
+<div class="dg-card">
+  <div class="dg-card-header">
     <div class="clearfix" style="width: 100%">
       <div class="float-left">
         <h4>Skills</h4>
@@ -17,7 +17,7 @@
       <% end %>
     </div>
   </div>
-  <div class="card-section">
+  <div class="dg-card-section">
     <% if character.skill_set %>
       <%= react_component('SkillTable',
                           skillSet: character.skill_set,
