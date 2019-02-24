@@ -437,11 +437,6 @@
     "name": "Foreign Service Officer",
     "skills": [
       {
-        "id": "try_to_get_along_with_them_odds_are_you_work_for_the_state_department_though_usaid_the_commercial_service_and_the_foreign_agriculture_service_also_have_fsos_either_way_you_ve_had_every_opportunity_to_learn_exotic_and_deadly_things_the_kinds_of_things_that_qualify_you_for_delta_green",
-        "skill": "try to get along with them. Odds are you work for the State Department, though USAID, the Commercial Service and the Foreign Agriculture Service also have FSOs. Either way, you’ve had every opportunity to learn exotic and deadly things; the kinds of things that qualify you for Delta Green",
-        "percentage": 0
-      },
-      {
         "id": "accounting",
         "skill": "Accounting",
         "percentage": 40
@@ -498,7 +493,7 @@
     "options": [
 
     ],
-    "description": "You travel to strange lands, meet interesting people, and",
+    "description": "You travel to strange lands, meet interesting people, and try to get along with them. Odds are you work for the State Department, though USAID, the Commercial Service and the Foreign Agriculture Service also have FSOs. Either way, you’ve had every opportunity to learn exotic and deadly things; the kinds of things that qualify you for Delta Green clearance.",
     "recommended_stats": "INT, CHA",
     "bonds": 3
   },
