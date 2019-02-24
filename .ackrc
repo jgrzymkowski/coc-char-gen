@@ -1,0 +1,2 @@
+--ignore-dir=tmp
+--noignore-dir=app/assets/javascripts,app/assets/stylesheets

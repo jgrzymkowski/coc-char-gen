@@ -15,11 +15,13 @@ class Dg::StatisticSetsController < ApplicationController
   end
 
   def statistic_set_params
-    params.require(:statistic_set).permit(:strength,
-                                          :constitution,
-                                          :dexterity,
-                                          :intelligence,
-                                          :power,
-                                          :charisma)
+    puts '*'*100
+    puts params.inspect
+    params.require(:dg_statistic_set).permit(:strength,
+                                             :constitution,
+                                             :dexterity,
+                                             :intelligence,
+                                             :power,
+                                             :charisma)
   end
 end

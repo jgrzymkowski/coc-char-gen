@@ -1,0 +1,61 @@
+@import '_settings';
+@import 'all';
+@import 'dg';
+
+.statistic-sets {
+  .guidance-arrow {
+    @extend .medium-large-font;
+    @extend .primary-color;
+    width: 100%;
+    text-align: center;
+
+    &.hidden {
+      opacity: 0;
+    }
+  }
+
+  .statistic-set-option {
+    @include selectable-option;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 15px;
+    margin-left: 10px;
+
+    .statistic-set-option-name {
+      width: 120px;
+      padding: 3px 3px 0 3px;
+      text-align: center;
+    }
+
+    .statistic-set-option-values {
+      display: flex;
+
+      .statistic-set-option-value {
+        width: 30px;
+        text-align: center;
+        padding: 3px 0;;
+      }
+    }
+  }
+
+  .statistic-values {
+    margin-left: 20px;
+    justify-content: space-between;
+    padding: 2px 20px;
+  }
+
+  .statistic-value {
+    background-color: white;
+    border-top: solid 2px #e6e6e6;
+    border-right: solid 2px #e6e6e6;
+    border-left: solid 1px #e6e6e6;
+    border-bottom: solid 2px #e6e6e6;
+    margin: 5px 5px 5px 0;
+    padding: 8px;
+  }
+
+  .reset-link {
+    text-align: right;
+  }
+}
